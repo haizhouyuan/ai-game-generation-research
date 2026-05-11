@@ -1,0 +1,553 @@
+{
+  "batch": "P19-A current compact replay trace for accepted-baseline regression",
+  "positive_layouts": [
+    {
+      "layout_id": "front_linear",
+      "scene_path": "res://scenes/p16_front_linear_ci_scene.tscn",
+      "route": [
+        "chair",
+        "block",
+        "tower"
+      ],
+      "summary_pass": true,
+      "route_signature": "finish>chair>block>tower>finish",
+      "event_reasons": [
+        "finish_locked",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked"
+      ],
+      "expected_event_reasons": [
+        "finish_locked",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked"
+      ],
+      "event_objective_ids": [
+        "finish",
+        "chair",
+        "block",
+        "tower",
+        "finish"
+      ],
+      "expected_event_objective_ids": [
+        "finish",
+        "chair",
+        "block",
+        "tower",
+        "finish"
+      ],
+      "trace_diff": {
+        "reasons_pass": true,
+        "objective_ids_pass": true,
+        "reason_mismatches": [],
+        "objective_id_mismatches": []
+      },
+      "gate_counts": {
+        "collision_pass_count": 3,
+        "collision_target_count": 3,
+        "input_key_event_pass": true,
+        "objective_ui_pass": true,
+        "camera_variants_pass": true,
+        "obstruction_counter_pass": true,
+        "tick_count": 23
+      }
+    },
+    {
+      "layout_id": "front_reverse",
+      "scene_path": "res://scenes/p16_front_reverse_ci_scene.tscn",
+      "route": [
+        "tower",
+        "block",
+        "chair"
+      ],
+      "summary_pass": true,
+      "route_signature": "finish>tower>block>chair>finish",
+      "event_reasons": [
+        "finish_locked",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked"
+      ],
+      "expected_event_reasons": [
+        "finish_locked",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked"
+      ],
+      "event_objective_ids": [
+        "finish",
+        "tower",
+        "block",
+        "chair",
+        "finish"
+      ],
+      "expected_event_objective_ids": [
+        "finish",
+        "tower",
+        "block",
+        "chair",
+        "finish"
+      ],
+      "trace_diff": {
+        "reasons_pass": true,
+        "objective_ids_pass": true,
+        "reason_mismatches": [],
+        "objective_id_mismatches": []
+      },
+      "gate_counts": {
+        "collision_pass_count": 3,
+        "collision_target_count": 3,
+        "input_key_event_pass": true,
+        "objective_ui_pass": true,
+        "camera_variants_pass": true,
+        "obstruction_counter_pass": true,
+        "tick_count": 23
+      }
+    },
+    {
+      "layout_id": "front_staggered",
+      "scene_path": "res://scenes/p16_front_staggered_ci_scene.tscn",
+      "route": [
+        "block",
+        "chair",
+        "tower"
+      ],
+      "summary_pass": true,
+      "route_signature": "finish>block>chair>tower>finish",
+      "event_reasons": [
+        "finish_locked",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked"
+      ],
+      "expected_event_reasons": [
+        "finish_locked",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked"
+      ],
+      "event_objective_ids": [
+        "finish",
+        "block",
+        "chair",
+        "tower",
+        "finish"
+      ],
+      "expected_event_objective_ids": [
+        "finish",
+        "block",
+        "chair",
+        "tower",
+        "finish"
+      ],
+      "trace_diff": {
+        "reasons_pass": true,
+        "objective_ids_pass": true,
+        "reason_mismatches": [],
+        "objective_id_mismatches": []
+      },
+      "gate_counts": {
+        "collision_pass_count": 3,
+        "collision_target_count": 3,
+        "input_key_event_pass": true,
+        "objective_ui_pass": true,
+        "camera_variants_pass": true,
+        "obstruction_counter_pass": true,
+        "tick_count": 23
+      }
+    }
+  ],
+  "negative_fixtures": [
+    {
+      "id": "missing_checkpoint",
+      "expected_failure": "readback rejects a scene with a route checkpoint removed",
+      "detected_failure": true,
+      "readback_pass": false,
+      "build_pass": null,
+      "summary_pass": null,
+      "event_reasons": [],
+      "event_objective_ids": [],
+      "trace_diff": {
+        "reasons_pass": null,
+        "objective_ids_pass": null,
+        "reason_mismatches": [],
+        "objective_id_mismatches": []
+      },
+      "diagnostics": {
+        "readback_errors": [
+          "checkpoint or collider missing for block"
+        ],
+        "mutation": {
+          "errors": [],
+          "pack_result": 0,
+          "pass": true,
+          "removed": true,
+          "save_result": 0,
+          "scene_loaded": true
+        }
+      }
+    },
+    {
+      "id": "route_mismatch",
+      "expected_failure": "route trace diff rejects a wrong expected checkpoint order",
+      "detected_failure": true,
+      "readback_pass": true,
+      "build_pass": true,
+      "summary_pass": false,
+      "event_reasons": [
+        "finish_locked",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked"
+      ],
+      "event_objective_ids": [
+        "finish",
+        "chair",
+        "block",
+        "tower",
+        "finish"
+      ],
+      "trace_diff": {
+        "reasons_pass": true,
+        "objective_ids_pass": false,
+        "reason_mismatches": [],
+        "objective_id_mismatches": [
+          {
+            "actual": "chair",
+            "expected": "tower",
+            "index": 1
+          },
+          {
+            "actual": "tower",
+            "expected": "chair",
+            "index": 3
+          }
+        ]
+      },
+      "diagnostics": {
+        "objective_id_mismatches": [
+          {
+            "actual": "chair",
+            "expected": "tower",
+            "index": 1
+          },
+          {
+            "actual": "tower",
+            "expected": "chair",
+            "index": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "finish_before_checkpoints",
+      "expected_failure": "finish must stay locked before all checkpoints are collected",
+      "detected_failure": true,
+      "readback_pass": true,
+      "build_pass": true,
+      "summary_pass": false,
+      "event_reasons": [
+        "finish_unlocked_without_checkpoints",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked_without_checkpoints"
+      ],
+      "event_objective_ids": [
+        "finish",
+        "chair",
+        "block",
+        "tower",
+        "finish"
+      ],
+      "trace_diff": {
+        "reasons_pass": false,
+        "objective_ids_pass": true,
+        "reason_mismatches": [
+          {
+            "actual": "finish_unlocked_without_checkpoints",
+            "expected": "finish_locked",
+            "index": 0
+          },
+          {
+            "actual": "finish_unlocked_without_checkpoints",
+            "expected": "finish_unlocked",
+            "index": 4
+          }
+        ],
+        "objective_id_mismatches": []
+      },
+      "diagnostics": {
+        "first_finish_attempt": {
+          "accepted": true,
+          "errors": [],
+          "input_ticks": [
+            {
+              "action": "move_right",
+              "after": {
+                "x": 3.83999991416931,
+                "y": 0.649999976158142,
+                "z": 3.0
+              },
+              "before": {
+                "x": 3.72000002861023,
+                "y": 0.649999976158142,
+                "z": 3.0
+              },
+              "collected": [],
+              "collision": false,
+              "event_count": 0,
+              "input_vector": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "key_event_press": {
+                "action": "move_right",
+                "action_state_after": true,
+                "keycode": 68,
+                "pressed": true
+              },
+              "key_event_release": {
+                "action": "move_right",
+                "action_state_after": false,
+                "keycode": 68,
+                "pressed": false
+              },
+              "label": "p17_finish_before_checkpoints_finish_before_unlock",
+              "moved_distance": 0.119999885559082,
+              "tick": 1
+            },
+            {
+              "action": "move_right",
+              "after": {
+                "x": 3.95999979972839,
+                "y": 0.649999976158142,
+                "z": 3.0
+              },
+              "before": {
+                "x": 3.83999991416931,
+                "y": 0.649999976158142,
+                "z": 3.0
+              },
+              "collected": [],
+              "collision": false,
+              "event_count": 0,
+              "input_vector": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "key_event_press": {
+                "action": "move_right",
+                "action_state_after": true,
+                "keycode": 68,
+                "pressed": true
+              },
+              "key_event_release": {
+                "action": "move_right",
+                "action_state_after": false,
+                "keycode": 68,
+                "pressed": false
+              },
+              "label": "p17_finish_before_checkpoints_finish_before_unlock",
+              "moved_distance": 0.119999885559082,
+              "tick": 2
+            },
+            {
+              "action": "move_right",
+              "after": {
+                "x": 4.07999992370605,
+                "y": 0.649999976158142,
+                "z": 3.0
+              },
+              "before": {
+                "x": 3.95999979972839,
+                "y": 0.649999976158142,
+                "z": 3.0
+              },
+              "collected": [],
+              "collision": false,
+              "event_count": 0,
+              "input_vector": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "key_event_press": {
+                "action": "move_right",
+                "action_state_after": true,
+                "keycode": 68,
+                "pressed": true
+              },
+              "key_event_release": {
+                "action": "move_right",
+                "action_state_after": false,
+                "keycode": 68,
+                "pressed": false
+              },
+              "label": "p17_finish_before_checkpoints_finish_before_unlock",
+              "moved_distance": 0.120000123977661,
+              "tick": 3
+            },
+            {
+              "action": "move_right",
+              "after": {
+                "x": 4.19999980926514,
+                "y": 0.649999976158142,
+                "z": 3.0
+              },
+              "before": {
+                "x": 4.07999992370605,
+                "y": 0.649999976158142,
+                "z": 3.0
+              },
+              "collected": [],
+              "collision": false,
+              "event_count": 1,
+              "input_vector": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "key_event_press": {
+                "action": "move_right",
+                "action_state_after": true,
+                "keycode": 68,
+                "pressed": true
+              },
+              "key_event_release": {
+                "action": "move_right",
+                "action_state_after": false,
+                "keycode": 68,
+                "pressed": false
+              },
+              "label": "p17_finish_before_checkpoints_finish_before_unlock",
+              "moved_distance": 0.119999885559082,
+              "tick": 4
+            }
+          ],
+          "label": "finish_before_unlock",
+          "pass": false,
+          "signal_received": true
+        }
+      }
+    },
+    {
+      "id": "sensor_clearance_violation",
+      "expected_failure": "scene builder gate rejects checkpoint sensors that do not clear the collider front",
+      "detected_failure": true,
+      "readback_pass": null,
+      "build_pass": false,
+      "summary_pass": null,
+      "event_reasons": [],
+      "event_objective_ids": [],
+      "trace_diff": {
+        "reasons_pass": null,
+        "objective_ids_pass": null,
+        "reason_mismatches": [],
+        "objective_id_mismatches": []
+      },
+      "diagnostics": {
+        "clearance_pass": false,
+        "clearance_rows": [
+          {
+            "applied": false,
+            "checkpoint": "Checkpoint_Chair_p17_sensor_clearance_violation",
+            "collider": "triposr_p4_chair_mesh_Collider",
+            "collider_front_z": 0.556756097823381,
+            "delta_z": 0.0,
+            "errors": [],
+            "pass": false,
+            "required_sensor_front_z": 0.596756097823381,
+            "sensor_front_z_after": -0.288826894015074,
+            "sensor_front_z_before": -0.288826894015074
+          },
+          {
+            "applied": false,
+            "checkpoint": "Checkpoint_Block_p17_sensor_clearance_violation",
+            "collider": "triposr_p5_synthetic_block_Collider",
+            "collider_front_z": 0.91772367618978,
+            "delta_z": 0.0,
+            "errors": [],
+            "pass": false,
+            "required_sensor_front_z": 0.95772367618978,
+            "sensor_front_z_after": -0.312276285141706,
+            "sensor_front_z_before": -0.312276285141706
+          },
+          {
+            "applied": false,
+            "checkpoint": "Checkpoint_Tower_p17_sensor_clearance_violation",
+            "collider": "triposr_p5_synthetic_tower_Collider",
+            "collider_front_z": 0.803683996200562,
+            "delta_z": 0.0,
+            "errors": [],
+            "pass": false,
+            "required_sensor_front_z": 0.843683996200562,
+            "sensor_front_z_after": -0.0926009975373745,
+            "sensor_front_z_before": -0.0926009975373745
+          }
+        ]
+      }
+    },
+    {
+      "id": "camera_obstruction_failure",
+      "expected_failure": "camera gate rejects an injected object between camera and player target",
+      "detected_failure": true,
+      "readback_pass": true,
+      "build_pass": true,
+      "summary_pass": false,
+      "event_reasons": [
+        "finish_locked",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "checkpoint_collected",
+        "finish_unlocked"
+      ],
+      "event_objective_ids": [
+        "finish",
+        "chair",
+        "block",
+        "tower",
+        "finish"
+      ],
+      "trace_diff": {
+        "reasons_pass": true,
+        "objective_ids_pass": true,
+        "reason_mismatches": [],
+        "objective_id_mismatches": []
+      },
+      "diagnostics": {
+        "camera_variants_pass": false,
+        "camera_failed_count": 69,
+        "by_variant": {
+          "close_follow": {
+            "failed": 23,
+            "samples": 28
+          },
+          "high_follow": {
+            "failed": 23,
+            "samples": 28
+          },
+          "standard_follow": {
+            "failed": 23,
+            "samples": 28
+          }
+        }
+      }
+    }
+  ],
+  "boundaries": [
+    "Headless CI negative fixtures validate that the harness detects broken scene/objective/camera cases, not screenshot or visual QA.",
+    "Collision remains based on stable BoxShape3D/SphereShape3D proxy shapes, not mesh-accurate GLB collisions.",
+    "Layouts share the same imported asset set and local Godot runtime; no new assets, models, or display stack were installed."
+  ]
+}

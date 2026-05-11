@@ -1,0 +1,170 @@
+{
+  "checks": {
+    "full_summary_pass": true,
+    "accepted_positive_hashes_match": true,
+    "accepted_negative_hashes_match": true,
+    "positive_drift_counter_detected": true,
+    "negative_missing_counter_detected": true
+  },
+  "overall_pass": true,
+  "accepted_comparisons": {
+    "positive": {
+      "name": "positive_layout_hashes",
+      "pass": true,
+      "missing": [],
+      "unexpected": [],
+      "diffs": [],
+      "rows": [
+        {
+          "id": "front_linear",
+          "accepted": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+          "current": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+          "status": "match"
+        },
+        {
+          "id": "front_reverse",
+          "accepted": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90",
+          "current": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90",
+          "status": "match"
+        },
+        {
+          "id": "front_staggered",
+          "accepted": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa",
+          "current": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa",
+          "status": "match"
+        }
+      ]
+    },
+    "negative": {
+      "name": "negative_fixture_hashes",
+      "pass": true,
+      "missing": [],
+      "unexpected": [],
+      "diffs": [],
+      "rows": [
+        {
+          "id": "camera_obstruction_failure",
+          "accepted": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04",
+          "current": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04",
+          "status": "match"
+        },
+        {
+          "id": "finish_before_checkpoints",
+          "accepted": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c",
+          "current": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c",
+          "status": "match"
+        },
+        {
+          "id": "missing_checkpoint",
+          "accepted": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072",
+          "current": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072",
+          "status": "match"
+        },
+        {
+          "id": "route_mismatch",
+          "accepted": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3",
+          "current": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3",
+          "status": "match"
+        },
+        {
+          "id": "sensor_clearance_violation",
+          "accepted": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740",
+          "current": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740",
+          "status": "match"
+        }
+      ]
+    }
+  },
+  "drift_counter_fixtures": [
+    {
+      "id": "positive_event_order_reversed_counter",
+      "expected_detection": true,
+      "compare": {
+        "name": "positive_layout_hashes",
+        "pass": false,
+        "missing": [],
+        "unexpected": [],
+        "diffs": [
+          {
+            "id": "front_linear",
+            "accepted": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+            "current": "9c221b4cdff7bf5f757f44f7c40c9cd4d7d1700433f7c2a0033f088e79c61eb6",
+            "status": "diff"
+          }
+        ],
+        "rows": [
+          {
+            "id": "front_linear",
+            "accepted": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+            "current": "9c221b4cdff7bf5f757f44f7c40c9cd4d7d1700433f7c2a0033f088e79c61eb6",
+            "status": "diff"
+          },
+          {
+            "id": "front_reverse",
+            "accepted": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90",
+            "current": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90",
+            "status": "match"
+          },
+          {
+            "id": "front_staggered",
+            "accepted": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa",
+            "current": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa",
+            "status": "match"
+          }
+        ]
+      }
+    },
+    {
+      "id": "negative_route_mismatch_fixture_missing_counter",
+      "expected_detection": true,
+      "compare": {
+        "name": "negative_fixture_hashes",
+        "pass": false,
+        "missing": [
+          "route_mismatch"
+        ],
+        "unexpected": [],
+        "diffs": [
+          {
+            "id": "route_mismatch",
+            "accepted": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3",
+            "current": null,
+            "status": "diff"
+          }
+        ],
+        "rows": [
+          {
+            "id": "camera_obstruction_failure",
+            "accepted": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04",
+            "current": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04",
+            "status": "match"
+          },
+          {
+            "id": "finish_before_checkpoints",
+            "accepted": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c",
+            "current": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c",
+            "status": "match"
+          },
+          {
+            "id": "missing_checkpoint",
+            "accepted": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072",
+            "current": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072",
+            "status": "match"
+          },
+          {
+            "id": "route_mismatch",
+            "accepted": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3",
+            "current": null,
+            "status": "diff"
+          },
+          {
+            "id": "sensor_clearance_violation",
+            "accepted": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740",
+            "current": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740",
+            "status": "match"
+          }
+        ]
+      }
+    }
+  ]
+}

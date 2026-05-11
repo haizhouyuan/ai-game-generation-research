@@ -1,0 +1,137 @@
+[
+  {
+    "path": "baseline/accepted_p18_trace_hash_baseline.json",
+    "bytes": 2198,
+    "sha256": "815b48ad2143d8b5b2379974bda3a217eef8a43163e26b78fd570621ee0de3e5"
+  },
+  {
+    "path": "boundary_ledger.md",
+    "bytes": 598,
+    "sha256": "2371d8419a6bc7d72d466272083affe8a8fa41524ad83da037f91240f5ea06d6"
+  },
+  {
+    "path": "outputs/godot_p19_accepted_baseline_hash_regression.log",
+    "bytes": 450718,
+    "sha256": "80db15485429dd3dab00783470c2a81e5d46b19da7b2aa27213dd4478fdb00bf"
+  },
+  {
+    "path": "outputs/godot_p19_accepted_baseline_hash_regression_verify.log",
+    "bytes": 450718,
+    "sha256": "80db15485429dd3dab00783470c2a81e5d46b19da7b2aa27213dd4478fdb00bf"
+  },
+  {
+    "path": "outputs/p18_negative_scene_ci_full_report.json",
+    "bytes": 668564,
+    "sha256": "f819237e05a161264d80d4487c08c99af80fc2fb3371917311a601f9eb4362f8"
+  },
+  {
+    "path": "outputs/p19_compact_failure_diff_report.json",
+    "bytes": 9845,
+    "sha256": "ad4c3b39606a44f7623d53e363d3ce23169ad73f28ba7623be79bc1e77b97532"
+  },
+  {
+    "path": "outputs/p19_current_compact_trace.json",
+    "bytes": 15852,
+    "sha256": "b811eeaed60a98b165ba815e2c7bb8c7a762a67d448575e0a8a2f2a72821a6c9"
+  },
+  {
+    "path": "outputs/p19_current_trace_hashes.json",
+    "bytes": 1244,
+    "sha256": "efe1873dd082717ad3317cb9729fca6155aa5be8d33179da7a53f0b7ca6718ce"
+  },
+  {
+    "path": "project/assets/triposr_p4_chair_mesh.glb",
+    "bytes": 120724,
+    "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6"
+  },
+  {
+    "path": "project/assets/triposr_p5_synthetic_block.glb",
+    "bytes": 84084,
+    "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+  },
+  {
+    "path": "project/assets/triposr_p5_synthetic_tower.glb",
+    "bytes": 54084,
+    "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+  },
+  {
+    "path": "project/project.godot",
+    "bytes": 275,
+    "sha256": "046d168ea4546baf9aed7d96f741157c7ff83206522c062ad4c55d69c94a4d8f"
+  },
+  {
+    "path": "project/scenes/p15_ci_objective_scene.tscn",
+    "bytes": 663946,
+    "sha256": "ebab8faf77d8b48b607f52a9b7c60b2bd71d2900227ad1fa79790a55dddb1e92"
+  },
+  {
+    "path": "project/scenes/p16_front_linear_ci_scene.tscn",
+    "bytes": 664151,
+    "sha256": "47d1757766997bd563af9b138b25e7d2b4d4c1f0bc5fe1f267516a2c72ffc900"
+  },
+  {
+    "path": "project/scenes/p16_front_reverse_ci_scene.tscn",
+    "bytes": 664100,
+    "sha256": "bab3e30c198a2eaa7ddaf1669c04d1dc28429b0f74cfb4e85f28702dae48d7c5"
+  },
+  {
+    "path": "project/scenes/p16_front_staggered_ci_scene.tscn",
+    "bytes": 664125,
+    "sha256": "e01c048eb348678b7904f8e52b672cc14cd7c5c6eccccdaa4bbacacb5e5cc72c"
+  },
+  {
+    "path": "project/scenes/p17_camera_obstruction_failure_scene.tscn",
+    "bytes": 664381,
+    "sha256": "7caa89da86f484d03d3f61b92864ac184f5554b7eeec1d28c539a4363ad9047c"
+  },
+  {
+    "path": "project/scenes/p17_finish_before_checkpoints_scene.tscn",
+    "bytes": 664368,
+    "sha256": "98fa25108095ccaf998e733ea51125a60c34dd6f81aee7db5660da5d4564edd5"
+  },
+  {
+    "path": "project/scenes/p17_missing_checkpoint_scene.tscn",
+    "bytes": 663398,
+    "sha256": "7b7e50e602c31ca99e5e12773a9622b48bf25a110e59684fa6a3a6043af6d324"
+  },
+  {
+    "path": "project/scenes/p17_route_mismatch_scene.tscn",
+    "bytes": 664227,
+    "sha256": "fab9145d0fdc006dca78be96bd85ccb03739ca8dcc2cc542e0e4256eea84ec2e"
+  },
+  {
+    "path": "project/scenes/p17_sensor_clearance_violation_scene.tscn",
+    "bytes": 664325,
+    "sha256": "d89170a6844d90ac4d61f3cf925216f90731657fa7dbf75db49c2fec1f12fbfa"
+  },
+  {
+    "path": "project/scenes/p7_minimal_playable_scene.tscn",
+    "bytes": 661628,
+    "sha256": "7230267a4a3713bbe9ff753977f9a59e7f0faf54099a21fc97f80177f1cd7e7d"
+  },
+  {
+    "path": "project/tools/scene_ci_negative_fixtures_with_manifest.gd",
+    "bytes": 50681,
+    "sha256": "0d0293e3639ee1dc776924da2e58705bb51b3b9760026980468729b229e7deb7"
+  },
+  {
+    "path": "report.md",
+    "bytes": 3953,
+    "sha256": "062d2eb8d35ebcc9d8d4b4dbfee04ec04e4d2cdbde3f87dbf24a48866708273f"
+  },
+  {
+    "path": "run.log",
+    "bytes": 6088,
+    "sha256": "5dce09f625542f5a013328b4183d46281878d0d243f938673ada820aeaf2bf94"
+  },
+  {
+    "path": "run_p19_hash_regression.py",
+    "bytes": 11185,
+    "sha256": "327dfe1c894613414a4d84a0ff64defef39ed2c390c644a94b8e238b246c94ec"
+  },
+  {
+    "path": "verify_run.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

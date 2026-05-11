@@ -1,0 +1,13 @@
+; Engine configuration file.
+; P7 minimal playable scene probe; no external dependencies.
+
+config_version=5
+
+[application]
+
+config/name="GAME-P7 Godot Minimal Playable Scene"
+config/features=PackedStringArray("4.4")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

@@ -1,0 +1,45 @@
+{
+  "baseline_id": "accepted_p18_fixture_manifest_compact_trace_20260512",
+  "source_experiment": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p18_fixture_manifest_compact_trace_20260512",
+  "source_commit": "49f49bac668f811018acbdab76a111158549b02d",
+  "authority": "proxy scene nodes plus HomePC Godot headless physics/input/camera assertions",
+  "visual_claim": "disabled: no screenshot/visual QA or mesh-accurate collision claim",
+  "accepted_hashes": {
+    "full_report_sha256": "f819237e05a161264d80d4487c08c99af80fc2fb3371917311a601f9eb4362f8",
+    "manifest_sha256": "a88e9e6d4f53255ab2540a31ebac4c9bdba9f75a4a54007e4abbf2a645a67d2f",
+    "compact_trace_sha256": "c3e23e9c339760045c719acd5a6c22589fe24762f5f7b9ac59991719aed2e3d7",
+    "positive_layout_hashes": {
+      "front_linear": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+      "front_reverse": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90",
+      "front_staggered": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa"
+    },
+    "negative_fixture_hashes": {
+      "missing_checkpoint": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072",
+      "route_mismatch": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3",
+      "finish_before_checkpoints": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c",
+      "sensor_clearance_violation": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740",
+      "camera_obstruction_failure": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04"
+    },
+    "checks": {
+      "full_summary_pass": true,
+      "positive_layout_count": true,
+      "positive_layouts_pass": true,
+      "negative_fixture_count": true,
+      "negative_fixtures_detected": true,
+      "manifest_has_hashes": true,
+      "compact_trace_has_event_order": true
+    }
+  },
+  "accepted_positive_layout_ids": [
+    "front_linear",
+    "front_reverse",
+    "front_staggered"
+  ],
+  "accepted_negative_fixture_ids": [
+    "camera_obstruction_failure",
+    "finish_before_checkpoints",
+    "missing_checkpoint",
+    "route_mismatch",
+    "sensor_clearance_violation"
+  ]
+}
