@@ -1,0 +1,27 @@
+[
+  {
+    "path": "project/tools/build_scene_gate_and_replay_input_camera.gd",
+    "bytes": 29579,
+    "sha256": "371e571598d824b7e1d28be08494aa54ece3641f0af875e0596f09b567f8a6a6"
+  },
+  {
+    "path": "project/scenes/p14_objective_scene.tscn",
+    "bytes": 663731,
+    "sha256": "909f9fea2d4e481e4b6c19994e9c189a4bb22a1c969c3d32a771e445634e7bc0"
+  },
+  {
+    "path": "outputs/p14_scene_builder_gate_input_camera_report.json",
+    "bytes": 89941,
+    "sha256": "2a2842329600ad3a1b962822c4e66c77250aa99349526fec1917b543ef53620c"
+  },
+  {
+    "path": "outputs/godot_p14_scene_builder_gate_input_camera_homepc.log",
+    "bytes": 67097,
+    "sha256": "b65a250721a68b87b0005b991b170836ce93bca3bf1255b31930ae9daae831a4"
+  },
+  {
+    "path": "outputs/godot_p14_scene_builder_gate_input_camera_verify_homepc.log",
+    "bytes": 67097,
+    "sha256": "b65a250721a68b87b0005b991b170836ce93bca3bf1255b31930ae9daae831a4"
+  }
+]
