@@ -1,0 +1,6 @@
+{
+  "packet_type": "accepted_baseline_update_candidate",
+  "baseline_id": "accepted_p19_scene_ci_hash_regression_20260512",
+  "review_only": true,
+  "boundary": "candidate packet is not automatic baseline replacement"
+}

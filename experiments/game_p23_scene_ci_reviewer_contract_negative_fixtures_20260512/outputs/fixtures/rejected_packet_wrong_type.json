@@ -1,0 +1,7 @@
+{
+  "packet_type": "accepted_baseline_update_candidate",
+  "requested_baseline_id": "unlisted_scene_ci_baseline_update_counter",
+  "allowlisted": false,
+  "exit_code": 2,
+  "reason": "baseline_id_not_allowlisted"
+}

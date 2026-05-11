@@ -1,0 +1,52 @@
+[
+  {
+    "path": "boundary_ledger.md",
+    "bytes": 629,
+    "sha256": "adad36d54c48796d5eff240b6518726989130863dd600fb283d672e33a30a4f0"
+  },
+  {
+    "path": "outputs/fixtures/candidate_missing_hashes_packet.json",
+    "bytes": 220,
+    "sha256": "bfd07578f593e8ef77250ce6d4ce16c74192ec3e2f801d7e98512f5593ac08fb"
+  },
+  {
+    "path": "outputs/fixtures/malformed_candidate_packet.json",
+    "bytes": 72,
+    "sha256": "a69e1afca67144426bfd0aa524fed799c2065c24f5169753c7dbeee46dd4a64d"
+  },
+  {
+    "path": "outputs/fixtures/rejected_packet_wrong_type.json",
+    "bytes": 215,
+    "sha256": "7d1feeab9feec42b4eca97af7c76493029b89bfd1ef016e0496fd0236bfb2dba"
+  },
+  {
+    "path": "outputs/p23_compact_review_matrix.md",
+    "bytes": 1226,
+    "sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa"
+  },
+  {
+    "path": "outputs/p23_scene_ci_negative_contract_review_matrix.json",
+    "bytes": 5480,
+    "sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc"
+  },
+  {
+    "path": "report.md",
+    "bytes": 1206,
+    "sha256": "ca45c8706a100a9f77ed30805046edaa3666625a1bafe46c2fb7949549edeae6"
+  },
+  {
+    "path": "run.log",
+    "bytes": 291,
+    "sha256": "4c75a1e625497b1afce2df257eb8f79b6ced45ea44ba40afa9b43c34c95b367d"
+  },
+  {
+    "path": "run_p23_scene_ci_reviewer_contract_negative_fixtures.py",
+    "bytes": 9801,
+    "sha256": "c134228c43d090371e1b27a9b5cbd0a7b5a6eebb22588b3abbf1a6146a10729d"
+  },
+  {
+    "path": "verify_run.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

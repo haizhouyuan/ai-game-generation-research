@@ -1,0 +1,11 @@
+{
+  "overall_pass": true,
+  "checks": {
+    "positive_p22_contract_pass": true,
+    "exit_matrix_loaded": true,
+    "malformed_packet_fixtures_detected": true,
+    "missing_diff_table_detected": true,
+    "mode_exit_misuse_detected": true,
+    "positive_diff_table_control_pass": true
+  }
+}

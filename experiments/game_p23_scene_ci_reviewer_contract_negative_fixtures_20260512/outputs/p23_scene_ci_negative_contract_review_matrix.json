@@ -1,0 +1,147 @@
+{
+  "batch": "P23-A scene-CI reviewer contract negative fixtures",
+  "source_report": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+  "source_exit_matrix": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+  "negative_fixtures": [
+    {
+      "fixture_id": "malformed_candidate_packet",
+      "category": "malformed_packet",
+      "expected_failure": "invalid_json",
+      "detected_failure": true,
+      "validation": {
+        "pass": false,
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/fixtures/malformed_candidate_packet.json",
+        "error": "invalid_json",
+        "detail": "Expecting value: line 1 column 73 (char 72)",
+        "missing_fields": [
+          "accepted_hashes",
+          "baseline_id",
+          "boundary",
+          "packet_type",
+          "review_only"
+        ]
+      }
+    },
+    {
+      "fixture_id": "candidate_missing_hashes_packet",
+      "category": "malformed_packet",
+      "expected_failure": "missing_required_field",
+      "detected_failure": true,
+      "validation": {
+        "pass": false,
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/fixtures/candidate_missing_hashes_packet.json",
+        "error": "schema_or_type_mismatch",
+        "missing_fields": [
+          "accepted_hashes"
+        ],
+        "packet_type": "accepted_baseline_update_candidate",
+        "expected_packet_type": "accepted_baseline_update_candidate"
+      }
+    },
+    {
+      "fixture_id": "rejected_packet_wrong_type",
+      "category": "malformed_packet",
+      "expected_failure": "wrong_packet_type",
+      "detected_failure": true,
+      "validation": {
+        "pass": false,
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/fixtures/rejected_packet_wrong_type.json",
+        "error": "schema_or_type_mismatch",
+        "missing_fields": [],
+        "packet_type": "accepted_baseline_update_candidate",
+        "expected_packet_type": "rejected_baseline_update_request"
+      }
+    },
+    {
+      "fixture_id": "missing_diff_table",
+      "category": "missing_diff_table",
+      "expected_failure": "diff_table_absent",
+      "detected_failure": true,
+      "validation": {
+        "pass": false,
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/fixtures/missing_diff_table_counter.md",
+        "exists": false,
+        "missing_markers": [
+          "| Group | ID | Status |",
+          "positive_layout_hashes",
+          "negative_fixture_hashes"
+        ]
+      }
+    },
+    {
+      "fixture_id": "positive_diff_table_control",
+      "category": "positive_control",
+      "expected_failure": null,
+      "detected_failure": false,
+      "validation": {
+        "pass": true,
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_human_readable_diff_table.md",
+        "exists": true,
+        "missing_markers": []
+      },
+      "control_pass": true
+    },
+    {
+      "fixture_id": "match_exit_code_misuse",
+      "category": "mode_specific_exit_code_misuse",
+      "expected_failure": "observed_exit_code_does_not_match_contract",
+      "detected_failure": true,
+      "validation": {
+        "pass": false,
+        "mode": "match",
+        "observed_exit_code": 1,
+        "expected_example_code": 0
+      }
+    },
+    {
+      "fixture_id": "diff_exit_code_misuse",
+      "category": "mode_specific_exit_code_misuse",
+      "expected_failure": "observed_exit_code_does_not_match_contract",
+      "detected_failure": true,
+      "validation": {
+        "pass": false,
+        "mode": "diff",
+        "observed_exit_code": 0,
+        "expected_example_code": 1
+      }
+    },
+    {
+      "fixture_id": "candidate-update_exit_code_misuse",
+      "category": "mode_specific_exit_code_misuse",
+      "expected_failure": "observed_exit_code_does_not_match_contract",
+      "detected_failure": true,
+      "validation": {
+        "pass": false,
+        "mode": "candidate-update",
+        "observed_exit_code": 1,
+        "expected_example_code": 0
+      }
+    },
+    {
+      "fixture_id": "denied-update_exit_code_misuse",
+      "category": "mode_specific_exit_code_misuse",
+      "expected_failure": "observed_exit_code_does_not_match_contract",
+      "detected_failure": true,
+      "validation": {
+        "pass": false,
+        "mode": "denied-update",
+        "observed_exit_code": 0,
+        "expected_example_code": 2
+      }
+    }
+  ],
+  "checks": {
+    "positive_p22_contract_pass": true,
+    "exit_matrix_loaded": true,
+    "malformed_packet_fixtures_detected": true,
+    "missing_diff_table_detected": true,
+    "mode_exit_misuse_detected": true,
+    "positive_diff_table_control_pass": true
+  },
+  "overall_pass": true,
+  "boundaries": [
+    "P23 validates reviewer-contract artifacts and headless scene-CI evidence only.",
+    "It does not claim screenshot/visual QA.",
+    "It does not claim mesh-accurate GLB collision."
+  ]
+}
