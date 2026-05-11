@@ -1,0 +1,37 @@
+{
+  "manifest_version": "1.0",
+  "contract_id": "scene_ci_reviewer_contract_v2_20260512",
+  "artifacts": [
+    {
+      "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+      "relative_to_experiment": "game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+      "bytes": 18157,
+      "sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e"
+    },
+    {
+      "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+      "relative_to_experiment": "game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+      "bytes": 10798,
+      "sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933"
+    },
+    {
+      "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+      "relative_to_experiment": "game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+      "bytes": 2151,
+      "sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce"
+    },
+    {
+      "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+      "relative_to_experiment": "game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+      "bytes": 5480,
+      "sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc"
+    },
+    {
+      "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+      "relative_to_experiment": "game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+      "bytes": 1226,
+      "sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa"
+    }
+  ],
+  "boundary": "manifest covers local reviewer-contract artifacts only"
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "path": "boundary_ledger.md",
+    "bytes": 837,
+    "sha256": "158274f74748e355c72249d9b1c69ca371f1fcdad066c0eaffbcff59368b3e8b"
+  },
+  {
+    "path": "outputs/p24_artifact_integrity_check_matrix.json",
+    "bytes": 23635,
+    "sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786"
+  },
+  {
+    "path": "outputs/p24_artifact_integrity_manifest.json",
+    "bytes": 2335,
+    "sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7"
+  },
+  {
+    "path": "outputs/p24_reviewer_contract_version_integrity_packet.md",
+    "bytes": 520,
+    "sha256": "42ea310d494e5550397c8044de888540a546d6a55d9267f18c4886298d3a145f"
+  },
+  {
+    "path": "outputs/p24_reviewer_contract_version_migration_report.json",
+    "bytes": 12555,
+    "sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3"
+  },
+  {
+    "path": "report.md",
+    "bytes": 1139,
+    "sha256": "29d0da44daf1c7da8f5aa867cc13a2f3614f0738608ed2404ecf8eb62634614e"
+  },
+  {
+    "path": "run.log",
+    "bytes": 290,
+    "sha256": "35cf9e9a2b1c781b578937835f802bbd45f032c6ec262942f16d7daf0a334645"
+  },
+  {
+    "path": "run_p24_reviewer_contract_version_integrity_manifest.py",
+    "bytes": 8554,
+    "sha256": "2c95b15c05fca52bc608e00f7159b9bea9d0ff64dfabaff5733763ba79fb0bd0"
+  },
+  {
+    "path": "verify_run.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
