@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/outputs/p12_deterministic_replay_visual_probe_report.json",
+    "bytes": 15078,
+    "sha256": "31f0ce89ce4ba4ab202ac3d0693df2c7543bcd1c6ee650edd340413e9ef558ba"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/outputs/godot_p12_replay_visual_probe_homepc.log",
+    "bytes": 11464,
+    "sha256": "f36de0743066b6d3f1ea7e6590b988f302b38064e3dd34fd4015a756cb174fbd"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/outputs/godot_p12_replay_visual_probe_verify_homepc.log",
+    "bytes": 11464,
+    "sha256": "f36de0743066b6d3f1ea7e6590b988f302b38064e3dd34fd4015a756cb174fbd"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/project/tools/simulate_deterministic_replay_visual_probe.gd",
+    "bytes": 9409,
+    "sha256": "70725b7b1015187be6553713b76a6d4887fdfb6365ebfa4c6f9bd8e112cc5f26"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/project/scenes/p10_objective_scene.tscn",
+    "bytes": 662970,
+    "sha256": "b904ac953ec4e339b5e75d3aeef657927f8a523a4eba0238dd40f7bc45d28e9e"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/project/scenes/p7_minimal_playable_scene.tscn",
+    "bytes": 661628,
+    "sha256": "7230267a4a3713bbe9ff753977f9a59e7f0faf54099a21fc97f80177f1cd7e7d"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/project/assets/triposr_p4_chair_mesh.glb",
+    "bytes": 120724,
+    "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/project/assets/triposr_p5_synthetic_block.glb",
+    "bytes": 84084,
+    "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p12_deterministic_replay_visual_probe_20260512/project/assets/triposr_p5_synthetic_tower.glb",
+    "bytes": 54084,
+    "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+  }
+]
