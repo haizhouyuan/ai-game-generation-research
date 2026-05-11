@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p8_godot_headless_movement_collision/outputs/p8_movement_collision_report.json",
+    "bytes": 5157,
+    "sha256": "63146fb29e9045323b8f56bbd45638f049d9ccf5f40108e2ef66ada83e4754bd"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p8_godot_headless_movement_collision/project/scenes/p7_minimal_playable_scene.tscn",
+    "bytes": 661628,
+    "sha256": "7230267a4a3713bbe9ff753977f9a59e7f0faf54099a21fc97f80177f1cd7e7d"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p8_godot_headless_movement_collision/project/tools/simulate_movement_collision.gd",
+    "bytes": 5638,
+    "sha256": "86d07fe3b553b8d669d1a94d587ceb791e011b950039ba4cc3c658783c36123d"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p8_godot_headless_movement_collision/project/assets/triposr_p4_chair_mesh.glb",
+    "bytes": 120724,
+    "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p8_godot_headless_movement_collision/project/assets/triposr_p5_synthetic_block.glb",
+    "bytes": 84084,
+    "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p8_godot_headless_movement_collision/project/assets/triposr_p5_synthetic_tower.glb",
+    "bytes": 54084,
+    "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+  }
+]

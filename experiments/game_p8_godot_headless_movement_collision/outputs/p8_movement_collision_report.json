@@ -1,0 +1,256 @@
+{
+	"colliders": {
+		"triposr_p4_chair_mesh_Collider": {
+			"aabb": {
+				"position": [
+					-3.1243200302124,
+					-0.00000202655792236328,
+					-0.434409886598587
+				],
+				"size": [
+					1.79999995231628,
+					1.45726001262665,
+					0.991165995597839
+				]
+			},
+			"center": [
+				-2.22431993484497,
+				0.728627979755402,
+				0.0611731000244617
+			],
+			"size": [
+				1.79999995231628,
+				1.45726001262665,
+				0.991165995597839
+			]
+		},
+		"triposr_p5_synthetic_block_Collider": {
+			"aabb": {
+				"position": [
+					-0.460408896207809,
+					-0.00000050663948059082,
+					-0.882276296615601
+				],
+				"size": [
+					0.721782982349396,
+					0.727351009845734,
+					1.79999995231628
+				]
+			},
+			"center": [
+				-0.099517397582531,
+				0.363674998283386,
+				0.0177237000316381
+			],
+			"size": [
+				0.721782982349396,
+				0.727351009845734,
+				1.79999995231628
+			]
+		},
+		"triposr_p5_synthetic_tower_Collider": {
+			"aabb": {
+				"position": [
+					1.25416004657745,
+					0.00000050663948059082,
+					-0.36888599395752
+				],
+				"size": [
+					1.79999995231628,
+					0.860764980316162,
+					1.17256999015808
+				]
+			},
+			"center": [
+				2.1541600227356,
+				0.430382996797562,
+				0.217399001121521
+			],
+			"size": [
+				1.79999995231628,
+				0.860764980316162,
+				1.17256999015808
+			]
+		}
+	},
+	"headless_physics_note": "The check uses saved BoxShape3D proxy bounds and deterministic swept AABB movement. It does not claim real player feel or full physics-controller behavior.",
+	"paths": [
+		{
+			"blocked": true,
+			"contact_detected": true,
+			"errors": [],
+			"final_position": [
+				-3.0,
+				0.349999994039536,
+				0.989999890327454
+			],
+			"id": "approach_chair",
+			"pass": true,
+			"steps": [
+				{
+					"candidate_position": [
+						-3.0,
+						0.349999994039536,
+						1.42999994754791
+					],
+					"contact": false,
+					"distance_nonincreasing": true,
+					"distance_to_target": 0.623243808746338,
+					"moved": true,
+					"step": 1
+				},
+				{
+					"candidate_position": [
+						-3.0,
+						0.349999994039536,
+						1.20999991893768
+					],
+					"contact": false,
+					"distance_nonincreasing": true,
+					"distance_to_target": 0.403243780136108,
+					"moved": true,
+					"step": 2
+				},
+				{
+					"candidate_position": [
+						-3.0,
+						0.349999994039536,
+						0.989999890327454
+					],
+					"contact": false,
+					"distance_nonincreasing": true,
+					"distance_to_target": 0.183243751525879,
+					"moved": true,
+					"step": 3
+				},
+				{
+					"blocked_here": true,
+					"candidate_position": [
+						-3.0,
+						0.349999994039536,
+						0.769999861717224
+					],
+					"contact": true,
+					"distance_to_target": 0.0,
+					"moved": false,
+					"step": 4
+				}
+			],
+			"target": "triposr_p4_chair_mesh_Collider",
+			"target_found": true
+		},
+		{
+			"blocked": true,
+			"contact_detected": true,
+			"errors": [],
+			"final_position": [
+				0.0,
+				0.349999994039536,
+				1.3199999332428
+			],
+			"id": "approach_block",
+			"pass": true,
+			"steps": [
+				{
+					"candidate_position": [
+						0.0,
+						0.349999994039536,
+						1.55999994277954
+					],
+					"contact": false,
+					"distance_nonincreasing": true,
+					"distance_to_target": 0.392276287078857,
+					"moved": true,
+					"step": 1
+				},
+				{
+					"candidate_position": [
+						0.0,
+						0.349999994039536,
+						1.3199999332428
+					],
+					"contact": false,
+					"distance_nonincreasing": true,
+					"distance_to_target": 0.152276277542114,
+					"moved": true,
+					"step": 2
+				},
+				{
+					"blocked_here": true,
+					"candidate_position": [
+						0.0,
+						0.349999994039536,
+						1.07999992370605
+					],
+					"contact": true,
+					"distance_to_target": 0.0,
+					"moved": false,
+					"step": 3
+				}
+			],
+			"target": "triposr_p5_synthetic_block_Collider",
+			"target_found": true
+		},
+		{
+			"blocked": true,
+			"contact_detected": true,
+			"errors": [],
+			"final_position": [
+				2.15000009536743,
+				0.349999994039536,
+				1.20999991893768
+			],
+			"id": "approach_tower",
+			"pass": true,
+			"steps": [
+				{
+					"candidate_position": [
+						2.15000009536743,
+						0.349999994039536,
+						1.42999994754791
+					],
+					"contact": false,
+					"distance_nonincreasing": true,
+					"distance_to_target": 0.376315951347351,
+					"moved": true,
+					"step": 1
+				},
+				{
+					"candidate_position": [
+						2.15000009536743,
+						0.349999994039536,
+						1.20999991893768
+					],
+					"contact": false,
+					"distance_nonincreasing": true,
+					"distance_to_target": 0.156315922737122,
+					"moved": true,
+					"step": 2
+				},
+				{
+					"blocked_here": true,
+					"candidate_position": [
+						2.15000009536743,
+						0.349999994039536,
+						0.989999890327454
+					],
+					"contact": true,
+					"distance_to_target": 0.0,
+					"moved": false,
+					"step": 3
+				}
+			],
+			"target": "triposr_p5_synthetic_tower_Collider",
+			"target_found": true
+		}
+	],
+	"scene_loaded": true,
+	"scene_path": "res://scenes/p7_minimal_playable_scene.tscn",
+	"simulation_mode": "deterministic AABB proxy simulation over saved Godot collision proxies",
+	"summary": {
+		"blocked_count": 3,
+		"contact_count": 3,
+		"pass": true,
+		"path_count": 3
+	}
+}
