@@ -1,0 +1,20 @@
+{
+  "mode": "candidate-update",
+  "result": "pass",
+  "expected": "allowlisted_candidate_written",
+  "evidence": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p21_scene_ci_modes_review_packet_20260512/outputs/p21_allowed_baseline_update_candidate.json",
+  "comparisons": {},
+  "policy": {
+    "allowed": {
+      "requested_baseline_id": "accepted_p19_scene_ci_hash_regression_20260512",
+      "allowlisted": true,
+      "candidate_output": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p21_scene_ci_modes_review_packet_20260512/outputs/p21_allowed_baseline_update_candidate.json"
+    },
+    "denied": {
+      "requested_baseline_id": "unlisted_baseline_update_counter",
+      "allowlisted": false,
+      "candidate_output": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p21_scene_ci_modes_review_packet_20260512/outputs/p21_allowed_baseline_update_candidate.json"
+    }
+  },
+  "boundary": "compact deterministic headless scene-CI evidence only; no screenshot/visual QA or mesh-accurate GLB collision claim"
+}

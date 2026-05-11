@@ -1,0 +1,176 @@
+{
+  "mode": "diff",
+  "result": "pass",
+  "expected": "synthetic_hash_drift_detected",
+  "evidence": "in-memory diff-counter over first positive layout hash",
+  "comparisons": {
+    "match": {
+      "positive": {
+        "name": "positive_layout_hashes",
+        "pass": true,
+        "missing": [],
+        "unexpected": [],
+        "diffs": [],
+        "rows": [
+          {
+            "group": "positive_layout_hashes",
+            "id": "front_linear",
+            "status": "match",
+            "accepted": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+            "current": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39"
+          },
+          {
+            "group": "positive_layout_hashes",
+            "id": "front_reverse",
+            "status": "match",
+            "accepted": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90",
+            "current": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90"
+          },
+          {
+            "group": "positive_layout_hashes",
+            "id": "front_staggered",
+            "status": "match",
+            "accepted": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa",
+            "current": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa"
+          }
+        ]
+      },
+      "negative": {
+        "name": "negative_fixture_hashes",
+        "pass": true,
+        "missing": [],
+        "unexpected": [],
+        "diffs": [],
+        "rows": [
+          {
+            "group": "negative_fixture_hashes",
+            "id": "camera_obstruction_failure",
+            "status": "match",
+            "accepted": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04",
+            "current": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04"
+          },
+          {
+            "group": "negative_fixture_hashes",
+            "id": "finish_before_checkpoints",
+            "status": "match",
+            "accepted": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c",
+            "current": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c"
+          },
+          {
+            "group": "negative_fixture_hashes",
+            "id": "missing_checkpoint",
+            "status": "match",
+            "accepted": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072",
+            "current": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072"
+          },
+          {
+            "group": "negative_fixture_hashes",
+            "id": "route_mismatch",
+            "status": "match",
+            "accepted": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3",
+            "current": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3"
+          },
+          {
+            "group": "negative_fixture_hashes",
+            "id": "sensor_clearance_violation",
+            "status": "match",
+            "accepted": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740",
+            "current": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740"
+          }
+        ]
+      },
+      "full_report_match": true,
+      "compact_trace_match": false,
+      "hashes_match": true
+    },
+    "diff": {
+      "positive": {
+        "name": "positive_layout_hashes",
+        "pass": false,
+        "missing": [],
+        "unexpected": [],
+        "diffs": [
+          {
+            "group": "positive_layout_hashes",
+            "id": "front_linear",
+            "status": "diff",
+            "accepted": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+            "current": "diff-counter-c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39"
+          }
+        ],
+        "rows": [
+          {
+            "group": "positive_layout_hashes",
+            "id": "front_linear",
+            "status": "diff",
+            "accepted": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+            "current": "diff-counter-c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39"
+          },
+          {
+            "group": "positive_layout_hashes",
+            "id": "front_reverse",
+            "status": "match",
+            "accepted": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90",
+            "current": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90"
+          },
+          {
+            "group": "positive_layout_hashes",
+            "id": "front_staggered",
+            "status": "match",
+            "accepted": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa",
+            "current": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa"
+          }
+        ]
+      },
+      "negative": {
+        "name": "negative_fixture_hashes",
+        "pass": true,
+        "missing": [],
+        "unexpected": [],
+        "diffs": [],
+        "rows": [
+          {
+            "group": "negative_fixture_hashes",
+            "id": "camera_obstruction_failure",
+            "status": "match",
+            "accepted": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04",
+            "current": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04"
+          },
+          {
+            "group": "negative_fixture_hashes",
+            "id": "finish_before_checkpoints",
+            "status": "match",
+            "accepted": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c",
+            "current": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c"
+          },
+          {
+            "group": "negative_fixture_hashes",
+            "id": "missing_checkpoint",
+            "status": "match",
+            "accepted": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072",
+            "current": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072"
+          },
+          {
+            "group": "negative_fixture_hashes",
+            "id": "route_mismatch",
+            "status": "match",
+            "accepted": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3",
+            "current": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3"
+          },
+          {
+            "group": "negative_fixture_hashes",
+            "id": "sensor_clearance_violation",
+            "status": "match",
+            "accepted": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740",
+            "current": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740"
+          }
+        ]
+      },
+      "full_report_match": true,
+      "compact_trace_match": false,
+      "hashes_match": false
+    }
+  },
+  "policy": {},
+  "boundary": "compact deterministic headless scene-CI evidence only; no screenshot/visual QA or mesh-accurate GLB collision claim"
+}

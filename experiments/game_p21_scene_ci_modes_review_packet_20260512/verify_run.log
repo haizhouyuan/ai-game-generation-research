@@ -1,0 +1,18 @@
+{
+  "overall_pass": true,
+  "checks": {
+    "full_summary_pass": true,
+    "selected_modes_pass": true,
+    "match_mode_pass": true,
+    "diff_mode_detects_drift": true,
+    "candidate_update_allowlisted": true,
+    "denied_update_denied": true,
+    "review_packet_emitted": true
+  },
+  "modes": {
+    "match": "pass",
+    "diff": "pass",
+    "candidate-update": "pass",
+    "denied-update": "pass"
+  }
+}

@@ -1,0 +1,172 @@
+[
+  {
+    "path": "baseline/accepted_p19_scene_ci_baseline.json",
+    "bytes": 1764,
+    "sha256": "d078b1b864ce181c28751eba033d3aebfaea24599b3a2e41506af0a2b0f2bdcc"
+  },
+  {
+    "path": "baseline/baseline_update_allowlist.json",
+    "bytes": 297,
+    "sha256": "8256ca9e3d386f5cb78540b0cb96b8f65f48ab7d4187de9619c4723055673831"
+  },
+  {
+    "path": "boundary_ledger.md",
+    "bytes": 458,
+    "sha256": "5a47e2bf6f9cc5f9a95a879d9d96749057e070b225a569129339e7570e3dc868"
+  },
+  {
+    "path": "outputs/godot_p21_scene_ci_modes_review_packet.log",
+    "bytes": 450718,
+    "sha256": "80db15485429dd3dab00783470c2a81e5d46b19da7b2aa27213dd4478fdb00bf"
+  },
+  {
+    "path": "outputs/p21_allowed_baseline_update_candidate.json",
+    "bytes": 1247,
+    "sha256": "8e77873d0d318675b6aedeefd991379de626ce9eef3571d66f28b20de6cab136"
+  },
+  {
+    "path": "outputs/p21_baseline_update_review_packet.md",
+    "bytes": 1798,
+    "sha256": "604b0e701a8c8a1d2c46e612d1776215425a2ce7f83900a956cbe890a7b6f5f4"
+  },
+  {
+    "path": "outputs/p21_compact_diff_table.md",
+    "bytes": 846,
+    "sha256": "86a561da893933a09f6cee5264dfeb8426bc9c2c2f31042b09217919829fd549"
+  },
+  {
+    "path": "outputs/p21_current_compact_trace.json",
+    "bytes": 15819,
+    "sha256": "f9985c21fd9ea55adea821668a433f59472c4bc0dd1439888ae16aeea3e6cf33"
+  },
+  {
+    "path": "outputs/p21_current_trace_hashes.json",
+    "bytes": 1015,
+    "sha256": "d533b309853536bfce70cb966d9e9dc9af4f4889e9a2af7f4f95921e84edce0a"
+  },
+  {
+    "path": "outputs/p21_mode_candidate_update_report.json",
+    "bytes": 1069,
+    "sha256": "96620288ffd010eaa3bcf2ff4a88dee93bfd369368dafa27718bf358279c9bd7"
+  },
+  {
+    "path": "outputs/p21_mode_denied_update_report.json",
+    "bytes": 934,
+    "sha256": "d8d5b5e2fe6f8de34d749e5efed64542911dfd061ee86620428a9b6eaec64e60"
+  },
+  {
+    "path": "outputs/p21_mode_diff_report.json",
+    "bytes": 6876,
+    "sha256": "4946a8ad0e8c3992d561cefd9408403e00769cc265556167af8c76ca999e8695"
+  },
+  {
+    "path": "outputs/p21_mode_match_report.json",
+    "bytes": 6946,
+    "sha256": "89fd67d5e1f9a4184fea4ffb7134445f5483a869b8febf25ca270a7e84dba51d"
+  },
+  {
+    "path": "outputs/p21_negative_scene_ci_full_report.json",
+    "bytes": 668564,
+    "sha256": "f819237e05a161264d80d4487c08c99af80fc2fb3371917311a601f9eb4362f8"
+  },
+  {
+    "path": "outputs/p21_scene_ci_modes_report.json",
+    "bytes": 8541,
+    "sha256": "8bf432aa32964fd1655c31ca244002f63d7ad4bf22442a5e29eb27a7f33b534d"
+  },
+  {
+    "path": "project/assets/triposr_p4_chair_mesh.glb",
+    "bytes": 120724,
+    "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6"
+  },
+  {
+    "path": "project/assets/triposr_p5_synthetic_block.glb",
+    "bytes": 84084,
+    "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+  },
+  {
+    "path": "project/assets/triposr_p5_synthetic_tower.glb",
+    "bytes": 54084,
+    "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+  },
+  {
+    "path": "project/project.godot",
+    "bytes": 275,
+    "sha256": "046d168ea4546baf9aed7d96f741157c7ff83206522c062ad4c55d69c94a4d8f"
+  },
+  {
+    "path": "project/scenes/p15_ci_objective_scene.tscn",
+    "bytes": 663946,
+    "sha256": "ebab8faf77d8b48b607f52a9b7c60b2bd71d2900227ad1fa79790a55dddb1e92"
+  },
+  {
+    "path": "project/scenes/p16_front_linear_ci_scene.tscn",
+    "bytes": 664151,
+    "sha256": "47d1757766997bd563af9b138b25e7d2b4d4c1f0bc5fe1f267516a2c72ffc900"
+  },
+  {
+    "path": "project/scenes/p16_front_reverse_ci_scene.tscn",
+    "bytes": 664100,
+    "sha256": "bab3e30c198a2eaa7ddaf1669c04d1dc28429b0f74cfb4e85f28702dae48d7c5"
+  },
+  {
+    "path": "project/scenes/p16_front_staggered_ci_scene.tscn",
+    "bytes": 664125,
+    "sha256": "e01c048eb348678b7904f8e52b672cc14cd7c5c6eccccdaa4bbacacb5e5cc72c"
+  },
+  {
+    "path": "project/scenes/p17_camera_obstruction_failure_scene.tscn",
+    "bytes": 664381,
+    "sha256": "7caa89da86f484d03d3f61b92864ac184f5554b7eeec1d28c539a4363ad9047c"
+  },
+  {
+    "path": "project/scenes/p17_finish_before_checkpoints_scene.tscn",
+    "bytes": 664368,
+    "sha256": "98fa25108095ccaf998e733ea51125a60c34dd6f81aee7db5660da5d4564edd5"
+  },
+  {
+    "path": "project/scenes/p17_missing_checkpoint_scene.tscn",
+    "bytes": 663398,
+    "sha256": "7b7e50e602c31ca99e5e12773a9622b48bf25a110e59684fa6a3a6043af6d324"
+  },
+  {
+    "path": "project/scenes/p17_route_mismatch_scene.tscn",
+    "bytes": 664227,
+    "sha256": "fab9145d0fdc006dca78be96bd85ccb03739ca8dcc2cc542e0e4256eea84ec2e"
+  },
+  {
+    "path": "project/scenes/p17_sensor_clearance_violation_scene.tscn",
+    "bytes": 664325,
+    "sha256": "d89170a6844d90ac4d61f3cf925216f90731657fa7dbf75db49c2fec1f12fbfa"
+  },
+  {
+    "path": "project/scenes/p7_minimal_playable_scene.tscn",
+    "bytes": 661628,
+    "sha256": "7230267a4a3713bbe9ff753977f9a59e7f0faf54099a21fc97f80177f1cd7e7d"
+  },
+  {
+    "path": "project/tools/scene_ci_negative_fixtures_with_manifest.gd",
+    "bytes": 50681,
+    "sha256": "0d0293e3639ee1dc776924da2e58705bb51b3b9760026980468729b229e7deb7"
+  },
+  {
+    "path": "report.md",
+    "bytes": 4089,
+    "sha256": "dc7d3db40252d85b7cc5a5236593605a1f89bfba05f5b3dc43e81bf178556b00"
+  },
+  {
+    "path": "run.log",
+    "bytes": 405,
+    "sha256": "150d5afbe2886842ae7a4d27f8269b73be3bdb939892bd272a386b6382b45ccd"
+  },
+  {
+    "path": "run_scene_ci_modes_review_packet.py",
+    "bytes": 16239,
+    "sha256": "25a11e6507c9b6d86e1f367e0a93216d33608a84e6d6242ac917e84549836b8b"
+  },
+  {
+    "path": "verify_run.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
