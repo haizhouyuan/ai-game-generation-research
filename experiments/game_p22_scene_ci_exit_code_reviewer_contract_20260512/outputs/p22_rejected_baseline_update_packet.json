@@ -1,0 +1,7 @@
+{
+  "packet_type": "rejected_baseline_update_request",
+  "requested_baseline_id": "unlisted_scene_ci_baseline_update_counter",
+  "allowlisted": false,
+  "exit_code": 2,
+  "reason": "baseline_id_not_allowlisted"
+}

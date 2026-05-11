@@ -1,0 +1,17 @@
+{
+  "mode": "denied-update",
+  "observed_exit_code": 2,
+  "expected_example_code": 2,
+  "contract": {
+    "success_code": 2,
+    "failure_code": 0,
+    "semantics": "unlisted baseline update request must be denied with non-zero exit",
+    "expected_example_code": 2
+  },
+  "contract_pass": true,
+  "evidence": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_rejected_baseline_update_packet.json",
+  "detail": {
+    "requested_baseline_id": "unlisted_scene_ci_baseline_update_counter",
+    "denied": true
+  }
+}

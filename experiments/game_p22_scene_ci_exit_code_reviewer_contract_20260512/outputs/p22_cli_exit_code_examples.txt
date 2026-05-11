@@ -1,0 +1,4 @@
+match exit_code=0 stdout=outputs/p22_cli_match_stdout.json stderr=outputs/p22_cli_match_stderr.txt
+diff exit_code=1 stdout=outputs/p22_cli_diff_stdout.json stderr=outputs/p22_cli_diff_stderr.txt
+candidate-update exit_code=0 stdout=outputs/p22_cli_candidate_update_stdout.json stderr=outputs/p22_cli_candidate_update_stderr.txt
+denied-update exit_code=2 stdout=outputs/p22_cli_denied_update_stdout.json stderr=outputs/p22_cli_denied_update_stderr.txt

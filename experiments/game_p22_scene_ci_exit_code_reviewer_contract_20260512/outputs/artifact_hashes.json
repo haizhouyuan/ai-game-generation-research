@@ -1,0 +1,147 @@
+[
+  {
+    "path": "baseline/accepted_p19_scene_ci_baseline.json",
+    "bytes": 1764,
+    "sha256": "d078b1b864ce181c28751eba033d3aebfaea24599b3a2e41506af0a2b0f2bdcc"
+  },
+  {
+    "path": "baseline/baseline_update_allowlist.json",
+    "bytes": 295,
+    "sha256": "97ed0bbfad4cfdf00d33f3de0946d1e929b7af9795f59f307eb00d6005fb41d8"
+  },
+  {
+    "path": "boundary_ledger.md",
+    "bytes": 687,
+    "sha256": "ff4ee3e659bdb071255a743d6f3bc832eb7a13b94e662221095a44154579373f"
+  },
+  {
+    "path": "outputs/p22_accepted_baseline_update_packet.json",
+    "bytes": 1287,
+    "sha256": "05fb5aed57bdad59d8a2f339130b9af755adf96e675f9f7dc1ea39939fe59b14"
+  },
+  {
+    "path": "outputs/p22_cli_candidate_update_stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "outputs/p22_cli_candidate_update_stdout.json",
+    "bytes": 586,
+    "sha256": "6ecf947a467ece4338d6acf50981e5f02bb2cfd2255eae446ea2538ffa268fa8"
+  },
+  {
+    "path": "outputs/p22_cli_denied_update_stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "outputs/p22_cli_denied_update_stdout.json",
+    "bytes": 590,
+    "sha256": "368679e2f7d7cad928537de4f2a32987a712b532d0cfc444afb0a47fe7b27f66"
+  },
+  {
+    "path": "outputs/p22_cli_diff_stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "outputs/p22_cli_diff_stdout.json",
+    "bytes": 3960,
+    "sha256": "1b15b0323f372f078fccf4501695294ecb1b7ee93f5c30a58feceb53f8b03b05"
+  },
+  {
+    "path": "outputs/p22_cli_exit_code_examples.txt",
+    "bytes": 450,
+    "sha256": "9a6c207c1373fa6d1d904279f9364656be4f0187596b8f9e0ea0a8755153d78b"
+  },
+  {
+    "path": "outputs/p22_cli_match_stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "outputs/p22_cli_match_stdout.json",
+    "bytes": 3584,
+    "sha256": "0407671751264dd66439eb1a6aac01e2bc0f9268cf59dcf47c076eff9eb16a91"
+  },
+  {
+    "path": "outputs/p22_current_compact_trace.json",
+    "bytes": 15819,
+    "sha256": "f9985c21fd9ea55adea821668a433f59472c4bc0dd1439888ae16aeea3e6cf33"
+  },
+  {
+    "path": "outputs/p22_current_trace_hashes.json",
+    "bytes": 1015,
+    "sha256": "d533b309853536bfce70cb966d9e9dc9af4f4889e9a2af7f4f95921e84edce0a"
+  },
+  {
+    "path": "outputs/p22_exit_code_matrix.json",
+    "bytes": 10798,
+    "sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933"
+  },
+  {
+    "path": "outputs/p22_human_readable_diff_table.md",
+    "bytes": 846,
+    "sha256": "9563b28efe11a0cce5418226332ef79cca351db7b2b2314373743d0e010dac04"
+  },
+  {
+    "path": "outputs/p22_mode_candidate_update_exit_contract.json",
+    "bytes": 586,
+    "sha256": "6ecf947a467ece4338d6acf50981e5f02bb2cfd2255eae446ea2538ffa268fa8"
+  },
+  {
+    "path": "outputs/p22_mode_denied_update_exit_contract.json",
+    "bytes": 590,
+    "sha256": "368679e2f7d7cad928537de4f2a32987a712b532d0cfc444afb0a47fe7b27f66"
+  },
+  {
+    "path": "outputs/p22_mode_diff_exit_contract.json",
+    "bytes": 3960,
+    "sha256": "1b15b0323f372f078fccf4501695294ecb1b7ee93f5c30a58feceb53f8b03b05"
+  },
+  {
+    "path": "outputs/p22_mode_match_exit_contract.json",
+    "bytes": 3584,
+    "sha256": "0407671751264dd66439eb1a6aac01e2bc0f9268cf59dcf47c076eff9eb16a91"
+  },
+  {
+    "path": "outputs/p22_negative_scene_ci_full_report.json",
+    "bytes": 668564,
+    "sha256": "f819237e05a161264d80d4487c08c99af80fc2fb3371917311a601f9eb4362f8"
+  },
+  {
+    "path": "outputs/p22_rejected_baseline_update_packet.json",
+    "bytes": 213,
+    "sha256": "d6b3f85616cc09f6221c6abd05e6d79dd2c518e722bacfa47612077972611832"
+  },
+  {
+    "path": "outputs/p22_reviewer_contract_packet.md",
+    "bytes": 2151,
+    "sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce"
+  },
+  {
+    "path": "outputs/p22_reviewer_contract_report.json",
+    "bytes": 18157,
+    "sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e"
+  },
+  {
+    "path": "report.md",
+    "bytes": 1509,
+    "sha256": "e4d4eb842ac0290ef273c763e3a7b2465a9e7aff4b106bb71428643a6fef5a9c"
+  },
+  {
+    "path": "run.log",
+    "bytes": 358,
+    "sha256": "593f7ba23c9de1b80556759389321949c43585a7ebc33df57691c37a29776720"
+  },
+  {
+    "path": "run_p22_scene_ci_exit_code_reviewer_contract.py",
+    "bytes": 10495,
+    "sha256": "af9651bb1a819d3432b4088e8da3cd00288fb4f70e4dae85392d238b859f9f76"
+  },
+  {
+    "path": "verify_run.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

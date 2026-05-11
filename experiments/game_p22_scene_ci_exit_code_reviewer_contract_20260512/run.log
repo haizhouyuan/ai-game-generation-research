@@ -1,0 +1,13 @@
+{
+  "overall_pass": true,
+  "checks": {
+    "full_summary_pass": true,
+    "match_exit_code_contract": true,
+    "diff_exit_code_contract": true,
+    "candidate_update_exit_code_contract": true,
+    "denied_update_exit_code_contract": true,
+    "accepted_packet_emitted": true,
+    "rejected_packet_emitted": true,
+    "human_diff_table_emitted": true
+  }
+}
