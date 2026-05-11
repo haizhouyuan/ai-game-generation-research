@@ -1,0 +1,19 @@
+{
+  "overall_pass": true,
+  "checks": {
+    "full_summary_pass": true,
+    "positive_hashes_match_baseline": true,
+    "negative_hashes_match_baseline": true,
+    "diff_table_emitted": true,
+    "allowlisted_update_allowed": true,
+    "unlisted_update_denied": true
+  },
+  "diff_table": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p20_reusable_scene_ci_command_20260512/outputs/p20_compact_human_diff_table.md",
+  "policy": {
+    "requested_baseline_id": "accepted_p19_scene_ci_hash_regression_20260512",
+    "allowlisted_update_allowed": true,
+    "unlisted_update_denied": true,
+    "candidate_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p20_reusable_scene_ci_command_20260512/outputs/p20_allowed_baseline_update_candidate.json",
+    "candidate_written": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "policy": "baseline updates are disabled unless the requested baseline_id is listed here and --write-baseline-candidate is used",
+  "allowed_baseline_ids": [
+    "accepted_p19_scene_ci_hash_regression_20260512"
+  ],
+  "candidate_output": "outputs/p20_allowed_baseline_update_candidate.json"
+}

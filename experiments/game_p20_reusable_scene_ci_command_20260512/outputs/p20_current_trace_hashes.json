@@ -1,0 +1,24 @@
+{
+  "full_report_sha256": "f819237e05a161264d80d4487c08c99af80fc2fb3371917311a601f9eb4362f8",
+  "compact_trace_sha256": "46480b46a29657b7cd8c5eec4f60a793b509a4af5c87afb8085a5dca7ffd2feb",
+  "positive_layout_hashes": {
+    "front_linear": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39",
+    "front_reverse": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90",
+    "front_staggered": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa"
+  },
+  "negative_fixture_hashes": {
+    "missing_checkpoint": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072",
+    "route_mismatch": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3",
+    "finish_before_checkpoints": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c",
+    "sensor_clearance_violation": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740",
+    "camera_obstruction_failure": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04"
+  },
+  "checks": {
+    "full_summary_pass": true,
+    "positive_hashes_match_baseline": true,
+    "negative_hashes_match_baseline": true,
+    "diff_table_emitted": true,
+    "allowlisted_update_allowed": true,
+    "unlisted_update_denied": true
+  }
+}
