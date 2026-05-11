@@ -1,0 +1,2183 @@
+{
+	"camera_trace": [
+		{
+			"camera_position": {
+				"x": 2.47000002861023,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_before_unlock_start",
+			"pass": true,
+			"player_position": {
+				"x": 2.47000002861023,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.47000002861023,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 0
+		},
+		{
+			"camera_position": {
+				"x": 2.58999991416931,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_before_unlock",
+			"pass": true,
+			"player_position": {
+				"x": 2.58999991416931,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.58999991416931,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 1
+		},
+		{
+			"camera_position": {
+				"x": 2.70999979972839,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_before_unlock",
+			"pass": true,
+			"player_position": {
+				"x": 2.70999979972839,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.70999979972839,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 2
+		},
+		{
+			"camera_position": {
+				"x": 2.82999968528748,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_before_unlock",
+			"pass": true,
+			"player_position": {
+				"x": 2.82999968528748,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.82999968528748,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 3
+		},
+		{
+			"camera_position": {
+				"x": 2.94999957084656,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_before_unlock",
+			"pass": true,
+			"player_position": {
+				"x": 2.94999957084656,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.94999957084656,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 4
+		},
+		{
+			"camera_position": {
+				"x": -2.22431993484497,
+				"y": 3.69999980926514,
+				"z": 6.1267557144165
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "Checkpoint_Chair_start",
+			"pass": true,
+			"player_position": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 1.27675604820251
+			},
+			"target": {
+				"x": -2.22431993484497,
+				"y": 1.0,
+				"z": 1.27675604820251
+			},
+			"tick": 4
+		},
+		{
+			"camera_position": {
+				"x": -2.22431993484497,
+				"y": 3.69999980926514,
+				"z": 6.00675582885742
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_chair",
+			"pass": true,
+			"player_position": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 1.15675604343414
+			},
+			"target": {
+				"x": -2.22431993484497,
+				"y": 1.0,
+				"z": 1.15675604343414
+			},
+			"tick": 5
+		},
+		{
+			"camera_position": {
+				"x": -2.22431993484497,
+				"y": 3.69999980926514,
+				"z": 5.88675594329834
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_chair",
+			"pass": true,
+			"player_position": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 1.03675603866577
+			},
+			"target": {
+				"x": -2.22431993484497,
+				"y": 1.0,
+				"z": 1.03675603866577
+			},
+			"tick": 6
+		},
+		{
+			"camera_position": {
+				"x": -2.22431993484497,
+				"y": 3.69999980926514,
+				"z": 5.76675605773926
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_chair",
+			"pass": true,
+			"player_position": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 0.9167560338974
+			},
+			"target": {
+				"x": -2.22431993484497,
+				"y": 1.0,
+				"z": 0.9167560338974
+			},
+			"tick": 7
+		},
+		{
+			"camera_position": {
+				"x": -2.22431993484497,
+				"y": 3.69999980926514,
+				"z": 5.64675617218018
+			},
+			"distance_to_target": 5.55090093612671,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_chair",
+			"pass": true,
+			"player_position": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 0.796756029129028
+			},
+			"target": {
+				"x": -2.22431993484497,
+				"y": 1.0,
+				"z": 0.796756029129028
+			},
+			"tick": 8
+		},
+		{
+			"camera_position": {
+				"x": -2.22431993484497,
+				"y": 3.69999980926514,
+				"z": 5.62730264663696
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_chair",
+			"pass": true,
+			"player_position": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 0.777302920818329
+			},
+			"target": {
+				"x": -2.22431993484497,
+				"y": 1.0,
+				"z": 0.777302920818329
+			},
+			"tick": 9
+		},
+		{
+			"camera_position": {
+				"x": -0.099517397582531,
+				"y": 3.69999980926514,
+				"z": 6.4877233505249
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "Checkpoint_Block_start",
+			"pass": true,
+			"player_position": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.63772368431091
+			},
+			"target": {
+				"x": -0.099517397582531,
+				"y": 1.0,
+				"z": 1.63772368431091
+			},
+			"tick": 9
+		},
+		{
+			"camera_position": {
+				"x": -0.099517397582531,
+				"y": 3.69999980926514,
+				"z": 6.36772346496582
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_block",
+			"pass": true,
+			"player_position": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.51772367954254
+			},
+			"target": {
+				"x": -0.099517397582531,
+				"y": 1.0,
+				"z": 1.51772367954254
+			},
+			"tick": 10
+		},
+		{
+			"camera_position": {
+				"x": -0.099517397582531,
+				"y": 3.69999980926514,
+				"z": 6.24772357940674
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_block",
+			"pass": true,
+			"player_position": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.39772367477417
+			},
+			"target": {
+				"x": -0.099517397582531,
+				"y": 1.0,
+				"z": 1.39772367477417
+			},
+			"tick": 11
+		},
+		{
+			"camera_position": {
+				"x": -0.099517397582531,
+				"y": 3.69999980926514,
+				"z": 6.12772369384766
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_block",
+			"pass": true,
+			"player_position": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.2777236700058
+			},
+			"target": {
+				"x": -0.099517397582531,
+				"y": 1.0,
+				"z": 1.2777236700058
+			},
+			"tick": 12
+		},
+		{
+			"camera_position": {
+				"x": -0.099517397582531,
+				"y": 3.69999980926514,
+				"z": 6.00772380828857
+			},
+			"distance_to_target": 5.55090093612671,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_block",
+			"pass": true,
+			"player_position": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.15772366523743
+			},
+			"target": {
+				"x": -0.099517397582531,
+				"y": 1.0,
+				"z": 1.15772366523743
+			},
+			"tick": 13
+		},
+		{
+			"camera_position": {
+				"x": -0.099517397582531,
+				"y": 3.69999980926514,
+				"z": 5.98827028274536
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_block",
+			"pass": true,
+			"player_position": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.13827049732208
+			},
+			"target": {
+				"x": -0.099517397582531,
+				"y": 1.0,
+				"z": 1.13827049732208
+			},
+			"tick": 14
+		},
+		{
+			"camera_position": {
+				"x": 2.1541600227356,
+				"y": 3.69999980926514,
+				"z": 6.37368392944336
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "Checkpoint_Tower_start",
+			"pass": true,
+			"player_position": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.52368402481079
+			},
+			"target": {
+				"x": 2.1541600227356,
+				"y": 1.0,
+				"z": 1.52368402481079
+			},
+			"tick": 14
+		},
+		{
+			"camera_position": {
+				"x": 2.1541600227356,
+				"y": 3.69999980926514,
+				"z": 6.25368404388428
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_tower",
+			"pass": true,
+			"player_position": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.40368402004242
+			},
+			"target": {
+				"x": 2.1541600227356,
+				"y": 1.0,
+				"z": 1.40368402004242
+			},
+			"tick": 15
+		},
+		{
+			"camera_position": {
+				"x": 2.1541600227356,
+				"y": 3.69999980926514,
+				"z": 6.1336841583252
+			},
+			"distance_to_target": 5.55090093612671,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_tower",
+			"pass": true,
+			"player_position": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.28368401527405
+			},
+			"target": {
+				"x": 2.1541600227356,
+				"y": 1.0,
+				"z": 1.28368401527405
+			},
+			"tick": 16
+		},
+		{
+			"camera_position": {
+				"x": 2.1541600227356,
+				"y": 3.69999980926514,
+				"z": 6.01368379592896
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_tower",
+			"pass": true,
+			"player_position": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.16368401050568
+			},
+			"target": {
+				"x": 2.1541600227356,
+				"y": 1.0,
+				"z": 1.16368401050568
+			},
+			"tick": 17
+		},
+		{
+			"camera_position": {
+				"x": 2.1541600227356,
+				"y": 3.69999980926514,
+				"z": 5.89368391036987
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_tower",
+			"pass": true,
+			"player_position": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.0436840057373
+			},
+			"target": {
+				"x": 2.1541600227356,
+				"y": 1.0,
+				"z": 1.0436840057373
+			},
+			"tick": 18
+		},
+		{
+			"camera_position": {
+				"x": 2.1541600227356,
+				"y": 3.69999980926514,
+				"z": 5.87423086166382
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "approach_tower",
+			"pass": true,
+			"player_position": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.02423083782196
+			},
+			"target": {
+				"x": 2.1541600227356,
+				"y": 1.0,
+				"z": 1.02423083782196
+			},
+			"tick": 19
+		},
+		{
+			"camera_position": {
+				"x": 2.47000002861023,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_after_unlock_start",
+			"pass": true,
+			"player_position": {
+				"x": 2.47000002861023,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.47000002861023,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 19
+		},
+		{
+			"camera_position": {
+				"x": 2.58999991416931,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_after_unlock",
+			"pass": true,
+			"player_position": {
+				"x": 2.58999991416931,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.58999991416931,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 20
+		},
+		{
+			"camera_position": {
+				"x": 2.70999979972839,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_after_unlock",
+			"pass": true,
+			"player_position": {
+				"x": 2.70999979972839,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.70999979972839,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 21
+		},
+		{
+			"camera_position": {
+				"x": 2.82999968528748,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_after_unlock",
+			"pass": true,
+			"player_position": {
+				"x": 2.82999968528748,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.82999968528748,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 22
+		},
+		{
+			"camera_position": {
+				"x": 2.94999957084656,
+				"y": 3.69999980926514,
+				"z": 6.19999980926514
+			},
+			"distance_to_target": 5.55090045928955,
+			"follow_error": 0.0,
+			"forward_dot_target": 1.0,
+			"frustum_contains_target": true,
+			"label": "finish_after_unlock",
+			"pass": true,
+			"player_position": {
+				"x": 2.94999957084656,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"target": {
+				"x": 2.94999957084656,
+				"y": 1.0,
+				"z": 1.35000002384186
+			},
+			"tick": 23
+		}
+	],
+	"collision_runs": [
+		{
+			"checkpoint": "Checkpoint_Chair",
+			"checkpoint_collected": true,
+			"collider": "triposr_p4_chair_mesh_Collider",
+			"collider_name": "triposr_p4_chair_mesh_Collider",
+			"collision_detected": true,
+			"errors": [],
+			"input_ticks": [
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 1.15675604343414
+					},
+					"before": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 1.27675604820251
+					},
+					"collected": [],
+					"collision": false,
+					"event_count": 1,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_chair",
+					"moved_distance": 0.120000004768372,
+					"tick": 5
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 1.03675603866577
+					},
+					"before": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 1.15675604343414
+					},
+					"collected": [],
+					"collision": false,
+					"event_count": 1,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_chair",
+					"moved_distance": 0.120000004768372,
+					"tick": 6
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 0.9167560338974
+					},
+					"before": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 1.03675603866577
+					},
+					"collected": [],
+					"collision": false,
+					"event_count": 1,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_chair",
+					"moved_distance": 0.120000004768372,
+					"tick": 7
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 0.796756029129028
+					},
+					"before": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 0.9167560338974
+					},
+					"collected": [
+						"chair"
+					],
+					"collision": false,
+					"event_count": 2,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_chair",
+					"moved_distance": 0.120000004768372,
+					"tick": 8
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 0.777302920818329
+					},
+					"before": {
+						"x": -2.22431993484497,
+						"y": 0.649999976158142,
+						"z": 0.796756029129028
+					},
+					"collected": [
+						"chair"
+					],
+					"collider_name": "triposr_p4_chair_mesh_Collider",
+					"collision": true,
+					"collision_normal": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": 1.0
+					},
+					"collision_position": {
+						"x": -2.22431993484497,
+						"y": 0.779999971389771,
+						"z": 0.55675607919693
+					},
+					"event_count": 2,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_chair",
+					"moved_distance": 0.0194531083106995,
+					"tick": 9
+				}
+			],
+			"objective_id": "chair",
+			"pass": true,
+			"target_found": true,
+			"target_is_static_body": true
+		},
+		{
+			"checkpoint": "Checkpoint_Block",
+			"checkpoint_collected": true,
+			"collider": "triposr_p5_synthetic_block_Collider",
+			"collider_name": "triposr_p5_synthetic_block_Collider",
+			"collision_detected": true,
+			"errors": [],
+			"input_ticks": [
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.51772367954254
+					},
+					"before": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.63772368431091
+					},
+					"collected": [
+						"chair"
+					],
+					"collision": false,
+					"event_count": 2,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_block",
+					"moved_distance": 0.120000004768372,
+					"tick": 10
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.39772367477417
+					},
+					"before": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.51772367954254
+					},
+					"collected": [
+						"chair"
+					],
+					"collision": false,
+					"event_count": 2,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_block",
+					"moved_distance": 0.120000004768372,
+					"tick": 11
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.2777236700058
+					},
+					"before": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.39772367477417
+					},
+					"collected": [
+						"chair"
+					],
+					"collision": false,
+					"event_count": 2,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_block",
+					"moved_distance": 0.120000004768372,
+					"tick": 12
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.15772366523743
+					},
+					"before": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.2777236700058
+					},
+					"collected": [
+						"chair"
+					],
+					"collision": false,
+					"event_count": 2,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_block",
+					"moved_distance": 0.120000004768372,
+					"tick": 13
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.13827049732208
+					},
+					"before": {
+						"x": -0.099517397582531,
+						"y": 0.649999976158142,
+						"z": 1.15772366523743
+					},
+					"collected": [
+						"chair",
+						"block"
+					],
+					"collider_name": "triposr_p5_synthetic_block_Collider",
+					"collision": true,
+					"collision_normal": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": 1.0
+					},
+					"collision_position": {
+						"x": -0.099517397582531,
+						"y": 0.727350473403931,
+						"z": 0.917723655700684
+					},
+					"event_count": 3,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_block",
+					"moved_distance": 0.0194531679153442,
+					"tick": 14
+				}
+			],
+			"objective_id": "block",
+			"pass": true,
+			"target_found": true,
+			"target_is_static_body": true
+		},
+		{
+			"checkpoint": "Checkpoint_Tower",
+			"checkpoint_collected": true,
+			"collider": "triposr_p5_synthetic_tower_Collider",
+			"collider_name": "triposr_p5_synthetic_tower_Collider",
+			"collision_detected": true,
+			"errors": [],
+			"input_ticks": [
+				{
+					"action": "move_forward",
+					"after": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.40368402004242
+					},
+					"before": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.52368402481079
+					},
+					"collected": [
+						"chair",
+						"block"
+					],
+					"collision": false,
+					"event_count": 3,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_tower",
+					"moved_distance": 0.120000004768372,
+					"tick": 15
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.28368401527405
+					},
+					"before": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.40368402004242
+					},
+					"collected": [
+						"chair",
+						"block"
+					],
+					"collision": false,
+					"event_count": 3,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_tower",
+					"moved_distance": 0.120000004768372,
+					"tick": 16
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.16368401050568
+					},
+					"before": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.28368401527405
+					},
+					"collected": [
+						"chair",
+						"block"
+					],
+					"collision": false,
+					"event_count": 3,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_tower",
+					"moved_distance": 0.120000004768372,
+					"tick": 17
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.0436840057373
+					},
+					"before": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.16368401050568
+					},
+					"collected": [
+						"chair",
+						"block",
+						"tower"
+					],
+					"collision": false,
+					"event_count": 4,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_tower",
+					"moved_distance": 0.120000004768372,
+					"tick": 18
+				},
+				{
+					"action": "move_forward",
+					"after": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.02423083782196
+					},
+					"before": {
+						"x": 2.1541600227356,
+						"y": 0.649999976158142,
+						"z": 1.0436840057373
+					},
+					"collected": [
+						"chair",
+						"block",
+						"tower"
+					],
+					"collider_name": "triposr_p5_synthetic_tower_Collider",
+					"collision": true,
+					"collision_normal": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": 1.0
+					},
+					"collision_position": {
+						"x": 2.1541600227356,
+						"y": 0.779999971389771,
+						"z": 0.803683996200562
+					},
+					"event_count": 4,
+					"input_vector": {
+						"x": 0.0,
+						"y": 0.0,
+						"z": -1.0
+					},
+					"label": "approach_tower",
+					"moved_distance": 0.0194531679153442,
+					"tick": 19
+				}
+			],
+			"objective_id": "tower",
+			"pass": true,
+			"target_found": true,
+			"target_is_static_body": true
+		}
+	],
+	"event_trace": [
+		{
+			"accepted": false,
+			"body": "/root/P7MinimalPlayableScene/Player",
+			"collected_snapshot": [],
+			"index": 1,
+			"objective_id": "finish",
+			"objective_name": "Finish_Area",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Finish_Area",
+			"objective_type": "finish",
+			"reason": "finish_locked",
+			"tick": 3
+		},
+		{
+			"accepted": true,
+			"body": "/root/P7MinimalPlayableScene/Player",
+			"collected_snapshot": [
+				"chair"
+			],
+			"index": 2,
+			"objective_id": "chair",
+			"objective_name": "Checkpoint_Chair",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Chair",
+			"objective_type": "checkpoint",
+			"reason": "checkpoint_collected",
+			"tick": 7
+		},
+		{
+			"accepted": true,
+			"body": "/root/P7MinimalPlayableScene/Player",
+			"collected_snapshot": [
+				"chair",
+				"block"
+			],
+			"index": 3,
+			"objective_id": "block",
+			"objective_name": "Checkpoint_Block",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Block",
+			"objective_type": "checkpoint",
+			"reason": "checkpoint_collected",
+			"tick": 13
+		},
+		{
+			"accepted": true,
+			"body": "/root/P7MinimalPlayableScene/Player",
+			"collected_snapshot": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"index": 4,
+			"objective_id": "tower",
+			"objective_name": "Checkpoint_Tower",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Tower",
+			"objective_type": "checkpoint",
+			"reason": "checkpoint_collected",
+			"tick": 17
+		},
+		{
+			"accepted": true,
+			"body": "/root/P7MinimalPlayableScene/Player",
+			"collected_snapshot": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"index": 5,
+			"objective_id": "finish",
+			"objective_name": "Finish_Area",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Finish_Area",
+			"objective_type": "finish",
+			"reason": "finish_unlocked",
+			"tick": 22
+		}
+	],
+	"fallback": {
+		"note": "No fallback is counted as pass. The pass gate requires move_and_collide, Area3D body_entered events, input-vector ticks, and camera assertions.",
+		"used": false
+	},
+	"finish_attempts": [
+		{
+			"accepted": false,
+			"distance_to_finish": 0.300000429153442,
+			"errors": [],
+			"input_ticks": [
+				{
+					"action": "move_right",
+					"after": {
+						"x": 2.58999991416931,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"before": {
+						"x": 2.47000002861023,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"collected": [],
+					"collision": false,
+					"distance_to_finish": 0.660000085830688,
+					"event_count": 0,
+					"input_vector": {
+						"x": 1.0,
+						"y": 0.0,
+						"z": 0.0
+					},
+					"label": "finish_before_unlock",
+					"tick": 1
+				},
+				{
+					"action": "move_right",
+					"after": {
+						"x": 2.70999979972839,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"before": {
+						"x": 2.58999991416931,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"collected": [],
+					"collision": false,
+					"distance_to_finish": 0.540000200271606,
+					"event_count": 0,
+					"input_vector": {
+						"x": 1.0,
+						"y": 0.0,
+						"z": 0.0
+					},
+					"label": "finish_before_unlock",
+					"tick": 2
+				},
+				{
+					"action": "move_right",
+					"after": {
+						"x": 2.82999968528748,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"before": {
+						"x": 2.70999979972839,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"collected": [],
+					"collision": false,
+					"distance_to_finish": 0.420000314712524,
+					"event_count": 0,
+					"input_vector": {
+						"x": 1.0,
+						"y": 0.0,
+						"z": 0.0
+					},
+					"label": "finish_before_unlock",
+					"tick": 3
+				},
+				{
+					"action": "move_right",
+					"after": {
+						"x": 2.94999957084656,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"before": {
+						"x": 2.82999968528748,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"collected": [],
+					"collision": false,
+					"distance_to_finish": 0.300000429153442,
+					"event_count": 1,
+					"input_vector": {
+						"x": 1.0,
+						"y": 0.0,
+						"z": 0.0
+					},
+					"label": "finish_before_unlock",
+					"tick": 4
+				}
+			],
+			"label": "finish_before_unlock",
+			"pass": true,
+			"signal_received": true
+		},
+		{
+			"accepted": true,
+			"distance_to_finish": 0.300000429153442,
+			"errors": [],
+			"input_ticks": [
+				{
+					"action": "move_right",
+					"after": {
+						"x": 2.58999991416931,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"before": {
+						"x": 2.47000002861023,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"collected": [
+						"chair",
+						"block",
+						"tower"
+					],
+					"collision": false,
+					"distance_to_finish": 0.660000085830688,
+					"event_count": 4,
+					"input_vector": {
+						"x": 1.0,
+						"y": 0.0,
+						"z": 0.0
+					},
+					"label": "finish_after_unlock",
+					"tick": 20
+				},
+				{
+					"action": "move_right",
+					"after": {
+						"x": 2.70999979972839,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"before": {
+						"x": 2.58999991416931,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"collected": [
+						"chair",
+						"block",
+						"tower"
+					],
+					"collision": false,
+					"distance_to_finish": 0.540000200271606,
+					"event_count": 4,
+					"input_vector": {
+						"x": 1.0,
+						"y": 0.0,
+						"z": 0.0
+					},
+					"label": "finish_after_unlock",
+					"tick": 21
+				},
+				{
+					"action": "move_right",
+					"after": {
+						"x": 2.82999968528748,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"before": {
+						"x": 2.70999979972839,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"collected": [
+						"chair",
+						"block",
+						"tower"
+					],
+					"collision": false,
+					"distance_to_finish": 0.420000314712524,
+					"event_count": 4,
+					"input_vector": {
+						"x": 1.0,
+						"y": 0.0,
+						"z": 0.0
+					},
+					"label": "finish_after_unlock",
+					"tick": 22
+				},
+				{
+					"action": "move_right",
+					"after": {
+						"x": 2.94999957084656,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"before": {
+						"x": 2.82999968528748,
+						"y": 0.649999976158142,
+						"z": 1.35000002384186
+					},
+					"collected": [
+						"chair",
+						"block",
+						"tower"
+					],
+					"collision": false,
+					"distance_to_finish": 0.300000429153442,
+					"event_count": 5,
+					"input_vector": {
+						"x": 1.0,
+						"y": 0.0,
+						"z": 0.0
+					},
+					"label": "finish_after_unlock",
+					"tick": 23
+				}
+			],
+			"label": "finish_after_unlock",
+			"pass": true,
+			"signal_received": true
+		}
+	],
+	"input_replay": [
+		{
+			"action": "move_right",
+			"after": {
+				"x": 2.58999991416931,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"before": {
+				"x": 2.47000002861023,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"collected": [],
+			"collision": false,
+			"distance_to_finish": 0.660000085830688,
+			"event_count": 0,
+			"input_vector": {
+				"x": 1.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"label": "finish_before_unlock",
+			"tick": 1
+		},
+		{
+			"action": "move_right",
+			"after": {
+				"x": 2.70999979972839,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"before": {
+				"x": 2.58999991416931,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"collected": [],
+			"collision": false,
+			"distance_to_finish": 0.540000200271606,
+			"event_count": 0,
+			"input_vector": {
+				"x": 1.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"label": "finish_before_unlock",
+			"tick": 2
+		},
+		{
+			"action": "move_right",
+			"after": {
+				"x": 2.82999968528748,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"before": {
+				"x": 2.70999979972839,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"collected": [],
+			"collision": false,
+			"distance_to_finish": 0.420000314712524,
+			"event_count": 0,
+			"input_vector": {
+				"x": 1.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"label": "finish_before_unlock",
+			"tick": 3
+		},
+		{
+			"action": "move_right",
+			"after": {
+				"x": 2.94999957084656,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"before": {
+				"x": 2.82999968528748,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"collected": [],
+			"collision": false,
+			"distance_to_finish": 0.300000429153442,
+			"event_count": 1,
+			"input_vector": {
+				"x": 1.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"label": "finish_before_unlock",
+			"tick": 4
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 1.15675604343414
+			},
+			"before": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 1.27675604820251
+			},
+			"collected": [],
+			"collision": false,
+			"event_count": 1,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_chair",
+			"moved_distance": 0.120000004768372,
+			"tick": 5
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 1.03675603866577
+			},
+			"before": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 1.15675604343414
+			},
+			"collected": [],
+			"collision": false,
+			"event_count": 1,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_chair",
+			"moved_distance": 0.120000004768372,
+			"tick": 6
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 0.9167560338974
+			},
+			"before": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 1.03675603866577
+			},
+			"collected": [],
+			"collision": false,
+			"event_count": 1,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_chair",
+			"moved_distance": 0.120000004768372,
+			"tick": 7
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 0.796756029129028
+			},
+			"before": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 0.9167560338974
+			},
+			"collected": [
+				"chair"
+			],
+			"collision": false,
+			"event_count": 2,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_chair",
+			"moved_distance": 0.120000004768372,
+			"tick": 8
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 0.777302920818329
+			},
+			"before": {
+				"x": -2.22431993484497,
+				"y": 0.649999976158142,
+				"z": 0.796756029129028
+			},
+			"collected": [
+				"chair"
+			],
+			"collider_name": "triposr_p4_chair_mesh_Collider",
+			"collision": true,
+			"collision_normal": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 1.0
+			},
+			"collision_position": {
+				"x": -2.22431993484497,
+				"y": 0.779999971389771,
+				"z": 0.55675607919693
+			},
+			"event_count": 2,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_chair",
+			"moved_distance": 0.0194531083106995,
+			"tick": 9
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.51772367954254
+			},
+			"before": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.63772368431091
+			},
+			"collected": [
+				"chair"
+			],
+			"collision": false,
+			"event_count": 2,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_block",
+			"moved_distance": 0.120000004768372,
+			"tick": 10
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.39772367477417
+			},
+			"before": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.51772367954254
+			},
+			"collected": [
+				"chair"
+			],
+			"collision": false,
+			"event_count": 2,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_block",
+			"moved_distance": 0.120000004768372,
+			"tick": 11
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.2777236700058
+			},
+			"before": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.39772367477417
+			},
+			"collected": [
+				"chair"
+			],
+			"collision": false,
+			"event_count": 2,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_block",
+			"moved_distance": 0.120000004768372,
+			"tick": 12
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.15772366523743
+			},
+			"before": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.2777236700058
+			},
+			"collected": [
+				"chair"
+			],
+			"collision": false,
+			"event_count": 2,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_block",
+			"moved_distance": 0.120000004768372,
+			"tick": 13
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.13827049732208
+			},
+			"before": {
+				"x": -0.099517397582531,
+				"y": 0.649999976158142,
+				"z": 1.15772366523743
+			},
+			"collected": [
+				"chair",
+				"block"
+			],
+			"collider_name": "triposr_p5_synthetic_block_Collider",
+			"collision": true,
+			"collision_normal": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 1.0
+			},
+			"collision_position": {
+				"x": -0.099517397582531,
+				"y": 0.727350473403931,
+				"z": 0.917723655700684
+			},
+			"event_count": 3,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_block",
+			"moved_distance": 0.0194531679153442,
+			"tick": 14
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.40368402004242
+			},
+			"before": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.52368402481079
+			},
+			"collected": [
+				"chair",
+				"block"
+			],
+			"collision": false,
+			"event_count": 3,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_tower",
+			"moved_distance": 0.120000004768372,
+			"tick": 15
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.28368401527405
+			},
+			"before": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.40368402004242
+			},
+			"collected": [
+				"chair",
+				"block"
+			],
+			"collision": false,
+			"event_count": 3,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_tower",
+			"moved_distance": 0.120000004768372,
+			"tick": 16
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.16368401050568
+			},
+			"before": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.28368401527405
+			},
+			"collected": [
+				"chair",
+				"block"
+			],
+			"collision": false,
+			"event_count": 3,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_tower",
+			"moved_distance": 0.120000004768372,
+			"tick": 17
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.0436840057373
+			},
+			"before": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.16368401050568
+			},
+			"collected": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"collision": false,
+			"event_count": 4,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_tower",
+			"moved_distance": 0.120000004768372,
+			"tick": 18
+		},
+		{
+			"action": "move_forward",
+			"after": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.02423083782196
+			},
+			"before": {
+				"x": 2.1541600227356,
+				"y": 0.649999976158142,
+				"z": 1.0436840057373
+			},
+			"collected": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"collider_name": "triposr_p5_synthetic_tower_Collider",
+			"collision": true,
+			"collision_normal": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 1.0
+			},
+			"collision_position": {
+				"x": 2.1541600227356,
+				"y": 0.779999971389771,
+				"z": 0.803683996200562
+			},
+			"event_count": 4,
+			"input_vector": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -1.0
+			},
+			"label": "approach_tower",
+			"moved_distance": 0.0194531679153442,
+			"tick": 19
+		},
+		{
+			"action": "move_right",
+			"after": {
+				"x": 2.58999991416931,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"before": {
+				"x": 2.47000002861023,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"collected": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"collision": false,
+			"distance_to_finish": 0.660000085830688,
+			"event_count": 4,
+			"input_vector": {
+				"x": 1.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"label": "finish_after_unlock",
+			"tick": 20
+		},
+		{
+			"action": "move_right",
+			"after": {
+				"x": 2.70999979972839,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"before": {
+				"x": 2.58999991416931,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"collected": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"collision": false,
+			"distance_to_finish": 0.540000200271606,
+			"event_count": 4,
+			"input_vector": {
+				"x": 1.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"label": "finish_after_unlock",
+			"tick": 21
+		},
+		{
+			"action": "move_right",
+			"after": {
+				"x": 2.82999968528748,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"before": {
+				"x": 2.70999979972839,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"collected": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"collision": false,
+			"distance_to_finish": 0.420000314712524,
+			"event_count": 4,
+			"input_vector": {
+				"x": 1.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"label": "finish_after_unlock",
+			"tick": 22
+		},
+		{
+			"action": "move_right",
+			"after": {
+				"x": 2.94999957084656,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"before": {
+				"x": 2.82999968528748,
+				"y": 0.649999976158142,
+				"z": 1.35000002384186
+			},
+			"collected": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"collision": false,
+			"distance_to_finish": 0.300000429153442,
+			"event_count": 5,
+			"input_vector": {
+				"x": 1.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"label": "finish_after_unlock",
+			"tick": 23
+		}
+	],
+	"no_proxy_note": "Godot run is local/offline on HomePC with proxy variables unset by the caller.",
+	"scene_path": "res://scenes/p10_objective_scene.tscn",
+	"sensor_clearance_repair_enabled": true,
+	"setup": {
+		"camera_exists": true,
+		"connected_objectives": 4,
+		"errors": [],
+		"objective_paths": [
+			"/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Chair",
+			"/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Block",
+			"/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Tower",
+			"/root/P7MinimalPlayableScene/ObjectiveRoot/Finish_Area"
+		],
+		"pass": true,
+		"player_exists": true,
+		"scene_loaded": true,
+		"sensor_clearance_repairs": [
+			{
+				"applied": false,
+				"area_front_z_after": 0.804185509681702,
+				"area_front_z_before": 0.804185509681702,
+				"checkpoint": "Checkpoint_Chair",
+				"collider": "triposr_p4_chair_mesh_Collider",
+				"collider_front_z": 0.556756097823381,
+				"delta_z": 0.0,
+				"errors": [],
+				"reason": "not_needed"
+			},
+			{
+				"applied": true,
+				"area_front_z_after": 0.957723677158356,
+				"area_front_z_before": 0.897724032402039,
+				"checkpoint": "Checkpoint_Block",
+				"collider": "triposr_p5_synthetic_block_Collider",
+				"collider_front_z": 0.91772367618978,
+				"delta_z": 0.0599996437877417,
+				"errors": [],
+				"reason": "extended_sensor_front_to_reach_collision_approach_before_contact"
+			},
+			{
+				"applied": false,
+				"area_front_z_after": 1.00122699141502,
+				"area_front_z_before": 1.00122699141502,
+				"checkpoint": "Checkpoint_Tower",
+				"collider": "triposr_p5_synthetic_tower_Collider",
+				"collider_front_z": 0.803683996200562,
+				"delta_z": 0.0,
+				"errors": [],
+				"reason": "not_needed"
+			}
+		]
+	},
+	"simulation_mode": "Godot headless deterministic input-vector replay with CharacterBody3D collision, Area3D body_entered objective events, and Camera3D follow/framing assertions",
+	"summary": {
+		"camera_assertions": {
+			"distance_max": 6.2,
+			"distance_min": 5.0,
+			"dot_min": 0.98,
+			"failed_count": 0,
+			"pass": true,
+			"sample_count": 28
+		},
+		"collected": [
+			"chair",
+			"block",
+			"tower"
+		],
+		"collision_pass_count": 3,
+		"collision_target_count": 3,
+		"event_order_passed": true,
+		"event_reasons": [
+			"finish_locked",
+			"checkpoint_collected",
+			"checkpoint_collected",
+			"checkpoint_collected",
+			"finish_unlocked"
+		],
+		"expected_event_reasons": [
+			"finish_locked",
+			"checkpoint_collected",
+			"checkpoint_collected",
+			"checkpoint_collected",
+			"finish_unlocked"
+		],
+		"finish_after_unlocked": true,
+		"finish_attempt_count": 2,
+		"finish_before_locked": true,
+		"pass": true,
+		"tick_count": 23
+	},
+	"visual_probe": {
+		"attempted": false,
+		"reason": "P13 avoids blind headless screenshot retry after P12 proved the local headless viewport path can be empty."
+	}
+}

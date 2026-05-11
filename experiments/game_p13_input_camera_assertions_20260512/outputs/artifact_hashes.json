@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-05-12T03:10:00+08:00",
+  "artifacts": [
+    {
+      "path": "project/tools/simulate_input_camera_assertions.gd",
+      "sha256": "e3413dfe604b63b3064dfc3a04f6040cbf4f94ae95fed739f5de7af767897719",
+      "bytes": 18034
+    },
+    {
+      "path": "project/scenes/p10_objective_scene.tscn",
+      "sha256": "b904ac953ec4e339b5e75d3aeef657927f8a523a4eba0238dd40f7bc45d28e9e",
+      "bytes": 662970
+    },
+    {
+      "path": "project/assets/triposr_p4_chair_mesh.glb",
+      "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6",
+      "bytes": 120724
+    },
+    {
+      "path": "project/assets/triposr_p5_synthetic_block.glb",
+      "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47",
+      "bytes": 84084
+    },
+    {
+      "path": "project/assets/triposr_p5_synthetic_tower.glb",
+      "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2",
+      "bytes": 54084
+    },
+    {
+      "path": "outputs/p13_input_camera_assertions_report.json",
+      "sha256": "52473bf915a35f5481a9bfc9dc9b19951a15aa19fceac7f73e7d447eccbe38e5",
+      "bytes": 45805
+    },
+    {
+      "path": "outputs/p13_input_camera_assertions_without_sensor_repair_report.json",
+      "sha256": "c2466018fb41e096d4b7742cb671454450e95413add3e7c8b779225c646c8e80",
+      "bytes": 45162
+    },
+    {
+      "path": "outputs/godot_p13_input_camera_assertions_homepc.log",
+      "sha256": "bd7fd7bc4c9c8cfddda5099513a21cc10e2ebc9927296411961f21294ec811a7",
+      "bytes": 33701
+    },
+    {
+      "path": "outputs/godot_p13_input_camera_assertions_without_repair_homepc.log",
+      "sha256": "73df9b0b051601bd0fb6a7906525a3690bd4f87a0d69cb57af75eafb0e58280c",
+      "bytes": 33257
+    },
+    {
+      "path": "outputs/godot_p13_input_camera_assertions_verify_homepc.log",
+      "sha256": "bd7fd7bc4c9c8cfddda5099513a21cc10e2ebc9927296411961f21294ec811a7",
+      "bytes": 33701
+    },
+    {
+      "path": "outputs/godot_p13_input_camera_assertions_without_repair_verify_homepc.log",
+      "sha256": "73df9b0b051601bd0fb6a7906525a3690bd4f87a0d69cb57af75eafb0e58280c",
+      "bytes": 33257
+    }
+  ]
+}
