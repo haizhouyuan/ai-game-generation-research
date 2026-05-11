@@ -1,0 +1,27 @@
+[
+  {
+    "path": "project/tools/scene_ci_harness_replay_trace.gd",
+    "bytes": 34535,
+    "sha256": "f0ec91a954eee08e074c7906acc4ae6cc83c6042c02826090f455270b1f91093"
+  },
+  {
+    "path": "project/scenes/p15_ci_objective_scene.tscn",
+    "bytes": 663946,
+    "sha256": "ebab8faf77d8b48b607f52a9b7c60b2bd71d2900227ad1fa79790a55dddb1e92"
+  },
+  {
+    "path": "outputs/p15_scene_ci_harness_replay_trace_report.json",
+    "bytes": 96132,
+    "sha256": "d56558acf7d4728195b2b153182c65d3a3d788c492f010267213eb4469261258"
+  },
+  {
+    "path": "outputs/godot_p15_scene_ci_harness_replay_trace_homepc.log",
+    "bytes": 71841,
+    "sha256": "ea2ef65aff1390ba9eff8d86add4066bce8383f6902d7d85faa1d7fac783245b"
+  },
+  {
+    "path": "outputs/godot_p15_scene_ci_harness_replay_trace_verify_homepc.log",
+    "bytes": 71841,
+    "sha256": "ea2ef65aff1390ba9eff8d86add4066bce8383f6902d7d85faa1d7fac783245b"
+  }
+]
