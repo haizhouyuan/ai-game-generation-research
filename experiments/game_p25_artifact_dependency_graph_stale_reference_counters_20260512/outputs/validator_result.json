@@ -1,0 +1,883 @@
+{
+  "batch": "P25-A game artifact dependency graph and stale-reference counters",
+  "graph_manifest": {
+    "graph_version": "1.0",
+    "graph_id": "game_p25_scene_ci_artifact_dependency_graph_20260512",
+    "p24_overall_pass": true,
+    "nodes": [
+      {
+        "id": "p24_integrity_matrix",
+        "role": "p24_integrity_matrix",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json",
+        "sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+        "bytes": 23635
+      },
+      {
+        "id": "p24_integrity_manifest",
+        "role": "p24_integrity_manifest",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json",
+        "sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+        "bytes": 2335
+      },
+      {
+        "id": "p24_version_report",
+        "role": "p24_version_report",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json",
+        "sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+        "bytes": 12555
+      },
+      {
+        "id": "source_artifact_0",
+        "role": "source_artifact_0",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+        "sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "bytes": 18157
+      },
+      {
+        "id": "source_artifact_1",
+        "role": "source_artifact_1",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+        "sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+        "bytes": 10798
+      },
+      {
+        "id": "source_artifact_2",
+        "role": "source_artifact_2",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+        "sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+        "bytes": 2151
+      },
+      {
+        "id": "source_artifact_3",
+        "role": "source_artifact_3",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+        "sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+        "bytes": 5480
+      },
+      {
+        "id": "source_artifact_4",
+        "role": "source_artifact_4",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+        "sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+        "bytes": 1226
+      }
+    ],
+    "edges": [
+      {
+        "from": "p24_integrity_matrix",
+        "to": "p24_integrity_manifest",
+        "kind": "validates_manifest"
+      },
+      {
+        "from": "p24_integrity_matrix",
+        "to": "p24_version_report",
+        "kind": "validates_version"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "to": "source_artifact_0",
+        "kind": "declares_artifact"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "to": "source_artifact_1",
+        "kind": "declares_artifact"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "to": "source_artifact_2",
+        "kind": "declares_artifact"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "to": "source_artifact_3",
+        "kind": "declares_artifact"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "to": "source_artifact_4",
+        "kind": "declares_artifact"
+      }
+    ],
+    "boundary": "dependency graph covers local reviewer-contract artifacts only"
+  },
+  "valid_graph": {
+    "pass": true,
+    "artifact_rows": [
+      {
+        "id": "p24_integrity_matrix",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json",
+        "exists": true,
+        "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+        "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+        "pass": true
+      },
+      {
+        "id": "p24_integrity_manifest",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json",
+        "exists": true,
+        "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+        "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+        "pass": true
+      },
+      {
+        "id": "p24_version_report",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json",
+        "exists": true,
+        "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+        "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+        "pass": true
+      },
+      {
+        "id": "source_artifact_0",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+        "exists": true,
+        "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "pass": true
+      },
+      {
+        "id": "source_artifact_1",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+        "exists": true,
+        "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+        "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+        "pass": true
+      },
+      {
+        "id": "source_artifact_2",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+        "exists": true,
+        "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+        "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+        "pass": true
+      },
+      {
+        "id": "source_artifact_3",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+        "exists": true,
+        "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+        "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+        "pass": true
+      },
+      {
+        "id": "source_artifact_4",
+        "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+        "exists": true,
+        "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+        "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+        "pass": true
+      }
+    ],
+    "edge_rows": [
+      {
+        "edge": {
+          "from": "p24_integrity_matrix",
+          "to": "p24_integrity_manifest",
+          "kind": "validates_manifest"
+        },
+        "pass": true,
+        "from_ok": true,
+        "to_ok": true
+      },
+      {
+        "edge": {
+          "from": "p24_integrity_matrix",
+          "to": "p24_version_report",
+          "kind": "validates_version"
+        },
+        "pass": true,
+        "from_ok": true,
+        "to_ok": true
+      },
+      {
+        "edge": {
+          "from": "p24_integrity_manifest",
+          "to": "source_artifact_0",
+          "kind": "declares_artifact"
+        },
+        "pass": true,
+        "from_ok": true,
+        "to_ok": true
+      },
+      {
+        "edge": {
+          "from": "p24_integrity_manifest",
+          "to": "source_artifact_1",
+          "kind": "declares_artifact"
+        },
+        "pass": true,
+        "from_ok": true,
+        "to_ok": true
+      },
+      {
+        "edge": {
+          "from": "p24_integrity_manifest",
+          "to": "source_artifact_2",
+          "kind": "declares_artifact"
+        },
+        "pass": true,
+        "from_ok": true,
+        "to_ok": true
+      },
+      {
+        "edge": {
+          "from": "p24_integrity_manifest",
+          "to": "source_artifact_3",
+          "kind": "declares_artifact"
+        },
+        "pass": true,
+        "from_ok": true,
+        "to_ok": true
+      },
+      {
+        "edge": {
+          "from": "p24_integrity_manifest",
+          "to": "source_artifact_4",
+          "kind": "declares_artifact"
+        },
+        "pass": true,
+        "from_ok": true,
+        "to_ok": true
+      }
+    ],
+    "orphans": [],
+    "node_count": 8,
+    "edge_count": 7
+  },
+  "counters": {
+    "missing_artifact": {
+      "pass": true,
+      "validation": {
+        "pass": false,
+        "artifact_rows": [
+          {
+            "id": "p24_integrity_matrix",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p25_artifact_dependency_graph_stale_reference_counters_20260512/outputs/missing_artifact_counter.json",
+            "exists": false,
+            "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "current_sha256": null,
+            "pass": false
+          },
+          {
+            "id": "p24_integrity_manifest",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json",
+            "exists": true,
+            "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "pass": true
+          },
+          {
+            "id": "p24_version_report",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json",
+            "exists": true,
+            "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_0",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+            "exists": true,
+            "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_1",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+            "exists": true,
+            "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_2",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+            "exists": true,
+            "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_3",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+            "exists": true,
+            "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_4",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+            "exists": true,
+            "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "pass": true
+          }
+        ],
+        "edge_rows": [
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "p24_integrity_manifest",
+              "kind": "validates_manifest"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "p24_version_report",
+              "kind": "validates_version"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_0",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_1",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_2",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_3",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_4",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          }
+        ],
+        "orphans": [],
+        "node_count": 8,
+        "edge_count": 7
+      }
+    },
+    "tampered_hash": {
+      "pass": true,
+      "validation": {
+        "pass": false,
+        "artifact_rows": [
+          {
+            "id": "p24_integrity_matrix",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json",
+            "exists": true,
+            "expected_sha256": "tampered-13955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "pass": false
+          },
+          {
+            "id": "p24_integrity_manifest",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json",
+            "exists": true,
+            "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "pass": true
+          },
+          {
+            "id": "p24_version_report",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json",
+            "exists": true,
+            "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_0",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+            "exists": true,
+            "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_1",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+            "exists": true,
+            "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_2",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+            "exists": true,
+            "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_3",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+            "exists": true,
+            "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_4",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+            "exists": true,
+            "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "pass": true
+          }
+        ],
+        "edge_rows": [
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "p24_integrity_manifest",
+              "kind": "validates_manifest"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "p24_version_report",
+              "kind": "validates_version"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_0",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_1",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_2",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_3",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_4",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          }
+        ],
+        "orphans": [],
+        "node_count": 8,
+        "edge_count": 7
+      }
+    },
+    "stale_reference": {
+      "pass": true,
+      "validation": {
+        "pass": false,
+        "artifact_rows": [
+          {
+            "id": "p24_integrity_matrix",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json",
+            "exists": true,
+            "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "pass": true
+          },
+          {
+            "id": "p24_integrity_manifest",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json",
+            "exists": true,
+            "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "pass": true
+          },
+          {
+            "id": "p24_version_report",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json",
+            "exists": true,
+            "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_0",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+            "exists": true,
+            "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_1",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+            "exists": true,
+            "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_2",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+            "exists": true,
+            "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_3",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+            "exists": true,
+            "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_4",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+            "exists": true,
+            "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "pass": true
+          }
+        ],
+        "edge_rows": [
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "p24_integrity_manifest",
+              "kind": "validates_manifest"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "p24_version_report",
+              "kind": "validates_version"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_0",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_1",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_2",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_3",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_4",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "stale_missing_node",
+              "kind": "stale_reference_counter"
+            },
+            "pass": false,
+            "from_ok": true,
+            "to_ok": false
+          }
+        ],
+        "orphans": [],
+        "node_count": 8,
+        "edge_count": 8
+      }
+    },
+    "orphan_reference": {
+      "pass": true,
+      "validation": {
+        "pass": false,
+        "artifact_rows": [
+          {
+            "id": "p24_integrity_matrix",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json",
+            "exists": true,
+            "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "pass": true
+          },
+          {
+            "id": "p24_integrity_manifest",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json",
+            "exists": true,
+            "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "pass": true
+          },
+          {
+            "id": "p24_version_report",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json",
+            "exists": true,
+            "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_0",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+            "exists": true,
+            "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_1",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+            "exists": true,
+            "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_2",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+            "exists": true,
+            "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_3",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+            "exists": true,
+            "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "pass": true
+          },
+          {
+            "id": "source_artifact_4",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+            "exists": true,
+            "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "pass": true
+          },
+          {
+            "id": "orphan_reference_counter",
+            "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json",
+            "exists": true,
+            "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "pass": true
+          }
+        ],
+        "edge_rows": [
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "p24_integrity_manifest",
+              "kind": "validates_manifest"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_matrix",
+              "to": "p24_version_report",
+              "kind": "validates_version"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_0",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_1",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_2",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_3",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          },
+          {
+            "edge": {
+              "from": "p24_integrity_manifest",
+              "to": "source_artifact_4",
+              "kind": "declares_artifact"
+            },
+            "pass": true,
+            "from_ok": true,
+            "to_ok": true
+          }
+        ],
+        "orphans": [
+          "orphan_reference_counter"
+        ],
+        "node_count": 9,
+        "edge_count": 7
+      }
+    },
+    "inherited_p24": {
+      "pass": true,
+      "source_checks": {
+        "migration_v1_to_v2_pass": true,
+        "missing_field_counter_fails": true,
+        "future_version_counter_fails": true,
+        "manifest_hashes_pass": true,
+        "tampered_hash_counter_detected": true,
+        "missing_artifact_counter_detected": true
+      }
+    }
+  },
+  "checks": {
+    "dependency_graph_valid": true,
+    "missing_artifact_counter_detected": true,
+    "tampered_hash_counter_detected": true,
+    "stale_reference_counter_detected": true,
+    "orphan_reference_counter_detected": true,
+    "p24_version_integrity_inherited": true
+  },
+  "overall_pass": true,
+  "boundaries": [
+    "Dependency graph covers local reviewer-contract artifacts only.",
+    "This does not claim screenshot/visual QA.",
+    "This does not claim mesh-accurate GLB collision."
+  ]
+}

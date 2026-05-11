@@ -1,0 +1,32 @@
+[
+  {
+    "path": "closeout.md",
+    "bytes": 547,
+    "sha256": "8375a69f25c791656926a5da027265b30918d9729ea6ed5536bad11ee6fcecef"
+  },
+  {
+    "path": "outputs/artifact_dependency_graph_manifest.json",
+    "bytes": 4047,
+    "sha256": "b889e1bdc62e9ff349053f9d1265fa24f7fe9c95244ae1aeaea3fbe643671265"
+  },
+  {
+    "path": "outputs/validator_result.json",
+    "bytes": 36369,
+    "sha256": "2d22f4e4bdf2ed240eaf5ce7b30f4d055e3928b6c3b456d715dd3d187f516c90"
+  },
+  {
+    "path": "run.log",
+    "bytes": 310,
+    "sha256": "d94700648c4fca8b64e7269dd0e615685a0c005eeeeaaaa32332aa045c349307"
+  },
+  {
+    "path": "validator.py",
+    "bytes": 8742,
+    "sha256": "5faa8965b53ad9bd2e041f604c27f6b65bc9fcb3089ea9eecd63e5dc9cc52130"
+  },
+  {
+    "path": "verify_run.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "overall_pass": true,
+  "checks": {
+    "dependency_graph_valid": true,
+    "missing_artifact_counter_detected": true,
+    "tampered_hash_counter_detected": true,
+    "stale_reference_counter_detected": true,
+    "orphan_reference_counter_detected": true,
+    "p24_version_integrity_inherited": true
+  }
+}
