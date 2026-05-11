@@ -1,0 +1,87 @@
+{
+  "batch": "P18-A fixture manifest",
+  "source_full_report": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p18_fixture_manifest_compact_trace_20260512/outputs/p18_negative_scene_ci_full_report.json",
+  "source_scene": "res://scenes/p7_minimal_playable_scene.tscn",
+  "authority": "proxy scene nodes plus HomePC Godot headless physics/input/camera assertions",
+  "no_proxy_note": "Godot run is local/offline on HomePC with proxy variables unset by the caller.",
+  "visual_claim": "disabled: no screenshot/visual QA or mesh-accurate collision claim",
+  "positive_layouts": [
+    {
+      "id": "front_linear",
+      "scene_path": "res://scenes/p16_front_linear_ci_scene.tscn",
+      "route": [
+        "chair",
+        "block",
+        "tower"
+      ],
+      "route_signature": "finish>chair>block>tower>finish",
+      "summary_pass": true,
+      "trace_hash": "42aab471352f6c1980c1bc6cac0110850ee55643cdc10e2d861c845f4646fc39"
+    },
+    {
+      "id": "front_reverse",
+      "scene_path": "res://scenes/p16_front_reverse_ci_scene.tscn",
+      "route": [
+        "tower",
+        "block",
+        "chair"
+      ],
+      "route_signature": "finish>tower>block>chair>finish",
+      "summary_pass": true,
+      "trace_hash": "dc825e9e56fe4d719056e54b6a0bdc66cec7409f2cadeac0d9a475e79e105a90"
+    },
+    {
+      "id": "front_staggered",
+      "scene_path": "res://scenes/p16_front_staggered_ci_scene.tscn",
+      "route": [
+        "block",
+        "chair",
+        "tower"
+      ],
+      "route_signature": "finish>block>chair>tower>finish",
+      "summary_pass": true,
+      "trace_hash": "d0ce8dfe7ad4e9d90dfc7d59463cd356aaf1b6b20f417836fe4656753a8ecbfa"
+    }
+  ],
+  "negative_fixtures": [
+    {
+      "id": "missing_checkpoint",
+      "expected_failure": "readback rejects a scene with a route checkpoint removed",
+      "detected_failure": true,
+      "compact_hash": "d3bc7a8e172130fe4148b8c0bd19f22e9ed86c5260110afe43238fae24f88072"
+    },
+    {
+      "id": "route_mismatch",
+      "expected_failure": "route trace diff rejects a wrong expected checkpoint order",
+      "detected_failure": true,
+      "compact_hash": "2840bcbab1edb481fd7ad33c0307267609fdc3b23f1328e6b808cf92871cfbf3"
+    },
+    {
+      "id": "finish_before_checkpoints",
+      "expected_failure": "finish must stay locked before all checkpoints are collected",
+      "detected_failure": true,
+      "compact_hash": "60181f4865e4aed8c4f838ced3a5215eade186d58ee9b01ec0c2122dacd85e1c"
+    },
+    {
+      "id": "sensor_clearance_violation",
+      "expected_failure": "scene builder gate rejects checkpoint sensors that do not clear the collider front",
+      "detected_failure": true,
+      "compact_hash": "2d467187041365f1a5e44eb281309f8f8d308f0775a89230a1bbcfcd23d72740"
+    },
+    {
+      "id": "camera_obstruction_failure",
+      "expected_failure": "camera gate rejects an injected object between camera and player target",
+      "detected_failure": true,
+      "compact_hash": "a6c2547c2488fa16825aa9b71713d7e5c63e43873c9bc1a23e5302b6e19b3e04"
+    }
+  ],
+  "checks": {
+    "full_summary_pass": true,
+    "positive_layout_count": true,
+    "positive_layouts_pass": true,
+    "negative_fixture_count": true,
+    "negative_fixtures_detected": true,
+    "manifest_has_hashes": true,
+    "compact_trace_has_event_order": true
+  }
+}
