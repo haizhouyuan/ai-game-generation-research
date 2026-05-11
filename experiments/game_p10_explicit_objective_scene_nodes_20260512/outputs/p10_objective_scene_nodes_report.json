@@ -1,0 +1,162 @@
+{
+	"no_proxy_note": "Godot run is local/offline on HomePC with proxy variables unset by the caller.",
+	"objective_loop": {
+		"checkpoint_steps": [
+			{
+				"checkpoint": "Checkpoint_Chair",
+				"entered": true,
+				"player_position": [
+					-2.22431993484497,
+					0.649999976158142,
+					0.581173002719879
+				]
+			},
+			{
+				"checkpoint": "Checkpoint_Block",
+				"entered": true,
+				"player_position": [
+					-0.099517397582531,
+					0.649999976158142,
+					0.537724018096924
+				]
+			},
+			{
+				"checkpoint": "Checkpoint_Tower",
+				"entered": true,
+				"player_position": [
+					2.1541600227356,
+					0.649999976158142,
+					0.737398982048035
+				]
+			}
+		],
+		"collected": [
+			"chair",
+			"block",
+			"tower"
+		],
+		"collected_count": 3,
+		"errors": [],
+		"finish_reached": true,
+		"finish_unlocked": true,
+		"pass": true,
+		"pre_finish_locked": true
+	},
+	"p10_scene": "res://scenes/p10_objective_scene.tscn",
+	"scene_build": {
+		"checkpoint_nodes_created": 3,
+		"errors": [],
+		"finish_created": true,
+		"pack_result": 0,
+		"pass": true,
+		"save_result": 0,
+		"source_loaded": true
+	},
+	"scene_readback": {
+		"areas": [
+			{
+				"monitorable": true,
+				"monitoring": true,
+				"name": "Checkpoint_Chair",
+				"objective_id": "chair",
+				"objective_type": "checkpoint",
+				"pass": true,
+				"position": [
+					-2.22431993484497,
+					0.649999976158142,
+					0.581173002719879
+				],
+				"shape_node_exists": true,
+				"shape_radius": null,
+				"shape_size": [
+					0.720000028610229,
+					1.0,
+					0.446025013923645
+				],
+				"shape_type": "BoxShape3D",
+				"target_collider": "triposr_p4_chair_mesh_Collider"
+			},
+			{
+				"monitorable": true,
+				"monitoring": true,
+				"name": "Checkpoint_Block",
+				"objective_id": "block",
+				"objective_type": "checkpoint",
+				"pass": true,
+				"position": [
+					-0.099517397582531,
+					0.649999976158142,
+					0.537724018096924
+				],
+				"shape_node_exists": true,
+				"shape_radius": null,
+				"shape_size": [
+					0.360000014305115,
+					0.727351009845734,
+					0.720000028610229
+				],
+				"shape_type": "BoxShape3D",
+				"target_collider": "triposr_p5_synthetic_block_Collider"
+			},
+			{
+				"monitorable": true,
+				"monitoring": true,
+				"name": "Checkpoint_Tower",
+				"objective_id": "tower",
+				"objective_type": "checkpoint",
+				"pass": true,
+				"position": [
+					2.1541600227356,
+					0.649999976158142,
+					0.737398982048035
+				],
+				"shape_node_exists": true,
+				"shape_radius": null,
+				"shape_size": [
+					0.720000028610229,
+					0.860764980316162,
+					0.527656018733978
+				],
+				"shape_type": "BoxShape3D",
+				"target_collider": "triposr_p5_synthetic_tower_Collider"
+			},
+			{
+				"monitorable": true,
+				"monitoring": true,
+				"name": "Finish_Area",
+				"objective_id": "",
+				"objective_type": "finish",
+				"pass": true,
+				"position": [
+					3.25,
+					0.649999976158142,
+					1.35000002384186
+				],
+				"shape_node_exists": true,
+				"shape_radius": 0.239999994635582,
+				"shape_size": null,
+				"shape_type": "SphereShape3D",
+				"target_collider": ""
+			}
+		],
+		"checkpoint_count": 3,
+		"errors": [],
+		"finish_count": 1,
+		"objective_node_count": 4,
+		"objective_root_exists": true,
+		"pass": true,
+		"scene_loaded": true
+	},
+	"simulation_mode": "explicit ObjectiveRoot with Area3D checkpoint/finish nodes plus headless shape-readback objective loop",
+	"source_scene": "res://scenes/p7_minimal_playable_scene.tscn",
+	"summary": {
+		"checkpoint_nodes": 3,
+		"collected_count": 3,
+		"finish_nodes": 1,
+		"finish_reached": true,
+		"finish_unlocked": true,
+		"objective_nodes": 4,
+		"pass": true,
+		"pre_finish_locked": true
+	}
+}

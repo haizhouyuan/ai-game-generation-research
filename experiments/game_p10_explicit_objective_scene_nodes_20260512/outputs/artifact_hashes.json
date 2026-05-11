@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/outputs/p10_objective_scene_nodes_report.json",
+    "bytes": 3635,
+    "sha256": "dcbaed1a140bf5c3dd74b31bd57398b90a086121dcb452d4aed977c4eed7240c"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/outputs/godot_p10_objective_nodes_homepc.log",
+    "bytes": 4054,
+    "sha256": "c550652acb658bd6680753c1ec05b23ba5d0987f9b01c8a1fdae86185594de7b"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/outputs/godot_p10_objective_nodes_verify_homepc.log",
+    "bytes": 4054,
+    "sha256": "c550652acb658bd6680753c1ec05b23ba5d0987f9b01c8a1fdae86185594de7b"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/project/scenes/p10_objective_scene.tscn",
+    "bytes": 662970,
+    "sha256": "b904ac953ec4e339b5e75d3aeef657927f8a523a4eba0238dd40f7bc45d28e9e"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/project/tools/build_and_simulate_objective_nodes.gd",
+    "bytes": 11058,
+    "sha256": "7b69b0582663bfa1d721c48448b4dfa1edbf075918990e6889245c0e3b7b8d02"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/project/scenes/p7_minimal_playable_scene.tscn",
+    "bytes": 661628,
+    "sha256": "7230267a4a3713bbe9ff753977f9a59e7f0faf54099a21fc97f80177f1cd7e7d"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/project/assets/triposr_p4_chair_mesh.glb",
+    "bytes": 120724,
+    "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/project/assets/triposr_p5_synthetic_block.glb",
+    "bytes": 84084,
+    "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p10_explicit_objective_scene_nodes_20260512/project/assets/triposr_p5_synthetic_tower.glb",
+    "bytes": 54084,
+    "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+  }
+]
