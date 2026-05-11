@@ -1,0 +1,101 @@
+{
+	"event_trace": [
+		{
+			"accepted": false,
+			"collected_snapshot": [],
+			"index": 1,
+			"objective_id": "finish",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Finish_Area",
+			"objective_type": "finish",
+			"other_area": "/root/P7MinimalPlayableScene/ObjectiveProbe",
+			"reason": "finish_locked"
+		},
+		{
+			"accepted": true,
+			"collected_snapshot": [
+				"chair"
+			],
+			"index": 2,
+			"objective_id": "chair",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Chair",
+			"objective_type": "checkpoint",
+			"other_area": "/root/P7MinimalPlayableScene/ObjectiveProbe",
+			"reason": "checkpoint_collected"
+		},
+		{
+			"accepted": true,
+			"collected_snapshot": [
+				"chair",
+				"block"
+			],
+			"index": 3,
+			"objective_id": "block",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Block",
+			"objective_type": "checkpoint",
+			"other_area": "/root/P7MinimalPlayableScene/ObjectiveProbe",
+			"reason": "checkpoint_collected"
+		},
+		{
+			"accepted": true,
+			"collected_snapshot": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"index": 4,
+			"objective_id": "tower",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Tower",
+			"objective_type": "checkpoint",
+			"other_area": "/root/P7MinimalPlayableScene/ObjectiveProbe",
+			"reason": "checkpoint_collected"
+		},
+		{
+			"accepted": true,
+			"collected_snapshot": [
+				"chair",
+				"block",
+				"tower"
+			],
+			"index": 5,
+			"objective_id": "finish",
+			"objective_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Finish_Area",
+			"objective_type": "finish",
+			"other_area": "/root/P7MinimalPlayableScene/ObjectiveProbe",
+			"reason": "finish_unlocked"
+		}
+	],
+	"fallback": {
+		"note": "No deterministic fallback was used for pass. If signal replay fails in a future run, fallback must be reported separately and cannot be counted as signal pass.",
+		"used": false
+	},
+	"no_proxy_note": "Godot run is local/offline on HomePC with proxy variables unset by the caller.",
+	"node_paths": {
+		"checkpoint_paths": [
+			"/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Chair",
+			"/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Block",
+			"/root/P7MinimalPlayableScene/ObjectiveRoot/Checkpoint_Tower"
+		],
+		"connected_count": 4,
+		"errors": [],
+		"finish_path": "/root/P7MinimalPlayableScene/ObjectiveRoot/Finish_Area",
+		"pass": true
+	},
+	"scene_path": "res://scenes/p10_objective_scene.tscn",
+	"simulation_mode": "Area3D.area_entered signal replay with ObjectiveProbe Area3D",
+	"summary": {
+		"checkpoint_events": 3,
+		"collected": [
+			"chair",
+			"block",
+			"tower"
+		],
+		"collected_count": 3,
+		"event_count": 5,
+		"finish_events": 2,
+		"pass": true,
+		"post_finish_accepted": true,
+		"pre_finish_locked": true,
+		"pre_finish_signal_received": true,
+		"signal_mode_passed": true
+	}
+}
