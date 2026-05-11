@@ -1,0 +1,102 @@
+[
+  {
+    "path": "boundary_ledger.md",
+    "bytes": 904,
+    "sha256": "d2693ddb1354eb09358ffea485ecf1e78dd2622ab06e5e3946c70b6e2c4e1f36"
+  },
+  {
+    "path": "outputs/godot_p17_negative_scene_ci_fixtures.log",
+    "bytes": 450677,
+    "sha256": "5258023c917ded19bac9a5b433437686490e4eb8ca905de9a2d9cf88dd6fbb1f"
+  },
+  {
+    "path": "outputs/godot_p17_negative_scene_ci_fixtures_verify.log",
+    "bytes": 450677,
+    "sha256": "5258023c917ded19bac9a5b433437686490e4eb8ca905de9a2d9cf88dd6fbb1f"
+  },
+  {
+    "path": "outputs/p17_negative_scene_ci_fixtures_report.json",
+    "bytes": 668523,
+    "sha256": "79686c2500d04948774c7faf82a80daeb5364afbec00f74ca48bf6ecfd642c48"
+  },
+  {
+    "path": "project/assets/triposr_p4_chair_mesh.glb",
+    "bytes": 120724,
+    "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6"
+  },
+  {
+    "path": "project/assets/triposr_p5_synthetic_block.glb",
+    "bytes": 84084,
+    "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+  },
+  {
+    "path": "project/assets/triposr_p5_synthetic_tower.glb",
+    "bytes": 54084,
+    "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+  },
+  {
+    "path": "project/project.godot",
+    "bytes": 275,
+    "sha256": "046d168ea4546baf9aed7d96f741157c7ff83206522c062ad4c55d69c94a4d8f"
+  },
+  {
+    "path": "project/scenes/p15_ci_objective_scene.tscn",
+    "bytes": 663946,
+    "sha256": "ebab8faf77d8b48b607f52a9b7c60b2bd71d2900227ad1fa79790a55dddb1e92"
+  },
+  {
+    "path": "project/scenes/p16_front_linear_ci_scene.tscn",
+    "bytes": 664151,
+    "sha256": "47d1757766997bd563af9b138b25e7d2b4d4c1f0bc5fe1f267516a2c72ffc900"
+  },
+  {
+    "path": "project/scenes/p16_front_reverse_ci_scene.tscn",
+    "bytes": 664100,
+    "sha256": "bab3e30c198a2eaa7ddaf1669c04d1dc28429b0f74cfb4e85f28702dae48d7c5"
+  },
+  {
+    "path": "project/scenes/p16_front_staggered_ci_scene.tscn",
+    "bytes": 664125,
+    "sha256": "e01c048eb348678b7904f8e52b672cc14cd7c5c6eccccdaa4bbacacb5e5cc72c"
+  },
+  {
+    "path": "project/scenes/p17_camera_obstruction_failure_scene.tscn",
+    "bytes": 664381,
+    "sha256": "7caa89da86f484d03d3f61b92864ac184f5554b7eeec1d28c539a4363ad9047c"
+  },
+  {
+    "path": "project/scenes/p17_finish_before_checkpoints_scene.tscn",
+    "bytes": 664368,
+    "sha256": "98fa25108095ccaf998e733ea51125a60c34dd6f81aee7db5660da5d4564edd5"
+  },
+  {
+    "path": "project/scenes/p17_missing_checkpoint_scene.tscn",
+    "bytes": 663398,
+    "sha256": "7b7e50e602c31ca99e5e12773a9622b48bf25a110e59684fa6a3a6043af6d324"
+  },
+  {
+    "path": "project/scenes/p17_route_mismatch_scene.tscn",
+    "bytes": 664227,
+    "sha256": "fab9145d0fdc006dca78be96bd85ccb03739ca8dcc2cc542e0e4256eea84ec2e"
+  },
+  {
+    "path": "project/scenes/p17_sensor_clearance_violation_scene.tscn",
+    "bytes": 664325,
+    "sha256": "d89170a6844d90ac4d61f3cf925216f90731657fa7dbf75db49c2fec1f12fbfa"
+  },
+  {
+    "path": "project/scenes/p7_minimal_playable_scene.tscn",
+    "bytes": 661628,
+    "sha256": "7230267a4a3713bbe9ff753977f9a59e7f0faf54099a21fc97f80177f1cd7e7d"
+  },
+  {
+    "path": "project/tools/scene_ci_negative_fixtures.gd",
+    "bytes": 50644,
+    "sha256": "09c65abef35f3d06c8a2e436acd0bf8f3948ca3d8608c77e3a69240ff67d879e"
+  },
+  {
+    "path": "report.md",
+    "bytes": 2304,
+    "sha256": "710e5294192901692c4c60b980a349c318b3984ec35ff0b030db797bcc288052"
+  }
+]
