@@ -1,0 +1,77 @@
+[
+  {
+    "path": "boundary_ledger.md",
+    "bytes": 898,
+    "sha256": "1c43e8fff753aa22fa30f763fcf06b84f7eaaf0e92b2e675ca4b5d022311101c"
+  },
+  {
+    "path": "outputs/godot_p16_multi_layout_scene_ci_matrix_homepc.log",
+    "bytes": 216253,
+    "sha256": "30fbfe0670ff1423afaa3009e7dd28a4adb5b8f832243a03a3e259340709e086"
+  },
+  {
+    "path": "outputs/godot_p16_multi_layout_scene_ci_matrix_verify_homepc.log",
+    "bytes": 216253,
+    "sha256": "30fbfe0670ff1423afaa3009e7dd28a4adb5b8f832243a03a3e259340709e086"
+  },
+  {
+    "path": "outputs/p16_multi_layout_scene_ci_matrix_report.json",
+    "bytes": 323901,
+    "sha256": "59f3f6090a8b7e7d480e491695614916beaac122fcf206ff06fc104ff5881727"
+  },
+  {
+    "path": "project/assets/triposr_p4_chair_mesh.glb",
+    "bytes": 120724,
+    "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6"
+  },
+  {
+    "path": "project/assets/triposr_p5_synthetic_block.glb",
+    "bytes": 84084,
+    "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+  },
+  {
+    "path": "project/assets/triposr_p5_synthetic_tower.glb",
+    "bytes": 54084,
+    "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+  },
+  {
+    "path": "project/project.godot",
+    "bytes": 275,
+    "sha256": "046d168ea4546baf9aed7d96f741157c7ff83206522c062ad4c55d69c94a4d8f"
+  },
+  {
+    "path": "project/scenes/p15_ci_objective_scene.tscn",
+    "bytes": 663946,
+    "sha256": "ebab8faf77d8b48b607f52a9b7c60b2bd71d2900227ad1fa79790a55dddb1e92"
+  },
+  {
+    "path": "project/scenes/p16_front_linear_ci_scene.tscn",
+    "bytes": 664151,
+    "sha256": "47d1757766997bd563af9b138b25e7d2b4d4c1f0bc5fe1f267516a2c72ffc900"
+  },
+  {
+    "path": "project/scenes/p16_front_reverse_ci_scene.tscn",
+    "bytes": 664100,
+    "sha256": "bab3e30c198a2eaa7ddaf1669c04d1dc28429b0f74cfb4e85f28702dae48d7c5"
+  },
+  {
+    "path": "project/scenes/p16_front_staggered_ci_scene.tscn",
+    "bytes": 664125,
+    "sha256": "e01c048eb348678b7904f8e52b672cc14cd7c5c6eccccdaa4bbacacb5e5cc72c"
+  },
+  {
+    "path": "project/scenes/p7_minimal_playable_scene.tscn",
+    "bytes": 661628,
+    "sha256": "7230267a4a3713bbe9ff753977f9a59e7f0faf54099a21fc97f80177f1cd7e7d"
+  },
+  {
+    "path": "project/tools/scene_ci_multi_layout_matrix.gd",
+    "bytes": 42162,
+    "sha256": "68bc47cd13830b83b37293bb3f54f0c033a228fdcb454483524a0936969d13e2"
+  },
+  {
+    "path": "report.md",
+    "bytes": 2804,
+    "sha256": "344e3654377a71c8c8dc98d7a8729df31ec891f95d3739d89582ee34f9f7018c"
+  }
+]
