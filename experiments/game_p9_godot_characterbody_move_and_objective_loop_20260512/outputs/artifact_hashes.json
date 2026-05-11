@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p9_godot_characterbody_move_and_objective_loop_20260512/outputs/p9_characterbody_objective_report.json",
+    "bytes": 8056,
+    "sha256": "34ae45a7e1ca2424f609463c7a4a8a2b798b7cc51ad4e7743b629047932d90e7"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p9_godot_characterbody_move_and_objective_loop_20260512/outputs/godot_p9_characterbody_homepc.log",
+    "bytes": 6939,
+    "sha256": "840eaf18faccd6d4a37eb10281372f02d56a6c5b7297fc1cc9fe6a6a59df3dbd"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p9_godot_characterbody_move_and_objective_loop_20260512/outputs/godot_p9_characterbody_verify_homepc.log",
+    "bytes": 6939,
+    "sha256": "840eaf18faccd6d4a37eb10281372f02d56a6c5b7297fc1cc9fe6a6a59df3dbd"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p9_godot_characterbody_move_and_objective_loop_20260512/project/tools/simulate_characterbody_objective_loop.gd",
+    "bytes": 6457,
+    "sha256": "d1a0c6b4406ab3b5169c4c5532264bbdc09e179eae3ee700e4c6ff3266e6abc5"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p9_godot_characterbody_move_and_objective_loop_20260512/project/scenes/p7_minimal_playable_scene.tscn",
+    "bytes": 661628,
+    "sha256": "7230267a4a3713bbe9ff753977f9a59e7f0faf54099a21fc97f80177f1cd7e7d"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p9_godot_characterbody_move_and_objective_loop_20260512/project/assets/triposr_p4_chair_mesh.glb",
+    "bytes": 120724,
+    "sha256": "bac9412f54576127accaba9c17d8d257b1e85cfce6e27aa6f36b7bea359320c6"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p9_godot_characterbody_move_and_objective_loop_20260512/project/assets/triposr_p5_synthetic_block.glb",
+    "bytes": 84084,
+    "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+  },
+  {
+    "path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p9_godot_characterbody_move_and_objective_loop_20260512/project/assets/triposr_p5_synthetic_tower.glb",
+    "bytes": 54084,
+    "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+  }
+]
