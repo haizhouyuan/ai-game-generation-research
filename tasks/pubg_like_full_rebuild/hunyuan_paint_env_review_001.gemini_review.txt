@@ -1,0 +1,48 @@
+Warning: Basic terminal detected (TERM=dumb). Visual rendering will be limited. For the best experience, use a terminal emulator with truecolor support.
+Warning: 256-color support not detected. Using a terminal with at least 256-color support is recommended for a better visual experience.
+Ripgrep is not available. Falling back to GrepTool.
+Here is the review of the Hunyuan3D-2.1 paint/PBR environment plan based on the project constraints and environment context:
+
+### 1. Is Python 3.11 + `bpy==4.2.0` a reasonable practical substitute for official `bpy==4.0`?
+**Yes, but with minor risk.** `bpy 4.2.0` is the most practical path forward for Python 3.11 since PyPI does not distribute `bpy 4.0` wheels for it. Blender 4.2 changed some APIs (like the Principled BSDF node structure and auto-smooth). If Hunyuan's script does complex shader node building, it might throw an `AttributeError` which can be quickly patched. It is absolutely worth trying this instead of breaking the working Python 3.10 `hy3d21` shape environment.
+
+### 2. What dependency/version risks are most likely to block paint?
+*   **`basicsr` vs. `torchvision` Conflict (Certain Block):** `basicsr==1.4.2` relies on `torchvision.transforms.functional_tensor`, which was removed in the recent `torchvision` (like your `0.20.1`). Importing `basicsr` will crash immediately without a patch.
+*   **Extension Compilation Mismatch (High Risk):** The `custom_rasterizer` and `compile_mesh_painter.sh` rely on `nvcc`. The HomePC's system CUDA compiler must be compatible with PyTorch 2.5.1 and CUDA 12.1. If the system `nvcc` is missing or an incompatible version, the C++ extensions will fail to build.
+
+### 3. What exact next command sequence should the controller run?
+The controller should install the deps, aggressively patch `basicsr` to prevent the import crash, compile the extensions, and verify imports.
+
+```bash
+# 1. Install specific deps
+conda activate hy3d21paint
+pip install bpy==4.2.0 realesrgan==0.3.0 basicsr==1.4.2
+
+# 2. Patch basicsr immediately to fix the known torchvision deprecation crash
+sed -i 's/from torchvision.transforms.functional_tensor import rgb_to_grayscale/from torchvision.transforms.functional import rgb_to_grayscale/g' $(python -c "import site; print(site.getsitepackages()[0])")/basicsr/data/degradations.py
+
+# 3. Compile extensions
+cd /home/yuanhaizhou/models/hunyuan3d21_factory_20260513/Hunyuan3D-2.1/hy3dpaint/custom_rasterizer
+python setup.py install
+cd ../DifferentiableRenderer
+bash compile_mesh_painter.sh
+cd ../..
+
+# 4. Verify imports
+PYTHONPATH=./hy3dpaint python - <<'PY'
+import bpy
+import custom_rasterizer
+import realesrgan
+import basicsr
+from textureGenPipeline import Hunyuan3DPaintPipeline, Hunyuan3DPaintConfig
+print("paint imports OK")
+PY
+```
+
+### 4. Is there a better RealESRGAN weight source or should we bypass super-resolution initially?
+**Bypass initially.** Do not block the primary texture generation validation on the RealESRGAN checkpoint.
+1. Try to run the paint demo. If the pipeline allows you to toggle super-resolution off in the config, do so. If not, let the pipeline run; it will likely successfully generate the texture maps and then crash *only at the very end* when trying to upscale them. That is still a massive success.
+2. **When you need the weight later:** Do not use GitHub directly (due to timeouts). Use the project's no-proxy wrapper against the Hugging Face mirror:
+```bash
+tools/download_no_proxy.sh https://hf-mirror.com/xinntao/Real-ESRGAN/resolve/main/RealESRGAN_x4plus.pth /home/yuanhaizhou/models/hunyuan3d21_factory_20260513/Hunyuan3D-2.1/hy3dpaint/weights/RealESRGAN_x4plus.pth
+```

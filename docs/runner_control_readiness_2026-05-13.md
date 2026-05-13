@@ -18,6 +18,7 @@ gemini --version
 
 - Claude Code local: `/opt/homebrew/bin/claude`, version `2.1.139`.
 - Gemini CLI local: `/opt/homebrew/bin/gemini`, version `0.41.2`.
+- Runner wrappers live under `/Users/yuanshaochen/Projects/local-coding-runners/bin`; they are verified by absolute path and are not assumed to be on the default shell `PATH`.
 - `claudeminmax`: available, reports Claude Code `2.1.139`.
 - `claudekimi`: available, reports Claude Code `2.1.139`.
 - `runner-review`: available for read-only MiniMax/Kimi reviews.
@@ -99,6 +100,16 @@ These files make the target repo itself usable by Claude-compatible workers and 
 2. `runner-review kimi`: critique the lane split and runner discipline.
 3. `gemini --approval-mode plan`: broad review of local 3D asset factory route.
 4. `runner-worker minimax --dry-run`: dry-run `threejs-loader-migration-001` before any write-capable external call.
+
+## Current Full-Rebuild Routing Addendum
+
+For the PUBG-like full asset factory goal:
+
+- Use Kimi for complex coding, route blocker analysis, and integration critique.
+- Use Gemini through `runner-gemini-review` or explicit `gemini --model gemini-3.1-pro-preview`; do not rely on the Gemini default model.
+- Use MiniMax only for mechanical reports, hash manifests, and simple schema checks.
+- Use HomePC GPU workers for Hunyuan3D, ComfyUI, TRELLIS, Blender render/bake, and PBR generation.
+- Use Codex only as controller, merge reviewer, and evidence closer when the work can be delegated.
 
 ## Dry-Run Proof
 

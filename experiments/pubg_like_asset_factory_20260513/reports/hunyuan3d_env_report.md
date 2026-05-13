@@ -185,3 +185,22 @@ Local Blender then imported `model/raw.glb`, rendered `evidence/blender_preview.
 - The Hunyuan shape import path is proven, but the texture/PBR path is not yet proven.
 - `hy3dpaint` import currently fails on `ModuleNotFoundError: No module named 'bpy'`.
 - A direct GitHub download of `RealESRGAN_x4plus.pth` was killed because it was too slow; the partial file should not be treated as valid.
+
+## Paint Environment Follow-Up
+
+The working `hy3d21` shape environment is Python 3.10. Hunyuan Paint needs `bpy`, but the current PyPI index did not expose `bpy==4.0` for that environment. A separate Python 3.11 paint environment was started:
+
+```text
+conda env: hy3d21paint
+python: 3.11.15
+purpose: Hunyuan Paint/PBR only
+```
+
+Rationale:
+
+- keep `hy3d21` intact because shape generation is already proven;
+- test `bpy==4.2.0` as the closest practical Blender module route;
+- install CUDA PyTorch in a separate environment and record no-proxy evidence;
+- compile/validate paint extensions there.
+
+External Gemini review agreed that Python 3.11 plus `bpy==4.2.0` is a reasonable practical route, while warning that `basicsr==1.4.2` may need a `torchvision.transforms.functional_tensor` compatibility patch with modern `torchvision`.
