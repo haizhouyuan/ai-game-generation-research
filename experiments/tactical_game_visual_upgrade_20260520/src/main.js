@@ -1,5 +1,6 @@
 import * as THREE from "three";
 
+import { EVIDENCE_ANIMATION_STATES, createAnimatedTacticalCharacter } from "./runtime/animationSystem.js";
 import { createTacticalAssetLoader } from "./runtime/assetLoader.js";
 import { fetchAssetRegistryV2 } from "./runtime/assetRegistry.js";
 import { configureRainyCheckpointLighting } from "./runtime/lightingSystem.js";
@@ -36,6 +37,25 @@ const clock = new THREE.Clock();
 configureRainyCheckpointLighting(THREE, scene, renderer);
 const layout = createRainyCheckpointLayout(THREE, scene);
 const rain = createRainSystem(THREE, scene);
+const animatedCharacters = {
+  player: createAnimatedTacticalCharacter(THREE, {
+    id: "player_tactical_v2_proxy",
+    color: 0x465d4f,
+    accent: 0x1a242c,
+    teamLight: 0x7dd3fc
+  }),
+  enemy: createAnimatedTacticalCharacter(THREE, {
+    id: "enemy_tactical_v2_proxy",
+    color: 0x5d4b45,
+    accent: 0x24191b,
+    teamLight: 0xff4055
+  })
+};
+animatedCharacters.player.root.position.set(-0.55, 0.02, 0.58);
+animatedCharacters.player.root.rotation.y = -0.52;
+animatedCharacters.enemy.root.position.set(2.35, 0.02, -1.72);
+animatedCharacters.enemy.root.rotation.y = -0.72;
+scene.add(animatedCharacters.player.root, animatedCharacters.enemy.root);
 
 window.__TACTICAL_VISUAL_UPGRADE__ = {
   loaded: false,
@@ -46,6 +66,11 @@ window.__TACTICAL_VISUAL_UPGRADE__ = {
     target: "rainy_checkpoint_container_yard_killhouse_entry",
     clutterOrDecalInstances: layout.clutterCount,
     evidenceCameras: Object.keys(EVIDENCE_CAMERAS)
+  },
+  animation: {
+    player: animatedCharacters.player.getStatus(),
+    enemy: animatedCharacters.enemy.getStatus(),
+    requiredForEvidence: EVIDENCE_ANIMATION_STATES[selectEl.value]
   }
 };
 
@@ -61,11 +86,19 @@ function repoUrl(path) {
 
 function frameCamera(id) {
   const preset = EVIDENCE_CAMERAS[id] || EVIDENCE_CAMERAS["06_final_wide_rainy_container_checkpoint"];
+  const animationState = EVIDENCE_ANIMATION_STATES[id] || EVIDENCE_ANIMATION_STATES["06_final_wide_rainy_container_checkpoint"];
+  animatedCharacters.player.setState(animationState.player);
+  animatedCharacters.enemy.setState(animationState.enemy);
   camera.fov = preset.fov;
   camera.position.set(...preset.position);
   camera.lookAt(new THREE.Vector3(...preset.target));
   camera.updateProjectionMatrix();
   window.__TACTICAL_VISUAL_UPGRADE__.evidence = id;
+  window.__TACTICAL_VISUAL_UPGRADE__.animation = {
+    player: animatedCharacters.player.getStatus(),
+    enemy: animatedCharacters.enemy.getStatus(),
+    requiredForEvidence: animationState
+  };
 }
 
 function makeBoxFallback(name, color, scale = [1, 1, 1]) {
@@ -183,6 +216,11 @@ async function boot() {
 
   window.__TACTICAL_VISUAL_UPGRADE__.loaded = true;
   window.__TACTICAL_VISUAL_UPGRADE__.assetStatus = loader.getEvidenceSnapshot();
+  window.__TACTICAL_VISUAL_UPGRADE__.animation = {
+    player: animatedCharacters.player.getStatus(),
+    enemy: animatedCharacters.enemy.getStatus(),
+    requiredForEvidence: EVIDENCE_ANIMATION_STATES[selectEl.value]
+  };
   setStatus(`Loaded rainy checkpoint. Evidence camera: ${selectEl.value}. Clutter/decal instances: ${layout.clutterCount}.`);
   frameCamera(selectEl.value);
 }
@@ -196,6 +234,8 @@ window.addEventListener("resize", () => {
 
 function animate() {
   const delta = Math.min(clock.getDelta(), 0.04);
+  animatedCharacters.player.update(delta);
+  animatedCharacters.enemy.update(delta);
   rain.update(delta);
   renderer.render(scene, camera);
   requestAnimationFrame(animate);

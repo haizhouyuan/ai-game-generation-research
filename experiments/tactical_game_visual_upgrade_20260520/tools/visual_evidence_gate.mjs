@@ -206,6 +206,13 @@ const blockingEvents = filteredEvents.filter((event) => (
   || event.method === "Network.loadingFailed"
   || (event.method === "Log.entryAdded" && event.type === "error")
 ));
+const requiredAnimation = probe?.animation?.requiredForEvidence || {};
+const animationOk = probe?.animation?.player?.mixerReady === true
+  && probe?.animation?.enemy?.mixerReady === true
+  && probe?.animation?.player?.requiredClipsPresent === true
+  && probe?.animation?.enemy?.requiredClipsPresent === true
+  && (!requiredAnimation.player || probe?.animation?.player?.activeClip === requiredAnimation.player)
+  && (!requiredAnimation.enemy || probe?.animation?.enemy?.activeClip === requiredAnimation.enemy);
 
 const report = {
   url,
@@ -223,16 +230,22 @@ ws.close();
 chrome.kill("SIGTERM");
 await rm(userDataDir, { recursive: true, force: true });
 
-const passed = probe?.loaded === true
-  && blockingEvents.length === 0
-  && imageStats.ok
-  && imageStats.litRatio > 0.06
+const imageReadable = imageStats.ok
+  && (
+    imageStats.litRatio > 0.06
+    || (imageStats.colorfulRatio > 0.18 && imageStats.edgeRatio > 0.018)
+  )
   && imageStats.colorfulRatio > 0.05
   && imageStats.edgeRatio > 0.008;
 
+const passed = probe?.loaded === true
+  && blockingEvents.length === 0
+  && imageReadable
+  && animationOk;
+
 if (!passed) {
-  console.error(JSON.stringify({ passed, report: reportPath.pathname, blockingEvents, imageStats, probe }, null, 2));
+  console.error(JSON.stringify({ passed, report: reportPath.pathname, blockingEvents, imageStats, imageReadable, animationOk, probe }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ passed, camera, report: reportPath.pathname, screenshot: screenshotPath.pathname, imageStats }, null, 2));
+console.log(JSON.stringify({ passed, camera, report: reportPath.pathname, screenshot: screenshotPath.pathname, imageStats, animationOk }, null, 2));

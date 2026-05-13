@@ -70,6 +70,7 @@ From the repository root:
 ./.venv/bin/python -m pytest tests/test_validate_asset_registry_v2.py
 ./.venv/bin/python tools/validate_asset_registry_v2.py experiments/tactical_game_visual_upgrade_20260520/assets/asset_registry_v2.json
 node --check experiments/tactical_game_visual_upgrade_20260520/src/main.js
+node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/animationSystem.js
 node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/assetLoader.js
 node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/assetRegistry.js
 node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/lightingSystem.js
@@ -92,3 +93,5 @@ for camera in \
   node experiments/tactical_game_visual_upgrade_20260520/tools/visual_evidence_gate.mjs "$camera"
 done
 ```
+
+The CDP reports include `probe.animation` and the visual gate requires `animationOk: true` for each camera.

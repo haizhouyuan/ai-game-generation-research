@@ -27,11 +27,20 @@ done
 - `evidence/05_indoor_killhouse_corridor.png`
 - `evidence/06_final_wide_rainy_container_checkpoint.png`
 
-Each report has `blockingEvents: []` and nonblank image statistics.
+Each report has `blockingEvents: []`, nonblank image statistics, and `animationOk: true`.
+
+Animation state coverage:
+
+- `01_fp_rifle_wet_checkpoint`: player `reload`, enemy `aim`
+- `02_third_person_player_gear`: player `aim`, enemy `idle`
+- `03_enemy_under_checkpoint_light`: player `idle`, enemy `walk`
+- `04_loot_on_wet_asphalt`: player `idle`, enemy `idle`
+- `05_indoor_killhouse_corridor`: player `crouch`, enemy `hit_reaction`
+- `06_final_wide_rainy_container_checkpoint`: player `run`, enemy `aim`
 
 ## Remaining Visual Blockers
 
 - The rifle and character are still baseline GLB assets, not final PBR hero assets.
 - The registry marks those baseline assets as `baseline_only` with blockers, not `production_ready`.
-- Animation proof is still pending.
+- Animation proof is runtime-visible through `AnimationMixer`, but it is still a proxy rig rather than a cleaned production character GLB.
 - PBR route benchmark is still pending.

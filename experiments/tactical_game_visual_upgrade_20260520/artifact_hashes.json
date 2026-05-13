@@ -1,59 +1,59 @@
 {
   "README.md": {
-    "sha256": "1decaa7ae66e8594d12d96f49fb85e37c41f7a7c9434dd055cecdc01a7f01b42",
-    "size_bytes": 3312
+    "sha256": "9274b8f72f998e834b694eec9dd926f8b3d98bc909d82b0e4a73c33d8e695ef7",
+    "size_bytes": 3515
   },
   "assets/asset_registry_v2.json": {
     "sha256": "a87fbd035b7044981786a2fa9a4c30b68adb2014f38b9baac6a08a97e15bf045",
     "size_bytes": 15601
   },
   "evidence/01_fp_rifle_wet_checkpoint.png": {
-    "sha256": "265dc770487fda4de880476d3d70dbc2e64bebdbcbd0376f8e869015a21c37a6",
-    "size_bytes": 107579
+    "sha256": "ae9106e06853abf31554ab9288f5ce22686e262464d728943882acf91dfa7377",
+    "size_bytes": 119833
   },
   "evidence/01_fp_rifle_wet_checkpoint_report.json": {
-    "sha256": "1a54c8d3827da99b303cd5d0f824eae8eb31165dfd69a46140c7ba6d924b70e2",
-    "size_bytes": 4730
+    "sha256": "dba05c5e8e8f1181133f804b41689b084d615aee0317746677f65d9a245ca15e",
+    "size_bytes": 5664
   },
   "evidence/02_third_person_player_gear.png": {
-    "sha256": "63c4a09bab82fd2be0c7346173714c65beb35da9b146a5dba8bcadd424208ac0",
-    "size_bytes": 152112
+    "sha256": "ff6695b4cfbb9d4356bff4a035c5620306f4a5304ed1609e95136b1655386e03",
+    "size_bytes": 158423
   },
   "evidence/02_third_person_player_gear_report.json": {
-    "sha256": "d87a5432bc2f26a4b5ead7bcbd3fed1198c8295bc3f6e64c85499013c515ac53",
-    "size_bytes": 4735
+    "sha256": "3662beb0cf71d960f2610fda570cb88df28c459143fbbae09fe9b2df9e33fdb8",
+    "size_bytes": 5667
   },
   "evidence/03_enemy_under_checkpoint_light.png": {
-    "sha256": "4f95ac4a8fc4a2f2053ebdc28ec20ba66e2f4a366b8fae97885d275c3bd9208a",
-    "size_bytes": 91401
+    "sha256": "1fa8ead85fe51e8b4d22ee8f7f4a0349e10b90c63adde5780917ab3893e55226",
+    "size_bytes": 109820
   },
   "evidence/03_enemy_under_checkpoint_light_report.json": {
-    "sha256": "9e8c3fb4b26cdcf699ef4a5e1a2cb3a90eb7e618c3d4e0e169888f2aca90949a",
-    "size_bytes": 4749
+    "sha256": "7553a382e9e7551210185a068f81022f344d5e308daa14100077d9145aea5b11",
+    "size_bytes": 5840
   },
   "evidence/04_loot_on_wet_asphalt.png": {
-    "sha256": "620f11639c562d41587aff7138d8fc4d48f283aad66061dcc249d36b7b35521e",
-    "size_bytes": 318822
+    "sha256": "862ded1b24fd569c8c316bfd0087a6973e37f80df58083f38c44c2089884d75a",
+    "size_bytes": 288684
   },
   "evidence/04_loot_on_wet_asphalt_report.json": {
-    "sha256": "402e42099a58c5bd0cec1ec2fbc58581049ce65c3b505b0fa2bb108b8d911405",
-    "size_bytes": 4713
+    "sha256": "c3351527e659275b15671b89d51218e242addfae96de702720d8f6ba8a8f5424",
+    "size_bytes": 5966
   },
   "evidence/05_indoor_killhouse_corridor.png": {
-    "sha256": "548acbe3685b677f5ccf3d027b314e81370a4d1d109b876f189fc601fcf6a26b",
-    "size_bytes": 100190
+    "sha256": "7b29954aa505a0dc435f5c4272e5fd9ebfd23c73d822a9786da31f32e2275661",
+    "size_bytes": 100686
   },
   "evidence/05_indoor_killhouse_corridor_report.json": {
-    "sha256": "a24c02aac4d808a7c18f947d919176d98a742cc898c2a9ac9d3bb7d15e4b6f13",
-    "size_bytes": 4734
+    "sha256": "36854c95ceb0082a29e3c31230de123d706e303ae2f09a832487401c73baefc3",
+    "size_bytes": 5686
   },
   "evidence/06_final_wide_rainy_container_checkpoint.png": {
-    "sha256": "abc61d71e90201e5ca48f927d9d4e0f837cdceb8a42d40d77d04c0424b88793c",
-    "size_bytes": 211027
+    "sha256": "ca977ff813fd150c193f9ce0a54ce9553a660a60d481f84882121efc12de828c",
+    "size_bytes": 219101
   },
   "evidence/06_final_wide_rainy_container_checkpoint_report.json": {
-    "sha256": "b81917089197980b7fc152237d3258c2940e3d4aa3806dc5f0108263faace748",
-    "size_bytes": 4785
+    "sha256": "39d375ac744a8eb736a12dcda9092ad6d691be9ec910b11c558a617ab9cca56e",
+    "size_bytes": 5712
   },
   "index.html": {
     "sha256": "2c061a54da18a7ba526adaf6a43fda81f57f17278ca938e373dc5dcf6b065045",
@@ -63,21 +63,29 @@
     "sha256": "fe68a73b76141db4b233a15067a6a6c7ef684522950f6240bcf0cb85d7b18729",
     "size_bytes": 1473
   },
+  "reports/character_animation_proof_2026-05-13.md": {
+    "sha256": "86bfe8a30be95b2346a2f72d9faeb068d4628fcfd028cb5aa4a57167a8d8b3e2",
+    "size_bytes": 1062
+  },
   "reports/threejs_loader_migration_001.md": {
     "sha256": "468edfc60b090586193a32843478970550ba7c62a39b4db97e1b145d309b175a",
     "size_bytes": 1138
   },
   "reports/visual_evidence_gate_2026-05-13.md": {
-    "sha256": "53efa0eea370373e5a3687ed011649dc384cb42517bd39faaefd780889198b0a",
-    "size_bytes": 1129
+    "sha256": "c0a277b5c3fd048cb6606ad86d355aa6190f6833777d6d58b2b7964ce7bc693a",
+    "size_bytes": 1668
   },
   "schemas/asset_packet.schema.json": {
     "sha256": "6dd1fe4081d19979b85966a1b4e7ee66eb70f8608ba4e16bab2ee27159031bba",
     "size_bytes": 6818
   },
   "src/main.js": {
-    "sha256": "5734b41b43393a4db1db31572cc39f8877334cb465bf85663ae7ce37c2fcf7b5",
-    "size_bytes": 7426
+    "sha256": "9f2638c050e067b231b9744087ecebdabde115a99480cba5b7093aea858fd44b",
+    "size_bytes": 9124
+  },
+  "src/runtime/animationSystem.js": {
+    "sha256": "0f1820cc11a4e6d4b9dbb4333aecf813f5859e8eb83562a90ca5ab8e1806dca8",
+    "size_bytes": 6304
   },
   "src/runtime/assetLoader.js": {
     "sha256": "2909b28908071c619863f7609a6c114a3456d537ae97ebbfcd3ce684c0728309",
@@ -104,7 +112,7 @@
     "size_bytes": 8617
   },
   "tools/visual_evidence_gate.mjs": {
-    "sha256": "67903414404c41121062848df1065d53a84401dece3ec6dc3c9f6518cc3d8269",
-    "size_bytes": 8281
+    "sha256": "612a3419406efacd7b31605fe984497037a874a4edfaeecaae860cfe5d048886",
+    "size_bytes": 8970
   }
 }
