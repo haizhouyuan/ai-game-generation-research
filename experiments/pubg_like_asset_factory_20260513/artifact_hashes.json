@@ -1,7 +1,131 @@
 {
+  "asset_registry_v3_probe.json": {
+    "sha256": "4d2e4726fdd016ae51b035819a8e1fafd26f43b405bf4b66b00e8c5e9c701df2",
+    "size_bytes": 2259
+  },
   "assets/.gitkeep": {
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "size_bytes": 0
+  },
+  "assets/clutter_decals_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/clutter_decals_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/clutter_decals_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/clutter_decals_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/clutter_decals_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/concrete_wall_material_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/concrete_wall_material_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/concrete_wall_material_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/concrete_wall_material_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/concrete_wall_material_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/container_checkpoint_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/container_checkpoint_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/container_checkpoint_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/container_checkpoint_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/container_checkpoint_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/enemy_tactical_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/enemy_tactical_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/enemy_tactical_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/enemy_tactical_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/enemy_tactical_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/gear_set_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/gear_set_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/gear_set_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/gear_set_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/gear_set_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/hero_rifle_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/hero_rifle_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/hero_rifle_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/hero_rifle_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/hero_rifle_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
   },
   "assets/hunyuan_shape_demo_001/evidence/blender_preview.png": {
     "sha256": "dcd080247cfba28bf56daef3629bf400c7e2bb9b0a98dae5462bf614c976a2cc",
@@ -43,6 +167,186 @@
     "sha256": "8011a5253b8efc52b3bc06f9240203fad77ca0190a4ecfe00db43046fa49d018",
     "size_bytes": 623
   },
+  "assets/hunyuan_shape_demo_001/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/loot_set_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/loot_set_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/loot_set_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/loot_set_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/loot_set_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/player_tactical_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/player_tactical_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/player_tactical_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/player_tactical_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/player_tactical_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/rainy_checkpoint_scene_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/rainy_checkpoint_scene_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/rainy_checkpoint_scene_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/rainy_checkpoint_scene_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/rainy_checkpoint_scene_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/sidearm_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/sidearm_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/sidearm_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/sidearm_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/sidearm_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/evidence/blender_preview.png": {
+    "sha256": "00155a8b08a0c6079a0b52ac3d2b3767ec245923e3758583f6cb1d973e538394",
+    "size_bytes": 843481
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/evidence/blender_textured_preview.png": {
+    "sha256": "40a6396e71a07539c98d5de3088264f6479d3806b49f04b8476f3a8156cfd88c",
+    "size_bytes": 735147
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/model/cleaned.glb": {
+    "sha256": "1f744c3f378d06914857dd1150117b374ae09d8553117f43c728d1a14d8e0ae2",
+    "size_bytes": 6370452
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/model/optimized.glb": {
+    "sha256": "1f744c3f378d06914857dd1150117b374ae09d8553117f43c728d1a14d8e0ae2",
+    "size_bytes": 6370452
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/model/raw.glb": {
+    "sha256": "73f59f1cd3c74e43b59e7e2618f9ccc566cb2b41f991959410cd924338236caf",
+    "size_bytes": 655544
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/reports/blender_cleanup_report.json": {
+    "sha256": "1e3c2f24fbb53bc5a7361203e5b019631427141ea5c5644ed2847bf4f0bb7a96",
+    "size_bytes": 546
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/reports/blender_import_report.json": {
+    "sha256": "edbc5485577b201825f29b85d5ecd56f28857f4d5f563788e9e4f865c6ebb2c7",
+    "size_bytes": 413
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/reports/blender_textured_preview_report.json": {
+    "sha256": "7de9da508c85ef68dd45e01be75f57f14ba97600809b98ccb97568a2eb3394d8",
+    "size_bytes": 766
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/reports/material_report.json": {
+    "sha256": "2f2edebd0036f665138bb2650a04c759d4af25abbf06b4c5a446060615a31ee2",
+    "size_bytes": 748
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/source/license.md": {
+    "sha256": "517c7b8c49aabfa69070f0b758a9c231ca05b4d5c99eaa7194046e703020178e",
+    "size_bytes": 594
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/source/reference.md": {
+    "sha256": "d8dba951641f4b089681ac9b874f3b91dc69a5d17cebc40e7de3e6503667158e",
+    "size_bytes": 1294
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/source/tactical_crate_reference.png": {
+    "sha256": "59fd9884301faca93265166d90078e8c31e76c7f93524b1db31975df4b450748",
+    "size_bytes": 642105
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/textures/tactical_crate_ao.png": {
+    "sha256": "6f6641a329862f7c42e6449ae4ac7262904a48634ca640599ea974d5fa72ffb2",
+    "size_bytes": 283240
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/textures/tactical_crate_basecolor.png": {
+    "sha256": "59c309fb2bcf6cd48ba40f20e576c2031283606596ba89ef10de5bea6401d42d",
+    "size_bytes": 871557
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/textures/tactical_crate_height.png": {
+    "sha256": "68e4fcfd37f8158deea2f4bb2d58a68f664c3b03f11ae9a6ad45f85972c19486",
+    "size_bytes": 290279
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/textures/tactical_crate_metallic.png": {
+    "sha256": "2cb14b099174cdbcdbd843fcbf040546e03df09bd6aa347ae90abfb6704a37f5",
+    "size_bytes": 3158
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/textures/tactical_crate_normal.png": {
+    "sha256": "1c1bb3f23a8127347d82a1c2ec8e6dd47539edaae38b338d48364ec7b6ce992a",
+    "size_bytes": 845816
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/textures/tactical_crate_orm.png": {
+    "sha256": "cca77808a13efbe1f09926b669b79766e9a24c5878d58491086ea10044b07f0c",
+    "size_bytes": 427477
+  },
+  "assets/tactical_crate_trellis_texturealchemy_v1/textures/tactical_crate_roughness.png": {
+    "sha256": "26ef7b42ead42c442f80c6a6a6f32c95dd1b7ffe0b8aa1fad91c86679337bd5e",
+    "size_bytes": 176461
+  },
+  "assets/wet_asphalt_material_v1/evidence/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/wet_asphalt_material_v1/model/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/wet_asphalt_material_v1/reports/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/wet_asphalt_material_v1/source/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
+  "assets/wet_asphalt_material_v1/textures/.gitkeep": {
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "size_bytes": 1
+  },
   "downloads/.gitkeep": {
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "size_bytes": 0
@@ -51,17 +355,185 @@
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "size_bytes": 0
   },
+  "references/prompts/container_checkpoint_reference_001.md": {
+    "sha256": "2c41711732b42390363b46fb7f00a3d4486ec4761d1f18858b92e332188ec5a7",
+    "size_bytes": 616
+  },
+  "references/prompts/hero_rifle_reference_001.md": {
+    "sha256": "6c678b8e41bc4a73823b799dad53150a7f3c1ec80389196c15988d762b204e14",
+    "size_bytes": 651
+  },
+  "references/prompts/loot_set_reference_001.md": {
+    "sha256": "362f98f095c54088e0837d5ba4708caf54e7dd6c163b3f38b791610d8e8aa899",
+    "size_bytes": 624
+  },
+  "references/prompts/player_tactical_reference_001.md": {
+    "sha256": "c4b1202e5405be88f1a4f42fd6b062595194cd1498678f6a531dcdcd6edf2e99",
+    "size_bytes": 634
+  },
+  "references/prompts/wet_asphalt_reference_001.md": {
+    "sha256": "c539abb827df94e08acbb1ed41f61bce13248bd5851464a128e8757faa3dc6a3",
+    "size_bytes": 526
+  },
+  "references/reference_asset_matrix.md": {
+    "sha256": "d628727185a45d20b88297880aa0c98ff2e653b65d2b090f734aaebfa7c970cb",
+    "size_bytes": 3663
+  },
   "reports/.gitkeep": {
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "size_bytes": 0
   },
   "reports/hunyuan3d_env_report.md": {
-    "sha256": "08ce888d91fb07ca5c321cdd4f165609030ced3785fe7606146b0d3b25d75182",
-    "size_bytes": 5564
+    "sha256": "d3ba4873363cfa3ce085a7a5abfaedfe1f6246916f24d1de419851433ca8abd8",
+    "size_bytes": 11287
   },
   "reports/hunyuan_shape_demo_001.md": {
     "sha256": "a7c59054a6b240123032522648c555c5c5fd7a0212cd2dc5e386ebc4ab636ea3",
     "size_bytes": 2035
+  },
+  "routes/route_c_comfyui_pbr_probe_004/inputs/tactical_crate_reference.png": {
+    "sha256": "59fd9884301faca93265166d90078e8c31e76c7f93524b1db31975df4b450748",
+    "size_bytes": 642105
+  },
+  "routes/route_c_comfyui_pbr_probe_004/install/custom_node_inventory.md": {
+    "sha256": "aeb9de0d500701313e357ec1106f4d911e4c464338c4cb413eb582b973b1ecb5",
+    "size_bytes": 1972
+  },
+  "routes/route_c_comfyui_pbr_probe_004/install/texturealchemy_install.log": {
+    "sha256": "4fe070d9f12e7c98150819385e0c2da89f6317dc951fa45c748199caeee03f7c",
+    "size_bytes": 2947
+  },
+  "routes/route_c_comfyui_pbr_probe_004/reports/material_report.json": {
+    "sha256": "2f2edebd0036f665138bb2650a04c759d4af25abbf06b4c5a446060615a31ee2",
+    "size_bytes": 748
+  },
+  "routes/route_c_comfyui_pbr_probe_004/reports/run_texturealchemy_minimal_pbr.log": {
+    "sha256": "7468b6f964738b64172445196bc3d3f289deba682273b32bc5149167f3e03294",
+    "size_bytes": 1923
+  },
+  "routes/route_c_comfyui_pbr_probe_004/reports/run_texturealchemy_minimal_pbr.py": {
+    "sha256": "2bbf5bf0bb68bae9a6f3628c30b0e0e6f31f2c081730e2248eeffcc5b03f2676",
+    "size_bytes": 3127
+  },
+  "routes/route_c_comfyui_pbr_probe_004/reports/texture_sha256.txt": {
+    "sha256": "7fb7a630a31f02cd385b97bc45a537c85b61571eda3dbf335600a9ac6707080c",
+    "size_bytes": 1345
+  },
+  "routes/route_c_comfyui_pbr_probe_004/reports/texturealchemy_import_check.log": {
+    "sha256": "f6917ff15f42a5ac9e62dd2b38dfddfb56b57e746bf549524157ff9a9d63b51c",
+    "size_bytes": 907
+  },
+  "routes/route_c_comfyui_pbr_probe_004/summary.md": {
+    "sha256": "076c9dc4a6f797934e229d646e401b9c5fa7b3ada2d8ca32d4af7eef33a9277f",
+    "size_bytes": 2569
+  },
+  "routes/route_c_comfyui_pbr_probe_004/textures/tactical_crate_ao.png": {
+    "sha256": "6f6641a329862f7c42e6449ae4ac7262904a48634ca640599ea974d5fa72ffb2",
+    "size_bytes": 283240
+  },
+  "routes/route_c_comfyui_pbr_probe_004/textures/tactical_crate_basecolor.png": {
+    "sha256": "59c309fb2bcf6cd48ba40f20e576c2031283606596ba89ef10de5bea6401d42d",
+    "size_bytes": 871557
+  },
+  "routes/route_c_comfyui_pbr_probe_004/textures/tactical_crate_height.png": {
+    "sha256": "68e4fcfd37f8158deea2f4bb2d58a68f664c3b03f11ae9a6ad45f85972c19486",
+    "size_bytes": 290279
+  },
+  "routes/route_c_comfyui_pbr_probe_004/textures/tactical_crate_metallic.png": {
+    "sha256": "2cb14b099174cdbcdbd843fcbf040546e03df09bd6aa347ae90abfb6704a37f5",
+    "size_bytes": 3158
+  },
+  "routes/route_c_comfyui_pbr_probe_004/textures/tactical_crate_normal.png": {
+    "sha256": "1c1bb3f23a8127347d82a1c2ec8e6dd47539edaae38b338d48364ec7b6ce992a",
+    "size_bytes": 845816
+  },
+  "routes/route_c_comfyui_pbr_probe_004/textures/tactical_crate_orm.png": {
+    "sha256": "cca77808a13efbe1f09926b669b79766e9a24c5878d58491086ea10044b07f0c",
+    "size_bytes": 427477
+  },
+  "routes/route_c_comfyui_pbr_probe_004/textures/tactical_crate_roughness.png": {
+    "sha256": "26ef7b42ead42c442f80c6a6a6f32c95dd1b7ffe0b8aa1fad91c86679337bd5e",
+    "size_bytes": 176461
+  },
+  "routes/route_c_comfyui_pbr_probe_004/workflows/texturealchemy_03_channel_packing_orm.json": {
+    "sha256": "be2e7c9a65db2aca91049b0cf32cb8c4a131b4fc16255c2b832dcaa0c51236bd",
+    "size_bytes": 5410
+  },
+  "routes/route_c_comfyui_pbr_probe_004/workflows/texturealchemy_10_fastest_pbr_extraction.json": {
+    "sha256": "b92cee7d9bad9c4b7e6dd43eea67e62450667666283414b108771be255b17bf7",
+    "size_bytes": 3189
+  },
+  "routes/route_cd_textured_crate_preview_008/evidence/blender_textured_preview.png": {
+    "sha256": "40a6396e71a07539c98d5de3088264f6479d3806b49f04b8476f3a8156cfd88c",
+    "size_bytes": 735147
+  },
+  "routes/route_cd_textured_crate_preview_008/outputs/tactical_crate_textured_probe.glb": {
+    "sha256": "1f744c3f378d06914857dd1150117b374ae09d8553117f43c728d1a14d8e0ae2",
+    "size_bytes": 6370452
+  },
+  "routes/route_cd_textured_crate_preview_008/reports/blender_textured_crate_preview.py": {
+    "sha256": "e29d593e633a2eaa9fd9b1d6b308cf0544705b64a8ac9d2e91ed00e42ed9eabf",
+    "size_bytes": 4111
+  },
+  "routes/route_cd_textured_crate_preview_008/reports/blender_textured_preview.log": {
+    "sha256": "e38e7f8699ff310d109eaeccda0d9c81fba115a0a45f6f38cc69fd417a4a0932",
+    "size_bytes": 2440
+  },
+  "routes/route_cd_textured_crate_preview_008/reports/blender_textured_preview_report.json": {
+    "sha256": "7de9da508c85ef68dd45e01be75f57f14ba97600809b98ccb97568a2eb3394d8",
+    "size_bytes": 766
+  },
+  "routes/route_cd_textured_crate_preview_008/reports/output_sha256.txt": {
+    "sha256": "cb568dbda43e340733ff5739fd3b95fca96c921e011634c32182353df00bcab3",
+    "size_bytes": 406
+  },
+  "routes/route_cd_textured_crate_preview_008/summary.md": {
+    "sha256": "536bcfd003c68975506f290fb9515a049c6baecab01b4afe6ced3f8d4f09bbf0",
+    "size_bytes": 1586
+  },
+  "routes/route_d_trellis_prop_probe_005/evidence/blender_import.png": {
+    "sha256": "00155a8b08a0c6079a0b52ac3d2b3767ec245923e3758583f6cb1d973e538394",
+    "size_bytes": 843481
+  },
+  "routes/route_d_trellis_prop_probe_005/inputs/tactical_crate_reference.png": {
+    "sha256": "59fd9884301faca93265166d90078e8c31e76c7f93524b1db31975df4b450748",
+    "size_bytes": 642105
+  },
+  "routes/route_d_trellis_prop_probe_005/outputs/raw/tactical_crate_trellis_meshonly.glb": {
+    "sha256": "73f59f1cd3c74e43b59e7e2618f9ccc566cb2b41f991959410cd924338236caf",
+    "size_bytes": 655544
+  },
+  "routes/route_d_trellis_prop_probe_005/outputs/raw/tactical_crate_trellis_meshonly.glb.sha256": {
+    "sha256": "b7a6aac727cd3708741023913544b05f4a06fea06896be2f146f44fe42bbf3fb",
+    "size_bytes": 206
+  },
+  "routes/route_d_trellis_prop_probe_005/reports/blender_import.log": {
+    "sha256": "ec13ac485651e58c291489a0ccbf91fdce22c004ec4638e1e00bed6288d61990",
+    "size_bytes": 224
+  },
+  "routes/route_d_trellis_prop_probe_005/reports/blender_import_report.json": {
+    "sha256": "edbc5485577b201825f29b85d5ecd56f28857f4d5f563788e9e4f865c6ebb2c7",
+    "size_bytes": 413
+  },
+  "routes/route_d_trellis_prop_probe_005/reports/blender_import_xvfb.log": {
+    "sha256": "de94ead0b6afa9ba228ca7f1162d99fa695a9c32807a129193f031d09e99b2f2",
+    "size_bytes": 1507
+  },
+  "routes/route_d_trellis_prop_probe_005/reports/blender_preview.py": {
+    "sha256": "e0d6967f9c6802d97c9de3cf78c553770750de2899bd518b8ff8c0caf0e2a2d2",
+    "size_bytes": 2549
+  },
+  "routes/route_d_trellis_prop_probe_005/reports/env_report.md": {
+    "sha256": "7d4c66ef23f84bc0efcb43cc3beb52492a9e45d1ca74473e2ee79b96ebd4fd65",
+    "size_bytes": 398
+  },
+  "routes/route_d_trellis_prop_probe_005/reports/run_report.md": {
+    "sha256": "3ecc1cd0f823e1ee1cbec8512ccfa715629f9cb97eeb7dd747c14df22aa5bca2",
+    "size_bytes": 12319
+  },
+  "routes/route_d_trellis_prop_probe_005/summary.md": {
+    "sha256": "f5648537c95b5f3c70cc779ac6f0bde56eca68669201cd9f89b90ecceda56ee8",
+    "size_bytes": 2871
   },
   "tools/inspect_hunyuan_shape_asset.py": {
     "sha256": "101c34fb37000308d6747a74829839cf07c14e8c73767ab9641f29f9cfd260f6",

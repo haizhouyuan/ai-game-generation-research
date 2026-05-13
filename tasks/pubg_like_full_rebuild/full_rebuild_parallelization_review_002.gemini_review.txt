@@ -1,0 +1,29 @@
+Here is the read-only execution critique based on the full rebuild goal and task board:
+
+### 1. Highest-Value Parallel Tasks (Non-Blocking for Hunyuan Paint)
+These tasks can be executed immediately on the control plane (Mac) or API without touching HomePC GPU1:
+*   **W2: Reference Image Generation & Matrix:** Generate the tactical reference images (hero rifle, gear, asphalt, etc.) immediately via API. This is pure control-plane work and provides the required input data for when the 3D pipelines are ready.
+*   **W8: Runtime Gate V3 Implementation:** Build the v3 registry schema and strict visual evidence gates now. You can use placeholder assets with mock PBR textures to verify the Three.js material map count and camera assertions work before real assets arrive.
+*   **W10: Mac Local Model Runner Validation:** Evaluate MLX/llama.cpp/Ollama on the M2 Max now. This establishes your local summarization/QA fallback before the main generation loop saturates the orchestration logic.
+
+### 2. Missing Acceptance Gates (Risks for a Weak Upgrade)
+The current gates ensure assets are generated and textured, but miss critical runtime and consistency checks:
+*   **Polycount / Performance Gate:** There is no maximum vertex/triangle count specified. Hunyuan/TRELLIS outputs can be massively dense. Without a hard decimation/polycount gate (e.g., `< 10k tris for props, < 50k for hero`), the Three.js scene will crash or stutter, failing the playable slice requirement.
+*   **Collision/Physics Proxy Gate:** Replacing procedural boxes with complex 3D meshes requires updated physics. There is no gate ensuring the generated visual asset has a matching, simplified collision mesh for the tactical game engine.
+*   **PBR Consistency/Lighting Gate:** Assets generated from different models (Hunyuan vs. TRELLIS vs. ComfyUI) will have mismatched albedo/roughness curves. You need an environment integration gate (e.g., a standardized rainy HDRI test scene) to prove the materials look cohesive together, not just individually.
+
+### 3. Proposed Agent Routing
+*   **Kimi:** Assign complex coding and blocker resolution. 
+    *   Write the `basicsr` / `torchvision` compatibility patch for the Hunyuan Paint environment. 
+    *   Write the complex Three.js W8 visual gate assertions.
+    *   Write the Blender Python scripts for automated scaling, UV inspection, and material wiring (Route E).
+*   **Gemini (`gemini-3.1-pro-preview`):** Assign visual critique and strategy. 
+    *   Critique the W2 reference images to ensure they hit the "PUBG-like worn tactical" style and aren't stylized/sci-fi.
+    *   Perform the W10 Mac runner evaluation.
+    *   Review the final W9 release packet to ensure it meets the strict non-completion conditions.
+*   **MiniMax:** Assign high-volume, low-risk mechanical tasks. 
+    *   Generate and verify the SHA256/git hash manifests.
+    *   Format the W1 install reports and Blender cleanup JSON reports.
+    *   Draft the JSON schema definitions for the v3 registry.
+*   **HomePC GPU:** Strictly reserved for heavy inference. Hunyuan3D shape/paint, TRELLIS inference, and ComfyUI PBR projection workflows.
+*   **Codex:** Act as the central orchestrator. Move packets between runners, enforce the no-proxy download rules, execute Kimi's scripts on the Mac, trigger HomePC generation jobs, and merge the final Git tree.

@@ -1,0 +1,16 @@
+{
+  "input": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_c_comfyui_pbr_probe_004/inputs/tactical_crate_reference.png",
+  "method": "TextureAlchemy node import plus HeightToNormal and AOApproximator; heuristic roughness/metallic",
+  "normal_info": "OpenGL (Y+) | Method: scharr | Strength: 3.0",
+  "maps": {
+    "tactical_crate_ao.png": 283240,
+    "tactical_crate_basecolor.png": 871557,
+    "tactical_crate_height.png": 290279,
+    "tactical_crate_metallic.png": 3158,
+    "tactical_crate_normal.png": 845816,
+    "tactical_crate_orm.png": 427477,
+    "tactical_crate_roughness.png": 176461
+  },
+  "map_count_core": 5,
+  "quality_note": "Minimal proof of PBR map production, not final artist-approved texture projection."
+}

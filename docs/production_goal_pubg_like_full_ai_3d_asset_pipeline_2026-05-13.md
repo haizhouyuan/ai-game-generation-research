@@ -8,15 +8,24 @@
 
 最终结果必须让人一眼看出：这不是旧版 procedural/GLB prototype，而是使用真实 3D 资产生产流程重建的高真实感 tactical vertical slice。
 
+Strong interpretation:
+
+- 旧资产只能作为 baseline、尺寸参考、回归对照或临时占位，不能作为最终完成的主体。
+- 目标不是把旧 HTML “调好看一点”，而是让当前游戏场景像一套真实 3D 模型资产重新生产后落进游戏。
+- 所有近景/主视角/经常出现在镜头里的资产都必须有独立生产链路记录：参考图、生成或建模路线、贴图/PBR、Blender 清理、运行时截图。
+- 必须并行测试多条本地资产生产链路；不能因为 Hunyuan 跑通 shape-only 就跳过 ComfyUI/TRELLIS/PBR 投影等路线。
+- Codex 自身不应亲自吞掉所有重复劳动；必须持续把明确、可验收、窄范围的任务交给 Kimi/Gemini/MiniMax/本地 runner/HomePC GPU worker。
+
 ## Source Repo
 
 `/Users/yuanshaochen/Projects/ai-game-generation-research`
 
 ## Non-Negotiable Intent
 
-- 目标不是小修小补，而是完整资产工厂。
+- 目标不是小修小补，而是完整资产工厂和游戏资产重建。
 - 每类主资产都要有真实参考图或 AI 生成真实参考图。
 - 每类主资产都要至少跑一条本地 3D 生成或 PBR 生产路线。
+- hero/near-camera/mission-critical 资产必须优先尝试 image generation -> image-to-3D -> PBR/texture -> Blender -> Three.js 的完整闭环。
 - 资产不能只靠 material factors；hero/near-camera assets 必须有贴图地图。
 - 能下载模型，但大文件下载必须不走付费代理流量。
 - Codex 做总控和合并，Kimi/Gemini/MiniMax/本地 runner 并行执行窄任务。
@@ -37,7 +46,7 @@ env -u http_proxy -u https_proxy -u all_proxy -u HTTP_PROXY -u HTTPS_PROXY -u AL
 2. Prefer `aria2c`, `git lfs`, `huggingface-cli`, or `hf download` only when proxy env is explicitly unset and the command records evidence.
 3. Record URL/repo, expected size when available, command, resolved host/IP when practical, output path, SHA256 or git revision, and proof that proxy env vars were unset.
 4. Do not change global Clash, shell proxy, Homebrew proxy, or system proxy settings.
-5. If a single file is clearly over 1GB, record exact repo/file/version before download; if the user has already authorized the route in this goal, proceed only with no-proxy evidence.
+5. If a single file is clearly over 1GB, record exact repo/file/version before download; the user has authorized model downloads for this goal, so proceed when the route is necessary and no-proxy evidence is recorded.
 
 ## Required Tool Routes
 
@@ -60,6 +69,12 @@ Required output:
 - SHA256;
 - downstream asset mapping.
 
+Acceptance:
+
+- at least 10 named reference sets exist before final release;
+- at least 6 reference sets feed a generated/PBR-authored asset packet;
+- prompts must target realistic worn tactical materials, not stylized sci-fi or clean toy-like objects.
+
 ### Route B - Hunyuan3D 2.1 Shape + Paint/PBR
 
 Install and run Tencent Hunyuan3D-2.1 locally, primarily on HomePC GPU1.
@@ -81,6 +96,8 @@ Required proof:
 - material report showing PBR maps when successful;
 - Three.js close-up screenshot.
 
+This route is incomplete until both shape and texture/PBR have been attempted with real commands. A shape-only demo is proof of environment capability, not production completion.
+
 ### Route C - ComfyUI 3D Pipeline
 
 On HomePC, configure ComfyUI route(s) for:
@@ -97,6 +114,8 @@ Required proof:
 - exported GLB or texture map set;
 - blocker report if dependency conflict occurs.
 
+This route must include at least one practical texture/PBR route, even if the final chosen production path is Hunyuan. Candidate routes include Texture Projection, TextureAlchemy, PBRFusion, CHORD-like map estimation, StableGen/Blender bridge, or equivalent local workflow.
+
 ### Route D - TRELLIS / TRELLIS.2 Mesh Route
 
 Current TRELLIS mesh-only evidence is not enough.
@@ -106,6 +125,23 @@ Required next proof:
 - run current cached TRELLIS on at least one non-rifle prop or gear item;
 - attempt texture/PBR improvement via Route C or Blender;
 - record why TRELLIS is or is not suitable for final hero assets.
+
+TRELLIS is not allowed to remain only a “we know it exists” research note; it must produce or fail on a concrete tactical asset candidate with evidence.
+
+### Route G - Local Mac Model/Runner Capacity
+
+Mac M2 Max 96GB is the control plane, but it should also be prepared as overflow local inference capacity where useful.
+
+Required:
+
+- document whether MLX, llama.cpp, Ollama, or another local runner is most suitable for lightweight local worker tasks;
+- do not let this block HomePC GPU production;
+- use it for summarization, OCR/classification, prompt variation, or simple QA only unless a local 3D/vision model is clearly practical.
+
+Exit:
+
+- local model runner recommendation;
+- one dry-run local worker task or concrete reason to defer.
 
 ### Route E - Blender Production Cleanup
 
@@ -148,6 +184,7 @@ Minimum production targets:
 8. Container wall / checkpoint booth asset.
 9. Loot set: medkit, ammo box, weapon pickup.
 10. Clutter/decal set: casings, paper, cable, cone, pallet, mud/scratch/impact decals.
+11. Rainy checkpoint/killhouse micro-scene assembled from generated/PBR assets.
 
 Each target must become an asset packet:
 
@@ -191,6 +228,13 @@ MiniMax:
 
 - only narrow mechanical tasks: report formatting, hash manifest checks, simple schema updates, first-pass low-risk review.
 
+Efficiency rule:
+
+- prefer moving work out to runners once a task can be specified in a bounded packet;
+- Kimi and Gemini can handle harder reasoning/review tasks;
+- MiniMax should not own ambiguous architecture or complex coding;
+- every runner output must be saved under `tasks/pubg_like_full_rebuild/` or the relevant experiment report directory.
+
 HomePC GPU:
 
 - Hunyuan3D, ComfyUI, TRELLIS, Blender render/bake, batch texture generation.
@@ -229,6 +273,8 @@ Exit:
 
 - Generate or collect realistic reference images for all minimum asset classes.
 - Prioritize consistent style: rainy tactical, worn metal, wet surfaces, realistic gear.
+- Use Codex image generation or local generation routes to create reference images where no suitable local reference exists.
+- Create an asset-to-reference matrix before producing final game packets.
 
 Exit:
 
@@ -239,6 +285,7 @@ Exit:
 
 - Run Hunyuan3D shape+paint on one small prop first, then hero rifle or gear.
 - Prefer loot/medkit or container prop as lower-risk first target.
+- The first acceptable chain must start from a realistic reference image, not only an official demo image.
 
 Exit:
 
@@ -251,6 +298,7 @@ Exit:
 
 - Generate or refine hero rifle through Hunyuan/Comfy/TRELLIS+PBR/Blender route.
 - Replace current Blender-first proof only if the new asset is visibly better.
+- If image-to-3D produces bad firearm geometry, preserve that evidence and switch to hybrid workflow: realistic reference image -> Blender hard-surface cleanup -> PBR texture generation/projection -> Three.js.
 
 Exit:
 
@@ -300,6 +348,7 @@ Exit:
 
 - Build final release packet under a new dated experiment directory.
 - Include playable HTML, assets, references, generated models, textures, Blender reports, CDP reports, final visual grid, and a plain-Chinese release report.
+- The release must be a new rebuild experiment, not a rename of the earlier final packet.
 
 Exit:
 
@@ -316,6 +365,8 @@ Do not mark complete until all are true:
 - At least one ComfyUI/PBR projection or equivalent PBR completion route is tested.
 - At least 10 minimum production asset targets have reference/provenance entries.
 - At least 6 minimum production asset targets have generated or PBR-authored asset packets.
+- At least 3 asset packets must have real texture map sets with `basecolor`, `normal`, `roughness`, and either `metallic` or `ao`.
+- At least 1 generated reference-image-to-3D chain must start from a newly generated realistic reference image, not only an existing demo/reference.
 - Hero rifle is no longer merely the local procedural fallback unless a better route failed and the fallback is clearly superior.
 - Runtime character proxy is replaced by a production character asset or has a concrete blocked route with next command.
 - The final visual slice is substantially rebuilt, not just relit.

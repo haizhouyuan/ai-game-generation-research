@@ -1,0 +1,14 @@
+{
+  "asset_id": "tactical_crate_trellis_texturealchemy_v1",
+  "status": "probe_only",
+  "cleanup_completed": false,
+  "blender_import_attempted": true,
+  "blender_preview": "evidence/blender_preview.png",
+  "source_report": "reports/blender_import_report.json",
+  "notes": [
+    "HomePC Blender headless render required xvfb-run.",
+    "Mesh imports successfully in Blender.",
+    "No UV cleanup, retopology, material-zone assignment, LOD generation, or collision proxy has been completed.",
+    "Do not mark this packet production-ready."
+  ]
+}

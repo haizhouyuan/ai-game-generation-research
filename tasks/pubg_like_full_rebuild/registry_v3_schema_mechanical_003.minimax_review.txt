@@ -1,0 +1,363 @@
+
+# Registry V3 Schema — Mechanical Outline Draft 003
+
+## 1. Top-Level Registry Fields
+
+```json
+{
+  "schema_version": "3.0.0",
+  "generated_at": "<ISO8601>",
+  "experiment": "<string, experiment name>",
+  "source": "<string, registry origin description>",
+  "registry_id": "<string, UUID>",
+  "parent_registry": "<string, path to prior registry if applicable>",
+  "assets": [ ... ],
+  "_meta": {
+    "hero_asset_count": "<integer>",
+    "total_asset_count": "<integer>",
+    "pbr_complete_count": "<integer>",
+    "blocked_count": "<integer>"
+  }
+}
+```
+
+**Validation notes:**
+- `schema_version` must be `3.0.0` exactly
+- `generated_at` must be valid ISO8601 with timezone
+- `experiment` must match the directory name pattern `experiments/<name>/`
+- `assets` must be non-empty array
+
+---
+
+## 2. Per-Asset Required Fields
+
+### Base fields (all asset classes)
+
+| Field | Type | Required | Validation |
+|-------|------|----------|------------|
+| `asset_id` | string | yes | lowercase_snake, no spaces, unique within registry |
+| `asset_class` | enum | yes | one of: `weapon`, `character`, `material`, `vehicle`, `prop`, `environment` |
+| `role` | string | yes | human-readable purpose, ≥10 chars |
+| `status` | enum | yes | one of: `baseline_only`, `target`, `in_progress`, `production_ready`, `rejected` |
+| `paths` | object | yes | see Per-Asset Paths section |
+| `provenance` | object | yes | see Provenance section |
+| `geometry` | object | yes | see Geometry section |
+| `materials` | object | yes | see Materials section |
+| `quality_gates` | object | yes | see Quality Gates section |
+| `evidence` | object | yes | see Evidence section |
+| `hashes` | object | yes | see Hashes section |
+| `blockers` | array | yes | must be empty array for `production_ready` status |
+
+### Asset-Class-Specific Required Fields
+
+**weapon**
+| Field | Type | Required |
+|-------|------|----------|
+| `anchors.defined` | array | yes, non-empty for `production_ready` |
+| `anchors.required_for_class` | array | yes, must include: `Muzzle`, `Grip_R`, `Grip_L`, `Optic`, `PickupRoot` |
+| `lod.levels` | array | yes, non-empty for `production_ready` |
+| `lod.screen_coverage` | string | yes for `production_ready` |
+
+**character**
+| Field | Type | Required |
+|-------|------|----------|
+| `anchors.defined` | array | yes, non-empty for `production_ready` |
+| `anchors.required_for_class` | array | yes, must include: `Weapon_R`, `Head`, `Spine`, `Foot_L`, `Foot_R` |
+| `animations.has_rig` | boolean | yes, must be `true` for `production_ready` |
+| `animations.clips` | array | yes, non-empty for `production_ready` |
+| `animations.mixer_ready` | boolean | yes, must be `true` for `production_ready` |
+
+**material**
+| Field | Type | Required |
+|-------|------|----------|
+| `material_names` | array | yes, non-empty for `production_ready` |
+| `materials.material_map_count` | integer | yes, must be ≥5 for `production_ready` |
+| `materials.pbr_complete` | boolean | yes, must be `true` for `production_ready` |
+| `materials.texture_resolution` | string | yes, must match `^\d+` pattern for `production_ready` |
+
+---
+
+## 3. Per-Asset Paths
+
+```json
+"paths": {
+  "model": "<string, absolute path, .glb extension required>",
+  "preview": "<string, absolute path or null>",
+  "textures": {
+    "basecolor": "<string, absolute path or null>",
+    "normal": "<string, absolute path or null>",
+    "roughness": "<string, absolute path or null>",
+    "metallic": "<string, absolute path or null>",
+    "ao": "<string, absolute path or null>",
+    "emissive": "<string, absolute path or null>",
+    "opacity": "<string, absolute path or null>"
+  },
+  "collision_proxy": "<string, absolute path or null>",
+  "lod_levels": {
+    "lod0": "<string, path>",
+    "lod1": "<string, path or null>",
+    "lod2": "<string, path or null>"
+  }
+}
+```
+
+**Validation notes:**
+- `model` extension must be `.glb` for `production_ready`
+- texture paths must have valid image extensions: `.png`, `.jpg`, `.jpeg`, `.ktx2`
+- `collision_proxy` must be `.glb` or `.gltf` if present
+- All paths must be absolute and within the experiment directory
+
+---
+
+## 4. Provenance
+
+```json
+"provenance": {
+  "source": "<string, source description, ≥5 chars>",
+  "license_risk": "<enum: local_only | permissive | restricted | unknown>",
+  "generation_route": "<string, route name, e.g. Route A StableGen/Blender-first>",
+  "reference_images": [
+    {
+      "path": "<string, absolute path>",
+      "sha256": "<string, 64-char hex>",
+      "description": "<string>"
+    }
+  ],
+  "generation_prompts": [
+    {
+      "model": "<string, model name>",
+      "prompt": "<string>",
+      "params": "<object, model-specific params>",
+      "seed": "<integer or null>",
+      "output_path": "<string>"
+    }
+  ],
+  "blender_version": "<string, e.g. 4.2.0>",
+  "cleanup_report": "<string, absolute path or null>",
+  "notes": "<string, free text>"
+}
+```
+
+**Validation notes:**
+- `license_risk` of `unknown` blocks `production_ready` for hero assets
+- `reference_images[].sha256` must be valid 64-char hex
+- `cleanup_report` must be present for all `production_ready` assets
+- `generation_prompts` must not be empty for generated assets
+
+---
+
+## 5. Geometry
+
+```json
+"geometry": {
+  "meshes": "<integer, ≥1 for production_ready>",
+  "triangles": "<integer, ≥1 for production_ready>",
+  "vertices": "<integer, ≥1 for production_ready>",
+  "bbox": {
+    "min": ["<float>", "<float>", "<float>"],
+    "max": ["<float>", "<float>", "<float>"],
+    "size": ["<float>", "<float>", "<float>"]
+  },
+  "polycount_gate": {
+    "limit_triangles": "<integer>",
+    "limit_vertices": "<integer>",
+    "gate_passed": "<boolean>"
+  }
+}
+```
+
+**Validation notes:**
+- `polycount_gate.gate_passed` must be `true` for `production_ready`
+- triangle count must be ≤ `polycount_gate.limit_triangles`
+- `bbox.size` values must match `max - min` computed
+
+---
+
+## 6. Materials
+
+```json
+"materials": {
+  "material_names": ["<string>"],
+  "material_map_count": "<integer, 0–8>",
+  "pbr_complete": "<boolean>",
+  "texture_resolution": "<string, e.g. 2048 or null>",
+  "pbr_consistency": {
+    "basecolor_matches_normal": "<boolean>",
+    "roughness_in_expected_range": "<boolean>",
+    "metallic_in_expected_range": "<boolean>",
+    "ao_present": "<boolean>"
+  },
+  "fail_closed": {
+    "hero_asset": "<boolean, true means fail-closed behavior active>",
+    "enforced": "<boolean>"
+  }
+}
+```
+
+**Validation notes:**
+- `pbr_complete` must be `true` for `production_ready`
+- `pbr_consistency` fields must all be `true` for hero assets
+- `fail_closed.enforced` must be `true` for hero assets
+
+---
+
+## 7. Quality Gates
+
+```json
+"quality_gates": {
+  "screenshot_nonblank": "<boolean>",
+  "fallback_allowed_in_evidence": "<boolean, must be false for hero assets>",
+  "no_blocking_browser_errors": "<boolean>",
+  "no_missing_network_resources": "<boolean>",
+  "collision_proxy_gate": {
+    "proxy_exists": "<boolean>",
+    "proxy_valid": "<boolean>"
+  },
+  "polycount_gate": {
+    "gate_passed": "<boolean>",
+    "actual_triangles": "<integer>",
+    "limit": "<integer>"
+  },
+  "pbr_consistency_gate": {
+    "gate_passed": "<boolean>",
+    "failed_checks": ["<string>"]
+  }
+}
+```
+
+**Validation notes:**
+- All boolean gates must be `true` for `production_ready`
+- `fallback_allowed_in_evidence` must be `false` for hero assets (fail-closed)
+- `collision_proxy_gate.proxy_valid` must be `true` for weapons and characters
+- `failed_checks` must be empty array for `production_ready`
+
+---
+
+## 8. Evidence
+
+```json
+"evidence": {
+  "gameplay_screenshots": [
+    {
+      "path": "<string, absolute path>",
+      "sha256": "<string, 64-char hex>",
+      "description": "<string>",
+      "timestamp": "<ISO8601>"
+    }
+  ],
+  "preview_renders": [
+    {
+      "path": "<string, absolute path>",
+      "sha256": "<string, 64-char hex>",
+      "resolution": "<string, e.g. 1920x1080>"
+    }
+  ],
+  "material_reports": [
+    {
+      "path": "<string, absolute path>",
+      "sha256": "<string, 64-char hex>"
+    }
+  ],
+  "blender_screenshots": [
+    {
+      "path": "<string, absolute path>",
+      "sha256": "<string, 64-char hex>",
+      "view": "<string, e.g. material_preview, wireframe>"
+    }
+  ],
+  "threejs_runtime_screenshots": [
+    {
+      "path": "<string, absolute path>",
+      "sha256": "<string, 64-char hex>",
+      "scene_setup": "<string>"
+    }
+  ],
+  "animation_clips_proof": {
+    "path": "<string, absolute path or null>",
+    "clips_proven": ["<string>"]
+  }
+}
+```
+
+**Validation notes:**
+- `gameplay_screenshots` must have at least 1 entry for `production_ready`
+- `blender_screenshots` must include at least `material_preview` view for `production_ready`
+- `threejs_runtime_screenshots` required for hero assets
+- `animation_clips_proof.path` must be non-null for characters with `production_ready` status
+- All sha256 values must be valid 64-char hex
+
+---
+
+## 9. Hashes
+
+```json
+"hashes": {
+  "model_sha256": "<string, 64-char hex or null>",
+  "preview_sha256": "<string, 64-char hex or null>",
+  "collision_proxy_sha256": "<string, 64-char hex or null>",
+  "texture_bundle_sha256": "<string, 64-char hex or null>",
+  "size_bytes": "<integer, ≥0>",
+  "hash_algorithm": "<string, default sha256>"
+}
+```
+
+**Validation notes:**
+- `model_sha256` must be non-null for `production_ready`
+- `size_bytes` must match actual file size on disk
+- All non-null hashes must be valid 64-char hex
+
+---
+
+## 10. Blockers
+
+```json
+"blockers": [
+  {
+    "gate": "<string, gate name>",
+    "reason": "<string, ≥10 chars>",
+    "resolvable": "<boolean>",
+    "assigned_route": "<string, route name or null>"
+  }
+]
+```
+
+**Validation notes:**
+- `blockers` must be empty array for `production_ready` status
+- `resolvable` must be `true` for any non-empty blocker entry
+- `assigned_route` must be non-null if `resolvable` is `true`
+
+---
+
+## 11. Hero Asset Fail-Closed Behavior
+
+For assets with `role` containing `hero` or `production` (case-insensitive):
+
+| Requirement | Enforcement |
+|-------------|--------------|
+| `provenance.license_risk` must not be `unknown` | schema validation |
+| `provenance.cleanup_report` must be present | schema validation |
+| `quality_gates.fallback_allowed_in_evidence` must be `false` | schema validation |
+| `materials.pbr_complete` must be `true` | schema validation |
+| `materials.pbr_consistency.*` must all be `true` | schema validation |
+| `fail_closed.hero_asset` must be `true` | schema validation |
+| `fail_closed.enforced` must be `true` | schema validation |
+| `blockers` must be empty array | schema validation |
+| `evidence.threejs_runtime_screenshots` must be non-empty | schema validation |
+
+---
+
+## 12. Cross-Asset Validation Checks
+
+1. **Duplicate asset_id**: no two entries may share the same `asset_id`
+2. **Orphaned paths**: every path in `paths.*` must resolve to an existing file
+3. **Reference image integrity**: every `provenance.reference_images[].sha256` must match the file on disk
+4. **Route consistency**: `provenance.generation_route` must match a known route in the experiment's route registry
+5. **Animation clip alignment**: `animations.clips` entries must have corresponding proof in `evidence.animation_clips_proof.clips_proven`
+6. **Parent registry inheritance**: if `parent_registry` is set, all `baseline_only` assets must exist in the parent
+7. **Texture map coverage**: for `materials.pbr_complete == true`, all five base texture paths (`basecolor`, `normal`, `roughness`, `metallic`, `ao`) must be non-null
+
+---
+
+**Schema version:** 3.0.0  
+**Draft:** 003  
+**Status:** Mechanical outline only — no architectural judgment applied

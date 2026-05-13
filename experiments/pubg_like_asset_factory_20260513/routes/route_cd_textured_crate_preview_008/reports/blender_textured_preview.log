@@ -1,0 +1,48 @@
+Color management: using fallback mode for management
+Color management: Error could not find role data role.
+Blender 3.0.1
+Color management: scene view "Filmic" not found, setting default "Standard".
+Fra:1 Mem:53.20M (Peak 53.87M) | Time:00:00.21 | Syncing PreviewTarget
+Fra:1 Mem:53.20M (Peak 53.87M) | Time:00:00.21 | Syncing Area
+Fra:1 Mem:53.20M (Peak 53.87M) | Time:00:00.21 | Syncing Camera
+Fra:1 Mem:53.20M (Peak 53.87M) | Time:00:00.21 | Syncing world
+Fra:1 Mem:53.20M (Peak 53.87M) | Time:00:00.21 | Syncing geometry_0
+Fra:1 Mem:56.96M (Peak 64.58M) | Time:00:00.55 | Rendering 1 / 64 samples
+Fra:1 Mem:53.59M (Peak 64.58M) | Time:00:03.23 | Rendering 26 / 64 samples
+Fra:1 Mem:53.59M (Peak 64.58M) | Time:00:04.86 | Rendering 51 / 64 samples
+Fra:1 Mem:53.59M (Peak 64.58M) | Time:00:05.69 | Rendering 64 / 64 samples
+Saved: '/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_cd_textured_crate_preview_008/evidence/blender_textured_preview.png'
+ Time: 00:05.85 (Saving: 00:00.06)
+
+Data are loaded, start creating Blender stuff
+glTF import finished in 0.04s
+'/usr/bin/3.0/python/lib/python3.10/site-packages/libextern_draco.so' does not exist, draco mesh compression not available, please add it or create environment variable BLENDER_EXTERN_DRACO_LIBRARY_PATH pointing to the folder
+12:32:14 | INFO: Starting glTF 2.0 export
+12:32:14 | INFO: Extracting primitive: geometry_0
+12:32:14 | INFO: Primitives created: 1
+12:32:14 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+12:32:14 | INFO: Finished glTF 2.0 export in 0.2132701873779297 s
+
+{
+  "input_mesh": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_d_trellis_prop_probe_005/outputs/raw/tactical_crate_trellis_meshonly.glb",
+  "output_glb": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_cd_textured_crate_preview_008/outputs/tactical_crate_textured_probe.glb",
+  "output_png": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_cd_textured_crate_preview_008/evidence/blender_textured_preview.png",
+  "mesh_objects": 1,
+  "vertices": 16367,
+  "polygons": 32722,
+  "material": "TA_probe_crate_pbr",
+  "texture_nodes": [
+    "basecolor",
+    "roughness",
+    "metallic",
+    "normal"
+  ],
+  "uv_layers": {
+    "geometry_0": [
+      "UVMap"
+    ]
+  },
+  "status": "textured_preview_probe_only"
+}
+
+Blender quit

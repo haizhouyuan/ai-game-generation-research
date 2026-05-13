@@ -1,0 +1,74 @@
+## Kimi Read-Only Execution Critique — Full Rebuild Parallelization 002
+
+### 1. Highest-Value Parallel Tasks (Run Now, Zero Hunyuan Paint Dependency)
+
+| Task | Why It Can Run Now | Concrete Output |
+|---|---|---|
+| **W2 Reference Image Generation** | Pure API/control-plane work. No GPU, no env conflicts. | 10+ reference images + provenance + SHA256 + asset-to-reference matrix. Start with hero rifle, wet asphalt, concrete wall, tactical vest — these are the inputs for every downstream generator. |
+| **W7 ComfyUI Pre-Installation on HomePC** | Separate Python env from `hy3d21`/`hy3d21paint`. Does not block or get blocked by Hunyuan paint. | ComfyUI base install + custom node inventory (Hunyuan wrapper, Texture Projection nodes). Record dependency versions. If it breaks, fix it in parallel while paint env is being patched. |
+| **W3/TRELLIS Prop Candidate** | TRELLIS is allegedly cached. If true, run it on one non-rifle prop (medkit, ammo box, or tactical pouch) **today** without waiting for Hunyuan paint resolution. | One TRELLIS mesh output + quick Blender import screenshot. This answers the "TRELLIS exists" question immediately and gives Route D its first evidence point. |
+| **Route E Blender Cleanup Scripts** | Write the automated cleanup Python scripts now on Mac. They run inside Blender, independent of generator envs. | `scripts/blender_cleanup_template.py` that normalizes scale/origin/orientation, wires PBR maps, runs preview render, exports GLB. Kimi should write this. |
+| **W8 Registry V3 Schema Draft** | Design work. No runtime dependency. | `registry_v3_schema.json` with mandatory fields: `asset_id`, `provenance_chain`, `pbr_map_count`, `reference_sha256`, `generator_route`, `blender_cleanup_report`, `polycount`, `collision_proxy`. |
+| **Asset Packet Directory Scaffolding** | Mechanical setup. | Pre-create all 11 asset class directories with the required subdir structure (`source/`, `model/`, `textures/`, `reports/`, `evidence/`) so runners drop files into a standardized layout. |
+
+**Important:** Do not let "Hunyuan paint is blocked" stall the entire factory. ComfyUI install and TRELLIS prop runs are on the same GPU but in isolated environments — queue them.
+
+---
+
+### 2. Missing Acceptance Gates (Where a Weak Upgrade Can Slip Through)
+
+These are gaps in the current gate list that would allow a "we generated some stuff" outcome to be mistaken for a full rebuild:
+
+**A. Reference-to-Asset Chain Completeness Gate**
+- **Gap:** The gates count "generated asset packets" but do not mandate that each packet's `source/reference.md` must contain a SHA256 linking it to a specific reference image. Without this, someone could import a free Sketchfab model, run it through Blender, and call it "generated."
+- **Fix:** Every packet in `model/optimized.glb` must have a `source/reference.md` with a verifiable SHA256 of the reference image that fed the generator. Gate fails if `reference_sha256` is missing or mismatched.
+
+**B. Hero Asset No-Procedural-Fallback Gate**
+- **Gap:** The runtime could silently fall back to old procedural boxes if a GLB fails to load. The current gates mention "fail-closed fallback" but don't define the enforcement mechanism.
+- **Fix:** W8 gate must assert `material_map_count >= 3` (basecolor, normal, roughness) for hero rifle, player character, and enemy character. If the count is zero, the build fails — no silent fallback to `MeshStandardMaterial` with flat color.
+
+**C. Animation Integrity Gate**
+- **Gap:** W5 mentions "retarget animation set" but there is no gate checking that the new character mesh actually deforms correctly with idle/walk/aim/reload animations. A beautiful static GLB that breaks on skinning is worthless for a playable slice.
+- **Fix:** After character replacement, run a Blender script that plays the animation clip and exports frames. Gate passes only if vertex displacement is non-zero and bone weights are present on >95% of vertices.
+
+**D. Polycount / LOD Gate (Partial overlap with Gemini, but stricter)**
+- **Gap:** No hard triangle budgets.
+- **Fix:** Define and enforce:
+  - Props/loot/clutter: < 5k tris
+  - Hero rifle: < 15k tris
+  - Characters: < 50k tris
+  - Environment ground plane: < 2k tris
+  Every packet must include `reports/polycount.json`. Gate fails if exceeded — no exceptions.
+
+**E. PBR Consistency / Rainy HDRI Test Scene Gate**
+- **Gap:** Individual assets may look good in isolation but mismatched under unified lighting.
+- **Fix:** Create a single `lighting_test_scene.html` with the rainy checkpoint environment. All final assets are dropped into this scene and captured from the same camera angles. Visual comparison (eyeball + SSIM) ensures albedo ranges and roughness curves are cohesive.
+
+**F. Decal/Clutter Density Gate**
+- **Gap:** W6 lists decals and clutter but the completion criteria don't specify *how many* or *what coverage*.
+- **Fix:** Minimum 5 distinct decal types (mud, scratch, impact, warning marking, oil) and 5 clutter props (casing, paper, cable, cone, pallet) must be present in the final micro-scene screenshot. Gate fails if the scene looks "clean."
+
+---
+
+### 3. Proposed Task Routing
+
+| Runner | Assign | Why |
+|---|---|---|
+| **Kimi** | 1. Write `basicsr` → `torchvision` compatibility patch for Hunyuan Paint env (the `functional_tensor` removal issue).<br>2. Write Blender automation scripts: cleanup, PBR wiring, polycount export, collision proxy generation.<br>3. Write W8 registry v3 schema and Three.js gate assertions (material map count, fail-closed fallback).<br>4. Review ComfyUI dependency graph if Route C hits conflicts. | These are complex coding/integration tasks with hidden edge cases. Kimi is stronger than MiniMax for debugging Python env patches and writing automation that must handle real mesh data. |
+| **Gemini (`gemini-3.1-pro-preview`)** | 1. Critique W2 reference images for "PUBG-like worn tactical" realism — reject stylized/sci-fi/clean references.<br>2. W10 Mac runner evaluation: MLX vs llama.cpp vs Ollama for lightweight tasks.<br>3. Final W9 visual review: compare before/after screenshots and judge if the result is a "real asset-pipeline rebuild" or a light upgrade.<br>4. Tool comparison: Hunyuan vs TRELLIS vs ComfyUI output quality for tactical assets. | Gemini excels at broad research, visual direction critique, and strategic comparison. Use the pro-preview model for nuanced visual judgment. |
+| **MiniMax** | 1. Generate SHA256 manifests for all reference images and asset packets.<br>2. Format W1 install reports into structured JSON.<br>3. Create `registry_v3_schema.json` **draft structure** based on Kimi's requirements (schema bones only, no logic).<br>4. Verify download record formatting (no-proxy evidence, size markers).<br>5. Pre-create the 11 asset class directory trees. | These are narrow, mechanical, low-risk tasks. MiniMax should never own ambiguous architecture decisions or complex debugging. |
+| **HomePC GPU** | 1. Hunyuan3D shape + paint inference (W1, W3, W4).<br>2. ComfyUI workflow execution (W7).<br>3. TRELLIS mesh inference (Route D).<br>4. Blender render/bake when scripts are ready. | Strictly reserved for heavy inference and GPU-bound work. Do not use HomePC for report formatting or schema drafting. |
+| **Codex** | 1. Orchestrate the parallel lanes: queue HomePC jobs, dispatch runner packets, merge evidence.<br>2. Enforce no-proxy download rules and verify download records.<br>3. Run Kimi's Blender scripts on Mac (control-plane Blender if needed).<br>4. Build the final W9 release packet and GitHub push.<br>5. Own the "final judgment" on whether gates pass. | Central coordination. Codex should not personally do all the repetitive generation work — delegate bounded packets to runners immediately. |
+
+---
+
+### 4. Immediate Action Summary (Next 24 Hours)
+
+1. **HomePC:** Start ComfyUI base install in a fresh env while `hy3d21paint` is being patched.
+2. **HomePC:** Run TRELLIS on one prop (medkit or pouch) if the cache is functional — get Route D off "research note" status.
+3. **Mac/Codex:** Generate W2 reference images for hero rifle, asphalt, concrete, vest, helmet. Save provenance + SHA256.
+4. **Kimi:** Write the `basicsr` patch and Blender automation scripts.
+5. **MiniMax:** Create asset packet directory scaffolding and draft `registry_v3_schema.json`.
+6. **Gemini:** Begin W10 Mac runner evaluation and critique first W2 references as they arrive.
+
+**Bottom line:** The factory is bottlenecked on Hunyuan Paint env patching, but that should only block *Hunyuan paint inference* — not reference generation, ComfyUI setup, TRELLIS probes, Blender script authorship, or registry design.

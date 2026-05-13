@@ -1,0 +1,9 @@
+{
+  "input": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_d_trellis_prop_probe_005/outputs/raw/tactical_crate_trellis_meshonly.glb",
+  "output_png": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_d_trellis_prop_probe_005/evidence/blender_import.png",
+  "mesh_objects": 1,
+  "materials": 1,
+  "polygons": 32722,
+  "vertices": 16367,
+  "bounds_size": 1.0002029538154602
+}

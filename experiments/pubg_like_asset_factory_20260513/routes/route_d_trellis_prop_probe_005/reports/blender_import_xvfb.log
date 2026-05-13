@@ -1,0 +1,29 @@
+Color management: using fallback mode for management
+Color management: Error could not find role data role.
+Blender 3.0.1
+Color management: scene view "Filmic" not found, setting default "Standard".
+Fra:1 Mem:32.04M (Peak 32.70M) | Time:00:00.40 | Syncing PreviewTarget
+Fra:1 Mem:32.04M (Peak 32.70M) | Time:00:00.40 | Syncing Preview_Key_Area
+Fra:1 Mem:32.04M (Peak 32.70M) | Time:00:00.40 | Syncing Camera
+Fra:1 Mem:32.04M (Peak 32.70M) | Time:00:00.40 | Syncing world
+Fra:1 Mem:32.04M (Peak 32.70M) | Time:00:00.40 | Syncing geometry_0
+Fra:1 Mem:34.67M (Peak 35.30M) | Time:00:00.65 | Rendering 1 / 64 samples
+Fra:1 Mem:32.43M (Peak 35.30M) | Time:00:03.46 | Rendering 26 / 64 samples
+Fra:1 Mem:32.43M (Peak 35.30M) | Time:00:04.99 | Rendering 51 / 64 samples
+Fra:1 Mem:32.43M (Peak 35.30M) | Time:00:05.70 | Rendering 64 / 64 samples
+Saved: '/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_d_trellis_prop_probe_005/evidence/blender_import.png'
+ Time: 00:05.86 (Saving: 00:00.06)
+
+Data are loaded, start creating Blender stuff
+glTF import finished in 0.02s
+{
+  "input": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_d_trellis_prop_probe_005/outputs/raw/tactical_crate_trellis_meshonly.glb",
+  "output_png": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_d_trellis_prop_probe_005/evidence/blender_import.png",
+  "mesh_objects": 1,
+  "materials": 1,
+  "polygons": 32722,
+  "vertices": 16367,
+  "bounds_size": 1.0002029538154602
+}
+
+Blender quit

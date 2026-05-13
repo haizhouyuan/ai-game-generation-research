@@ -8,6 +8,14 @@ Goal:
 
 The previous `tactical_game_visual_upgrade_20260520` release is now the baseline/proof-of-control packet, not final completion. This board tracks the stricter full rebuild: realistic references, local image-to-3D/PBR generation, Blender cleanup, runtime replacement, and evidence gates for all major visible asset classes.
 
+Plain meaning:
+
+- Not a light upgrade of the old game.
+- Not just better lighting on procedural GLBs.
+- Build a real local asset factory and use it to replace the game assets.
+- Every final near-camera asset needs a recorded chain from reference image to 3D/PBR asset packet to Three.js evidence.
+- Test the major local routes in parallel: Hunyuan3D, ComfyUI/PBR projection, TRELLIS/TRELLIS.2, Blender cleanup, and runtime gates.
+
 ## Runner Routing
 
 - Codex: orchestration, task packets, integration, evidence, final judgement.
@@ -27,9 +35,46 @@ The previous `tactical_game_visual_upgrade_20260520` release is now the baseline
 | W4 hero rifle full replacement | HomePC GPU + Blender | pending | generated/PBR hero rifle packet |
 | W5 character/gear replacement | HomePC GPU + Blender | pending | production character packets |
 | W6 environment/loot/clutter | HomePC GPU + Blender | pending | material and prop packets |
-| W7 ComfyUI PBR route | HomePC GPU | pending | workflow JSON and output asset |
+| W7 ComfyUI PBR route | HomePC GPU | minimal proof captured | `experiments/pubg_like_asset_factory_20260513/routes/route_c_comfyui_pbr_probe_004/summary.md` |
 | W8 runtime gate v3 | Codex/Kimi | pending | v3 registry and visual evidence gate |
 | W9 final release | Codex | pending | new dated release packet |
+| W10 local Mac runner capacity | Codex/Gemini | pending | MLX/llama.cpp/Ollama recommendation and dry-run |
+| Runner MCP/skill control | Codex + runners | active | `docs/coding_runner_mcp_skill_control_2026-05-13.md` |
+| Asset packet validation | Codex + worker | active | `tools/validate_asset_packets.py` |
+| Route D TRELLIS prop probe | HomePC GPU | evidence captured | `experiments/pubg_like_asset_factory_20260513/routes/route_d_trellis_prop_probe_005/summary.md` |
+
+## Asset Factory Completion Gates
+
+Minimum gates for final release:
+
+- 10+ reference/provenance sets.
+- 6+ generated or PBR-authored asset packets.
+- 3+ packets with actual texture maps: basecolor, normal, roughness, and metallic or AO.
+- 1+ chain starting from a newly generated realistic reference image.
+- 1+ Hunyuan asset attempted through shape and paint/PBR.
+- 1+ ComfyUI/PBR projection or equivalent texture completion route tested.
+- 1+ TRELLIS/TRELLIS.2 concrete tactical asset candidate attempted.
+- Final runtime uses new/rebuilt packets, not mostly old procedural placeholders.
+- Polycount/performance gate: generated assets must be decimated or LODed enough for the playable Three.js slice.
+- Collision proxy gate: complex visual meshes need simple gameplay collision/proxy shapes.
+- PBR consistency gate: assets from different generators must be checked under the same rainy checkpoint lighting/material test scene.
+
+Schema draft:
+
+`schemas/asset_registry_v3.schema.json`
+
+Packet validator:
+
+```bash
+python3 tools/validate_asset_packets.py --markdown
+python3 tools/validate_asset_packets.py --strict
+```
+
+Current validator meaning:
+
+- all new packet slots have standard directories;
+- texture map counts are still zero for the scaffolded production slots;
+- `hunyuan_shape_demo_001` has browser-independent Blender evidence but remains shape-only and not a final asset.
 
 ## Immediate Commands
 
@@ -38,6 +83,9 @@ The previous `tactical_game_visual_upgrade_20260520` release is now the baseline
 3. Download model files with proxy env unset and record evidence. Done.
 4. Run a small shape-only smoke test. Done.
 5. Run a small textured/PBR smoke test. Active.
+6. Generate first realistic reference-image set. Pending.
+7. Convert one generated reference into a 3D/PBR asset candidate. Pending.
+8. Launch ComfyUI/TRELLIS route probes in parallel after Hunyuan paint is no longer blocking GPU setup.
 
 ## Current W1/W3 Evidence
 
@@ -47,6 +95,28 @@ The previous `tactical_game_visual_upgrade_20260520` release is now the baseline
 - Hash manifest verifies: `python3 tools/verify_artifact_hashes.py experiments/pubg_like_asset_factory_20260513/artifact_hashes.json`.
 
 Important: `hunyuan_shape_demo_001` is not a final game asset. It proves the local Hunyuan shape route only; `material_map_count = 0`.
+
+## Asset Packet Scaffolding
+
+Created standard packet directories under:
+
+`experiments/pubg_like_asset_factory_20260513/assets/`
+
+Current packet slots:
+
+- `hero_rifle_v1`
+- `sidearm_v1`
+- `player_tactical_v1`
+- `enemy_tactical_v1`
+- `gear_set_v1`
+- `wet_asphalt_material_v1`
+- `concrete_wall_material_v1`
+- `container_checkpoint_v1`
+- `loot_set_v1`
+- `clutter_decals_v1`
+- `rainy_checkpoint_scene_v1`
+
+Each slot has `source/`, `model/`, `textures/`, `reports/`, and `evidence/`.
 
 ## Current Texture/PBR Blockers
 
@@ -62,6 +132,50 @@ Active mitigation:
 - download RealESRGAN with proxy env unset and size/hash validation;
 - compile or validate Hunyuan paint extensions after `bpy`, `realesrgan`, and `basicsr` imports pass.
 
+Current paint env status:
+
+- `hy3d21paint` exists with Python 3.11.
+- PyTorch 2.5.1 + CUDA 12.1 installed and sees RTX 3090.
+- `bpy==4.2.0`, `realesrgan==0.3.0`, `basicsr==1.4.2`, `facexlib`, and `gfpgan` import successfully after the BasicSR torchvision compatibility patch.
+- Conda CUDA 12.1 `nvcc` and conda GCC/G++ 12 were installed to avoid the system CUDA 11.5 mismatch.
+- `custom_rasterizer` and Hunyuan paint mesh-painter imports now pass when the torch library path is included in `LD_LIBRARY_PATH`.
+- RealESRGAN checkpoint was replaced with a valid 67,040,989 byte file, SHA256 `4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1`.
+- Current blocker: `facebook/dinov2-giant` is required by Hunyuan Paint and is downloading safetensors-only with proxy env unset.
+
+## Current Route C / Route D Evidence
+
+Route C ComfyUI/PBR:
+
+- HomePC has `/home/yuanhaizhou/ComfyUI` at revision `fce0398470fe3ecdb7ab4c5c69555ad0fcbdc09e`.
+- Relevant blueprints include `Image to Model (Hunyuan3d 2.1).json`.
+- Installed `ComfyUI-TextureAlchemy` at revision `0afda45713c7b33afbf9d4f757493cca2004f65f` with command-local proxy env unset.
+- TextureAlchemy import check loaded 131 node mappings.
+- Minimal PBR proof generated basecolor, height, normal, roughness, metallic, AO, and ORM maps for the tactical crate reference.
+- Verdict: usable as a minimal PBR proof, but not final production texture projection.
+
+Route D TRELLIS:
+
+- Ran cached TRELLIS image-to-3D on a non-rifle tactical crate prop.
+- Output GLB: `experiments/pubg_like_asset_factory_20260513/routes/route_d_trellis_prop_probe_005/outputs/raw/tactical_crate_trellis_meshonly.glb`.
+- Blender import preview: `experiments/pubg_like_asset_factory_20260513/routes/route_d_trellis_prop_probe_005/evidence/blender_import.png`.
+- Mesh facts: 16,367 vertices, 32,722 faces after postprocess.
+- Texture maps: 0.
+- Verdict: background-only until PBR/texture and cleanup are added.
+
+Combined probe asset packet:
+
+- `tactical_crate_trellis_texturealchemy_v1` combines the Route D TRELLIS mesh and Route C TextureAlchemy maps.
+- It has `basecolor`, `height`, `normal`, `roughness`, `metallic`, `ao`, and `orm` texture files.
+- It has Blender import evidence and a material report.
+- It is explicitly `probe_only`, not production-ready: no final UV cleanup, material-zone separation, LOD, collision proxy, or Three.js gameplay evidence yet.
+- Hash manifest currently verifies 135 entries with `python3 tools/verify_artifact_hashes.py experiments/pubg_like_asset_factory_20260513/artifact_hashes.json`.
+
+Textured Blender preview:
+
+- Route `route_cd_textured_crate_preview_008` imported the TRELLIS crate mesh, ran Blender Smart UV, wired TextureAlchemy basecolor/roughness/metallic/normal maps, exported a textured GLB, and rendered a preview.
+- Output: `experiments/pubg_like_asset_factory_20260513/routes/route_cd_textured_crate_preview_008/evidence/blender_textured_preview.png`.
+- Visual read: the chain is real, but the automatic UV/heuristic maps are not production quality.
+
 ## External Runner Reviews
 
 `hunyuan_paint_env_review_001` was sent to Gemini and Kimi as read-only runner reviews.
@@ -75,3 +189,17 @@ Key Gemini guidance:
 - Python 3.11 plus `bpy==4.2.0` is a reasonable practical substitute because current Linux/Python 3.11 PyPI index does not offer `bpy==4.0`.
 - `basicsr==1.4.2` may fail with modern `torchvision` because `torchvision.transforms.functional_tensor` was removed; patch to `torchvision.transforms.functional` if import fails.
 - Do not let RealESRGAN super-resolution block the core paint validation; first try to get texture generation running, then solve upscaling.
+
+Kimi guidance:
+
+- Use Kimi for hard blocker analysis and implementation critique.
+- Patch `basicsr` import if modern torchvision breaks `functional_tensor`.
+- Verify `nvcc --version` before compiling extensions.
+
+Gemini routing:
+
+- Use `/Users/yuanshaochen/Projects/local-coding-runners/bin/runner-gemini-review`; it pins `gemini-3.1-pro-preview`.
+
+MiniMax routing:
+
+- Use only for simple report/schema/hash and mechanical first-pass review.

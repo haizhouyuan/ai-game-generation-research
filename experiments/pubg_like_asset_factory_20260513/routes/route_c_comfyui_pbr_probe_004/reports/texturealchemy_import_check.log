@@ -1,0 +1,7 @@
+timestamp=2026-05-13T20:23:37+08:00
+WARNING:root:WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.
+NODE_CLASS_MAPPINGS 131
+NODE_DISPLAY_NAME_MAPPINGS 131
+sample_nodes ['PBRExtractor', 'PBRAdjuster', 'PBRCombiner', 'PBRPipelineAdjuster', 'PBRSplitter', 'PBRSaver', 'PBRSaverWithMetadata', 'PBRPipePreview', 'PBRPipeToBatch', 'PBRBatchToPipe', 'PBRMaterialMixer', 'EmbedAlpha', 'PBRMaterialProcessor', 'PBRNormalProcessor', 'PBRHeightProcessor', 'LightingExtractor', 'AppearanceExtractor', 'BasicLightingBuilder', 'CompositeMaskAdjuster', 'CompositeMaskExtractor']
+/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_c_comfyui_pbr_probe_004/workflows/texturealchemy_03_channel_packing_orm.json 5410 bytes
+/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_c_comfyui_pbr_probe_004/workflows/texturealchemy_10_fastest_pbr_extraction.json 3189 bytes

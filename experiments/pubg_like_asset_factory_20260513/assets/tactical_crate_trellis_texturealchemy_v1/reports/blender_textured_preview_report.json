@@ -1,0 +1,21 @@
+{
+  "input_mesh": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_d_trellis_prop_probe_005/outputs/raw/tactical_crate_trellis_meshonly.glb",
+  "output_glb": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_cd_textured_crate_preview_008/outputs/tactical_crate_textured_probe.glb",
+  "output_png": "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/routes/route_cd_textured_crate_preview_008/evidence/blender_textured_preview.png",
+  "mesh_objects": 1,
+  "vertices": 16367,
+  "polygons": 32722,
+  "material": "TA_probe_crate_pbr",
+  "texture_nodes": [
+    "basecolor",
+    "roughness",
+    "metallic",
+    "normal"
+  ],
+  "uv_layers": {
+    "geometry_0": [
+      "UVMap"
+    ]
+  },
+  "status": "textured_preview_probe_only"
+}

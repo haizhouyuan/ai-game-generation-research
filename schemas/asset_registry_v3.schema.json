@@ -1,0 +1,270 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/haizhouyuan/ai-game-generation-research/schemas/asset_registry_v3.schema.json",
+  "title": "Asset Registry V3",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "experiment", "assets"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "experiment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": [
+        "asset_id",
+        "asset_class",
+        "status",
+        "paths",
+        "provenance",
+        "geometry",
+        "materials",
+        "quality_gates",
+        "evidence"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "asset_class": {
+          "enum": ["weapon", "character", "gear", "material", "prop", "environment", "decal"]
+        },
+        "status": {
+          "enum": ["baseline_only", "target", "in_progress", "blocked", "rejected", "production_ready"]
+        },
+        "paths": {
+          "$ref": "#/$defs/paths"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "geometry": {
+          "$ref": "#/$defs/geometry"
+        },
+        "materials": {
+          "$ref": "#/$defs/materials"
+        },
+        "quality_gates": {
+          "$ref": "#/$defs/quality_gates"
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "paths": {
+      "type": "object",
+      "required": ["asset_packet_dir"],
+      "additionalProperties": true,
+      "properties": {
+        "asset_packet_dir": {
+          "type": "string"
+        },
+        "model_raw": {
+          "type": ["string", "null"]
+        },
+        "model_cleaned": {
+          "type": ["string", "null"]
+        },
+        "model_optimized": {
+          "type": ["string", "null"]
+        },
+        "collision_proxy": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source_type", "license_risk", "generation_route", "reference_images"],
+      "additionalProperties": true,
+      "properties": {
+        "source_type": {
+          "enum": ["ai_generated_reference", "local_generated", "local_authored", "third_party", "baseline"]
+        },
+        "license_risk": {
+          "enum": ["local_only", "permissive", "restricted", "unknown"]
+        },
+        "generation_route": {
+          "type": "string"
+        },
+        "reference_images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hashed_file"
+          }
+        }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "required": ["vertices", "triangles", "polycount_gate"],
+      "additionalProperties": true,
+      "properties": {
+        "vertices": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "triangles": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "polycount_gate": {
+          "type": "object",
+          "required": ["limit_triangles", "passed"],
+          "properties": {
+            "limit_triangles": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "passed": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "materials": {
+      "type": "object",
+      "required": ["material_map_count", "textures", "pbr_complete"],
+      "additionalProperties": true,
+      "properties": {
+        "material_map_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pbr_complete": {
+          "type": "boolean"
+        },
+        "textures": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/hashed_file_or_null"
+          },
+          "properties": {
+            "basecolor": {
+              "$ref": "#/$defs/hashed_file_or_null"
+            },
+            "normal": {
+              "$ref": "#/$defs/hashed_file_or_null"
+            },
+            "roughness": {
+              "$ref": "#/$defs/hashed_file_or_null"
+            },
+            "metallic": {
+              "$ref": "#/$defs/hashed_file_or_null"
+            },
+            "ao": {
+              "$ref": "#/$defs/hashed_file_or_null"
+            }
+          }
+        }
+      }
+    },
+    "quality_gates": {
+      "type": "object",
+      "required": ["no_fallback", "collision_proxy_gate", "pbr_consistency_gate"],
+      "additionalProperties": true,
+      "properties": {
+        "no_fallback": {
+          "type": "boolean"
+        },
+        "collision_proxy_gate": {
+          "type": "object",
+          "required": ["required", "passed"],
+          "properties": {
+            "required": {
+              "type": "boolean"
+            },
+            "passed": {
+              "type": "boolean"
+            }
+          }
+        },
+        "pbr_consistency_gate": {
+          "type": "object",
+          "required": ["checked", "passed"],
+          "properties": {
+            "checked": {
+              "type": "boolean"
+            },
+            "passed": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["blender_preview", "threejs_closeup", "gameplay_context"],
+      "additionalProperties": true,
+      "properties": {
+        "blender_preview": {
+          "$ref": "#/$defs/hashed_file_or_null"
+        },
+        "threejs_closeup": {
+          "$ref": "#/$defs/hashed_file_or_null"
+        },
+        "gameplay_context": {
+          "$ref": "#/$defs/hashed_file_or_null"
+        },
+        "cdp_report": {
+          "$ref": "#/$defs/hashed_file_or_null"
+        }
+      }
+    },
+    "hashed_file": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "hashed_file_or_null": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/hashed_file"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

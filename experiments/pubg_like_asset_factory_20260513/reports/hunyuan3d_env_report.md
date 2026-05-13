@@ -182,9 +182,9 @@ Local Blender then imported `model/raw.glb`, rendered `evidence/blender_preview.
 
 - Hunyuan texture/PBR route needs custom rasterizer and DifferentiableRenderer extensions.
 - Existing `trellis` environment has many needed dependencies but not all official Hunyuan extras.
-- The Hunyuan shape import path is proven, but the texture/PBR path is not yet proven.
-- `hy3dpaint` import currently fails on `ModuleNotFoundError: No module named 'bpy'`.
+- The Hunyuan shape import path is proven, but the texture/PBR generation path is not yet proven.
 - A direct GitHub download of `RealESRGAN_x4plus.pth` was killed because it was too slow; the partial file should not be treated as valid.
+- HomePC has `nvcc` 11.5 while `hy3d21paint` uses PyTorch CUDA 12.1; Hunyuan paint extension compilation may need workaround if CUDA ABI/toolkit mismatch appears.
 
 ## Paint Environment Follow-Up
 
@@ -204,3 +204,153 @@ Rationale:
 - compile/validate paint extensions there.
 
 External Gemini review agreed that Python 3.11 plus `bpy==4.2.0` is a reasonable practical route, while warning that `basicsr==1.4.2` may need a `torchvision.transforms.functional_tensor` compatibility patch with modern `torchvision`.
+
+## Paint Environment Progress
+
+`hy3d21paint` now has a working CUDA PyTorch base:
+
+```text
+torch 2.5.1
+torch_cuda 12.1
+cuda_available True
+device NVIDIA GeForce RTX 3090
+nvcc release 11.5, V11.5.119
+```
+
+Install logs:
+
+```text
+/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/logs/08_install_hy3d21paint_torch_*.log
+/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/logs/09_verify_hy3d21paint_cuda_*.log
+```
+
+`bpy`, RealESRGAN, BasicSR, and related dependencies were installed with command-local proxy env unset. The first direct dependency install failed because `tb-nightly` was unavailable through the configured PyPI mirror. The successful route was:
+
+1. install real runtime dependencies manually;
+2. install `basicsr`, `facexlib`, `gfpgan`, and `realesrgan` with `--no-deps`;
+3. patch BasicSR's obsolete `torchvision.transforms.functional_tensor` import.
+
+Post-patch import result:
+
+```text
+bpy OK
+cv2 OK 4.13.0
+facexlib OK 0.3.0
+gfpgan OK
+basicsr OK 1.4.2
+realesrgan OK
+```
+
+Hunyuan Paint core dependency import also passed after installing the minimal official requirements needed for paint:
+
+```text
+textureGenPipeline OK after deps
+```
+
+The paint route is now at extension compile / first texture generation stage, not at Python dependency stage.
+
+## Extension Compile Status
+
+First `custom_rasterizer` compile attempt failed because pip build isolation could not see `torch`:
+
+```text
+ModuleNotFoundError: No module named 'torch'
+```
+
+Second attempt used `pip install -e . --no-build-isolation`, which reached the real compile step and failed on CUDA compiler mismatch:
+
+```text
+RuntimeError:
+The detected CUDA version (11.5) mismatches the version that was used to compile
+PyTorch (12.1).
+```
+
+Mitigation result:
+
+- installed CUDA 12.1 `nvcc` / toolkit into `hy3d21paint`;
+- installed conda GCC/G++ 12 for CUDA extension compilation;
+- set `CUDA_HOME`, compiler env vars, include paths, and `TORCH_CUDA_ARCH_LIST=8.6`;
+- retried `custom_rasterizer` and Hunyuan paint imports successfully.
+
+This was a real Hunyuan Paint blocker, not a missing Python package blocker.
+
+The successful extension/import route used the conda CUDA toolkit and torch
+library path:
+
+```bash
+export CUDA_HOME="$CONDA_PREFIX"
+export PATH="$CONDA_PREFIX/bin:$PATH"
+export CC="$CONDA_PREFIX/bin/x86_64-conda-linux-gnu-gcc"
+export CXX="$CONDA_PREFIX/bin/x86_64-conda-linux-gnu-g++"
+export CUDAHOSTCXX="$CXX"
+export CPATH="$CONDA_PREFIX/targets/x86_64-linux/include:$CONDA_PREFIX/include:${CPATH:-}"
+export CFLAGS="-I$CONDA_PREFIX/targets/x86_64-linux/include ${CFLAGS:-}"
+export CXXFLAGS="-I$CONDA_PREFIX/targets/x86_64-linux/include ${CXXFLAGS:-}"
+export TORCH_CUDA_ARCH_LIST="8.6"
+TORCH_LIB=$(python - <<'PY'
+import pathlib, torch
+print(pathlib.Path(torch.__file__).resolve().parent / "lib")
+PY
+)
+export LD_LIBRARY_PATH="$TORCH_LIB:$CONDA_PREFIX/lib:$CONDA_PREFIX/targets/x86_64-linux/lib:${LD_LIBRARY_PATH:-}"
+```
+
+Post-compile import result:
+
+```text
+custom_rasterizer OK with torch lib
+textureGenPipeline OK after custom_rasterizer and mesh painter
+```
+
+## RealESRGAN Checkpoint
+
+The direct official GitHub download was too slow and left a corrupt partial
+file. The valid checkpoint was downloaded from a CNB LFS mirror with
+command-local proxy env unset.
+
+Result:
+
+```text
+path: /home/yuanhaizhou/models/hunyuan3d21_factory_20260513/Hunyuan3D-2.1/hy3dpaint/ckpt/RealESRGAN_x4plus.pth
+size: 67040989 bytes
+sha256: 4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1
+source: https://cnb.cool/ai-models/AI-ModelScope/RealESRGAN_x4plus
+```
+
+This removes the super-resolution checkpoint as a blocker.
+
+## Paint Smoke Current Blocker
+
+The first Hunyuan Paint smoke reached model loading and then failed because the
+paint pipeline also requires `facebook/dinov2-giant`.
+
+Observed failure:
+
+```text
+missing preprocessor_config.json for facebook/dinov2-giant
+```
+
+Mitigation currently running on HomePC:
+
+```text
+repo: facebook/dinov2-giant
+local dir: /home/yuanhaizhou/models/hunyuan3d21_factory_20260513/models/facebook_dinov2_giant
+allowed files: config.json, preprocessor_config.json, model.safetensors
+expected model.safetensors size: 4546005432 bytes
+endpoint: HF_ENDPOINT=https://hf-mirror.com
+proxy env: command-local unset
+```
+
+An accidental broader download also left an incomplete `pytorch_model.bin`
+partial. That file is not part of the accepted safetensors-only route and must
+not be treated as a completed model artifact.
+
+Next paint command should run with `HF_HUB_OFFLINE=1` and:
+
+```python
+conf.dino_ckpt_path = "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/models/facebook_dinov2_giant"
+```
+
+The Hunyuan route remains incomplete until the textured/PBR smoke produces an
+output asset or fails with a documented model/runtime blocker after the DINOv2
+download is complete.

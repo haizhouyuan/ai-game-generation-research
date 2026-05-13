@@ -1,0 +1,19 @@
+# Route C/D Probe Review 007
+
+## Verdict
+valid_probe
+
+## Top Gaps
+- **UV Unwrapping & Mapping:** The raw TRELLIS mesh lacks proper UV coordinates aligned with the generated texture maps.
+- **True Multi-View Texture Projection:** The current TextureAlchemy maps are heuristic 2D derivations from a single image, lacking true 3D multi-view projection or baking onto the generated geometry.
+- **Mesh Optimization:** The post-processed mesh is 16k vertices, which requires further decimation/LOD generation for use as a repeated background prop.
+- **Material Separation:** The model consists of a single material zone; it needs separation into distinct material groups (e.g., metal clasps vs. crate body).
+- **Runtime Readiness:** Lacks a simplified collision proxy geometry and Three.js gameplay/runtime integration evidence.
+
+## Promotion Advice
+- Treat this packet strictly as a **diagnostic probe** (`probe_only`). It successfully proves the local mesh and PBR generation pipeline exists, but it should **not** be promoted as a final near-camera or hero asset. It is currently suitable only for `background_only` or mid-distance scene dressing until a more robust texture projection (or Hunyuan paint) and complete Blender cleanup are integrated.
+
+## Next Delegated Task
+- runner: Kimi (to author script) / HomePC (to execute)
+- task: Write and execute a headless Blender script to automatically UV unwrap the `tactical_crate_trellis_meshonly.glb` (e.g., Smart UV Project), assign a principled BSDF material using the 7 TextureAlchemy PBR maps, and render a textured Blender preview image.
+- acceptance: A successfully executed script resulting in a new textured Blender preview render (`evidence/blender_textured_preview.png`) proving how the heuristic 2D maps visually map to the raw 3D geometry.

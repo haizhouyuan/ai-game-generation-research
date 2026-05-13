@@ -1,0 +1,74 @@
+{
+  "schema_version": "3.0.0-probe",
+  "generated_at": "2026-05-13T00:00:00Z",
+  "experiment": "pubg_like_asset_factory_20260513",
+  "assets": [
+    {
+      "asset_id": "tactical_crate_trellis_texturealchemy_v1",
+      "asset_class": "prop",
+      "status": "in_progress",
+      "probe_only": true,
+      "required_for_final": false,
+      "generator_route": "route_c_texturealchemy_probe",
+      "model": {
+        "raw_glb": "model/raw.glb",
+        "optimized_glb": null
+      },
+      "provenance": {
+        "source_type": "local_generated",
+        "generation_route": "TRELLIS mesh plus TextureAlchemy PBR probe",
+        "reference": "source/reference.md",
+        "license": "source/license.md"
+      },
+      "materials": {
+        "material_map_count": 5,
+        "required_material_map_count": 3,
+        "required_texture_keys": [
+          "basecolor",
+          "normal",
+          "roughness"
+        ],
+        "textures": {
+          "basecolor": "textures/tactical_crate_basecolor.png",
+          "normal": "textures/tactical_crate_normal.png",
+          "roughness": "textures/tactical_crate_roughness.png",
+          "metallic": "textures/tactical_crate_metallic.png",
+          "ao": "textures/tactical_crate_ao.png"
+        }
+      },
+      "reports": {
+        "material_report": "reports/material_report.json",
+        "blender_cleanup_report": "reports/blender_cleanup_report.json"
+      },
+      "evidence": {
+        "blender_preview": "evidence/blender_preview.png"
+      }
+    },
+    {
+      "asset_id": "hero_rifle_v1",
+      "asset_class": "weapon",
+      "status": "target",
+      "probe_only": false,
+      "required_for_final": true,
+      "generator_route": "route_b_or_c_pending",
+      "model": {
+        "raw_glb": "model/raw.glb",
+        "optimized_glb": "model/optimized.glb"
+      },
+      "materials": {
+        "material_map_count": 0,
+        "required_material_map_count": 3,
+        "required_texture_keys": [
+          "basecolor",
+          "normal",
+          "roughness"
+        ],
+        "textures": {
+          "basecolor": "textures/hero_rifle_basecolor.png",
+          "normal": "textures/hero_rifle_normal.png",
+          "roughness": "textures/hero_rifle_roughness.png"
+        }
+      }
+    }
+  ]
+}
