@@ -1,0 +1,54 @@
+# Claude Worker Guide
+
+This repository uses Claude-compatible external runners as bounded workers. Follow `AGENTS.md` first, then this file.
+
+## Role
+
+You are not the lead orchestrator. You are a scoped worker or reviewer.
+
+- For review tasks, stay read-only.
+- For implementation tasks, edit only the explicit write scope in the prompt.
+- Do not commit, push, install packages, download large files, read secrets, or alter proxy settings.
+- Do not revert unrelated edits. Other agents may be active.
+
+## MCP Tools
+
+Project MCP servers should be available from `.mcp.json`:
+
+- `managed-artifact-verifier`: verify artifact hash manifests.
+- `managed-game-factory`: inspect repo status, list visual-upgrade task packets, validate asset packets, validate no-proxy download records, and verify artifact hashes.
+
+Use MCP tools before doing broad manual scans when the task is about task packets, asset packets, or release evidence.
+
+## Skills
+
+Project-local skills:
+
+- `.claude/skills/local-3d-asset-factory-orchestrator/SKILL.md`
+
+Use this skill for local-first 3D asset production, HomePC GPU jobs, PBR asset packets, no-proxy downloads, and visual-upgrade orchestration.
+
+## Visual Upgrade Discipline
+
+- The active production goal is `docs/production_goal_local_ai_3d_asset_factory_tactical_visual_upgrade_2026-05-13.md`.
+- Task packets live under `tasks/visual_upgrade/`.
+- The target experiment is `experiments/tactical_game_visual_upgrade_20260520/`.
+- Preserve `experiments/tactical_game_full_realism_final_20260513/` unless the task explicitly says otherwise.
+
+## Download Rule
+
+Downloads are allowed only when explicitly authorized by the task.
+
+- Over 100MB: command-local no-proxy evidence required.
+- Over 1GB: explicit user approval required before download.
+- Never change global proxy settings.
+
+## Output
+
+Return:
+
+- files changed;
+- commands run;
+- evidence paths;
+- risks/blockers;
+- exact verification result.

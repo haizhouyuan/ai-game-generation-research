@@ -1,0 +1,115 @@
+version: 1
+name: visual-upgrade-local-ai-3d-asset-factory
+created: "2026-05-13"
+download_policy:
+  over_100mb_requires_command_local_no_proxy: true
+  over_1gb_requires_explicit_user_approval: true
+  never_change_global_proxy_without_user_request: true
+hosts:
+  mac_m2_max_96gb:
+    role:
+      - orchestration
+      - repo_integration
+      - browser_cdp_evidence
+      - threejs_runtime
+      - lightweight_local_mlx_or_llama_cpp_inference
+    max_write_workers: 4
+  homepc_dual_3090:
+    role:
+      - trellis2
+      - hunyuan3d
+      - comfyui
+      - blender_render_bake
+      - pbr_texture_generation
+    max_heavy_gpu_jobs: 2
+runners:
+  codex:
+    role: lead_orchestrator
+    owns:
+      - docs
+      - task_board
+      - final_integration_review
+      - evidence_closeout
+  claudeminmax:
+    role: low_cost_mechanical_worker_and_review
+    allowed_modes:
+      - runner-review
+      - runner-worker_with_explicit_scope
+  claudekimi:
+    role: alternate_review_and_scoped_worker
+    allowed_modes:
+      - runner-review
+      - runner-worker_with_explicit_scope
+  gemini_cli:
+    role: broad_research_and_plan_review
+    allowed_modes:
+      - headless_plan_readonly
+  mac_local_model:
+    role: budget_saving_lightweight_classifier_summarizer
+    preferred:
+      - mlx_lm
+      - llama_cpp
+lanes:
+  - id: runner-control
+    host: mac_m2_max_96gb
+    runner: codex
+    write_scope:
+      - docs/runner_control_readiness_2026-05-13.md
+      - tasks/visual_upgrade/**
+    gate:
+      - runner-capabilities-audit passes without printing secrets
+      - runner-worker dry-run generated for one task
+  - id: mac-local-model-lane
+    host: mac_m2_max_96gb
+    runner: codex
+    write_scope:
+      - docs/mac_local_model_lane_2026-05-13.md
+    gate:
+      - no large model download without policy evidence
+      - first route selected with commands
+  - id: threejs-loader-migration
+    host: mac_m2_max_96gb
+    runner: claudeminmax
+    write_scope:
+      - experiments/tactical_game_visual_upgrade_20260520/src/runtime/assetLoader.js
+      - experiments/tactical_game_visual_upgrade_20260520/src/runtime/assetRegistry.js
+    gate:
+      - node --check runtime files
+      - current final assets still load
+  - id: hero-rifle-v2
+    host: homepc_dual_3090
+    runner: homepc_gpu_worker
+    write_scope:
+      - experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/**
+      - experiments/tactical_game_visual_upgrade_20260520/reports/hero_rifle_v2/**
+    gate:
+      - material_map_count >= 4 or blocker report
+      - first_person and third_person screenshots
+  - id: character-animation
+    host: mac_m2_max_96gb
+    runner: claudekimi
+    write_scope:
+      - experiments/tactical_game_visual_upgrade_20260520/src/runtime/animationSystem.js
+      - experiments/tactical_game_visual_upgrade_20260520/assets/characters/**
+    gate:
+      - animation states visible in evidence
+  - id: rainy-checkpoint-scene
+    host: mac_m2_max_96gb
+    runner: claudeminmax
+    write_scope:
+      - experiments/tactical_game_visual_upgrade_20260520/src/scene/rainyCheckpointLayout.js
+      - experiments/tactical_game_visual_upgrade_20260520/src/runtime/decalSystem.js
+      - experiments/tactical_game_visual_upgrade_20260520/src/runtime/weatherSystem.js
+    gate:
+      - six target cameras render
+      - at least 30 clutter_or_decal_instances
+  - id: visual-evidence-gate
+    host: mac_m2_max_96gb
+    runner: codex
+    write_scope:
+      - experiments/tactical_game_visual_upgrade_20260520/tools/visual_evidence_gate.mjs
+      - experiments/tactical_game_visual_upgrade_20260520/evidence/**
+    gate:
+      - blockingEvents empty
+      - missing_texture empty
+      - fallback_state forbidden for hero assets

@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "managed-artifact-verifier": {
+      "command": "/usr/bin/python3",
+      "args": [
+        "/Users/yuanshaochen/Projects/local-coding-runners/bin/managed-artifact-mcp"
+      ],
+      "env": {
+        "MANAGED_ARTIFACT_MCP_TRACE_LOG": "/tmp/managed-artifact-mcp.trace.jsonl"
+      },
+      "timeout": 30000,
+      "trust": true
+    },
+    "managed-game-factory": {
+      "command": "/usr/bin/python3",
+      "args": [
+        "/Users/yuanshaochen/Projects/local-coding-runners/bin/managed-game-factory-mcp"
+      ],
+      "env": {
+        "MANAGED_GAME_FACTORY_MCP_TRACE_LOG": "/tmp/managed-game-factory-mcp.trace.jsonl"
+      },
+      "timeout": 30000,
+      "trust": true
+    }
+  }
+}
