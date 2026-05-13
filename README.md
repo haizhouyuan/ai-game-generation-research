@@ -4,21 +4,27 @@ This public repository records an AI-assisted game-generation research run: tool
 
 ## Current Review Target
 
-The most important artifact for an external GitHub review is:
+The current external review should cover two layers.
+
+Layer 1 is the preserved playable browser baseline:
 
 `experiments/tactical_game_full_realism_final_20260513/`
 
-It is the final playable packet for:
-
 `docs/production_goal_full_realistic_3d_tactical_game_final_2026-05-13.md`
+
+Layer 2 is the active full local AI 3D asset-factory rebuild:
+
+`docs/production_goal_pubg_like_full_ai_3d_asset_pipeline_2026-05-13.md`
 
 Start with:
 
 1. `docs/chatgpt_pro_github_review_brief_2026-05-13.md`
-2. `experiments/tactical_game_full_realism_final_20260513/README.md`
-3. `experiments/tactical_game_full_realism_final_20260513/report.md`
-4. `experiments/tactical_game_full_realism_final_20260513/assets/asset_inventory_matrix.json`
-5. `docs/full_realism_lessons_and_best_practices_2026-05-13.md`
+2. `docs/chatgpt_pro_full_asset_factory_followup_2026-05-13.md`
+3. `tasks/pubg_like_full_rebuild/README.md`
+4. `experiments/pubg_like_asset_factory_20260513/reports/hunyuan3d_env_report.md`
+5. `docs/coding_runner_mcp_skill_control_2026-05-13.md`
+6. `experiments/tactical_game_full_realism_final_20260513/README.md`
+7. `experiments/tactical_game_full_realism_final_20260513/report.md`
 
 ## What This Repo Contains
 
@@ -33,7 +39,18 @@ Start with:
 The final tactical packet upgrades all major visible classes, but it is not yet a commercial/SOTA art pass.
 The current material grade is `material_factors_only`: the GLBs contain mesh assemblies, UV attributes,
 material names, and PBR-style material factors, but not baked albedo/normal/roughness/metallic texture-map sets.
-The next useful review should focus on how to move this browser-playable vertical slice toward a high-end tactical-game look.
+The active goal is stricter than a visual polish pass: build a local asset factory that can produce realistic reference images,
+image-to-3D/PBR candidates, Blender-cleaned asset packets, and Three.js evidence for all major visible tactical-game assets.
+
+Current fail-closed gates intentionally show that the full rebuild is not complete yet:
+
+```bash
+python3 tools/validate_asset_packets.py --production-goal
+python3 tools/validate_asset_registry_v3.py --production-goal experiments/pubg_like_asset_factory_20260513/asset_registry_v3_probe.json
+python3 tools/validate_texture_quality.py
+```
+
+These fail because most production asset packets are still scaffolds and the current textured crate is a probe, not final art.
 
 ## Boundary
 

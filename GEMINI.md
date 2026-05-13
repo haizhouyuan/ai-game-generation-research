@@ -44,4 +44,13 @@ Use it for visual-upgrade planning, task packet critique, no-proxy download disc
 
 ## Active Goal
 
-`docs/production_goal_local_ai_3d_asset_factory_tactical_visual_upgrade_2026-05-13.md`
+`docs/production_goal_pubg_like_full_ai_3d_asset_pipeline_2026-05-13.md`
+
+Read first:
+
+1. `docs/chatgpt_pro_full_asset_factory_followup_2026-05-13.md`
+2. `tasks/pubg_like_full_rebuild/README.md`
+3. `experiments/pubg_like_asset_factory_20260513/reports/hunyuan3d_env_report.md`
+4. `docs/coding_runner_mcp_skill_control_2026-05-13.md`
+
+The old Three.js final packet is the playable baseline, not completion. The active target is a full local AI 3D asset factory with per-asset reference -> 3D/PBR -> Blender -> Three.js evidence. Use `gemini-3.1-pro-preview` for review/research tasks.

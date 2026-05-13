@@ -31,17 +31,20 @@ Use this skill for local-first 3D asset production, HomePC GPU jobs, PBR asset p
 
 ## Visual Upgrade Discipline
 
-- The active production goal is `docs/production_goal_local_ai_3d_asset_factory_tactical_visual_upgrade_2026-05-13.md`.
-- Task packets live under `tasks/visual_upgrade/`.
+- The active production goal is `docs/production_goal_pubg_like_full_ai_3d_asset_pipeline_2026-05-13.md`.
+- Full rebuild task packets live under `tasks/pubg_like_full_rebuild/`.
+- Older `tasks/visual_upgrade/` packets are useful baseline/history unless a prompt explicitly reactivates them.
 - The target experiment is `experiments/tactical_game_visual_upgrade_20260520/`.
 - Preserve `experiments/tactical_game_full_realism_final_20260513/` unless the task explicitly says otherwise.
+- Do not treat `experiments/tactical_game_full_realism_final_20260513/` as final completion for the active asset-factory goal. It is the browser-playable baseline.
+- Route probes, shape-only demos, empty scaffolds, baseline GLBs, and `probe_only` packets do not count as production-ready assets.
 
 ## Download Rule
 
-Downloads are allowed only when explicitly authorized by the task.
+Downloads are allowed when explicitly authorized by the task or when required by the active asset-factory goal.
 
 - Over 100MB: command-local no-proxy evidence required.
-- Over 1GB: explicit user approval required before download.
+- Over 1GB: record exact repo/URL, version, expected size, output path, hash or revision when available, and no-proxy evidence.
 - Never change global proxy settings.
 
 ## Output
