@@ -1,0 +1,19 @@
+### Verdict
+The current strategy strongly aligns with a strict full rebuild but requires rigid enforcement of the proxy restrictions and verifiable handoffs between pipeline stages to completely prevent false completions.
+
+### Remaining Loopholes
+1. **Proxy Leakage:** Without a hard network-level block or strict routing rules, automated "large downloads" (e.g., Hunyuan3D/TRELLIS weights or large asset packs) could silently consume paid proxy traffic.
+2. **Pipeline Short-circuiting:** A visual validation in Three.js might pass if an asset looks acceptable, even if the "Blender cleanup" or "PBR generation" steps were bypassed. The gate must verify the file provenance and metadata (e.g., Blender export tags, PBR texture presence), not just the final render.
+
+### Next Delegated Tasks
+1. **Download & Network Management Setup:** Implement a strict, non-proxy download manager for large models and reference data.
+2. **Generation Pipeline Automation:** Script the core asset creation flow (Hunyuan3D 2.1 / TRELLIS -> ComfyUI PBR mapping).
+3. **Validation & Evidence Testbed:** Build the automated Blender cleanup scripts and the Three.js rendering evidence gate to verify asset integrity.
+
+### Runner Routing
+- **Gemini:** Assign to **Task 1** (Download Manager & Orchestration) — best suited for robust architecture, script stability, and strict constraint enforcement.
+- **MiniMax:** Assign to **Task 2** (Generation Pipeline) — well-suited for rapid scripting of ComfyUI node workflows and model generation prompts.
+- **Kimi:** Assign to **Task 3** (Validation & Testbed) — excels at processing complex documentation (Blender Python API, Three.js) to build reliable validation scripts.
+
+### Gate Recommendations
+The validator thresholds should act as a **useful fail-closed gate**. Given the strict "not a light upgrade" requirement, it is better for the pipeline to halt and require manual intervention or re-generation than to allow poorly cleaned models or non-PBR assets to slip into the final build. Thresholds should strictly enforce topology limits, material map completeness, and file size minimums.

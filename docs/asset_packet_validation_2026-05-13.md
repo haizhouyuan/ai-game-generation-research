@@ -8,6 +8,7 @@ Tool:
 python3 tools/validate_asset_packets.py
 python3 tools/validate_asset_packets.py --markdown
 python3 tools/validate_asset_packets.py --strict
+python3 tools/validate_asset_packets.py --production-goal
 ```
 
 Default scan root:
@@ -36,6 +37,12 @@ It also counts files in `textures/` whose names look like:
 
 Finally, it counts image and video evidence files under `evidence/`.
 
+The validator now also counts non-`.gitkeep` source files, model files, route/report files, and whether a packet has a complete PBR texture set:
+
+```text
+basecolor/albedo + normal + roughness + metallic or AO
+```
+
 JSON is emitted by default so orchestration scripts can consume the result. `--markdown` emits a review-friendly table for task board updates and runner handoffs.
 
 ## Strict Mode
@@ -43,6 +50,20 @@ JSON is emitted by default so orchestration scripts can consume the result. `--m
 Default mode is informational and exits zero. This is deliberate: early packet slots may exist before an asset route has produced geometry, textures, or evidence.
 
 `--strict` exits nonzero only when a scanned packet is missing one of the required packet directories. It does not fail just because texture maps or evidence are missing.
+
+## Production Goal Mode
+
+`--production-goal` is intentionally stricter and should fail until the full rebuild is truly ready. It enforces the current PUBG-like asset factory thresholds:
+
+- all 12 minimum production asset ids exist;
+- no minimum production packet is only an empty scaffold;
+- every minimum production packet has a route/report file;
+- every minimum production packet has runtime/evidence media;
+- all 12 minimum packets have generated models or PBR texture outputs;
+- at least 8 packets have complete PBR texture sets;
+- all 12 minimum packets have evidence media.
+
+Current expected result: this mode exits `2`, because the repo still has mostly empty scaffold packets. That failure is a feature: it prevents us from calling the goal done while the new asset factory has not actually produced the required assets.
 
 ## Why This Supports The Full Rebuild
 

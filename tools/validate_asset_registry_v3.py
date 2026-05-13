@@ -19,6 +19,22 @@ DEFAULT_ASSETS_ROOT = Path("experiments/pubg_like_asset_factory_20260513/assets"
 DEFAULT_REQUIRED_MATERIAL_MAP_COUNT = 3
 DEFAULT_REQUIRED_TEXTURE_KEYS = ("basecolor", "normal", "roughness")
 
+MINIMUM_PRODUCTION_ASSET_IDS = (
+    "hero_rifle_v1",
+    "sidearm_v1",
+    "secondary_weapon_v1",
+    "player_tactical_v1",
+    "enemy_tactical_v1",
+    "gear_set_v1",
+    "wet_asphalt_material_v1",
+    "concrete_wall_material_v1",
+    "container_checkpoint_v1",
+    "loot_set_v1",
+    "clutter_decals_v1",
+    "rainy_checkpoint_scene_v1",
+)
+FORBIDDEN_PRODUCTION_STATUSES = frozenset(("baseline_only", "blocked", "target", "in_progress"))
+
 
 def as_bool(value: Any) -> bool:
     return value is True
@@ -265,7 +281,7 @@ def validate_probe_asset(asset: dict[str, Any], asset_index: int) -> list[dict[s
     return warnings
 
 
-def validate_registry(registry_path: Path, assets_root: Path) -> dict[str, Any]:
+def validate_registry(registry_path: Path, assets_root: Path, production_goal: bool = False) -> dict[str, Any]:
     errors: list[dict[str, Any]] = []
     warnings: list[dict[str, Any]] = []
 
@@ -327,6 +343,7 @@ def validate_registry(registry_path: Path, assets_root: Path) -> dict[str, Any]:
             assets = []
 
     required_for_final_count = 0
+    asset_by_id: dict[str, tuple[dict[str, Any], int]] = {}
     for index, asset in enumerate(assets):
         if not isinstance(asset, dict):
             errors.append(
@@ -338,6 +355,10 @@ def validate_registry(registry_path: Path, assets_root: Path) -> dict[str, Any]:
             )
             continue
 
+        aid = asset.get("asset_id")
+        if isinstance(aid, str) and aid.strip():
+            asset_by_id[aid] = (asset, index)
+
         if as_bool(asset.get("required_for_final")):
             required_for_final_count += 1
             asset_errors, asset_warnings = validate_required_final_asset(
@@ -348,10 +369,57 @@ def validate_registry(registry_path: Path, assets_root: Path) -> dict[str, Any]:
         else:
             warnings.extend(validate_probe_asset(asset, index))
 
+    if production_goal:
+        for required_id in MINIMUM_PRODUCTION_ASSET_IDS:
+            if required_id not in asset_by_id:
+                errors.append(
+                    {
+                        "code": "missing_required_production_asset",
+                        "asset_id": required_id,
+                        "message": f"Required production asset '{required_id}' is missing from registry.",
+                    }
+                )
+                continue
+
+            asset, index = asset_by_id[required_id]
+
+            if not as_bool(asset.get("required_for_final")):
+                errors.append(
+                    {
+                        "asset_index": index,
+                        "asset_id": required_id,
+                        "code": "required_asset_not_required_for_final",
+                        "message": f"Required production asset '{required_id}' must have required_for_final=true.",
+                    }
+                )
+
+            if as_bool(asset.get("probe_only")):
+                errors.append(
+                    {
+                        "asset_index": index,
+                        "asset_id": required_id,
+                        "code": "required_asset_is_probe_only",
+                        "message": f"Required production asset '{required_id}' is marked probe_only.",
+                    }
+                )
+
+            status = asset.get("status")
+            if status in FORBIDDEN_PRODUCTION_STATUSES:
+                errors.append(
+                    {
+                        "asset_index": index,
+                        "asset_id": required_id,
+                        "code": "required_asset_has_forbidden_status",
+                        "message": f"Required production asset '{required_id}' has forbidden status '{status}'.",
+                        "forbidden_statuses": sorted(FORBIDDEN_PRODUCTION_STATUSES),
+                    }
+                )
+
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "registry_path": registry_path.as_posix(),
         "assets_root": assets_root.as_posix(),
+        "production_goal": production_goal,
         "valid": not errors,
         "asset_count": len(assets),
         "required_for_final_count": required_for_final_count,
@@ -377,12 +445,22 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         default=DEFAULT_ASSETS_ROOT,
         help=f"Asset packet root. Defaults to {DEFAULT_ASSETS_ROOT}",
     )
+    parser.add_argument(
+        "--production-goal",
+        action="store_true",
+        help=(
+            "Fail-closed mode: require all 12 minimum production assets, "
+            "enforce required_for_final=true, and reject forbidden statuses."
+        ),
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: list[str]) -> int:
     args = parse_args(argv)
-    report = validate_registry(args.registry_json, args.assets_root)
+    report = validate_registry(
+        args.registry_json, args.assets_root, production_goal=args.production_goal
+    )
     json.dump(report, sys.stdout, indent=2, sort_keys=True)
     sys.stdout.write("\n")
     return 0 if report["valid"] else 1

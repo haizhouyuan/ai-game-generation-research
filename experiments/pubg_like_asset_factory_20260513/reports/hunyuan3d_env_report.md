@@ -354,3 +354,43 @@ conf.dino_ckpt_path = "/home/yuanhaizhou/models/hunyuan3d21_factory_20260513/mod
 The Hunyuan route remains incomplete until the textured/PBR smoke produces an
 output asset or fails with a documented model/runtime blocker after the DINOv2
 download is complete.
+
+## DINOv2 Download Retry Status
+
+The safetensors-only DINOv2 download was attempted with command-local proxy
+environment unset. It progressed most of the way and then stalled.
+
+Current local files on HomePC:
+
+```text
+local dir: /home/yuanhaizhou/models/hunyuan3d21_factory_20260513/models/facebook_dinov2_giant
+config.json: 548 bytes
+preprocessor_config.json: 436 bytes
+model.safetensors partial: 4026531840 bytes
+expected model.safetensors size: 4546005432 bytes
+```
+
+Attempts made without proxy traffic:
+
+1. `huggingface_hub.snapshot_download` with `HF_ENDPOINT=https://hf-mirror.com`
+   and allowed files `config.json`, `preprocessor_config.json`,
+   `model.safetensors`.
+2. `huggingface-cli download facebook/dinov2-giant --include config.json
+   preprocessor_config.json model.safetensors --local-dir ...`.
+3. Direct `curl --noproxy '*' --continue-at -` against
+   `https://hf-mirror.com/facebook/dinov2-giant/resolve/main/model.safetensors`.
+4. `aria2c` against the same hf-mirror resolve URL with proxy disabled.
+
+The direct Hugging Face endpoint also timed out without proxy. The direct
+hf-mirror and aria2 attempts connected slowly or timed out before transferring
+additional bytes. This is a network/download blocker, not a Hunyuan Paint code
+blocker. Do not use paid proxy traffic for the remaining bytes.
+
+Next acceptable options:
+
+- retry hf-mirror later with the partial file and no-proxy evidence;
+- find a non-proxy CN mirror for the exact
+  `facebook/dinov2-giant/model.safetensors` file with SHA256
+  `917d3c470db999d32a312f8542149be91c7cbac61ee8fb4b67ae3d82b79ce21f`;
+- temporarily continue non-Hunyuan routes: ComfyUI/TextureAlchemy/TRELLIS,
+  Blender cleanup, runtime gates, and actual reference generation.

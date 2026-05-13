@@ -19,7 +19,8 @@ This matrix tracks the source image or prompt set that feeds each production ass
 | ID | Asset Target | Reference Source | Generation Prompt File | 3D Route | PBR Route | Status | Acceptance |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ref_hero_rifle_001 | Hero rifle + optic + magazine + attachments | AI reference required | `prompts/hero_rifle_reference_001.md` | Hunyuan/TRELLIS/Blender hybrid | Hunyuan Paint or ComfyUI/PBR projection | pending | first-person close-up, anchors, 4+ maps |
-| ref_sidearm_001 | Sidearm or compact secondary | AI reference required | `prompts/sidearm_reference_001.md` | Hunyuan or TRELLIS | PBR projection/completion | pending | loot and first-person close-up |
+| ref_sidearm_001 | Sidearm | AI reference required | `prompts/sidearm_reference_001.md` | Hunyuan or TRELLIS | PBR projection/completion | pending | loot and first-person close-up |
+| ref_secondary_weapon_001 | Additional visible tactical weapon class / pickup | AI reference required | `prompts/secondary_weapon_reference_001.md` | Hunyuan/TRELLIS/Blender hybrid | Hunyuan Paint or ComfyUI/PBR projection | pending | third-person/loot context and 4+ maps |
 | ref_player_tactical_001 | Player tactical character front/side/back | AI reference required | `prompts/player_tactical_reference_001.md` | Hunyuan/character workflow/Blender | texture projection/PBR maps | pending | rig/animation or blocker |
 | ref_enemy_tactical_001 | Enemy tactical variant | AI reference required | `prompts/enemy_tactical_reference_001.md` | Hunyuan/character workflow/Blender | texture projection/PBR maps | pending | distinct silhouette and animation |
 | ref_gear_set_001 | Helmet, vest, pouches, backpack, gloves, boots | AI reference required | `prompts/gear_set_reference_001.md` | Hunyuan/TRELLIS per module | PBR projection/completion | pending | modular or combined gear packet |

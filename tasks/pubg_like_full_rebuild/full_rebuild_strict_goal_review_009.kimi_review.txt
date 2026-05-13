@@ -1,0 +1,39 @@
+Here is my review. The plan file has been written and is ready for your approval.
+
+---
+
+## Review: Runner Task 009 — Strict Full Rebuild Goal
+
+### Verdict
+
+The goal document is excellently strict and designed to prevent false completion. The current state is far from done (0/12 production assets have real content, 0 reference images exist). The main risk is not the plan's design but **execution gaps**: empty delegated runner outputs, slow HomePC progress, and the fundamental blocker that **no reference images means no downstream asset chains can begin**. Both validators already implement `--production-goal` fail-closed mode.
+
+### Remaining Loopholes (10)
+
+1. **Empty scaffold packets (12/12)** — All production packets are directory-only. A `.gitkeep` or tiny corrupt file would pass structural checks.
+2. **`probe_only` boundary slip** — The TRELLIS+TextureAlchemy crate (5 maps, Blender evidence) is close to the production boundary and could be rhetorically upgraded without meeting LOD, collision proxy, or gameplay evidence requirements.
+3. **Zero reference images** — 11 prompt markdown files exist but no actual images. W2 could be falsely claimed complete by pointing to prompts.
+4. **Shape-only as "complete chain"** — `hunyuan_shape_demo_001` has Blender evidence but 0 texture maps. Could be claimed as "reaching Three.js."
+5. **"Removed from slice" escape hatch** — Hard assets (hero rifle, characters) could be dropped from requirements without genuine production attempts.
+6. **Empty runner outputs not caught** — `009.kimi_review.txt` and `010.kimi_worker.txt` are empty files. No gate verifies runner output is meaningful.
+7. **Quality-blind texture counting** — Filename pattern matching (`basecolor.png`) doesn't verify resolution, format validity, or non-solid-color content.
+8. **Blocked-route-as-tested** — A route can satisfy "tested" with a superficial note. No automated verification of failure evidence depth.
+9. **Aggregate vs per-asset** — 8/12 PBR and 12/12 evidence are aggregate thresholds. A lopsided distribution (all clutter done, no hero rifle) could hit counts.
+10. **No texture resolution gate** — A 64x64 and a 2048x2048 basecolor count equally.
+
+### Next 3 Delegated Tasks
+
+| # | Task | Runner | Why |
+|---|---|---|---|
+| 1 | **Texture quality verification script** — verify maps are real images (min resolution, non-solid-color, valid format) | **Kimi** | Complex coding + image analysis. Closes loophole #7. |
+| 2 | **Reference prompt review + asset-to-route mapping** — review 11 prompts for PUBG consistency; recommend optimal generator per asset class | **Gemini** | Broad research/visual critique. Prevents wasted GPU cycles. Must use `gemini-3.1-pro-preview`. |
+| 3 | **Evidence completeness checker + task board update** — verify specific evidence files exist per packet; run validators; update matrix | **MiniMax** | Narrow mechanical task. Format reports, update status columns. |
+
+**What stays on HomePC/Codex directly:** W1/W3 Hunyuan Paint unblock (DINOv2 download in progress) and W2 actual reference image generation.
+
+### Gate Recommendations
+
+- **Structural thresholds are correctly ambitious** — 12 packets, 8 PBR-complete, 12 with evidence. These force real production volume.
+- **`--production-goal` is correctly fail-closed** — Both `validate_asset_packets.py` and `validate_asset_registry_v3.py` already implement this. Running either on current state exits nonzero. **Task 010's code requirements are already satisfied**; only the docs file `docs/asset_registry_v3_gate_2026-05-13.md` is missing.
+- **Quality gaps need addressing** — The validators count files/patterns but don't verify content. A 1x1 placeholder `basecolor.png` would pass.
+- **Recommended additions**: texture resolution minimum, non-uniformity check, polycount/LOD gate, animation evidence for characters, runner output non-empty verification, and a non-waivable "critical path" flag for hero rifle and characters.

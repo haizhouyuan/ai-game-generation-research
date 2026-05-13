@@ -14,6 +14,8 @@ Plain meaning:
 - Not just better lighting on procedural GLBs.
 - Build a real local asset factory and use it to replace the game assets.
 - Every final near-camera asset needs a recorded chain from reference image to 3D/PBR asset packet to Three.js evidence.
+- Every minimum production asset class needs a new asset packet with route evidence; empty scaffolds do not count.
+- The final playable slice must be dominated by rebuilt/generated/PBR assets, not old procedural fallbacks.
 - Test the major local routes in parallel: Hunyuan3D, ComfyUI/PBR projection, TRELLIS/TRELLIS.2, Blender cleanup, and runtime gates.
 
 ## Runner Routing
@@ -48,8 +50,11 @@ Plain meaning:
 Minimum gates for final release:
 
 - 10+ reference/provenance sets.
-- 6+ generated or PBR-authored asset packets.
-- 3+ packets with actual texture maps: basecolor, normal, roughness, and metallic or AO.
+- 6+ newly generated realistic reference-image sets.
+- All 12 minimum production targets have non-empty asset packets with route reports and runtime integration status.
+- All 12 minimum production targets have generated, rebuilt, or PBR-authored production outputs.
+- 8+ packets with actual texture maps: basecolor, normal, roughness, and metallic or AO.
+- All 12 minimum production targets have Blender preview plus Three.js close-up or gameplay-context evidence, unless explicitly removed from the final playable slice and all target cameras.
 - 1+ chain starting from a newly generated realistic reference image.
 - 1+ Hunyuan asset attempted through shape and paint/PBR.
 - 1+ ComfyUI/PBR projection or equivalent texture completion route tested.
@@ -75,6 +80,7 @@ Current validator meaning:
 - all new packet slots have standard directories;
 - texture map counts are still zero for the scaffolded production slots;
 - `hunyuan_shape_demo_001` has browser-independent Blender evidence but remains shape-only and not a final asset.
+- the task is not complete while most packets are scaffolds and only the probe crate has texture maps.
 
 ## Immediate Commands
 
@@ -83,9 +89,11 @@ Current validator meaning:
 3. Download model files with proxy env unset and record evidence. Done.
 4. Run a small shape-only smoke test. Done.
 5. Run a small textured/PBR smoke test. Active.
-6. Generate first realistic reference-image set. Pending.
-7. Convert one generated reference into a 3D/PBR asset candidate. Pending.
-8. Launch ComfyUI/TRELLIS route probes in parallel after Hunyuan paint is no longer blocking GPU setup.
+6. Generate six realistic reference-image sets for rifle/character/gear/ground/container/loot. Pending.
+7. Convert one newly generated reference into a 3D/PBR asset candidate. Pending.
+8. Launch or continue ComfyUI/TRELLIS route probes in parallel; do not wait for Hunyuan to be perfect before building alternate chains.
+9. Upgrade validators so empty scaffolds cannot be mistaken for completion.
+10. Build the new Three.js rebuild experiment only after asset packets start passing PBR/preview gates.
 
 ## Current W1/W3 Evidence
 
@@ -106,6 +114,7 @@ Current packet slots:
 
 - `hero_rifle_v1`
 - `sidearm_v1`
+- `secondary_weapon_v1`
 - `player_tactical_v1`
 - `enemy_tactical_v1`
 - `gear_set_v1`

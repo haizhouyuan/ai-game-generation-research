@@ -16,6 +16,17 @@ Strong interpretation:
 - 必须并行测试多条本地资产生产链路；不能因为 Hunyuan 跑通 shape-only 就跳过 ComfyUI/TRELLIS/PBR 投影等路线。
 - Codex 自身不应亲自吞掉所有重复劳动；必须持续把明确、可验收、窄范围的任务交给 Kimi/Gemini/MiniMax/本地 runner/HomePC GPU worker。
 
+Full-rebuild interpretation:
+
+- 最终 playable slice 必须以“新生产资产”为主体；旧版 procedural/embedded GLB 只能用于 before/after 对照、尺寸标尺、失败回退说明，不能充当完成证据。
+- 最低生产目标中的 12 类资产都必须进入新资产包；每个资产包至少要有 reference/provenance、route report、Blender inspection/cleanup report、hash entry 和运行时接入状态。
+- 近景核心资产必须走完整链路：真实参考图或 AI 生成真实参考图 -> 本地 3D 生成/混合建模路线 -> PBR/纹理路线 -> Blender 清理/预览 -> Three.js 近景和 gameplay context 证据。
+- 关键近景资产包括 hero rifle、player tactical character、enemy tactical character、wet asphalt、container/checkpoint booth、loot pickup。它们不能只满足“有模型加载”，必须有可见真实纹理、材质变化和 close-up 截图。
+- 所有路线都要实测并给出结论：Hunyuan3D 2.1 shape+paint、ComfyUI/PBR 或投影路线、TRELLIS/TRELLIS.2 mesh route、Blender cleanup、Three.js production loader/runtime gate。失败也必须是带命令、日志和下一步的失败，不能是未尝试。
+- “像 PUBG/现代真实战术游戏”在本项目里的验收含义是：第一眼画面里有真实尺度、真实材质、装备和武器细节、湿地/墙面/容器磨损、角色动作、密集小道具和灯光后处理，而不是低多边形玩具感。
+- Final completion is per-target, not aggregate-only. Route probes, shape-only demos, scaffold directories, baseline GLBs, and `probe_only` packets do not count toward production completion.
+- Hunyuan, ComfyUI/PBR, and TRELLIS route probes are mandatory pipeline evidence, but route success does not automatically make an asset production-ready. A production asset must also pass Blender cleanup, PBR/material report, optimized export, Three.js close-up, gameplay-context screenshot, hash verification, and registry v3 validation.
+
 ## Source Repo
 
 `/Users/yuanshaochen/Projects/ai-game-generation-research`
@@ -47,6 +58,14 @@ env -u http_proxy -u https_proxy -u all_proxy -u HTTP_PROXY -u HTTPS_PROXY -u AL
 3. Record URL/repo, expected size when available, command, resolved host/IP when practical, output path, SHA256 or git revision, and proof that proxy env vars were unset.
 4. Do not change global Clash, shell proxy, Homebrew proxy, or system proxy settings.
 5. If a single file is clearly over 1GB, record exact repo/file/version before download; the user has authorized model downloads for this goal, so proceed when the route is necessary and no-proxy evidence is recorded.
+
+Repo helper:
+
+```bash
+tools/no_proxy_download.sh URL OUTPUT REPORT
+```
+
+Use the helper for direct file downloads when practical. For `git lfs`, `hf download`, or custom model tools, reproduce the same evidence shape in the route report.
 
 ## Required Tool Routes
 
@@ -175,16 +194,17 @@ Required:
 Minimum production targets:
 
 1. Hero rifle with optic and attachments.
-2. Sidearm or secondary weapon.
-3. Player tactical character with gear.
-4. Enemy tactical character variant.
-5. Helmet/vest/pouches/backpack/gloves/boots as visible gear modules or a generated combined character packet.
-6. Wet asphalt ground material.
-7. Concrete wall material.
-8. Container wall / checkpoint booth asset.
-9. Loot set: medkit, ammo box, weapon pickup.
-10. Clutter/decal set: casings, paper, cable, cone, pallet, mud/scratch/impact decals.
-11. Rainy checkpoint/killhouse micro-scene assembled from generated/PBR assets.
+2. Sidearm.
+3. At least one additional visible weapon class or tactical weapon pickup beyond the hero rifle and sidearm.
+4. Player tactical character with gear.
+5. Enemy tactical character variant.
+6. Helmet/vest/pouches/backpack/gloves/boots as visible gear modules or a generated combined character packet.
+7. Wet asphalt ground material.
+8. Concrete wall material.
+9. Container wall / checkpoint booth asset.
+10. Loot set: medkit, ammo box, weapon pickup.
+11. Clutter/decal set: casings, paper, cable, cone, pallet, mud/scratch/impact decals.
+12. Rainy checkpoint/killhouse micro-scene assembled from generated/PBR assets.
 
 Each target must become an asset packet:
 
@@ -278,8 +298,9 @@ Exit:
 
 Exit:
 
-- reference image set with provenance and hashes;
-- asset-to-reference matrix.
+- 10+ named realistic reference sets with provenance and hashes;
+- at least 6 newly generated realistic reference-image sets, not only text prompts;
+- asset-to-reference matrix mapping every minimum production asset to a reference set and downstream route.
 
 ### W3 - First Hunyuan Asset Chain
 
@@ -294,21 +315,26 @@ Exit:
 - Blender preview;
 - Three.js close-up.
 
+This work package is not complete if the output is shape-only. Shape-only is useful as W1 environment proof, but W3 requires paint/PBR success or a concrete paint blocker plus a parallel alternate PBR route applied to the same asset.
+
 ### W4 - Hero Rifle Full Replacement
 
 - Generate or refine hero rifle through Hunyuan/Comfy/TRELLIS+PBR/Blender route.
 - Replace current Blender-first proof only if the new asset is visibly better.
 - If image-to-3D produces bad firearm geometry, preserve that evidence and switch to hybrid workflow: realistic reference image -> Blender hard-surface cleanup -> PBR texture generation/projection -> Three.js.
+- The final rifle may not be a procedural old fallback unless all local image-to-3D attempts fail and a documented hybrid Blender/PBR rebuild visibly beats them.
 
 Exit:
 
 - first-person screenshot looks like a real high-detail tactical game weapon;
 - PBR maps and anchors present.
+- at least first-person, third-person, loot pickup, and NPC-held evidence views pass.
 
 ### W5 - Character And Gear Full Replacement
 
 - Generate/assemble player and enemy characters with realistic tactical gear.
 - Add/retarget animation set.
+- Use reference front/side/back or equivalent multi-view source; a static tactical overlay is not acceptable as final.
 
 Exit:
 
@@ -318,10 +344,12 @@ Exit:
 ### W6 - Environment Material And Prop Replacement
 
 - Replace wet asphalt/concrete/container/checkpoint booth/loot/clutter with generated or PBR-authored packets.
+- Build a small dense rainy checkpoint/killhouse scene from these packets instead of enlarging the old broad compound.
 
 Exit:
 
 - close-up material screenshots show real texture detail, not flat procedural material.
+- ground, wall, container, loot, clutter/decal, and checkpoint booth all have individual packets and gameplay context screenshots.
 
 ### W7 - ComfyUI Projection/PBR Pipeline
 
@@ -349,6 +377,7 @@ Exit:
 - Build final release packet under a new dated experiment directory.
 - Include playable HTML, assets, references, generated models, textures, Blender reports, CDP reports, final visual grid, and a plain-Chinese release report.
 - The release must be a new rebuild experiment, not a rename of the earlier final packet.
+- Include before/after evidence against the previous baseline so the visual rebuild is obvious.
 
 Exit:
 
@@ -364,13 +393,19 @@ Do not mark complete until all are true:
 - At least one Hunyuan-generated asset reaches Blender and Three.js, unless blocked by documented install/runtime failure.
 - At least one ComfyUI/PBR projection or equivalent PBR completion route is tested.
 - At least 10 minimum production asset targets have reference/provenance entries.
-- At least 6 minimum production asset targets have generated or PBR-authored asset packets.
-- At least 3 asset packets must have real texture map sets with `basecolor`, `normal`, `roughness`, and either `metallic` or `ao`.
+- All 12 minimum production asset targets have new asset packets with route reports and runtime integration status.
+- All 12 minimum production asset targets have generated, rebuilt, or PBR-authored production outputs, not only empty scaffolds.
+- At least 8 asset packets must have real texture map sets with `basecolor`, `normal`, `roughness`, and either `metallic` or `ao`.
+- All hero, near-camera, loot, character/gear, and environment-surface production packets must have real texture maps. Material factors alone are never acceptable for final visible assets.
+- All 12 minimum production asset targets must have Blender preview plus Three.js close-up or gameplay context evidence, unless a target is explicitly removed from the playable slice and from all final evidence cameras.
+- At least 6 newly generated realistic reference images exist and are linked to downstream asset packets.
 - At least 1 generated reference-image-to-3D chain must start from a newly generated realistic reference image, not only an existing demo/reference.
-- Hero rifle is no longer merely the local procedural fallback unless a better route failed and the fallback is clearly superior.
-- Runtime character proxy is replaced by a production character asset or has a concrete blocked route with next command.
+- Hero rifle is a new/hybrid rebuilt asset with anchors, texture maps, and four runtime contexts, unless all generation attempts have documented failures and a manually rebuilt PBR asset is superior.
+- Runtime character proxy is replaced by a production character/gear asset with animation evidence; a concrete blocked route is not final completion, only an interim blocker.
 - The final visual slice is substantially rebuilt, not just relit.
+- The final playable scene uses the new asset packets as the dominant visible content in all six target cameras.
 - Large downloads have no-proxy evidence.
+- Any asset/model dependency over 100MB without recorded command-local no-proxy evidence is disqualified from final evidence. Final release must include a download ledger with URL/repo, revision/version, size when available, SHA256 or git revision, command, output path, and proxy-unset proof.
 - Kimi/Gemini/MiniMax runner usage follows the routing rules and is recorded.
 
 ## Explicit Non-Completion Conditions
@@ -382,5 +417,7 @@ This goal is not complete if:
 - assets are mostly procedural boxes/cylinders with nicer lighting;
 - no AI/reference image to 3D generation chain reaches the game;
 - no real PBR texture maps are generated for multiple asset classes;
+- any minimum production asset remains only an empty scaffold without a route report;
+- hero rifle, character, wet ground, and checkpoint/container assets do not have close-up runtime evidence;
 - visual screenshots still look like the previous simple Three.js prototype;
 - large downloads happen through proxy traffic or without evidence.

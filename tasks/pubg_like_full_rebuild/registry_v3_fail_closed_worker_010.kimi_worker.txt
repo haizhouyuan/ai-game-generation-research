@@ -1,0 +1,19 @@
+DONE
+
+Files changed:
+- `tools/validate_asset_registry_v3.py` — added `--production-goal` fail-closed mode
+- `docs/asset_registry_v3_gate_2026-05-13.md` — documented the new mode and expected failure state
+
+Commands run:
+- `python3 -m py_compile tools/validate_asset_registry_v3.py` — syntax check passed
+- `python3 tools/validate_asset_registry_v3.py experiments/pubg_like_asset_factory_20260513/asset_registry_v3_probe.json > /tmp/registry_default.json` — exited 1 (expected: hero_rifle_v1 fails material gates)
+- `python3 tools/validate_asset_registry_v3.py --production-goal experiments/pubg_like_asset_factory_20260513/asset_registry_v3_probe.json > /tmp/registry_production.json` — exited 1 (expected: fail-closed)
+- `python3 -m json.tool /tmp/registry_production.json > /tmp/registry_production.pretty.json` — pretty-printed
+
+Expected current failures:
+- Default mode: 6 errors — `hero_rifle_v1` fails existing material gates (missing model GLB on disk, missing provenance, material_map_count 0 < 3, 3 missing texture files)
+- Production-goal mode: 18 errors — the 6 above plus `hero_rifle_v1` has forbidden status `target`, plus 11 missing required production assets (`sidearm_v1`, `secondary_weapon_v1`, `player_tactical_v1`, `enemy_tactical_v1`, `gear_set_v1`, `wet_asphalt_material_v1`, `concrete_wall_material_v1`, `container_checkpoint_v1`, `loot_set_v1`, `clutter_decals_v1`, `rainy_checkpoint_scene_v1`)
+
+Risks or follow-up gates:
+- The gate only checks registry claims, not actual disk packet contents. Pair with `tools/validate_asset_packets.py` for directory-level verification.
+- When assets are added to the registry with `status: "production_ready"`, the forbidden-status check will pass but material gate errors may still surface if files are missing on disk.

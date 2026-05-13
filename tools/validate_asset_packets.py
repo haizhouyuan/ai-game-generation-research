@@ -13,6 +13,23 @@ from pathlib import Path
 
 DEFAULT_ASSETS_DIR = Path("experiments/pubg_like_asset_factory_20260513/assets")
 REQUIRED_DIRS = ("source", "model", "textures", "reports", "evidence")
+MINIMUM_PRODUCTION_ASSET_IDS = (
+    "hero_rifle_v1",
+    "sidearm_v1",
+    "secondary_weapon_v1",
+    "player_tactical_v1",
+    "enemy_tactical_v1",
+    "gear_set_v1",
+    "wet_asphalt_material_v1",
+    "concrete_wall_material_v1",
+    "container_checkpoint_v1",
+    "loot_set_v1",
+    "clutter_decals_v1",
+    "rainy_checkpoint_scene_v1",
+)
+MODEL_EXTENSIONS = {".fbx", ".glb", ".gltf", ".obj", ".ply", ".stl", ".usd", ".usdz"}
+SOURCE_EXTENSIONS = {".csv", ".json", ".md", ".png", ".jpg", ".jpeg", ".webp", ".txt"}
+REPORT_EXTENSIONS = {".csv", ".json", ".log", ".md", ".txt"}
 TEXTURE_EXTENSIONS = {
     ".bmp",
     ".exr",
@@ -52,7 +69,13 @@ TEXTURE_PATTERNS = {
 
 
 def is_countable_file(path: Path, extensions: set[str]) -> bool:
-    return path.is_file() and path.suffix.lower() in extensions
+    return path.is_file() and path.name != ".gitkeep" and path.suffix.lower() in extensions
+
+
+def count_files(root: Path, extensions: set[str]) -> int:
+    if not root.is_dir():
+        return 0
+    return sum(1 for path in root.rglob("*") if is_countable_file(path, extensions))
 
 
 def count_texture_maps(textures_dir: Path) -> dict[str, int]:
@@ -83,6 +106,25 @@ def scan_packet(packet_dir: Path, assets_root: Path) -> dict[str, object]:
     dirs = {name: (packet_dir / name).is_dir() for name in REQUIRED_DIRS}
     missing_dirs = [name for name, exists in dirs.items() if not exists]
     texture_counts = count_texture_maps(packet_dir / "textures")
+    pbr_complete = (
+        texture_counts["basecolor_or_albedo"] > 0
+        and texture_counts["normal"] > 0
+        and texture_counts["roughness"] > 0
+        and (texture_counts["metallic"] > 0 or texture_counts["ao"] > 0)
+    )
+    source_file_count = count_files(packet_dir / "source", SOURCE_EXTENSIONS)
+    model_file_count = count_files(packet_dir / "model", MODEL_EXTENSIONS)
+    report_file_count = count_files(packet_dir / "reports", REPORT_EXTENSIONS)
+    evidence_media_count = count_evidence_media(packet_dir / "evidence")
+    non_empty_packet = any(
+        (
+            source_file_count,
+            model_file_count,
+            sum(texture_counts.values()),
+            report_file_count,
+            evidence_media_count,
+        )
+    )
 
     return {
         "asset_id": packet_dir.name,
@@ -90,9 +132,14 @@ def scan_packet(packet_dir: Path, assets_root: Path) -> dict[str, object]:
         "required_directories": dirs,
         "missing_required_directories": missing_dirs,
         "required_directories_present": not missing_dirs,
+        "source_file_count": source_file_count,
+        "model_file_count": model_file_count,
         "texture_maps": texture_counts,
         "texture_map_total": sum(texture_counts.values()),
-        "evidence_media_count": count_evidence_media(packet_dir / "evidence"),
+        "pbr_texture_set_complete": pbr_complete,
+        "report_file_count": report_file_count,
+        "evidence_media_count": evidence_media_count,
+        "non_empty_packet": non_empty_packet,
     }
 
 
@@ -112,15 +159,54 @@ def scan_assets(assets_root: Path) -> dict[str, object]:
         for packet in packets
         if packet["missing_required_directories"]
     ]
+    packet_ids = {str(packet["asset_id"]) for packet in packets}
+    minimum_missing = [
+        asset_id for asset_id in MINIMUM_PRODUCTION_ASSET_IDS if asset_id not in packet_ids
+    ]
+    minimum_packets = [
+        packet for packet in packets if str(packet["asset_id"]) in MINIMUM_PRODUCTION_ASSET_IDS
+    ]
+    minimum_empty_packets = [
+        packet["asset_id"] for packet in minimum_packets if not packet["non_empty_packet"]
+    ]
+    minimum_missing_route_reports = [
+        packet["asset_id"] for packet in minimum_packets if int(packet["report_file_count"]) == 0
+    ]
+    minimum_missing_runtime_status = [
+        packet["asset_id"]
+        for packet in minimum_packets
+        if int(packet["evidence_media_count"]) == 0
+    ]
+    pbr_texture_packet_count = sum(1 for packet in packets if packet["pbr_texture_set_complete"])
+    evidence_packet_count = sum(1 for packet in packets if int(packet["evidence_media_count"]) > 0)
+    generated_or_pbr_packet_count = sum(
+        1
+        for packet in minimum_packets
+        if int(packet["model_file_count"]) > 0 or packet["pbr_texture_set_complete"]
+    )
 
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "assets_root": assets_root.as_posix(),
         "assets_root_exists": root_exists,
         "required_directories": list(REQUIRED_DIRS),
+        "minimum_production_asset_ids": list(MINIMUM_PRODUCTION_ASSET_IDS),
         "texture_map_keys": list(TEXTURE_PATTERNS),
         "packet_count": len(packets),
         "packets_missing_required_directories": packets_missing_required_dirs,
+        "production_goal_summary": {
+            "minimum_missing_asset_ids": minimum_missing,
+            "minimum_empty_packets": minimum_empty_packets,
+            "minimum_missing_route_reports": minimum_missing_route_reports,
+            "minimum_missing_runtime_evidence": minimum_missing_runtime_status,
+            "generated_or_pbr_minimum_packet_count": generated_or_pbr_packet_count,
+            "pbr_texture_packet_count": pbr_texture_packet_count,
+            "evidence_packet_count": evidence_packet_count,
+            "required_minimum_packet_count": len(MINIMUM_PRODUCTION_ASSET_IDS),
+            "required_generated_or_pbr_minimum_packet_count": len(MINIMUM_PRODUCTION_ASSET_IDS),
+            "required_pbr_texture_packet_count": 8,
+            "required_evidence_packet_count": len(MINIMUM_PRODUCTION_ASSET_IDS),
+        },
         "packets": packets,
     }
 
@@ -172,7 +258,46 @@ def emit_markdown(report: dict[str, object]) -> str:
     if not packets:
         lines.append("| _(none)_ | no | no | no | no | no | 0 | 0 | 0 | 0 | 0 | 0 | no packet directories found |")
 
+    summary = report["production_goal_summary"]
+    lines.extend(
+        [
+            "",
+            "## Production Goal Summary",
+            "",
+            f"- Missing minimum asset packets: {markdown_escape(', '.join(summary['minimum_missing_asset_ids']) or 'none')}",
+            f"- Empty minimum packets: {markdown_escape(', '.join(summary['minimum_empty_packets']) or 'none')}",
+            f"- Minimum packets missing route reports: {markdown_escape(', '.join(summary['minimum_missing_route_reports']) or 'none')}",
+            f"- Minimum packets missing runtime evidence: {markdown_escape(', '.join(summary['minimum_missing_runtime_evidence']) or 'none')}",
+            f"- Generated/PBR minimum packets: {summary['generated_or_pbr_minimum_packet_count']} / {summary['required_generated_or_pbr_minimum_packet_count']}",
+            f"- PBR texture packets: {summary['pbr_texture_packet_count']} / {summary['required_pbr_texture_packet_count']}",
+            f"- Evidence packets: {summary['evidence_packet_count']} / {summary['required_evidence_packet_count']}",
+        ]
+    )
+
     return "\n".join(lines) + "\n"
+
+
+def production_goal_failures(report: dict[str, object]) -> list[str]:
+    summary = report["production_goal_summary"]
+    failures: list[str] = []
+    if summary["minimum_missing_asset_ids"]:
+        failures.append("missing minimum production asset packets")
+    if summary["minimum_empty_packets"]:
+        failures.append("minimum production packets are still empty scaffolds")
+    if summary["minimum_missing_route_reports"]:
+        failures.append("minimum production packets are missing route reports")
+    if summary["minimum_missing_runtime_evidence"]:
+        failures.append("minimum production packets are missing runtime evidence")
+    if (
+        int(summary["generated_or_pbr_minimum_packet_count"])
+        < int(summary["required_generated_or_pbr_minimum_packet_count"])
+    ):
+        failures.append("not enough minimum packets have generated models or PBR texture outputs")
+    if int(summary["pbr_texture_packet_count"]) < int(summary["required_pbr_texture_packet_count"]):
+        failures.append("not enough packets have complete PBR texture sets")
+    if int(summary["evidence_packet_count"]) < int(summary["required_evidence_packet_count"]):
+        failures.append("not enough packets have evidence media")
+    return failures
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
@@ -196,6 +321,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         action="store_true",
         help="Exit nonzero if any scanned packet is missing a required directory.",
     )
+    parser.add_argument(
+        "--production-goal",
+        action="store_true",
+        help="Exit nonzero unless the full PUBG-like rebuild packet thresholds are met.",
+    )
     return parser.parse_args(argv)
 
 
@@ -211,6 +341,8 @@ def main(argv: list[str]) -> int:
 
     if args.strict and report["packets_missing_required_directories"]:
         return 1
+    if args.production_goal and production_goal_failures(report):
+        return 2
     return 0
 
 
