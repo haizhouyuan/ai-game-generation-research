@@ -42,6 +42,15 @@ Build a dense 12m x 18m rainy tactical checkpoint micro-slice:
 - `reports/` - task reports and runner outputs.
 - `evidence/` - browser, Blender, and visual gate screenshots/reports.
 
+## Current Production Asset Proof
+
+- Hero rifle: `assets/weapons/hero_rifle_v2/model/optimized.glb`
+- PBR maps: `basecolor`, `normal`, `roughness`, `metallic`, `ao`
+- Required anchors: `Muzzle`, `Grip_R`, `Grip_L`, `Optic`, `PickupRoot`, `ThirdPersonMount`
+- Browser contexts: first-person rifle, third-person player, NPC weapon, and world pickup
+
+This packet is a local Blender-first PBR proof. It used no external asset or model download.
+
 ## Run
 
 From the repository root:
@@ -69,6 +78,7 @@ From the repository root:
 ```bash
 ./.venv/bin/python -m pytest tests/test_validate_asset_registry_v2.py
 ./.venv/bin/python tools/validate_asset_registry_v2.py experiments/tactical_game_visual_upgrade_20260520/assets/asset_registry_v2.json
+python3 -m py_compile experiments/tactical_game_visual_upgrade_20260520/tools/build_hero_rifle_v2.py
 node --check experiments/tactical_game_visual_upgrade_20260520/src/main.js
 node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/animationSystem.js
 node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/assetLoader.js
@@ -78,6 +88,7 @@ node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/weath
 node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/decalSystem.js
 node --check experiments/tactical_game_visual_upgrade_20260520/src/scene/rainyCheckpointLayout.js
 node --check experiments/tactical_game_visual_upgrade_20260520/tools/visual_evidence_gate.mjs
+./.venv/bin/python tools/verify_artifact_hashes.py experiments/tactical_game_visual_upgrade_20260520/artifact_hashes.json
 ```
 
 With the local server running on port `8877`, capture all six evidence cameras:
@@ -94,4 +105,4 @@ for camera in \
 done
 ```
 
-The CDP reports include `probe.animation` and the visual gate requires `animationOk: true` for each camera.
+The CDP reports include `probe.animation` and `probe.assetStatus.target_hero_rifle_v2`. The visual gate requires `animationOk: true`, `heroRifleOk: true`, no fallback, and at least four runtime material maps for each camera.

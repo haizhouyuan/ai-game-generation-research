@@ -1,0 +1,41 @@
+{
+  "asset_id": "target_hero_rifle_v2",
+  "material_map_count": 5,
+  "texture_maps": {
+    "basecolor": {
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/basecolor.png",
+      "sha256": "d4e78649cc2494fff24c5aa2b2520ec533cf08daf44533b13ca699c6f968d69e"
+    },
+    "normal": {
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/normal.png",
+      "sha256": "3da751a73b8cf042fa8d0bd6f10c33f99ca59a15de313d7961a3147d3c704f82"
+    },
+    "roughness": {
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/roughness.png",
+      "sha256": "32d7a825bc243bc8eb1ae330bd4a21b4214a420b393bccaec49b8883711fffef"
+    },
+    "metallic": {
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/metallic.png",
+      "sha256": "9de95f473bc30b0d0f8d1368a63323a90a39e90ad2e4a603db600030b9801ae8"
+    },
+    "ao": {
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/ao.png",
+      "sha256": "96e02b4f24ed1641dca92451264e70c5e5e827d48f84293c45676342961500e2"
+    }
+  },
+  "material_names": [
+    "hero_rifle_v2_pbr_mapped_dark_steel"
+  ],
+  "anchors": [
+    "Muzzle",
+    "Grip_R",
+    "Grip_L",
+    "Optic",
+    "PickupRoot",
+    "ThirdPersonMount"
+  ],
+  "mesh_object_count": 41,
+  "model_sha256": "a767b01df427193d65b675610e65f69e0094549dd1c02fe69017a48826ece523",
+  "preview_sha256": "2601c02a3d99d3d75f6dc627b159b8effff916ef263aaa697b93cd653627dcfd",
+  "route": "Route A local Blender-first procedural PBR packet; no external downloads"
+}

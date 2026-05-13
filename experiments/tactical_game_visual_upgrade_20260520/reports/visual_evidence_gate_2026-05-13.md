@@ -2,7 +2,7 @@
 
 ## Result
 
-All six rainy checkpoint evidence cameras passed the new CDP visual gate.
+All six rainy checkpoint evidence cameras passed the CDP visual gate after adding the runtime animation proof and the hero rifle V2 PBR asset packet.
 
 ## Command
 
@@ -27,7 +27,16 @@ done
 - `evidence/05_indoor_killhouse_corridor.png`
 - `evidence/06_final_wide_rainy_container_checkpoint.png`
 
-Each report has `blockingEvents: []`, nonblank image statistics, and `animationOk: true`.
+Each report has `blockingEvents: []`, nonblank image statistics, `animationOk: true`, and `heroRifleOk: true`.
+
+Hero rifle gate coverage:
+
+- `target_hero_rifle_v2.state`: `loaded`
+- `fallbackUsed`: `false`
+- runtime `materialMapCount`: `4`
+- registry `material_map_count`: `5`
+- declared texture maps: `basecolor`, `normal`, `roughness`, `metallic`, `ao`
+- missing weapon anchors: none
 
 Animation state coverage:
 
@@ -40,7 +49,6 @@ Animation state coverage:
 
 ## Remaining Visual Blockers
 
-- The rifle and character are still baseline GLB assets, not final PBR hero assets.
-- The registry marks those baseline assets as `baseline_only` with blockers, not `production_ready`.
+- The hero rifle V2 is now a local Blender-first PBR proof and is marked `production_ready`, but it is still procedural/local-authored rather than an AI-generated or vendor-grade commercial weapon asset.
 - Animation proof is runtime-visible through `AnimationMixer`, but it is still a proxy rig rather than a cleaned production character GLB.
 - PBR route benchmark is still pending.

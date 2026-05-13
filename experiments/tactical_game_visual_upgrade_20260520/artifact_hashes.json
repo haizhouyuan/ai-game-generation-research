@@ -1,59 +1,103 @@
 {
   "README.md": {
-    "sha256": "9274b8f72f998e834b694eec9dd926f8b3d98bc909d82b0e4a73c33d8e695ef7",
-    "size_bytes": 3515
+    "sha256": "ae71f30e3a99342f1f96f3a92f536ebf6f00b5898c3d56fd50fd2326047123af",
+    "size_bytes": 4297
   },
   "assets/asset_registry_v2.json": {
-    "sha256": "a87fbd035b7044981786a2fa9a4c30b68adb2014f38b9baac6a08a97e15bf045",
-    "size_bytes": 15601
+    "sha256": "a49cb2c7a78a5cd082d396021b3671cf11c19e2f338c54359fad53e7eca8d06b",
+    "size_bytes": 17470
+  },
+  "assets/weapons/hero_rifle_v2/evidence/blender_preview.png": {
+    "sha256": "2601c02a3d99d3d75f6dc627b159b8effff916ef263aaa697b93cd653627dcfd",
+    "size_bytes": 1041521
+  },
+  "assets/weapons/hero_rifle_v2/model/optimized.glb": {
+    "sha256": "a767b01df427193d65b675610e65f69e0094549dd1c02fe69017a48826ece523",
+    "size_bytes": 665644
+  },
+  "assets/weapons/hero_rifle_v2/reports/blender_cleanup_report.json": {
+    "sha256": "1b97d31d93603a793e6a9df5db655e82575957cf77a1af9cdb622afcb16c93aa",
+    "size_bytes": 246
+  },
+  "assets/weapons/hero_rifle_v2/reports/material_report.json": {
+    "sha256": "e72d6727761bada38ab5a6b33eff24cf89e6df79e78cf54100ed10a95d568da6",
+    "size_bytes": 1968
+  },
+  "assets/weapons/hero_rifle_v2/source/license.md": {
+    "sha256": "5fe5f7d423987149cc3b3b0ef7772c515f1b27a536089c3d942bb52a689f4725",
+    "size_bytes": 110
+  },
+  "assets/weapons/hero_rifle_v2/source/reference.md": {
+    "sha256": "b362a3228fe25efba9275f887ac6ca7a6e10930690b5b35032ddc9179a9346f0",
+    "size_bytes": 135
+  },
+  "assets/weapons/hero_rifle_v2/textures/ao.png": {
+    "sha256": "96e02b4f24ed1641dca92451264e70c5e5e827d48f84293c45676342961500e2",
+    "size_bytes": 7378
+  },
+  "assets/weapons/hero_rifle_v2/textures/basecolor.png": {
+    "sha256": "d4e78649cc2494fff24c5aa2b2520ec533cf08daf44533b13ca699c6f968d69e",
+    "size_bytes": 168842
+  },
+  "assets/weapons/hero_rifle_v2/textures/metallic.png": {
+    "sha256": "9de95f473bc30b0d0f8d1368a63323a90a39e90ad2e4a603db600030b9801ae8",
+    "size_bytes": 5813
+  },
+  "assets/weapons/hero_rifle_v2/textures/normal.png": {
+    "sha256": "3da751a73b8cf042fa8d0bd6f10c33f99ca59a15de313d7961a3147d3c704f82",
+    "size_bytes": 6799
+  },
+  "assets/weapons/hero_rifle_v2/textures/roughness.png": {
+    "sha256": "32d7a825bc243bc8eb1ae330bd4a21b4214a420b393bccaec49b8883711fffef",
+    "size_bytes": 134632
   },
   "evidence/01_fp_rifle_wet_checkpoint.png": {
-    "sha256": "ae9106e06853abf31554ab9288f5ce22686e262464d728943882acf91dfa7377",
-    "size_bytes": 119833
+    "sha256": "e8bf8d7ab44bdacfcb54e384a38ed60d0d8248d5171e60dec80b3ab8a9a5296c",
+    "size_bytes": 197340
   },
   "evidence/01_fp_rifle_wet_checkpoint_report.json": {
-    "sha256": "dba05c5e8e8f1181133f804b41689b084d615aee0317746677f65d9a245ca15e",
-    "size_bytes": 5664
+    "sha256": "314f517aa08f1e7b24d7a9d526218fef23cb1057dee234894f08c2ad7ebaa668",
+    "size_bytes": 5320
   },
   "evidence/02_third_person_player_gear.png": {
-    "sha256": "ff6695b4cfbb9d4356bff4a035c5620306f4a5304ed1609e95136b1655386e03",
-    "size_bytes": 158423
+    "sha256": "1fca6982b392aaaa29cca374b06606594850367a3b338e5fa20fdcb025dc7faf",
+    "size_bytes": 223864
   },
   "evidence/02_third_person_player_gear_report.json": {
-    "sha256": "3662beb0cf71d960f2610fda570cb88df28c459143fbbae09fe9b2df9e33fdb8",
-    "size_bytes": 5667
+    "sha256": "c8e24889bfe032c5184d6e1253e5e89b99cca86db0569092f995519141ffc5a9",
+    "size_bytes": 5476
   },
   "evidence/03_enemy_under_checkpoint_light.png": {
-    "sha256": "1fa8ead85fe51e8b4d22ee8f7f4a0349e10b90c63adde5780917ab3893e55226",
-    "size_bytes": 109820
+    "sha256": "abdbdb4048f3a9dfe3cc481f8703bde4f4ef57fc94f0a101c8a366f655338f48",
+    "size_bytes": 204602
   },
   "evidence/03_enemy_under_checkpoint_light_report.json": {
-    "sha256": "7553a382e9e7551210185a068f81022f344d5e308daa14100077d9145aea5b11",
-    "size_bytes": 5840
+    "sha256": "d1166cec3119c7a6d10adee18d3b8d4a883fc2ca2836385390c9fa3340259cb8",
+    "size_bytes": 5494
   },
   "evidence/04_loot_on_wet_asphalt.png": {
-    "sha256": "862ded1b24fd569c8c316bfd0087a6973e37f80df58083f38c44c2089884d75a",
-    "size_bytes": 288684
+    "sha256": "9dd16646c23c0e9ba15dee17824fd5b281a9b5f7c8166cf033b7962c8c9d4750",
+    "size_bytes": 368535
   },
   "evidence/04_loot_on_wet_asphalt_report.json": {
-    "sha256": "c3351527e659275b15671b89d51218e242addfae96de702720d8f6ba8a8f5424",
-    "size_bytes": 5966
+    "sha256": "c932f2bcfd4a7eb51ababcf5135c7d8ce36880016d3abe97ed844a0c3ce1cfed",
+    "size_bytes": 5301
   },
   "evidence/05_indoor_killhouse_corridor.png": {
-    "sha256": "7b29954aa505a0dc435f5c4272e5fd9ebfd23c73d822a9786da31f32e2275661",
-    "size_bytes": 100686
+    "sha256": "954aaa65267112da017eb7720c1dbdb1cc497de68f938ff708f9e05ca9a81350",
+    "size_bytes": 191006
   },
   "evidence/05_indoor_killhouse_corridor_report.json": {
-    "sha256": "36854c95ceb0082a29e3c31230de123d706e303ae2f09a832487401c73baefc3",
-    "size_bytes": 5686
+    "sha256": "32ab4a0142298e2673e72e8d4d8a896cfe76356b087867b6610eb1ee936a78cb",
+    "size_bytes": 5500
   },
   "evidence/06_final_wide_rainy_container_checkpoint.png": {
-    "sha256": "ca977ff813fd150c193f9ce0a54ce9553a660a60d481f84882121efc12de828c",
-    "size_bytes": 219101
+    "sha256": "c22cc944df7b2ebba202755e8ac6fd2e20d408b2c90674b3c5e07211223f42ee",
+    "size_bytes": 290887
   },
   "evidence/06_final_wide_rainy_container_checkpoint_report.json": {
-    "sha256": "39d375ac744a8eb736a12dcda9092ad6d691be9ec910b11c558a617ab9cca56e",
-    "size_bytes": 5712
+    "sha256": "469151ee229de14c0ffd49f5ca2fda208331e0e015004a21bfd9b6ddc44519cc",
+    "size_bytes": 5525
   },
   "index.html": {
     "sha256": "2c061a54da18a7ba526adaf6a43fda81f57f17278ca938e373dc5dcf6b065045",
@@ -67,21 +111,25 @@
     "sha256": "86bfe8a30be95b2346a2f72d9faeb068d4628fcfd028cb5aa4a57167a8d8b3e2",
     "size_bytes": 1062
   },
+  "reports/hero_rifle_v2_2026-05-13.md": {
+    "sha256": "cfe93ca56e5e788abc9dde5e9771cee18c4f667a931072ccefc9fa815be7253c",
+    "size_bytes": 2027
+  },
   "reports/threejs_loader_migration_001.md": {
     "sha256": "468edfc60b090586193a32843478970550ba7c62a39b4db97e1b145d309b175a",
     "size_bytes": 1138
   },
   "reports/visual_evidence_gate_2026-05-13.md": {
-    "sha256": "c0a277b5c3fd048cb6606ad86d355aa6190f6833777d6d58b2b7964ce7bc693a",
-    "size_bytes": 1668
+    "sha256": "c9aafaf946e1be2c468acddab88a88be135cd7549850efc78b7a223a0a03cb9b",
+    "size_bytes": 2059
   },
   "schemas/asset_packet.schema.json": {
     "sha256": "6dd1fe4081d19979b85966a1b4e7ee66eb70f8608ba4e16bab2ee27159031bba",
     "size_bytes": 6818
   },
   "src/main.js": {
-    "sha256": "9f2638c050e067b231b9744087ecebdabde115a99480cba5b7093aea858fd44b",
-    "size_bytes": 9124
+    "sha256": "0e3dd95f87f05ab38a1e00dee56925f1ffddb3e9210ed8236709456b1e35df73",
+    "size_bytes": 9945
   },
   "src/runtime/animationSystem.js": {
     "sha256": "0f1820cc11a4e6d4b9dbb4333aecf813f5859e8eb83562a90ca5ab8e1806dca8",
@@ -111,8 +159,12 @@
     "sha256": "d2f2488b13d8afcea02e5bbcc6add95c8d5c277947d28518ad4d353d54e5191e",
     "size_bytes": 8617
   },
+  "tools/build_hero_rifle_v2.py": {
+    "sha256": "91b45dee71a0da90a724d31db19d36f1ecb86d6c42dc67e6f054f8450e0a50b5",
+    "size_bytes": 10019
+  },
   "tools/visual_evidence_gate.mjs": {
-    "sha256": "612a3419406efacd7b31605fe984497037a874a4edfaeecaae860cfe5d048886",
-    "size_bytes": 8970
+    "sha256": "b87da1566d7b02834ebcedfd796cd7ed7d75fd62142177b88d2a83b8d6167887",
+    "size_bytes": 9436
   }
 }

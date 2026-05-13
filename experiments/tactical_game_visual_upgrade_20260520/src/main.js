@@ -29,7 +29,7 @@ document.body.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 0.05, 120);
-const cameraFill = new THREE.PointLight(0xcde8ff, 1.65, 5.2, 1.6);
+const cameraFill = new THREE.PointLight(0xcde8ff, 4.2, 7.5, 1.35);
 cameraFill.name = "camera_tactical_fill_light";
 camera.add(cameraFill);
 scene.add(camera);
@@ -161,13 +161,34 @@ async function boot() {
   });
 
   await Promise.allSettled([
-    loader.loadAsset("baseline_groza_procedural_candidate").then(({ gltf }) => {
+    loader.loadAsset("target_hero_rifle_v2").then(({ gltf }) => {
       const rifle = gltf.scene.clone(true);
-      rifle.name = "fp_baseline_rifle_visual";
-      normalizeObject(rifle, 1.05);
+      rifle.name = "fp_hero_rifle_v2_visual";
+      normalizeObject(rifle, 1.34);
       camera.add(rifle);
-      rifle.position.set(0.58, -0.46, -0.86);
-      rifle.rotation.set(-0.05, -0.34, -0.08);
+      rifle.position.set(0.35, -0.30, -0.74);
+      rifle.rotation.set(-0.04, -0.38, -0.07);
+
+      const thirdPerson = gltf.scene.clone(true);
+      thirdPerson.name = "third_person_hero_rifle_v2_visual";
+      normalizeObject(thirdPerson, 0.88);
+      thirdPerson.position.set(-0.35, 1.15, 0.06);
+      thirdPerson.rotation.set(0.0, -0.92, -0.08);
+      scene.add(thirdPerson);
+
+      const npcWeapon = gltf.scene.clone(true);
+      npcWeapon.name = "npc_hero_rifle_v2_visual";
+      normalizeObject(npcWeapon, 0.88);
+      npcWeapon.position.set(2.35, 1.16, -2.10);
+      npcWeapon.rotation.set(0.0, -1.22, -0.06);
+      scene.add(npcWeapon);
+
+      const worldPickup = gltf.scene.clone(true);
+      worldPickup.name = "loot_world_hero_rifle_v2_visual";
+      normalizeObject(worldPickup, 0.82);
+      worldPickup.position.set(0.18, 0.18, -0.62);
+      worldPickup.rotation.set(0.0, 0.42, -0.18);
+      scene.add(worldPickup);
       return rifle;
     }),
     loader.loadAsset("baseline_character_player_final").then(({ gltf }) => {

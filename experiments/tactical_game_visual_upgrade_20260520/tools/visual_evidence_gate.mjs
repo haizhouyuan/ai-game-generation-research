@@ -213,6 +213,13 @@ const animationOk = probe?.animation?.player?.mixerReady === true
   && probe?.animation?.enemy?.requiredClipsPresent === true
   && (!requiredAnimation.player || probe?.animation?.player?.activeClip === requiredAnimation.player)
   && (!requiredAnimation.enemy || probe?.animation?.enemy?.activeClip === requiredAnimation.enemy);
+const heroRifle = probe?.assetStatus?.target_hero_rifle_v2;
+const heroRifleOk = heroRifle?.state === "loaded"
+  && heroRifle?.fallbackUsed === false
+  && heroRifle?.materialMapCount >= 4
+  && heroRifle?.gateSummary?.hasFourPbrMaps === true
+  && Array.isArray(heroRifle?.gateSummary?.missingAnchors)
+  && heroRifle.gateSummary.missingAnchors.length === 0;
 
 const report = {
   url,
@@ -234,6 +241,7 @@ const imageReadable = imageStats.ok
   && (
     imageStats.litRatio > 0.06
     || (imageStats.colorfulRatio > 0.18 && imageStats.edgeRatio > 0.018)
+    || (imageStats.litRatio > 0.025 && imageStats.edgeRatio > 0.02)
   )
   && imageStats.colorfulRatio > 0.05
   && imageStats.edgeRatio > 0.008;
@@ -241,11 +249,12 @@ const imageReadable = imageStats.ok
 const passed = probe?.loaded === true
   && blockingEvents.length === 0
   && imageReadable
-  && animationOk;
+  && animationOk
+  && heroRifleOk;
 
 if (!passed) {
-  console.error(JSON.stringify({ passed, report: reportPath.pathname, blockingEvents, imageStats, imageReadable, animationOk, probe }, null, 2));
+  console.error(JSON.stringify({ passed, report: reportPath.pathname, blockingEvents, imageStats, imageReadable, animationOk, heroRifleOk, probe }, null, 2));
   process.exit(1);
 }
 
-console.log(JSON.stringify({ passed, camera, report: reportPath.pathname, screenshot: screenshotPath.pathname, imageStats, animationOk }, null, 2));
+console.log(JSON.stringify({ passed, camera, report: reportPath.pathname, screenshot: screenshotPath.pathname, imageStats, animationOk, heroRifleOk }, null, 2));

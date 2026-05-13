@@ -7,31 +7,23 @@
     "evidence": "01_fp_rifle_wet_checkpoint",
     "blockingEvents": [],
     "assetStatus": {
-      "baseline_groza_procedural_candidate": {
+      "target_hero_rifle_v2": {
         "state": "loaded",
         "fallbackUsed": false,
         "fallbackForbidden": true,
         "error": null,
-        "materialMapCount": 0,
-        "declaredTextureCount": 0,
+        "materialMapCount": 4,
+        "declaredTextureCount": 5,
         "gateSummary": {
-          "assetId": "baseline_groza_procedural_candidate",
-          "status": "baseline_only",
+          "assetId": "target_hero_rifle_v2",
+          "status": "production_ready",
           "assetClass": "weapon",
-          "productionReady": false,
-          "materialMapCount": 0,
-          "hasFourPbrMaps": false,
-          "missingAnchors": [
-            "Muzzle",
-            "Grip_R",
-            "Grip_L",
-            "Optic",
-            "PickupRoot"
-          ],
+          "productionReady": true,
+          "materialMapCount": 5,
+          "hasFourPbrMaps": true,
+          "missingAnchors": [],
           "fallbackForbidden": true,
-          "blockers": [
-            "hero_pbr"
-          ]
+          "blockers": []
         }
       },
       "baseline_character_player_final": {
@@ -121,42 +113,41 @@
     "ok": true,
     "width": 1440,
     "height": 813,
-    "litRatio": 0.083640081799591,
-    "colorfulRatio": 0.1252044989775051,
-    "edgeRatio": 0.01114519427402863
+    "litRatio": 0.032183026584867075,
+    "colorfulRatio": 0.1074642126789366,
+    "edgeRatio": 0.02581799591002045
   },
   "events": [
     {
       "method": "Log.entryAdded",
       "type": "warning",
-      "text": "[.WebGL-0x104004e5a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+      "text": "[.WebGL-0x12c00474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
     },
     {
       "method": "Log.entryAdded",
       "type": "warning",
-      "text": "[.WebGL-0x104004e5a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+      "text": "[.WebGL-0x12c00474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
     },
     {
       "method": "Log.entryAdded",
       "type": "warning",
-      "text": "[.WebGL-0x104004e5a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+      "text": "[.WebGL-0x12c00474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
     },
     {
       "method": "Log.entryAdded",
       "type": "warning",
-      "text": "[.WebGL-0x104004e5a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+      "text": "[.WebGL-0x12c00474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
     }
   ],
   "blockingEvents": [],
   "chromeStderrTail": [
     "",
-    "DevTools listening on ws://127.0.0.1:9572/devtools/browser/103bf0f3-0d5c-4cca-8ffd-abbb267eed28",
-    "[36158:3988327:0513/172736.870556:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x104004e5a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "[36158:3988327:0513/172737.191528:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x104004e5a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "[36158:3988327:0513/172737.191953:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x104004e5a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-    "[36158:3988327:0513/172737.193102:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x104004e5a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+    "DevTools listening on ws://127.0.0.1:9585/devtools/browser/ac36ed7b-3d25-40e4-ba7a-866d907fa0fb",
+    "[38450:4006754:0513/174447.443940:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x12c00474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[38450:4006754:0513/174447.752938:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x12c00474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[38450:4006754:0513/174447.753286:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x12c00474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[38450:4006754:0513/174447.754399:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x12c00474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
     "Trying to load the allocator multiple times. This is *not* supported.",
-    "[36152:3988306:0513/172741.890254:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR",
     ""
   ]
 }

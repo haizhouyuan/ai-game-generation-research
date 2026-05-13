@@ -30,9 +30,21 @@
         "meshes": 87,
         "triangles": 21540,
         "bbox": {
-          "min": [-2.0250000059604645, -0.4099999964237213, -0.7799999862909317],
-          "max": [2.7249999940395355, 0.4099999964237213, 1.8925265658546575],
-          "size": [4.75, 0.8199999928474426, 2.672526552145589]
+          "min": [
+            -2.0250000059604645,
+            -0.4099999964237213,
+            -0.7799999862909317
+          ],
+          "max": [
+            2.7249999940395355,
+            0.4099999964237213,
+            1.8925265658546575
+          ],
+          "size": [
+            4.75,
+            0.8199999928474426,
+            2.672526552145589
+          ]
         }
       },
       "materials": {
@@ -51,7 +63,13 @@
       },
       "anchors": {
         "defined": [],
-        "required_for_class": ["Muzzle", "Grip_R", "Grip_L", "Optic", "PickupRoot"]
+        "required_for_class": [
+          "Muzzle",
+          "Grip_R",
+          "Grip_L",
+          "Optic",
+          "PickupRoot"
+        ]
       },
       "animations": {
         "has_rig": false,
@@ -119,9 +137,21 @@
         "meshes": 49,
         "triangles": 9708,
         "bbox": {
-          "min": [-0.5260617943034264, -0.5700000077486038, -2.039000028133392],
-          "max": [0.5260617943034264, 0.6049999818205833, 0.029999999329447746],
-          "size": [1.0521235886068527, 1.1749999895691872, 2.06900002746284]
+          "min": [
+            -0.5260617943034264,
+            -0.5700000077486038,
+            -2.039000028133392
+          ],
+          "max": [
+            0.5260617943034264,
+            0.6049999818205833,
+            0.029999999329447746
+          ],
+          "size": [
+            1.0521235886068527,
+            1.1749999895691872,
+            2.06900002746284
+          ]
         }
       },
       "materials": {
@@ -140,7 +170,13 @@
       },
       "anchors": {
         "defined": [],
-        "required_for_class": ["Weapon_R", "Head", "Spine", "Foot_L", "Foot_R"]
+        "required_for_class": [
+          "Weapon_R",
+          "Head",
+          "Spine",
+          "Foot_L",
+          "Foot_R"
+        ]
       },
       "animations": {
         "has_rig": false,
@@ -186,8 +222,8 @@
     {
       "asset_id": "target_hero_rifle_v2",
       "asset_class": "weapon",
-      "role": "first production hero rifle for first-person, third-person, NPC, and loot contexts",
-      "status": "target",
+      "role": "production hero rifle v2 for first-person, third-person, NPC/world, and loot contexts",
+      "status": "production_ready",
       "paths": {
         "model": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/model/optimized.glb",
         "preview": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/evidence/blender_preview.png",
@@ -200,62 +236,97 @@
         }
       },
       "provenance": {
-        "source": "planned local-first hero rifle packet",
-        "license_risk": "unknown",
-        "generation_route": "Blender cleanup plus Trellis2/Hunyuan3D/StableGen PBR route benchmark",
-        "notes": "Target entry is a contract. It is not production_ready until model, maps, anchors, screenshots, and hashes exist."
+        "source": "local Blender Python procedural hard-surface rifle with generated PBR texture maps",
+        "license_risk": "local_only",
+        "generation_route": "Route A StableGen/Blender-first fallback: local Blender generated clean mesh and PBR maps without external downloads",
+        "notes": "This is not a real firearm manufacturing reference. It is a fictional game-ready visual asset packet."
       },
       "geometry": {
-        "meshes": 0,
-        "triangles": 0,
-        "bbox": {"min": [0, 0, 0], "max": [0, 0, 0], "size": [0, 0, 0]}
+        "meshes": 41,
+        "triangles": 5000,
+        "bbox": {
+          "min": [
+            -1.94,
+            -0.78,
+            -0.28
+          ],
+          "max": [
+            2.95,
+            0.66,
+            0.28
+          ],
+          "size": [
+            4.89,
+            1.44,
+            0.56
+          ]
+        }
       },
       "materials": {
-        "material_names": [],
-        "material_map_count": 0,
-        "pbr_complete": false,
-        "texture_resolution": "target 2048+"
+        "material_names": [
+          "hero_rifle_v2_pbr_mapped_dark_steel"
+        ],
+        "material_map_count": 5,
+        "pbr_complete": true,
+        "texture_resolution": "512 source maps; target route can upscale to 2048+"
       },
       "anchors": {
-        "defined": [],
-        "required_for_class": ["Muzzle", "Grip_R", "Grip_L", "Optic", "PickupRoot"]
+        "defined": [
+          "Muzzle",
+          "Grip_R",
+          "Grip_L",
+          "Optic",
+          "PickupRoot",
+          "ThirdPersonMount"
+        ],
+        "required_for_class": [
+          "Muzzle",
+          "Grip_R",
+          "Grip_L",
+          "Optic",
+          "PickupRoot"
+        ]
       },
       "animations": {
         "has_rig": false,
-        "clips": ["target_weapon_sway", "target_reload"],
+        "clips": [
+          "weapon_sway_runtime",
+          "reload_proxy_runtime"
+        ],
         "mixer_ready": false
       },
       "lod": {
-        "levels": ["target_lod0", "target_lod1"],
+        "levels": [
+          "lod0_single_glb"
+        ],
         "screen_coverage": "first-person 25-35 percent"
       },
       "quality_gates": {
-        "screenshot_nonblank": false,
+        "screenshot_nonblank": true,
         "fallback_allowed_in_evidence": false,
-        "no_blocking_browser_errors": false,
-        "no_missing_network_resources": false
+        "no_blocking_browser_errors": true,
+        "no_missing_network_resources": true
       },
       "evidence": {
         "gameplay_screenshots": [
           "experiments/tactical_game_visual_upgrade_20260520/evidence/01_fp_rifle_wet_checkpoint.png"
         ],
-        "preview_renders": [],
-        "material_reports": [],
-        "blender_screenshots": []
+        "preview_renders": [
+          "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/evidence/blender_preview.png"
+        ],
+        "material_reports": [
+          "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/reports/material_report.json"
+        ],
+        "blender_screenshots": [
+          "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/evidence/blender_preview.png"
+        ]
       },
       "hashes": {
-        "model_sha256": null,
-        "preview_sha256": null,
-        "size_bytes": 0
+        "model_sha256": "a767b01df427193d65b675610e65f69e0094549dd1c02fe69017a48826ece523",
+        "preview_sha256": "2601c02a3d99d3d75f6dc627b159b8effff916ef263aaa697b93cd653627dcfd",
+        "size_bytes": 665644
       },
-      "blockers": [
-        {
-          "gate": "asset_packet_not_generated",
-          "reason": "Hero rifle V2 production packet has not been generated yet.",
-          "resolvable": true,
-          "assigned_route": "hero_rifle_v2_001"
-        }
-      ]
+      "blockers": []
     },
     {
       "asset_id": "target_player_tactical_v2",
@@ -282,7 +353,23 @@
       "geometry": {
         "meshes": 0,
         "triangles": 0,
-        "bbox": {"min": [0, 0, 0], "max": [0, 0, 0], "size": [0, 0, 0]}
+        "bbox": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0,
+            0,
+            0
+          ]
+        }
       },
       "materials": {
         "material_names": [],
@@ -292,15 +379,29 @@
       },
       "anchors": {
         "defined": [],
-        "required_for_class": ["Weapon_R", "Head", "Spine", "Foot_L", "Foot_R"]
+        "required_for_class": [
+          "Weapon_R",
+          "Head",
+          "Spine",
+          "Foot_L",
+          "Foot_R"
+        ]
       },
       "animations": {
         "has_rig": false,
-        "clips": ["target_idle_rifle", "target_walk_rifle", "target_aim_idle", "target_reload"],
+        "clips": [
+          "target_idle_rifle",
+          "target_walk_rifle",
+          "target_aim_idle",
+          "target_reload"
+        ],
         "mixer_ready": false
       },
       "lod": {
-        "levels": ["target_lod0", "target_lod1"],
+        "levels": [
+          "target_lod0",
+          "target_lod1"
+        ],
         "screen_coverage": "third-person close-up"
       },
       "quality_gates": {
@@ -356,10 +457,28 @@
       "geometry": {
         "meshes": 0,
         "triangles": 0,
-        "bbox": {"min": [0, 0, 0], "max": [0, 0, 0], "size": [0, 0, 0]}
+        "bbox": {
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "max": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0,
+            0,
+            0
+          ]
+        }
       },
       "materials": {
-        "material_names": ["target_wet_asphalt"],
+        "material_names": [
+          "target_wet_asphalt"
+        ],
         "material_map_count": 0,
         "pbr_complete": false,
         "texture_resolution": "target 2048+"
