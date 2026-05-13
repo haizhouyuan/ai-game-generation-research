@@ -73,6 +73,8 @@ Packet validator:
 ```bash
 python3 tools/validate_asset_packets.py --markdown
 python3 tools/validate_asset_packets.py --strict
+python3 tools/validate_asset_packets.py --production-goal
+python3 tools/validate_texture_quality.py
 ```
 
 Current validator meaning:
@@ -81,6 +83,7 @@ Current validator meaning:
 - texture map counts are still zero for the scaffolded production slots;
 - `hunyuan_shape_demo_001` has browser-independent Blender evidence but remains shape-only and not a final asset.
 - the task is not complete while most packets are scaffolds and only the probe crate has texture maps.
+- texture quality gate currently fails on the probe crate metallic map because it is solid placeholder-like, which correctly keeps the crate as probe-only.
 
 ## Immediate Commands
 
