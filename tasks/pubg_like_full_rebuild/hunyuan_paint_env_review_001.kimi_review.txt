@@ -1,0 +1,11 @@
+The review above covers all four questions. To summarize the key recommendations:
+
+1. **Use `bpy==4.2.0`** — it's the pragmatic choice since 4.0 isn't available on PyPI for Python 3.11, and the API differences for mesh/UV/material operations are minimal.
+
+2. **Highest risk is `basicsr` installation** under Python 3.11 — it has C++ extensions and complex dependencies that often fail. Have a source-install fallback ready.
+
+3. **The command sequence** starts with verifying PyTorch/CUDA, then installing `bpy`, `basicsr`, `realesrgan` in order, recompiling both CUDA extensions (`custom_rasterizer` and `DifferentiableRenderer`), replacing the corrupt RealESRGAN checkpoint with a resumed no-proxy download, and finally running the full paint import test.
+
+4. **For RealESRGAN**, try GitHub releases with `curl --continue-at -` first, fall back to `hf-mirror.com`. If both fail, consider skipping super-resolution for the first smoke test just to prove the paint pipeline runs.
+
+The plan is reasonable and the risk profile is acceptable. The one change I'd suggest: after step 1 (verify PyTorch/CUDA), add a quick `nvcc --version` check before attempting the CUDA extension compiles — a mismatch there is the fastest way to waste time on compilation errors.
