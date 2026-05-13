@@ -1,0 +1,335 @@
+# Production Goal: PUBG-Like Full AI 3D Asset Pipeline And Tactical Game Rebuild - 2026-05-13
+
+## Objective
+
+彻底重做当前 HTML/Three.js tactical game 的视觉资产生产线和最终 playable slice。
+
+这不是“在旧模型上稍微升级一点”。完成标准是：以 PUBG / 现代真实战术游戏为视觉方向，把主要可见资产都通过真实参考图、image-to-3D、本地 3D/PBR 生成、Blender 清理、Three.js 集成和浏览器证据 gate 跑通。
+
+最终结果必须让人一眼看出：这不是旧版 procedural/GLB prototype，而是使用真实 3D 资产生产流程重建的高真实感 tactical vertical slice。
+
+## Source Repo
+
+`/Users/yuanshaochen/Projects/ai-game-generation-research`
+
+## Non-Negotiable Intent
+
+- 目标不是小修小补，而是完整资产工厂。
+- 每类主资产都要有真实参考图或 AI 生成真实参考图。
+- 每类主资产都要至少跑一条本地 3D 生成或 PBR 生产路线。
+- 资产不能只靠 material factors；hero/near-camera assets 必须有贴图地图。
+- 能下载模型，但大文件下载必须不走付费代理流量。
+- Codex 做总控和合并，Kimi/Gemini/MiniMax/本地 runner 并行执行窄任务。
+
+## Download Policy
+
+Downloads are allowed.
+
+Rules:
+
+1. Any single external download over 100MB must use command-local no-proxy settings:
+
+```bash
+env -u http_proxy -u https_proxy -u all_proxy -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY \
+  curl --noproxy '*' -L --fail --continue-at - --output OUTPUT URL
+```
+
+2. Prefer `aria2c`, `git lfs`, `huggingface-cli`, or `hf download` only when proxy env is explicitly unset and the command records evidence.
+3. Record URL/repo, expected size when available, command, resolved host/IP when practical, output path, SHA256 or git revision, and proof that proxy env vars were unset.
+4. Do not change global Clash, shell proxy, Homebrew proxy, or system proxy settings.
+5. If a single file is clearly over 1GB, record exact repo/file/version before download; if the user has already authorized the route in this goal, proceed only with no-proxy evidence.
+
+## Required Tool Routes
+
+### Route A - Realistic Reference Images
+
+Use AI image generation or local/reference sources to create high-quality realistic references for:
+
+- hero rifle / optic / magazine / attachment set;
+- player tactical character front/side/back plus gear detail;
+- enemy tactical character variant;
+- backpack, vest, helmet, pouch, gloves, boots;
+- wet asphalt, concrete wall, container wall, checkpoint booth;
+- loot props: medkit, ammo box, weapon pickup, casing/shells;
+- decals: mud, scratches, impacts, warning markings.
+
+Required output:
+
+- reference images;
+- prompt/source/provenance;
+- SHA256;
+- downstream asset mapping.
+
+### Route B - Hunyuan3D 2.1 Shape + Paint/PBR
+
+Install and run Tencent Hunyuan3D-2.1 locally, primarily on HomePC GPU1.
+
+Official facts to respect:
+
+- Hunyuan3D-2.1 is an image-to-3D / text-to-3D system with PBR texture synthesis.
+- Official repo reports approximate VRAM needs: shape 10GB, texture 21GB, shape+texture 29GB.
+- Official model repo: `tencent/Hunyuan3D-2.1`.
+- Model files include shape and PBR paint subfolders, with total storage around 15GB from Hugging Face metadata.
+
+Required proof:
+
+- installation report;
+- no-proxy download evidence;
+- one successful shape-only generation;
+- one successful textured/PBR generation or concrete blocker;
+- GLB/OBJ/textures imported into Blender;
+- material report showing PBR maps when successful;
+- Three.js close-up screenshot.
+
+### Route C - ComfyUI 3D Pipeline
+
+On HomePC, configure ComfyUI route(s) for:
+
+- Hunyuan3D 2.1 wrapper if stable;
+- Texture Projection / Trellis2 / Flux-Qwen-SDXL multi-view texture route;
+- TextureAlchemy / PBRFusion / CHORD / equivalent PBR map completion if practical.
+
+Required proof:
+
+- custom node install inventory;
+- workflow JSON;
+- one generated/retouched asset;
+- exported GLB or texture map set;
+- blocker report if dependency conflict occurs.
+
+### Route D - TRELLIS / TRELLIS.2 Mesh Route
+
+Current TRELLIS mesh-only evidence is not enough.
+
+Required next proof:
+
+- run current cached TRELLIS on at least one non-rifle prop or gear item;
+- attempt texture/PBR improvement via Route C or Blender;
+- record why TRELLIS is or is not suitable for final hero assets.
+
+### Route E - Blender Production Cleanup
+
+Every generated candidate that reaches the game must pass Blender cleanup:
+
+- scale/origin/orientation normalized;
+- named anchors/sockets;
+- UV/material inspection;
+- decimate/retopo where needed;
+- collision/proxy where needed;
+- PBR map wiring;
+- preview render;
+- cleanup report.
+
+### Route F - Three.js Runtime Replacement
+
+The game must replace old/procedural placeholders with generated asset packets.
+
+Required:
+
+- official `GLTFLoader`;
+- KTX2/Meshopt readiness;
+- runtime asset registry v3;
+- fail-closed fallback for hero assets;
+- material map count gate;
+- animation state gate;
+- browser/CDP screenshot gate.
+
+## Asset Classes That Must Be Rebuilt
+
+Minimum production targets:
+
+1. Hero rifle with optic and attachments.
+2. Sidearm or secondary weapon.
+3. Player tactical character with gear.
+4. Enemy tactical character variant.
+5. Helmet/vest/pouches/backpack/gloves/boots as visible gear modules or a generated combined character packet.
+6. Wet asphalt ground material.
+7. Concrete wall material.
+8. Container wall / checkpoint booth asset.
+9. Loot set: medkit, ammo box, weapon pickup.
+10. Clutter/decal set: casings, paper, cable, cone, pallet, mud/scratch/impact decals.
+
+Each target must become an asset packet:
+
+```text
+asset_id/
+  source/reference.md
+  source/license.md
+  source/images/
+  model/raw.*
+  model/cleaned.*
+  model/optimized.glb
+  textures/basecolor.*
+  textures/normal.*
+  textures/roughness.*
+  textures/metallic.*
+  textures/ao.*
+  reports/blender_cleanup_report.json
+  reports/material_report.json
+  reports/gltf_validator_or_inspect.json
+  evidence/blender_preview.png
+  evidence/threejs_closeup.png
+  evidence/gameplay_context.png
+```
+
+## Runner Orchestration Rules
+
+Codex:
+
+- owns goal, task board, merge review, evidence gates, final judgement.
+
+Kimi:
+
+- complex implementation, code review, route blocker analysis, integration critique.
+
+Gemini CLI:
+
+- broad research, visual direction critique, tool comparison, final review;
+- must use `gemini-3.1-pro-preview`, not default model.
+
+MiniMax:
+
+- only narrow mechanical tasks: report formatting, hash manifest checks, simple schema updates, first-pass low-risk review.
+
+HomePC GPU:
+
+- Hunyuan3D, ComfyUI, TRELLIS, Blender render/bake, batch texture generation.
+
+Mac M2 Max:
+
+- control-plane, browser evidence, repo integration, lightweight local inference fallback.
+
+## Work Packages
+
+### W0 - Correct Goal And Baseline
+
+- Create this stricter goal.
+- Mark previous release as partial W0 baseline, not final completion.
+- Create task board for full rebuild.
+
+Exit:
+
+- new goal file exists;
+- old packet limitations are explicit.
+
+### W1 - Hunyuan3D 2.1 Installation And No-Proxy Model Acquisition
+
+- Install repo/dependencies on HomePC.
+- Download required Hunyuan3D-2.1 model files without proxy traffic.
+- Use GPU1 unless GPU0 is intentionally freed.
+- Record install, version, model revision, disk, VRAM, command logs.
+
+Exit:
+
+- `hunyuan3d_env_report.md`;
+- no-proxy download record;
+- import/smoke test passes or concrete dependency blocker.
+
+### W2 - Reference Image Generation
+
+- Generate or collect realistic reference images for all minimum asset classes.
+- Prioritize consistent style: rainy tactical, worn metal, wet surfaces, realistic gear.
+
+Exit:
+
+- reference image set with provenance and hashes;
+- asset-to-reference matrix.
+
+### W3 - First Hunyuan Asset Chain
+
+- Run Hunyuan3D shape+paint on one small prop first, then hero rifle or gear.
+- Prefer loot/medkit or container prop as lower-risk first target.
+
+Exit:
+
+- raw generated model;
+- textured/PBR output or blocker;
+- Blender preview;
+- Three.js close-up.
+
+### W4 - Hero Rifle Full Replacement
+
+- Generate or refine hero rifle through Hunyuan/Comfy/TRELLIS+PBR/Blender route.
+- Replace current Blender-first proof only if the new asset is visibly better.
+
+Exit:
+
+- first-person screenshot looks like a real high-detail tactical game weapon;
+- PBR maps and anchors present.
+
+### W5 - Character And Gear Full Replacement
+
+- Generate/assemble player and enemy characters with realistic tactical gear.
+- Add/retarget animation set.
+
+Exit:
+
+- production character GLBs replace runtime proxy rig;
+- idle/walk/run/aim/reload/crouch/hit/death evidence.
+
+### W6 - Environment Material And Prop Replacement
+
+- Replace wet asphalt/concrete/container/checkpoint booth/loot/clutter with generated or PBR-authored packets.
+
+Exit:
+
+- close-up material screenshots show real texture detail, not flat procedural material.
+
+### W7 - ComfyUI Projection/PBR Pipeline
+
+- Install and validate one ComfyUI workflow for 3D texture/PBR improvement.
+- Export asset or texture set into Blender and Three.js.
+
+Exit:
+
+- workflow JSON;
+- output asset/textures;
+- blocker if dependency conflict.
+
+### W8 - Runtime And Evidence Gate V3
+
+- Extend registry/gate from v2 to v3.
+- Require generated asset provenance, PBR maps, no fallback, animation, screenshot readability, and material close-ups.
+
+Exit:
+
+- six old cameras plus additional close-up cameras pass;
+- gate fails if generated assets are missing.
+
+### W9 - Final PUBG-Like Slice Release
+
+- Build final release packet under a new dated experiment directory.
+- Include playable HTML, assets, references, generated models, textures, Blender reports, CDP reports, final visual grid, and a plain-Chinese release report.
+
+Exit:
+
+- reviewer can inspect screenshots and agree it is a real asset-pipeline rebuild;
+- all hashes verify;
+- pushed to GitHub.
+
+## Completion Criteria
+
+Do not mark complete until all are true:
+
+- Hunyuan3D 2.1 is installed or has a concrete dependency blocker after real no-proxy setup attempt.
+- At least one Hunyuan-generated asset reaches Blender and Three.js, unless blocked by documented install/runtime failure.
+- At least one ComfyUI/PBR projection or equivalent PBR completion route is tested.
+- At least 10 minimum production asset targets have reference/provenance entries.
+- At least 6 minimum production asset targets have generated or PBR-authored asset packets.
+- Hero rifle is no longer merely the local procedural fallback unless a better route failed and the fallback is clearly superior.
+- Runtime character proxy is replaced by a production character asset or has a concrete blocked route with next command.
+- The final visual slice is substantially rebuilt, not just relit.
+- Large downloads have no-proxy evidence.
+- Kimi/Gemini/MiniMax runner usage follows the routing rules and is recorded.
+
+## Explicit Non-Completion Conditions
+
+This goal is not complete if:
+
+- only the previous `tactical_game_visual_upgrade_20260520` packet is submitted again;
+- Hunyuan3D is not actually attempted;
+- assets are mostly procedural boxes/cylinders with nicer lighting;
+- no AI/reference image to 3D generation chain reaches the game;
+- no real PBR texture maps are generated for multiple asset classes;
+- visual screenshots still look like the previous simple Three.js prototype;
+- large downloads happen through proxy traffic or without evidence.
