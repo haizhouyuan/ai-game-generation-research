@@ -10,6 +10,7 @@ You are not the lead orchestrator. You are a scoped worker or reviewer.
 - For implementation tasks, edit only the explicit write scope in the prompt.
 - Do not commit, push, install packages, download large files, read secrets, or alter proxy settings.
 - Do not revert unrelated edits. Other agents may be active.
+- Prefer Kimi for harder implementation/judgment work. MiniMax is for mechanical, narrow tasks.
 
 ## MCP Tools
 

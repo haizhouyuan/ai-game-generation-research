@@ -12,6 +12,8 @@ Gemini is preferred for:
 - visual/product critique;
 - independent sanity checks before Codex merges work.
 
+Use `gemini-3.1-pro-preview` for this project unless a task explicitly asks for a different model.
+
 ## MCP Tools
 
 Project MCP configuration is in `.gemini/settings.json`.

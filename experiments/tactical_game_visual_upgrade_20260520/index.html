@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E">
+    <title>Tactical Visual Upgrade - Rainy Checkpoint</title>
+    <style>
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #05080d;
+        color: #e6eef6;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      canvas { display: block; width: 100vw; height: 100vh; }
+      #hud {
+        position: fixed;
+        left: 14px;
+        top: 14px;
+        z-index: 2;
+        width: min(380px, calc(100vw - 28px));
+        padding: 12px 14px;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 8px;
+        background: rgba(7, 12, 18, 0.74);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 20px 58px rgba(0,0,0,0.42);
+      }
+      #hud strong { display: block; margin-bottom: 7px; font-size: 14px; }
+      #status { color: #aab8c7; font-size: 12px; line-height: 1.55; }
+      #cameraSelect {
+        width: 100%;
+        margin-top: 8px;
+        color: #e6eef6;
+        background: #111923;
+        border: 1px solid #334253;
+        border-radius: 6px;
+        padding: 7px;
+      }
+      body.evidence #hud { display: none; }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../game_p2_glb_three_import_loop/node_modules/three/build/three.module.js",
+          "three/addons/": "../game_p2_glb_three_import_loop/node_modules/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="hud">
+      <strong>Rainy Tactical Checkpoint Visual Slice</strong>
+      <div id="status">Booting visual upgrade...</div>
+      <select id="cameraSelect"></select>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

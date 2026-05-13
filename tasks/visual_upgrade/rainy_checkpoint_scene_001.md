@@ -10,7 +10,7 @@ Mac M2 Max 96GB.
 
 ## Runner Route
 
-Preferred: `claudeminmax` or `claudekimi` through scoped worker after runtime skeleton exists.
+Preferred: `claudekimi` through scoped worker after runtime skeleton exists. Use Gemini 3.1 Pro Preview for visual direction review, and MiniMax only for mechanical cleanup.
 
 ## Read Scope
 
@@ -67,4 +67,3 @@ node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/weath
 - instance counts
 - evidence paths
 - risks
-

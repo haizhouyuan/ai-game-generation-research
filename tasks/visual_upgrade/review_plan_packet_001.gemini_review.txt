@@ -1,0 +1,27 @@
+Runner: Gemini CLI
+Model: gemini-3.1-pro-preview
+Mode: read-only plan review with managed MCP allowlist
+
+Operational note:
+- The run hit repeated 429 MODEL_CAPACITY_EXHAUSTED responses for gemini-3.1-pro-preview before eventually returning a review.
+- No secret values were present in the retained output. The raw SDK stack was intentionally not committed because it only contained redacted transport diagnostics.
+
+VERDICT: APPROVE
+
+FINDINGS:
+- [low] The Kimi review output file was initially empty/timed out in the first non-MCP review route.
+- [info] Task delegation constraints are robust: narrow write scopes, verification commands, and explicit dry-run steps exist for provider workers.
+- [info] No-proxy and over-1GB download rules are clearly stated in multiple places and tied to explicit evidence records.
+- [info] Local model and heavy GPU routing cleanly divide work between Mac and HomePC.
+
+MISSING_GATES:
+- Create the new experiment skeleton before coding workers write to it.
+- Complete a populated Kimi review to satisfy the W1 runner-control exit criteria.
+
+FIRST_TASKS:
+- Create New Experiment Skeleton.
+- Execute `tasks/visual_upgrade/threejs_loader_migration_001.md`.
+
+NOTES:
+- The managed-game-factory MCP is correctly locked down to read-only paths and workspace boundaries.
+- Do not enable broader research/search MCPs until they are tested with the same zero-secret discipline.

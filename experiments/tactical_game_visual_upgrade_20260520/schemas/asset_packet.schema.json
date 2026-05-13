@@ -1,0 +1,195 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "asset_packet.schema.json",
+  "title": "Asset Registry V2",
+  "description": "Production asset-packet and asset-registry v2 contract for the tactical visual upgrade. Baseline assets are honestly represented with material_map_count:0; target hero assets declare explicit PBR/animation/anchor gates.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "experiment", "assets"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "experiment": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "assets": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/asset_entry" }
+    }
+  },
+  "definitions": {
+    "asset_entry": {
+      "type": "object",
+      "required": [
+        "asset_id",
+        "asset_class",
+        "role",
+        "status",
+        "paths",
+        "provenance",
+        "geometry",
+        "materials",
+        "anchors",
+        "animations",
+        "lod",
+        "quality_gates",
+        "evidence",
+        "hashes",
+        "blockers"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]+$"
+        },
+        "asset_class": {
+          "type": "string",
+          "enum": ["weapon", "character", "loot", "environment", "material"]
+        },
+        "role": {
+          "type": "string",
+          "description": "Human-readable coverage or role description."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["baseline_only", "target", "production_ready", "deprecated"]
+        },
+        "paths": {
+          "type": "object",
+          "required": ["model"],
+          "properties": {
+            "model": { "type": "string" },
+            "preview": { "type": ["string", "null"] },
+            "textures": {
+              "type": "object",
+              "properties": {
+                "basecolor": { "type": ["string", "null"] },
+                "normal": { "type": ["string", "null"] },
+                "roughness": { "type": ["string", "null"] },
+                "metallic": { "type": ["string", "null"] },
+                "ao": { "type": ["string", "null"] }
+              }
+            }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "required": ["source", "license_risk", "generation_route"],
+          "properties": {
+            "source": { "type": "string" },
+            "license_risk": {
+              "type": "string",
+              "enum": ["local_only", "cc0", "commercial_ok", "unknown", "restricted"]
+            },
+            "generation_route": { "type": "string" },
+            "notes": { "type": "string" }
+          }
+        },
+        "geometry": {
+          "type": "object",
+          "required": ["meshes", "triangles", "bbox"],
+          "properties": {
+            "meshes": { "type": "integer", "minimum": 0 },
+            "triangles": { "type": "integer", "minimum": 0 },
+            "bbox": {
+              "type": "object",
+              "required": ["min", "max", "size"],
+              "properties": {
+                "min": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+                "max": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+                "size": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 }
+              }
+            }
+          }
+        },
+        "materials": {
+          "type": "object",
+          "required": ["material_names", "material_map_count", "pbr_complete"],
+          "properties": {
+            "material_names": { "type": "array", "items": { "type": "string" } },
+            "material_map_count": { "type": "integer", "minimum": 0 },
+            "pbr_complete": { "type": "boolean" },
+            "texture_resolution": { "type": ["string", "null"] }
+          }
+        },
+        "anchors": {
+          "type": "object",
+          "description": "Named attachment/skeleton anchor points.",
+          "properties": {
+            "defined": { "type": "array", "items": { "type": "string" } },
+            "required_for_class": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Anchors this asset_class demands when status is production_ready."
+            }
+          }
+        },
+        "animations": {
+          "type": "object",
+          "properties": {
+            "has_rig": { "type": "boolean" },
+            "clips": { "type": "array", "items": { "type": "string" } },
+            "mixer_ready": { "type": "boolean" }
+          }
+        },
+        "lod": {
+          "type": "object",
+          "properties": {
+            "levels": { "type": "array", "items": { "type": "string" } },
+            "screen_coverage": { "type": ["string", "null"] }
+          }
+        },
+        "quality_gates": {
+          "type": "object",
+          "required": ["screenshot_nonblank", "fallback_allowed_in_evidence"],
+          "properties": {
+            "screenshot_nonblank": { "type": "boolean" },
+            "fallback_allowed_in_evidence": { "type": "boolean" },
+            "no_blocking_browser_errors": { "type": "boolean" },
+            "no_missing_network_resources": { "type": "boolean" }
+          }
+        },
+        "evidence": {
+          "type": "object",
+          "required": ["gameplay_screenshots", "preview_renders", "material_reports"],
+          "properties": {
+            "gameplay_screenshots": { "type": "array", "items": { "type": "string" } },
+            "preview_renders": { "type": "array", "items": { "type": "string" } },
+            "material_reports": { "type": "array", "items": { "type": "string" } },
+            "blender_screenshots": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "hashes": {
+          "type": "object",
+          "required": ["model_sha256"],
+          "properties": {
+            "model_sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+            "preview_sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+            "size_bytes": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["gate", "reason", "resolvable"],
+            "properties": {
+              "gate": { "type": "string" },
+              "reason": { "type": "string" },
+              "resolvable": { "type": "boolean" },
+              "assigned_route": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

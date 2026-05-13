@@ -1,0 +1,110 @@
+{
+  "README.md": {
+    "sha256": "1decaa7ae66e8594d12d96f49fb85e37c41f7a7c9434dd055cecdc01a7f01b42",
+    "size_bytes": 3312
+  },
+  "assets/asset_registry_v2.json": {
+    "sha256": "a87fbd035b7044981786a2fa9a4c30b68adb2014f38b9baac6a08a97e15bf045",
+    "size_bytes": 15601
+  },
+  "evidence/01_fp_rifle_wet_checkpoint.png": {
+    "sha256": "265dc770487fda4de880476d3d70dbc2e64bebdbcbd0376f8e869015a21c37a6",
+    "size_bytes": 107579
+  },
+  "evidence/01_fp_rifle_wet_checkpoint_report.json": {
+    "sha256": "1a54c8d3827da99b303cd5d0f824eae8eb31165dfd69a46140c7ba6d924b70e2",
+    "size_bytes": 4730
+  },
+  "evidence/02_third_person_player_gear.png": {
+    "sha256": "63c4a09bab82fd2be0c7346173714c65beb35da9b146a5dba8bcadd424208ac0",
+    "size_bytes": 152112
+  },
+  "evidence/02_third_person_player_gear_report.json": {
+    "sha256": "d87a5432bc2f26a4b5ead7bcbd3fed1198c8295bc3f6e64c85499013c515ac53",
+    "size_bytes": 4735
+  },
+  "evidence/03_enemy_under_checkpoint_light.png": {
+    "sha256": "4f95ac4a8fc4a2f2053ebdc28ec20ba66e2f4a366b8fae97885d275c3bd9208a",
+    "size_bytes": 91401
+  },
+  "evidence/03_enemy_under_checkpoint_light_report.json": {
+    "sha256": "9e8c3fb4b26cdcf699ef4a5e1a2cb3a90eb7e618c3d4e0e169888f2aca90949a",
+    "size_bytes": 4749
+  },
+  "evidence/04_loot_on_wet_asphalt.png": {
+    "sha256": "620f11639c562d41587aff7138d8fc4d48f283aad66061dcc249d36b7b35521e",
+    "size_bytes": 318822
+  },
+  "evidence/04_loot_on_wet_asphalt_report.json": {
+    "sha256": "402e42099a58c5bd0cec1ec2fbc58581049ce65c3b505b0fa2bb108b8d911405",
+    "size_bytes": 4713
+  },
+  "evidence/05_indoor_killhouse_corridor.png": {
+    "sha256": "548acbe3685b677f5ccf3d027b314e81370a4d1d109b876f189fc601fcf6a26b",
+    "size_bytes": 100190
+  },
+  "evidence/05_indoor_killhouse_corridor_report.json": {
+    "sha256": "a24c02aac4d808a7c18f947d919176d98a742cc898c2a9ac9d3bb7d15e4b6f13",
+    "size_bytes": 4734
+  },
+  "evidence/06_final_wide_rainy_container_checkpoint.png": {
+    "sha256": "abc61d71e90201e5ca48f927d9d4e0f837cdceb8a42d40d77d04c0424b88793c",
+    "size_bytes": 211027
+  },
+  "evidence/06_final_wide_rainy_container_checkpoint_report.json": {
+    "sha256": "b81917089197980b7fc152237d3258c2940e3d4aa3806dc5f0108263faace748",
+    "size_bytes": 4785
+  },
+  "index.html": {
+    "sha256": "2c061a54da18a7ba526adaf6a43fda81f57f17278ca938e373dc5dcf6b065045",
+    "size_bytes": 2014
+  },
+  "reports/asset_registry_v2_001.md": {
+    "sha256": "fe68a73b76141db4b233a15067a6a6c7ef684522950f6240bcf0cb85d7b18729",
+    "size_bytes": 1473
+  },
+  "reports/threejs_loader_migration_001.md": {
+    "sha256": "468edfc60b090586193a32843478970550ba7c62a39b4db97e1b145d309b175a",
+    "size_bytes": 1138
+  },
+  "reports/visual_evidence_gate_2026-05-13.md": {
+    "sha256": "53efa0eea370373e5a3687ed011649dc384cb42517bd39faaefd780889198b0a",
+    "size_bytes": 1129
+  },
+  "schemas/asset_packet.schema.json": {
+    "sha256": "6dd1fe4081d19979b85966a1b4e7ee66eb70f8608ba4e16bab2ee27159031bba",
+    "size_bytes": 6818
+  },
+  "src/main.js": {
+    "sha256": "5734b41b43393a4db1db31572cc39f8877334cb465bf85663ae7ce37c2fcf7b5",
+    "size_bytes": 7426
+  },
+  "src/runtime/assetLoader.js": {
+    "sha256": "2909b28908071c619863f7609a6c114a3456d537ae97ebbfcd3ce684c0728309",
+    "size_bytes": 5673
+  },
+  "src/runtime/assetRegistry.js": {
+    "sha256": "3539cf16590347a5d18c7f132cf073ba85f3ec40b90e061d0e802f5d034062e6",
+    "size_bytes": 4238
+  },
+  "src/runtime/decalSystem.js": {
+    "sha256": "9b56dd63165075adc5f1b04ba1f860f592f33ee1e7bfee708a8afc6599807452",
+    "size_bytes": 2215
+  },
+  "src/runtime/lightingSystem.js": {
+    "sha256": "96a9b41bbb7ce9460d41076c3311c380a72b53dd9cbf7b476cb14e9247cac97c",
+    "size_bytes": 1714
+  },
+  "src/runtime/weatherSystem.js": {
+    "sha256": "128c5f817b8b2437d77132cbe9e7610ce3c38d1c614b92aec5c317091ee59575",
+    "size_bytes": 1774
+  },
+  "src/scene/rainyCheckpointLayout.js": {
+    "sha256": "d2f2488b13d8afcea02e5bbcc6add95c8d5c277947d28518ad4d353d54e5191e",
+    "size_bytes": 8617
+  },
+  "tools/visual_evidence_gate.mjs": {
+    "sha256": "67903414404c41121062848df1065d53a84401dece3ec6dc3c9f6518cc3d8269",
+    "size_bytes": 8281
+  }
+}

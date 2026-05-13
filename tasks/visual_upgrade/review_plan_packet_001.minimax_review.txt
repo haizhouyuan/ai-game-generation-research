@@ -1,0 +1,7 @@
+I cannot perform this review. The tools required to read documents (`Read`, `Glob`, `Bash`) are not enabled in this session, and the MCP tools (`managed-game-factory`, `managed-artifact-verifier`) require user permission that has not been granted.
+
+To proceed, I would need:
+- **Read or Glob** enabled to access the planning documents, or
+- **MCP tool permissions** approved for `managed-game-factory` and `managed-artifact-verifier`
+
+Please grant the necessary permissions and re-invoke the task.

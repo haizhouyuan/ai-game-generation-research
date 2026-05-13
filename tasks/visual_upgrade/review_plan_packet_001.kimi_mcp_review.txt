@@ -1,0 +1,31 @@
+I have now read all documents, task packets, runner review outputs, and the current experiment baseline. Here is my assessment.
+
+```text
+VERDICT: APPROVE_WITH_FIXES
+
+FINDINGS:
+- [medium] External runner reviews are operationally unreliable: MiniMax review failed because Read/Glob/Bash were not enabled in that runner session; Kimi review timed out after 300s; Gemini eventually succeeded but only after repeated 429 MODEL_CAPACITY_EXHAUSTED errors. W1 exit criteria are only partially met.
+- [medium] The target experiment directory `experiments/tactical_game_visual_upgrade_20260520/` does not exist yet. No write-scoped task can produce actual files until Phase 2.1 (Experiment Skeleton) is completed.
+- [low] Asset registry v2 schema (W3) is referenced throughout but not yet defined. The current registry has `material_map_count: 0` for all assets and no fields for animations, anchors, LOD, or validation gates that the plan requires.
+- [low] No task packet exists yet for W3 (Asset Packet Schema And Registry V2). The implementation plan mentions it but there is no bounded worker packet under `tasks/visual_upgrade/`.
+- [low] The `rainy_checkpoint_scene_001` task packet depends on the runtime skeleton existing first, but does not list `assetLoader.js` or `assetRegistry.js` in its read scope. If scene code imports from runtime modules, the worker may lack context.
+- [info] The no-proxy and over-1GB rules are clearly stated in 5+ places: production_goal, implementation_plan, lanes YAML, task board README, and every individual task packet. The HomePC GPU contract even includes the exact `env -u` command template.
+- [info] Task packets are appropriately narrow: each has <=3 write-scope files/directories, explicit forbidden paths, verification commands, and concrete acceptance criteria.
+- [info] The dry-run proof for `threejs_loader_migration_001` is clean: composed prompt shows exact write scope, forbidden paths, verification, and return shape; no provider call was made; no files modified.
+
+MISSING_GATES:
+- Experiment skeleton `experiments/tactical_game_visual_upgrade_20260520/` with README must be created before any write worker runs.
+- At least one MiniMax or Kimi review must complete successfully to satisfy W1 exit criteria.
+- Asset registry v2 schema document must be drafted so later tasks have a contract to implement against.
+- A task packet for `asset_registry_v2_001` should be added to `tasks/visual_upgrade/`.
+
+FIRST_TASKS:
+- Task 2.1: Create New Experiment Skeleton — create `experiments/tactical_game_visual_upgrade_20260520/README.md` and directory structure so subsequent workers have a target to write to.
+- `tasks/visual_upgrade/threejs_loader_migration_001.md` via `runner-worker minimax` (not dry-run) — the dry-run already passed, this is the lowest-risk first real write task with narrow scope, clear verification, and no asset dependencies.
+
+NOTES:
+- The plan's core design is sound: local-first production routes, narrow task packets, clear evidence gates, and non-destructive experiment branching. The fixes needed are operational/sequencing gaps, not architectural flaws.
+- Consider retrying the Kimi review with a shorter prompt or longer timeout, and verify MiniMax runner has tool permissions before the next review delegation.
+- The current baseline has 20 GLB assets all at `material_map_count: 0`. The jump to `material_map_count >= 4` for hero rifle V2 is significant and may require multiple route attempts; the plan correctly requires a blocker report with next route if the first fails.
+- Do not start the HomePC GPU route (hero rifle V2) until the Mac-side runtime skeleton and loader are in place, since the GPU-produced asset will need the new loader/registry to integrate.
+```

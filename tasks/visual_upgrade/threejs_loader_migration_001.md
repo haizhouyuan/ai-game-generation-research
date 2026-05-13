@@ -10,7 +10,7 @@ Mac M2 Max 96GB.
 
 ## Runner Route
 
-Preferred: `claudeminmax` through `runner-worker` after dry-run.
+Preferred: `claudekimi` through `runner-worker` after dry-run. Use MiniMax only for follow-up mechanical edits.
 
 ## Read Scope
 
@@ -60,4 +60,3 @@ node --check experiments/tactical_game_visual_upgrade_20260520/src/runtime/asset
 - commands run
 - evidence paths
 - risks
-

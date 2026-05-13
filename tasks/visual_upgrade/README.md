@@ -25,3 +25,11 @@ Each task file is a bounded worker packet. Workers may only edit the declared wr
 - Do not modify global proxy settings.
 - Do not use destructive git commands.
 
+## Initial Packets
+
+- `review_plan_packet_001.md` - read-only external review for runner/control readiness.
+- `asset_registry_v2_001.md` - asset packet schema, registry v2, validator, and tests.
+- `threejs_loader_migration_001.md` - official Three.js GLTFLoader/KTX2/Meshopt-ready runtime path.
+- `hero_rifle_v2_001.md` - first hero weapon PBR asset route.
+- `rainy_checkpoint_scene_001.md` - 12m x 18m rainy checkpoint scene module.
+- `homepc_gpu_job_contract.md` - HomePC GPU job packet contract and no-proxy download record shape.

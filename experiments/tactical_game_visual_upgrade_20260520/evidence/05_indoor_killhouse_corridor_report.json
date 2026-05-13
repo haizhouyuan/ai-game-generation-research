@@ -1,0 +1,120 @@
+{
+  "url": "http://127.0.0.1:8877/experiments/tactical_game_visual_upgrade_20260520/index.html?evidence=05_indoor_killhouse_corridor",
+  "camera": "05_indoor_killhouse_corridor",
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_visual_upgrade_20260520/evidence/05_indoor_killhouse_corridor.png",
+  "probe": {
+    "loaded": true,
+    "evidence": "05_indoor_killhouse_corridor",
+    "blockingEvents": [],
+    "assetStatus": {
+      "baseline_groza_procedural_candidate": {
+        "state": "loaded",
+        "fallbackUsed": false,
+        "fallbackForbidden": true,
+        "error": null,
+        "materialMapCount": 0,
+        "declaredTextureCount": 0,
+        "gateSummary": {
+          "assetId": "baseline_groza_procedural_candidate",
+          "status": "baseline_only",
+          "assetClass": "weapon",
+          "productionReady": false,
+          "materialMapCount": 0,
+          "hasFourPbrMaps": false,
+          "missingAnchors": [
+            "Muzzle",
+            "Grip_R",
+            "Grip_L",
+            "Optic",
+            "PickupRoot"
+          ],
+          "fallbackForbidden": true,
+          "blockers": [
+            "hero_pbr"
+          ]
+        }
+      },
+      "baseline_character_player_final": {
+        "state": "loaded",
+        "fallbackUsed": false,
+        "fallbackForbidden": true,
+        "error": null,
+        "materialMapCount": 0,
+        "declaredTextureCount": 0,
+        "gateSummary": {
+          "assetId": "baseline_character_player_final",
+          "status": "baseline_only",
+          "assetClass": "character",
+          "productionReady": false,
+          "materialMapCount": 0,
+          "hasFourPbrMaps": false,
+          "missingAnchors": [
+            "Weapon_R",
+            "Head",
+            "Spine",
+            "Foot_L",
+            "Foot_R"
+          ],
+          "fallbackForbidden": true,
+          "blockers": [
+            "character_animation"
+          ]
+        }
+      }
+    },
+    "scene": {
+      "target": "rainy_checkpoint_container_yard_killhouse_entry",
+      "clutterOrDecalInstances": 55,
+      "evidenceCameras": [
+        "01_fp_rifle_wet_checkpoint",
+        "02_third_person_player_gear",
+        "03_enemy_under_checkpoint_light",
+        "04_loot_on_wet_asphalt",
+        "05_indoor_killhouse_corridor",
+        "06_final_wide_rainy_container_checkpoint"
+      ]
+    }
+  },
+  "imageStats": {
+    "ok": true,
+    "width": 1440,
+    "height": 813,
+    "litRatio": 0.5318507157464213,
+    "colorfulRatio": 0.629959100204499,
+    "edgeRatio": 0.02852760736196319
+  },
+  "events": [
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x13400474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x13400474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x13400474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x13400474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    }
+  ],
+  "blockingEvents": [],
+  "chromeStderrTail": [
+    "",
+    "DevTools listening on ws://127.0.0.1:9660/devtools/browser/c3289790-0a1d-426a-a6d2-3788521392fa",
+    "[34599:3977383:0513/171533.789092:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x13400474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[34599:3977383:0513/171534.131287:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x13400474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[34599:3977383:0513/171534.131649:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x13400474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[34599:3977383:0513/171534.132949:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x13400474e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+    "Trying to load the allocator multiple times. This is *not* supported.",
+    "[34584:3977367:0513/171539.280749:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT",
+    ""
+  ]
+}

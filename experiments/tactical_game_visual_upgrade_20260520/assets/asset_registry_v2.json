@@ -1,0 +1,409 @@
+{
+  "schema_version": "2.0.0",
+  "generated_at": "2026-05-13T08:50:00+00:00",
+  "experiment": "tactical_game_visual_upgrade_20260520",
+  "source": "Registry v2 seed created from the 2026-05-13 final packet plus planned visual-upgrade targets.",
+  "assets": [
+    {
+      "asset_id": "baseline_groza_procedural_candidate",
+      "asset_class": "weapon",
+      "role": "baseline rifle from tactical_game_full_realism_final_20260513; useful for loader regression only, not final hero quality",
+      "status": "baseline_only",
+      "paths": {
+        "model": "experiments/tactical_game_full_realism_final_20260513/assets/models/groza_procedural_candidate.glb",
+        "preview": null,
+        "textures": {
+          "basecolor": null,
+          "normal": null,
+          "roughness": null,
+          "metallic": null,
+          "ao": null
+        }
+      },
+      "provenance": {
+        "source": "local Blender procedural hard-surface candidate",
+        "license_risk": "local_only",
+        "generation_route": "existing final packet baseline",
+        "notes": "Kept to prove current state honestly; material_map_count is zero."
+      },
+      "geometry": {
+        "meshes": 87,
+        "triangles": 21540,
+        "bbox": {
+          "min": [-2.0250000059604645, -0.4099999964237213, -0.7799999862909317],
+          "max": [2.7249999940395355, 0.4099999964237213, 1.8925265658546575],
+          "size": [4.75, 0.8199999928474426, 2.672526552145589]
+        }
+      },
+      "materials": {
+        "material_names": [
+          "blackened_steel",
+          "brass_markings",
+          "bright_edge_wear",
+          "matte_rubber",
+          "oiled_dark_wood",
+          "transparent_collider_proxy",
+          "worn_blued_steel"
+        ],
+        "material_map_count": 0,
+        "pbr_complete": false,
+        "texture_resolution": null
+      },
+      "anchors": {
+        "defined": [],
+        "required_for_class": ["Muzzle", "Grip_R", "Grip_L", "Optic", "PickupRoot"]
+      },
+      "animations": {
+        "has_rig": false,
+        "clips": [],
+        "mixer_ready": false
+      },
+      "lod": {
+        "levels": [],
+        "screen_coverage": null
+      },
+      "quality_gates": {
+        "screenshot_nonblank": true,
+        "fallback_allowed_in_evidence": false,
+        "no_blocking_browser_errors": true,
+        "no_missing_network_resources": true
+      },
+      "evidence": {
+        "gameplay_screenshots": [
+          "experiments/tactical_game_full_realism_final_20260513/evidence/rifle_evidence_cdp_first.png",
+          "experiments/tactical_game_full_realism_final_20260513/evidence/rifle_evidence_cdp_third.png"
+        ],
+        "preview_renders": [],
+        "material_reports": [
+          "experiments/tactical_game_full_realism_final_20260513/assets/asset_registry.json"
+        ],
+        "blender_screenshots": []
+      },
+      "hashes": {
+        "model_sha256": "484a001db8aecd926a0069ae1dbca923d9572dc48dc1919fde7cede4b04179ea",
+        "preview_sha256": null,
+        "size_bytes": 1104512
+      },
+      "blockers": [
+        {
+          "gate": "hero_pbr",
+          "reason": "Baseline rifle has only material factors and no texture maps or named anchors.",
+          "resolvable": true,
+          "assigned_route": "hero_rifle_v2_001"
+        }
+      ]
+    },
+    {
+      "asset_id": "baseline_character_player_final",
+      "asset_class": "character",
+      "role": "baseline player tactical overlay from final packet; loader regression only until rig and animation are added",
+      "status": "baseline_only",
+      "paths": {
+        "model": "experiments/tactical_game_full_realism_final_20260513/assets/models/character_player_final.glb",
+        "preview": "experiments/tactical_game_full_realism_final_20260513/assets/models/character_player_final_preview.png",
+        "textures": {
+          "basecolor": null,
+          "normal": null,
+          "roughness": null,
+          "metallic": null,
+          "ao": null
+        }
+      },
+      "provenance": {
+        "source": "local Blender modular character kit",
+        "license_risk": "local_only",
+        "generation_route": "existing final packet baseline",
+        "notes": "Static tactical silhouette; not yet an animated character asset."
+      },
+      "geometry": {
+        "meshes": 49,
+        "triangles": 9708,
+        "bbox": {
+          "min": [-0.5260617943034264, -0.5700000077486038, -2.039000028133392],
+          "max": [0.5260617943034264, 0.6049999818205833, 0.029999999329447746],
+          "size": [1.0521235886068527, 1.1749999895691872, 2.06900002746284]
+        }
+      },
+      "materials": {
+        "material_names": [
+          "black_nylon_webbing",
+          "brass_cartridge_metal",
+          "ceramic_plate_carrier",
+          "muted_skin_visible_face",
+          "olive_ripstop_cloth",
+          "smoked_blue_visor_glass",
+          "tan_canvas_fabric"
+        ],
+        "material_map_count": 0,
+        "pbr_complete": false,
+        "texture_resolution": null
+      },
+      "anchors": {
+        "defined": [],
+        "required_for_class": ["Weapon_R", "Head", "Spine", "Foot_L", "Foot_R"]
+      },
+      "animations": {
+        "has_rig": false,
+        "clips": [],
+        "mixer_ready": false
+      },
+      "lod": {
+        "levels": [],
+        "screen_coverage": null
+      },
+      "quality_gates": {
+        "screenshot_nonblank": true,
+        "fallback_allowed_in_evidence": false,
+        "no_blocking_browser_errors": true,
+        "no_missing_network_resources": true
+      },
+      "evidence": {
+        "gameplay_screenshots": [
+          "experiments/tactical_game_full_realism_final_20260513/evidence/characters_evidence_cdp.png"
+        ],
+        "preview_renders": [
+          "experiments/tactical_game_full_realism_final_20260513/assets/models/character_player_final_preview.png"
+        ],
+        "material_reports": [
+          "experiments/tactical_game_full_realism_final_20260513/assets/asset_registry.json"
+        ],
+        "blender_screenshots": []
+      },
+      "hashes": {
+        "model_sha256": "9e228f0ad1001142023fd40e36933fbdceeffa6e37248ddbe27b8bfc9aae0ea2",
+        "preview_sha256": "9ca222badcf81449e5b7fcfe4a29dd3fef98a746f701f05688d6f78dff6a7aba",
+        "size_bytes": 467092
+      },
+      "blockers": [
+        {
+          "gate": "character_animation",
+          "reason": "Baseline player is a static overlay with no rigged animation clips.",
+          "resolvable": true,
+          "assigned_route": "character-animation"
+        }
+      ]
+    },
+    {
+      "asset_id": "target_hero_rifle_v2",
+      "asset_class": "weapon",
+      "role": "first production hero rifle for first-person, third-person, NPC, and loot contexts",
+      "status": "target",
+      "paths": {
+        "model": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/model/optimized.glb",
+        "preview": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/evidence/blender_preview.png",
+        "textures": {
+          "basecolor": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/basecolor.png",
+          "normal": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/normal.png",
+          "roughness": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/roughness.png",
+          "metallic": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/metallic.png",
+          "ao": "experiments/tactical_game_visual_upgrade_20260520/assets/weapons/hero_rifle_v2/textures/ao.png"
+        }
+      },
+      "provenance": {
+        "source": "planned local-first hero rifle packet",
+        "license_risk": "unknown",
+        "generation_route": "Blender cleanup plus Trellis2/Hunyuan3D/StableGen PBR route benchmark",
+        "notes": "Target entry is a contract. It is not production_ready until model, maps, anchors, screenshots, and hashes exist."
+      },
+      "geometry": {
+        "meshes": 0,
+        "triangles": 0,
+        "bbox": {"min": [0, 0, 0], "max": [0, 0, 0], "size": [0, 0, 0]}
+      },
+      "materials": {
+        "material_names": [],
+        "material_map_count": 0,
+        "pbr_complete": false,
+        "texture_resolution": "target 2048+"
+      },
+      "anchors": {
+        "defined": [],
+        "required_for_class": ["Muzzle", "Grip_R", "Grip_L", "Optic", "PickupRoot"]
+      },
+      "animations": {
+        "has_rig": false,
+        "clips": ["target_weapon_sway", "target_reload"],
+        "mixer_ready": false
+      },
+      "lod": {
+        "levels": ["target_lod0", "target_lod1"],
+        "screen_coverage": "first-person 25-35 percent"
+      },
+      "quality_gates": {
+        "screenshot_nonblank": false,
+        "fallback_allowed_in_evidence": false,
+        "no_blocking_browser_errors": false,
+        "no_missing_network_resources": false
+      },
+      "evidence": {
+        "gameplay_screenshots": [
+          "experiments/tactical_game_visual_upgrade_20260520/evidence/01_fp_rifle_wet_checkpoint.png"
+        ],
+        "preview_renders": [],
+        "material_reports": [],
+        "blender_screenshots": []
+      },
+      "hashes": {
+        "model_sha256": null,
+        "preview_sha256": null,
+        "size_bytes": 0
+      },
+      "blockers": [
+        {
+          "gate": "asset_packet_not_generated",
+          "reason": "Hero rifle V2 production packet has not been generated yet.",
+          "resolvable": true,
+          "assigned_route": "hero_rifle_v2_001"
+        }
+      ]
+    },
+    {
+      "asset_id": "target_player_tactical_v2",
+      "asset_class": "character",
+      "role": "rigged player tactical character with minimum idle/walk/aim/reload proof",
+      "status": "target",
+      "paths": {
+        "model": "experiments/tactical_game_visual_upgrade_20260520/assets/characters/player_tactical_v2/model/optimized.glb",
+        "preview": "experiments/tactical_game_visual_upgrade_20260520/assets/characters/player_tactical_v2/evidence/blender_preview.png",
+        "textures": {
+          "basecolor": "experiments/tactical_game_visual_upgrade_20260520/assets/characters/player_tactical_v2/textures/basecolor.png",
+          "normal": "experiments/tactical_game_visual_upgrade_20260520/assets/characters/player_tactical_v2/textures/normal.png",
+          "roughness": "experiments/tactical_game_visual_upgrade_20260520/assets/characters/player_tactical_v2/textures/roughness.png",
+          "metallic": "experiments/tactical_game_visual_upgrade_20260520/assets/characters/player_tactical_v2/textures/metallic.png",
+          "ao": "experiments/tactical_game_visual_upgrade_20260520/assets/characters/player_tactical_v2/textures/ao.png"
+        }
+      },
+      "provenance": {
+        "source": "planned local-first tactical character packet",
+        "license_risk": "unknown",
+        "generation_route": "Blender rig/retarget plus local PBR route",
+        "notes": "Target entry is a contract for the character-animation lane."
+      },
+      "geometry": {
+        "meshes": 0,
+        "triangles": 0,
+        "bbox": {"min": [0, 0, 0], "max": [0, 0, 0], "size": [0, 0, 0]}
+      },
+      "materials": {
+        "material_names": [],
+        "material_map_count": 0,
+        "pbr_complete": false,
+        "texture_resolution": "target 2048+"
+      },
+      "anchors": {
+        "defined": [],
+        "required_for_class": ["Weapon_R", "Head", "Spine", "Foot_L", "Foot_R"]
+      },
+      "animations": {
+        "has_rig": false,
+        "clips": ["target_idle_rifle", "target_walk_rifle", "target_aim_idle", "target_reload"],
+        "mixer_ready": false
+      },
+      "lod": {
+        "levels": ["target_lod0", "target_lod1"],
+        "screen_coverage": "third-person close-up"
+      },
+      "quality_gates": {
+        "screenshot_nonblank": false,
+        "fallback_allowed_in_evidence": false,
+        "no_blocking_browser_errors": false,
+        "no_missing_network_resources": false
+      },
+      "evidence": {
+        "gameplay_screenshots": [
+          "experiments/tactical_game_visual_upgrade_20260520/evidence/02_third_person_player_gear.png"
+        ],
+        "preview_renders": [],
+        "material_reports": [],
+        "blender_screenshots": []
+      },
+      "hashes": {
+        "model_sha256": null,
+        "preview_sha256": null,
+        "size_bytes": 0
+      },
+      "blockers": [
+        {
+          "gate": "rig_and_animation_not_generated",
+          "reason": "Rigged tactical character and animation evidence do not exist yet.",
+          "resolvable": true,
+          "assigned_route": "character-animation"
+        }
+      ]
+    },
+    {
+      "asset_id": "target_wet_asphalt_material",
+      "asset_class": "material",
+      "role": "wet asphalt PBR material for rainy checkpoint ground",
+      "status": "target",
+      "paths": {
+        "model": "experiments/tactical_game_visual_upgrade_20260520/assets/materials/wet_asphalt/material_packet.json",
+        "preview": "experiments/tactical_game_visual_upgrade_20260520/assets/materials/wet_asphalt/evidence/material_preview.png",
+        "textures": {
+          "basecolor": "experiments/tactical_game_visual_upgrade_20260520/assets/materials/wet_asphalt/textures/basecolor.png",
+          "normal": "experiments/tactical_game_visual_upgrade_20260520/assets/materials/wet_asphalt/textures/normal.png",
+          "roughness": "experiments/tactical_game_visual_upgrade_20260520/assets/materials/wet_asphalt/textures/roughness.png",
+          "metallic": "experiments/tactical_game_visual_upgrade_20260520/assets/materials/wet_asphalt/textures/metallic.png",
+          "ao": "experiments/tactical_game_visual_upgrade_20260520/assets/materials/wet_asphalt/textures/ao.png"
+        }
+      },
+      "provenance": {
+        "source": "planned local PBR material generation",
+        "license_risk": "unknown",
+        "generation_route": "TextureAlchemy/CHORD/PBRFusion or Blender procedural fallback",
+        "notes": "Target material for wet-ground visual gate."
+      },
+      "geometry": {
+        "meshes": 0,
+        "triangles": 0,
+        "bbox": {"min": [0, 0, 0], "max": [0, 0, 0], "size": [0, 0, 0]}
+      },
+      "materials": {
+        "material_names": ["target_wet_asphalt"],
+        "material_map_count": 0,
+        "pbr_complete": false,
+        "texture_resolution": "target 2048+"
+      },
+      "anchors": {
+        "defined": [],
+        "required_for_class": []
+      },
+      "animations": {
+        "has_rig": false,
+        "clips": [],
+        "mixer_ready": false
+      },
+      "lod": {
+        "levels": [],
+        "screen_coverage": "ground close-up"
+      },
+      "quality_gates": {
+        "screenshot_nonblank": false,
+        "fallback_allowed_in_evidence": false,
+        "no_blocking_browser_errors": false,
+        "no_missing_network_resources": false
+      },
+      "evidence": {
+        "gameplay_screenshots": [
+          "experiments/tactical_game_visual_upgrade_20260520/evidence/04_loot_on_wet_asphalt.png"
+        ],
+        "preview_renders": [],
+        "material_reports": [],
+        "blender_screenshots": []
+      },
+      "hashes": {
+        "model_sha256": null,
+        "preview_sha256": null,
+        "size_bytes": 0
+      },
+      "blockers": [
+        {
+          "gate": "pbr_material_not_generated",
+          "reason": "Wet asphalt PBR texture maps and material preview do not exist yet.",
+          "resolvable": true,
+          "assigned_route": "material-pbr-pipeline"
+        }
+      ]
+    }
+  ]
+}

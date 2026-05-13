@@ -31,17 +31,18 @@ runners:
       - final_integration_review
       - evidence_closeout
   claudeminmax:
-    role: low_cost_mechanical_worker_and_review
+    role: low_cost_mechanical_worker_only_for_narrow_low_complexity_tasks
     allowed_modes:
       - runner-review
       - runner-worker_with_explicit_scope
   claudekimi:
-    role: alternate_review_and_scoped_worker
+    role: strong_code_understanding_review_and_scoped_implementation
     allowed_modes:
       - runner-review
       - runner-worker_with_explicit_scope
   gemini_cli:
-    role: broad_research_and_plan_review
+    role: strong_broad_research_architecture_and_plan_review
+    default_model: gemini-3.1-pro-preview
     allowed_modes:
       - headless_plan_readonly
   mac_local_model:
@@ -69,7 +70,7 @@ lanes:
       - first route selected with commands
   - id: threejs-loader-migration
     host: mac_m2_max_96gb
-    runner: claudeminmax
+    runner: claudekimi
     write_scope:
       - experiments/tactical_game_visual_upgrade_20260520/src/runtime/assetLoader.js
       - experiments/tactical_game_visual_upgrade_20260520/src/runtime/assetRegistry.js
@@ -95,7 +96,7 @@ lanes:
       - animation states visible in evidence
   - id: rainy-checkpoint-scene
     host: mac_m2_max_96gb
-    runner: claudeminmax
+    runner: claudekimi
     write_scope:
       - experiments/tactical_game_visual_upgrade_20260520/src/scene/rainyCheckpointLayout.js
       - experiments/tactical_game_visual_upgrade_20260520/src/runtime/decalSystem.js
