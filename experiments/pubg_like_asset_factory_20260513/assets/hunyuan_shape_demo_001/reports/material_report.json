@@ -1,0 +1,11 @@
+{
+  "asset_id": "hunyuan_shape_demo_001",
+  "route": "Hunyuan3D-2.1 shape-only smoke asset",
+  "material_grade": "shape_only_no_pbr_maps",
+  "accepted_as_final_visual_asset": false,
+  "material_names": [],
+  "material_map_count": 0,
+  "image_nodes": [],
+  "image_paths": [],
+  "required_next_gate": "Run Hunyuan Paint / PBR or alternate projection pipeline to produce basecolor, normal, roughness, metallic, and ao maps."
+}

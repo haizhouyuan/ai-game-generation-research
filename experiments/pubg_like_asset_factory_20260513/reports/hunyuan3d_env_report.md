@@ -113,42 +113,75 @@ Observed at start:
 
 Network evidence during download showed the Python downloader connected to `hf-mirror.com` / remote HTTPS endpoints directly, while local proxy port `7890` was only a listener and was not used by the downloader process.
 
-## Current State
+## Model Download Result
 
-Download is in progress and resumable through `huggingface_hub.snapshot_download`.
+The Hunyuan3D-2.1 model snapshot download completed.
 
-Last observed partial size:
+Result:
 
 ```text
-5.6G / expected about 14.95G
+Fetching 30 files: 100%
+duration: about 28 minutes
+local size: about 14G
 ```
 
-## Next Commands
+Key large files observed:
 
-After the model download completes:
+```text
+hunyuan3d-dit-v2-1/model.fp16.ckpt                    7366389768 bytes
+hunyuan3d-paintpbr-v2-1/unet/diffusion_pytorch_model.bin 3925293863 bytes
+hunyuan3d-paintpbr-v2-1/text_encoder/pytorch_model.bin    1361671895 bytes
+hunyuan3d-paintpbr-v2-1/image_encoder/model.safetensors   1264217240 bytes
+hunyuan3d-vae-v2-1/model.fp16.ckpt                         655648152 bytes
+hunyuan3d-paintpbr-v2-1/vae/diffusion_pytorch_model.bin    334707217 bytes
+```
+
+No-proxy evidence:
+
+- command-local proxy env was unset;
+- `HF_ENDPOINT=https://hf-mirror.com`;
+- start log showed `"proxy_env": {}`;
+- `lsof` showed the downloader connected directly to remote HTTPS endpoints, not local proxy port `7890`.
+
+## Shape Smoke Result
+
+The first standalone Hunyuan shape generation smoke test passed on HomePC GPU1.
+
+Command route:
 
 ```bash
 ssh homepc
 BASE=/home/yuanhaizhou/models/hunyuan3d21_factory_20260513
 MODEL_DIR=$BASE/models/Hunyuan3D-2.1
-find "$MODEL_DIR" -type f -printf "%s %p\n" | sort -n | tail -30
-du -sh "$MODEL_DIR"
-```
-
-Then run dependency/import smoke in `hy3d21`, install only missing packages/extensions, and use GPU1:
-
-```bash
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate hy3d21
-cd /home/yuanhaizhou/models/hunyuan3d21_factory_20260513/Hunyuan3D-2.1
-CUDA_VISIBLE_DEVICES=1 python - <<'PY'
-import torch
-print(torch.__version__, torch.cuda.is_available(), torch.cuda.get_device_name(0))
-PY
+cd "$BASE/Hunyuan3D-2.1"
+CUDA_VISIBLE_DEVICES=1 python "$BASE/run_shape_demo_001.py"
 ```
+
+Result:
+
+```text
+input:  /home/yuanhaizhou/models/hunyuan3d21_factory_20260513/Hunyuan3D-2.1/assets/demo.png
+output: /home/yuanhaizhou/models/hunyuan3d21_factory_20260513/outputs/shape_demo_001/demo_shape.glb
+pipeline load: 14.48s
+generation: 71.94s
+output size: 12,926,320 bytes
+sha256: f52cd0210c8587f5820f93576d230840a2cff2df65bc75dbd52bd8bd4e7263bf
+```
+
+The generated GLB, input image, and HomePC log were copied into this repository as:
+
+```text
+experiments/pubg_like_asset_factory_20260513/assets/hunyuan_shape_demo_001/
+```
+
+Local Blender then imported `model/raw.glb`, rendered `evidence/blender_preview.png`, and exported `model/cleaned.glb` plus `model/optimized.glb`. The asset remains shape-only: `material_map_count = 0`.
 
 ## Known Risks
 
 - Hunyuan texture/PBR route needs custom rasterizer and DifferentiableRenderer extensions.
 - Existing `trellis` environment has many needed dependencies but not all official Hunyuan extras.
-- The model download uses a mirror and may have transient `ReadTimeoutError`; snapshot download should resume.
+- The Hunyuan shape import path is proven, but the texture/PBR path is not yet proven.
+- `hy3dpaint` import currently fails on `ModuleNotFoundError: No module named 'bpy'`.
+- A direct GitHub download of `RealESRGAN_x4plus.pth` was killed because it was too slow; the partial file should not be treated as valid.

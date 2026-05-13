@@ -1,0 +1,70 @@
+{
+  "assets/.gitkeep": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  "assets/hunyuan_shape_demo_001/evidence/blender_preview.png": {
+    "sha256": "dcd080247cfba28bf56daef3629bf400c7e2bb9b0a98dae5462bf614c976a2cc",
+    "size_bytes": 781872
+  },
+  "assets/hunyuan_shape_demo_001/model/cleaned.glb": {
+    "sha256": "ba1dfa8f7f1a59536bb0dc34e344bb442953b463f819374ebe58035aec253d22",
+    "size_bytes": 17234896
+  },
+  "assets/hunyuan_shape_demo_001/model/optimized.glb": {
+    "sha256": "ba1dfa8f7f1a59536bb0dc34e344bb442953b463f819374ebe58035aec253d22",
+    "size_bytes": 17234896
+  },
+  "assets/hunyuan_shape_demo_001/model/raw.glb": {
+    "sha256": "f52cd0210c8587f5820f93576d230840a2cff2df65bc75dbd52bd8bd4e7263bf",
+    "size_bytes": 12926320
+  },
+  "assets/hunyuan_shape_demo_001/reports/blender_cleanup_report.json": {
+    "sha256": "13d427c0a482a766e24137adb785eaa89c25cabe868731e8a6048262633f6d6c",
+    "size_bytes": 1811
+  },
+  "assets/hunyuan_shape_demo_001/reports/hunyuan_shape_generation.log": {
+    "sha256": "632bd0d7de12201ced0fe6cd09787966beaa0bece0ded6a98200dc7ffbc1a54d",
+    "size_bytes": 38632
+  },
+  "assets/hunyuan_shape_demo_001/reports/material_report.json": {
+    "sha256": "47811df105f60cf3464f5c249a34d7ff3789064a5d6117ca709a7ed302be3ce3",
+    "size_bytes": 424
+  },
+  "assets/hunyuan_shape_demo_001/source/images/input_demo.png": {
+    "sha256": "4260b9a45c39fc4045bae81d27f8eb17127cdb201df614193077268d996ce436",
+    "size_bytes": 151014
+  },
+  "assets/hunyuan_shape_demo_001/source/license.md": {
+    "sha256": "98e4f9d4498aa8357959dc83e41e5a0f667d0045233e327c690ba2dfc1a5c836",
+    "size_bytes": 520
+  },
+  "assets/hunyuan_shape_demo_001/source/reference.md": {
+    "sha256": "8011a5253b8efc52b3bc06f9240203fad77ca0190a4ecfe00db43046fa49d018",
+    "size_bytes": 623
+  },
+  "downloads/.gitkeep": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  "references/.gitkeep": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  "reports/.gitkeep": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  "reports/hunyuan3d_env_report.md": {
+    "sha256": "08ce888d91fb07ca5c321cdd4f165609030ced3785fe7606146b0d3b25d75182",
+    "size_bytes": 5564
+  },
+  "reports/hunyuan_shape_demo_001.md": {
+    "sha256": "a7c59054a6b240123032522648c555c5c5fd7a0212cd2dc5e386ebc4ab636ea3",
+    "size_bytes": 2035
+  },
+  "tools/inspect_hunyuan_shape_asset.py": {
+    "sha256": "101c34fb37000308d6747a74829839cf07c14e8c73767ab9641f29f9cfd260f6",
+    "size_bytes": 8060
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "asset_id": "hunyuan_shape_demo_001",
+  "route": "Hunyuan3D-2.1 standalone shape pipeline on HomePC GPU1",
+  "source_model": "tencent/Hunyuan3D-2.1",
+  "raw_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/pubg_like_asset_factory_20260513/assets/hunyuan_shape_demo_001/model/raw.glb",
+  "cleaned_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/pubg_like_asset_factory_20260513/assets/hunyuan_shape_demo_001/model/cleaned.glb",
+  "optimized_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/pubg_like_asset_factory_20260513/assets/hunyuan_shape_demo_001/model/optimized.glb",
+  "raw_sha256": "f52cd0210c8587f5820f93576d230840a2cff2df65bc75dbd52bd8bd4e7263bf",
+  "cleaned_sha256": "ba1dfa8f7f1a59536bb0dc34e344bb442953b463f819374ebe58035aec253d22",
+  "optimized_sha256": "ba1dfa8f7f1a59536bb0dc34e344bb442953b463f819374ebe58035aec253d22",
+  "preview_sha256": "dcd080247cfba28bf56daef3629bf400c7e2bb9b0a98dae5462bf614c976a2cc",
+  "mesh_object_count": 1,
+  "total_vertices": 359041,
+  "total_polygons": 718078,
+  "normalization": {
+    "source_bbox_min": [
+      -0.634727,
+      -0.574495,
+      -1.000069
+    ],
+    "source_bbox_max": [
+      0.633699,
+      0.594673,
+      0.994811
+    ],
+    "source_bbox_size": [
+      1.268426,
+      1.169169,
+      1.99488
+    ],
+    "normalization_scale": 1.102823
+  },
+  "mesh_objects": [
+    {
+      "name": "geometry_0",
+      "vertices": 359041,
+      "polygons": 718078,
+      "materials": []
+    }
+  ],
+  "cleanup": [
+    "Imported Hunyuan shape-only GLB in Blender.",
+    "Centered and normalized asset for deterministic preview/export.",
+    "Applied smooth shading for preview readability.",
+    "Exported cleaned.glb and optimized.glb placeholders for downstream gates."
+  ]
+}
