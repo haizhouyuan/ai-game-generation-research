@@ -1,11 +1,11 @@
 {
   "README.md": {
-    "sha256": "ae71f30e3a99342f1f96f3a92f536ebf6f00b5898c3d56fd50fd2326047123af",
-    "size_bytes": 4297
+    "sha256": "6d8993c5cb428840488187773a8532edb92dafb83de827d625e9bdeb6a70ec95",
+    "size_bytes": 4495
   },
   "assets/asset_registry_v2.json": {
-    "sha256": "a49cb2c7a78a5cd082d396021b3671cf11c19e2f338c54359fad53e7eca8d06b",
-    "size_bytes": 17470
+    "sha256": "43fc7ea375c280fc2aa7deb7bee5ccbbde0e9cf5fd178b0b5df734f9bc7e94e2",
+    "size_bytes": 18594
   },
   "assets/weapons/hero_rifle_v2/evidence/blender_preview.png": {
     "sha256": "2601c02a3d99d3d75f6dc627b159b8effff916ef263aaa697b93cd653627dcfd",
@@ -99,6 +99,14 @@
     "sha256": "469151ee229de14c0ffd49f5ca2fda208331e0e015004a21bfd9b6ddc44519cc",
     "size_bytes": 5525
   },
+  "evidence/final_visual_grid.html": {
+    "sha256": "54b54dec33514cd141344b0341d6d909a9bc525b46eb7dee3703d43b89410312",
+    "size_bytes": 3116
+  },
+  "evidence/final_visual_grid.png": {
+    "sha256": "e6eb4cc373d30a1ea024a7dff2df3a7a93c986f3da168617b9385ec87d0beb20",
+    "size_bytes": 461568
+  },
   "index.html": {
     "sha256": "2c061a54da18a7ba526adaf6a43fda81f57f17278ca938e373dc5dcf6b065045",
     "size_bytes": 2014
@@ -114,6 +122,10 @@
   "reports/hero_rifle_v2_2026-05-13.md": {
     "sha256": "cfe93ca56e5e788abc9dde5e9771cee18c4f667a931072ccefc9fa815be7253c",
     "size_bytes": 2027
+  },
+  "reports/pbr_pipeline_benchmark_2026-05-13.md": {
+    "sha256": "e9821b0da8329b50a031438b7d3182258d863810467391391f80106f1a0394fa",
+    "size_bytes": 7371
   },
   "reports/threejs_loader_migration_001.md": {
     "sha256": "468edfc60b090586193a32843478970550ba7c62a39b4db97e1b145d309b175a",
@@ -166,5 +178,9 @@
   "tools/visual_evidence_gate.mjs": {
     "sha256": "b87da1566d7b02834ebcedfd796cd7ed7d75fd62142177b88d2a83b8d6167887",
     "size_bytes": 9436
+  },
+  "visual_upgrade_report.md": {
+    "sha256": "5182c8e6abf0971309a6a3b61c8542b71c5a5aa27027030657c7c5303ab5b86d",
+    "size_bytes": 7877
   }
 }

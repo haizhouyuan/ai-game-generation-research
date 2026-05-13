@@ -51,6 +51,12 @@ Build a dense 12m x 18m rainy tactical checkpoint micro-slice:
 
 This packet is a local Blender-first PBR proof. It used no external asset or model download.
 
+## Release Evidence
+
+- Final release summary: `visual_upgrade_report.md`
+- Before/after grid: `evidence/final_visual_grid.png`
+- PBR route benchmark: `reports/pbr_pipeline_benchmark_2026-05-13.md`
+
 ## Run
 
 From the repository root:

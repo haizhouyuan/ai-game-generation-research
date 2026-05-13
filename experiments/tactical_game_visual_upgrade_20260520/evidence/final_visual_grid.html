@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tactical Visual Upgrade Grid</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #081018;
+      color: #e8eef5;
+    }
+    body {
+      margin: 0;
+      padding: 26px;
+      background:
+        linear-gradient(180deg, rgba(18, 35, 47, 0.94), rgba(5, 9, 13, 0.98)),
+        #081018;
+    }
+    h1 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    figure {
+      margin: 0;
+      background: #101a22;
+      border: 1px solid rgba(154, 194, 220, 0.22);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+    }
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      background: #020509;
+    }
+    figcaption {
+      padding: 9px 10px 11px;
+      font-size: 13px;
+      line-height: 1.25;
+      color: #cbd9e6;
+    }
+    .baseline {
+      border-color: rgba(239, 183, 105, 0.42);
+    }
+    .target {
+      border-color: rgba(120, 210, 180, 0.42);
+    }
+  </style>
+</head>
+<body>
+  <h1>Tactical Game Visual Upgrade: Baseline vs Rainy Checkpoint Slice</h1>
+  <div class="grid">
+    <figure class="baseline">
+      <img src="../../tactical_game_full_realism_final_20260513/evidence/before_source_gameplay.png" alt="Original source gameplay">
+      <figcaption>Before: original source gameplay</figcaption>
+    </figure>
+    <figure class="baseline">
+      <img src="../../tactical_game_full_realism_final_20260513/evidence/after_upgraded_gameplay.png" alt="Previous final packet gameplay">
+      <figcaption>Previous final packet: GLB integration proof</figcaption>
+    </figure>
+    <figure class="target">
+      <img src="01_fp_rifle_wet_checkpoint.png" alt="First-person hero rifle checkpoint">
+      <figcaption>Now: first-person PBR hero rifle</figcaption>
+    </figure>
+    <figure class="target">
+      <img src="02_third_person_player_gear.png" alt="Third-person player gear">
+      <figcaption>Now: third-person player gear camera</figcaption>
+    </figure>
+    <figure class="target">
+      <img src="03_enemy_under_checkpoint_light.png" alt="Enemy under checkpoint light">
+      <figcaption>Enemy under checkpoint light</figcaption>
+    </figure>
+    <figure class="target">
+      <img src="04_loot_on_wet_asphalt.png" alt="Loot on wet asphalt">
+      <figcaption>Loot and rifle pickup on wet asphalt</figcaption>
+    </figure>
+    <figure class="target">
+      <img src="05_indoor_killhouse_corridor.png" alt="Indoor killhouse corridor">
+      <figcaption>Indoor killhouse corridor</figcaption>
+    </figure>
+    <figure class="target">
+      <img src="06_final_wide_rainy_container_checkpoint.png" alt="Final rainy checkpoint wide shot">
+      <figcaption>Final wide rainy checkpoint slice</figcaption>
+    </figure>
+  </div>
+</body>
+</html>

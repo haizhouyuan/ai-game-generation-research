@@ -430,7 +430,16 @@
           "resolvable": true,
           "assigned_route": "character-animation"
         }
-      ]
+      ],
+      "runtime_proof": {
+        "runtime_proxy_used": true,
+        "proxy_id": "player_tactical_v2_proxy / enemy_tactical_v2_proxy",
+        "evidence": "Runtime AnimationMixer proxy proves idle/walk/run/aim/reload/crouch/hit_reaction/death states while the production character GLB remains a target packet.",
+        "reports": [
+          "experiments/tactical_game_visual_upgrade_20260520/reports/character_animation_proof_2026-05-13.md",
+          "experiments/tactical_game_visual_upgrade_20260520/reports/visual_evidence_gate_2026-05-13.md"
+        ]
+      }
     },
     {
       "asset_id": "target_wet_asphalt_material",
@@ -522,7 +531,16 @@
           "resolvable": true,
           "assigned_route": "material-pbr-pipeline"
         }
-      ]
+      ],
+      "runtime_proof": {
+        "runtime_proxy_used": true,
+        "proxy_id": "rainy checkpoint procedural wet asphalt / puddle material",
+        "evidence": "Runtime scene proves wet-ground visual context and loot camera readability while dedicated baked PBR material packets remain target work.",
+        "reports": [
+          "experiments/tactical_game_visual_upgrade_20260520/reports/pbr_pipeline_benchmark_2026-05-13.md",
+          "experiments/tactical_game_visual_upgrade_20260520/reports/visual_evidence_gate_2026-05-13.md"
+        ]
+      }
     }
   ]
 }
