@@ -38,7 +38,7 @@ Plain meaning:
 | W7 ComfyUI PBR route | HomePC GPU | minimal proof captured | `experiments/pubg_like_asset_factory_20260513/routes/route_c_comfyui_pbr_probe_004/summary.md` |
 | W8 runtime gate v3 | Codex/Kimi | pending | v3 registry and visual evidence gate |
 | W9 final release | Codex | pending | new dated release packet |
-| W10 local Mac runner capacity | Codex/Gemini | pending | MLX/llama.cpp/Ollama recommendation and dry-run |
+| W10 local Mac runner capacity | Codex/Gemini | documented/deferred | `docs/mac_local_runner_capacity_2026-05-13.md` |
 | Runner MCP/skill control | Codex + runners | active | `docs/coding_runner_mcp_skill_control_2026-05-13.md` |
 | Asset packet validation | Codex + worker | active | `tools/validate_asset_packets.py` |
 | Route D TRELLIS prop probe | HomePC GPU | evidence captured | `experiments/pubg_like_asset_factory_20260513/routes/route_d_trellis_prop_probe_005/summary.md` |
