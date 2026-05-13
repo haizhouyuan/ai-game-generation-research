@@ -1,0 +1,67 @@
+
+## Versions
+claude=/opt/homebrew/bin/claude
+2.1.139 (Claude Code)
+gemini=/opt/homebrew/bin/gemini
+0.41.2
+
+## Credentials Presence
+claude=/opt/homebrew/bin/claude
+2.1.139 (Claude Code)
+MINIMAX_API_KEY=present
+KIMI_CODINGPLAN_API_KEY=present
+kimi_config=<private>
+credentials=<private>
+
+## Claude MiniMax MCP
+No MCP servers configured. Use `claude mcp add` to add a server.
+
+## Claude Kimi MCP
+No MCP servers configured. Use `claude mcp add` to add a server.
+
+## Gemini MCP
+No MCP servers configured.
+
+## Gemini Skills
+Ripgrep is not available. Falling back to GrepTool.
+[initializer] called with enabled=false, GEMINI_CONTEXT_TRACE_DIR=undefined
+Discovered Agent Skills:
+
+requesting-code-review [Enabled]
+  Description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+  Location:    /Users/yuanshaochen/.gemini/skills/requesting-code-review/SKILL.md
+
+subagent-driven-development [Enabled]
+  Description: Use when executing implementation plans with independent tasks in the current session
+  Location:    /Users/yuanshaochen/.gemini/skills/subagent-driven-development/SKILL.md
+
+systematic-debugging [Enabled]
+  Description: Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
+  Location:    /Users/yuanshaochen/.gemini/skills/systematic-debugging/SKILL.md
+
+test-driven-development [Enabled]
+  Description: Use when implementing any feature or bugfix, before writing implementation code
+  Location:    /Users/yuanshaochen/.gemini/skills/test-driven-development/SKILL.md
+
+using-git-worktrees [Enabled]
+  Description: Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback
+  Location:    /Users/yuanshaochen/.gemini/skills/using-git-worktrees/SKILL.md
+
+verification-before-completion [Enabled]
+  Description: Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+  Location:    /Users/yuanshaochen/.gemini/skills/verification-before-completion/SKILL.md
+
+
+## Runner Commands
+claudeminmax=executable
+claudekimi=executable
+runner-env-check=executable
+runner-review=executable
+runner-worker=executable
+runner-capabilities-audit=executable
+
+## Runner Prompt Templates
+/Users/yuanshaochen/Projects/local-coding-runners/prompts/implementation_plan_review.md
+/Users/yuanshaochen/Projects/local-coding-runners/prompts/mechanical_worker_task.md
+/Users/yuanshaochen/Projects/local-coding-runners/prompts/read_only_code_review.md
+/Users/yuanshaochen/Projects/local-coding-runners/prompts/runner_worker_probe_task.md

@@ -1,0 +1,85 @@
+{
+  "entry_url": "http://127.0.0.1:58022/experiments/game_p1_rover_workshop_demo/index.html",
+  "external_requests": [],
+  "failures": [],
+  "request_count": 11,
+  "requests": [
+    {
+      "method": "GET",
+      "mimeType": "image/png",
+      "status": 200,
+      "type": "Fetch",
+      "url": "blob:http://127.0.0.1:58022/1ed46495-b6ca-47ba-a3c5-4e2697d38c90"
+    },
+    {
+      "method": "GET",
+      "mimeType": "image/png",
+      "status": 200,
+      "type": "Fetch",
+      "url": "blob:http://127.0.0.1:58022/5d73ddd2-3cfa-431d-b0aa-e85f42be61c7"
+    },
+    {
+      "method": "GET",
+      "mimeType": "image/png",
+      "status": 200,
+      "type": "Fetch",
+      "url": "blob:http://127.0.0.1:58022/8bb4a7e1-8d84-491e-896e-f445d79db5b3"
+    },
+    {
+      "method": "GET",
+      "mimeType": "image/png",
+      "status": 200,
+      "type": "Fetch",
+      "url": "blob:http://127.0.0.1:58022/cc6befcc-05a1-4b0c-b4f1-27ba5a2731cd"
+    },
+    {
+      "method": "GET",
+      "mimeType": "application/octet-stream",
+      "status": 200,
+      "type": "Fetch",
+      "url": "http://127.0.0.1:58022/experiments/game_p1_rover_workshop_demo/assets/models/rw_rover_001_single3q_blender_textured_with_proxy.glb"
+    },
+    {
+      "method": "GET",
+      "mimeType": "text/html",
+      "status": 200,
+      "type": "Document",
+      "url": "http://127.0.0.1:58022/experiments/game_p1_rover_workshop_demo/index.html"
+    },
+    {
+      "method": "GET",
+      "mimeType": "application/octet-stream",
+      "status": 200,
+      "type": "Fetch",
+      "url": "http://127.0.0.1:58022/experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb"
+    },
+    {
+      "method": "GET",
+      "mimeType": "text/javascript",
+      "status": 200,
+      "type": "Script",
+      "url": "http://127.0.0.1:58022/experiments/game_p2_glb_three_import_loop/node_modules/three/build/three.core.js"
+    },
+    {
+      "method": "GET",
+      "mimeType": "text/javascript",
+      "status": 200,
+      "type": "Script",
+      "url": "http://127.0.0.1:58022/experiments/game_p2_glb_three_import_loop/node_modules/three/build/three.module.js"
+    },
+    {
+      "method": "GET",
+      "mimeType": "text/javascript",
+      "status": 200,
+      "type": "Script",
+      "url": "http://127.0.0.1:58022/experiments/game_p2_glb_three_import_loop/node_modules/three/examples/jsm/loaders/GLTFLoader.js"
+    },
+    {
+      "method": "GET",
+      "mimeType": "text/javascript",
+      "status": 200,
+      "type": "Script",
+      "url": "http://127.0.0.1:58022/experiments/game_p2_glb_three_import_loop/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js"
+    }
+  ]
+}

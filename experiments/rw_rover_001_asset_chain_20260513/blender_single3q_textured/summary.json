@@ -1,0 +1,9 @@
+{
+  "cleaned_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+  "cleaned_glb_sha256": "aa254a919d08a92c5e1963fd78a7e4bab49ad878c22a80d8e97ae1e577fb1a44",
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_single3q_trellis_meshonly.glb",
+  "render": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_render.png",
+  "render_sha256": "434107a776521cd636e6438c24a4eef7ed473ae51695ff6a09233ccc9271ebfd",
+  "report": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_report.json",
+  "status": "DONE"
+}

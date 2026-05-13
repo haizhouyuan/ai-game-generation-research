@@ -1,0 +1,50 @@
+[
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender/rw_rover_001_blender_cleaned_with_proxy.glb",
+    "bytes": 2738252,
+    "scenes": 1,
+    "meshes": 2,
+    "triangles": 22806,
+    "bbox": {
+      "min": [
+        -1.0000000112922862,
+        -0.8134446740150452,
+        -0.36440759897232056
+      ],
+      "max": [
+        1.0000000483123586,
+        0.8134446899639443,
+        0.36440759897232056
+      ],
+      "size": [
+        2.0000000596046448,
+        1.6268893639789894,
+        0.7288151979446411
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender/typical_misc_crate_blender_cleaned_with_proxy.glb",
+    "bytes": 2738252,
+    "scenes": 1,
+    "meshes": 2,
+    "triangles": 22806,
+    "bbox": {
+      "min": [
+        -1.0000000112922862,
+        -0.8134446740150452,
+        -0.36440759897232056
+      ],
+      "max": [
+        1.0000000483123586,
+        0.8134446899639443,
+        0.36440759897232056
+      ],
+      "size": [
+        2.0000000596046448,
+        1.6268893639789894,
+        0.7288151979446411
+      ]
+    }
+  }
+]

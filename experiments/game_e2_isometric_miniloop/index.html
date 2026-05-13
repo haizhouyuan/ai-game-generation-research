@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Battery Rover Mini Loop</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #101418;
+      color: #f4f0e8;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(#18222b, #0f151b);
+    }
+  </style>
+</head>
+<body>
+<canvas id="game" width="1280" height="720" aria-label="Battery Rover Mini Loop"></canvas>
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+const state = {
+  player: { x: 0, y: 0, z: 0, radius: 0.34, collected: 0 },
+  keys: new Set(),
+  time: 0,
+  won: false,
+};
+
+const batteries = [
+  { x: 1.5, y: 0.5, z: 0, hit: false },
+  { x: 3.8, y: 2.0, z: 0, hit: false },
+  { x: 6.1, y: 1.1, z: 0, hit: false },
+];
+
+const blocks = [
+  { x: 0, y: 0, w: 8, h: 4, z: -0.14, d: 0.14, color: "#314454" },
+  { x: 2.2, y: 3.1, w: 1.5, h: 0.45, z: 0, d: 0.28, color: "#506674" },
+  { x: 5.2, y: 2.8, w: 1.2, h: 0.55, z: 0, d: 0.34, color: "#59666d" },
+  { x: 4.4, y: 0.2, w: 0.8, h: 1.3, z: 0, d: 0.34, color: "#586c65" },
+];
+
+function resize() {
+  const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+  const w = Math.floor(window.innerWidth * dpr);
+  const h = Math.floor(window.innerHeight * dpr);
+  if (canvas.width !== w || canvas.height !== h) {
+    canvas.width = w;
+    canvas.height = h;
+  }
+}
+
+function project(x, y, z = 0) {
+  const scale = Math.min(canvas.width / 15, canvas.height / 8);
+  const originX = canvas.width * 0.5;
+  const originY = canvas.height * 0.28;
+  return {
+    x: originX + (x - y) * scale,
+    y: originY + (x + y) * scale * 0.5 - z * scale,
+    s: scale,
+  };
+}
+
+function drawPrism(cx, cy, w, h, z, d, color) {
+  const corners = [
+    project(cx - w / 2, cy - h / 2, z + d),
+    project(cx + w / 2, cy - h / 2, z + d),
+    project(cx + w / 2, cy + h / 2, z + d),
+    project(cx - w / 2, cy + h / 2, z + d),
+  ];
+  const lower = [
+    project(cx - w / 2, cy - h / 2, z),
+    project(cx + w / 2, cy - h / 2, z),
+    project(cx + w / 2, cy + h / 2, z),
+    project(cx - w / 2, cy + h / 2, z),
+  ];
+  ctx.beginPath();
+  ctx.moveTo(corners[0].x, corners[0].y);
+  for (const p of corners.slice(1)) ctx.lineTo(p.x, p.y);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(corners[1].x, corners[1].y);
+  ctx.lineTo(lower[1].x, lower[1].y);
+  ctx.lineTo(lower[2].x, lower[2].y);
+  ctx.lineTo(corners[2].x, corners[2].y);
+  ctx.closePath();
+  ctx.fillStyle = "#263842";
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(corners[2].x, corners[2].y);
+  ctx.lineTo(lower[2].x, lower[2].y);
+  ctx.lineTo(lower[3].x, lower[3].y);
+  ctx.lineTo(corners[3].x, corners[3].y);
+  ctx.closePath();
+  ctx.fillStyle = "#1d2b34";
+  ctx.fill();
+}
+
+function drawBattery(b) {
+  if (b.hit) return;
+  const p = project(b.x, b.y, 0.28 + Math.sin(state.time * 3 + b.x) * 0.04);
+  ctx.save();
+  ctx.translate(p.x, p.y);
+  ctx.fillStyle = "#ffe45c";
+  ctx.strokeStyle = "#0b0d10";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(-p.s * 0.16, -p.s * 0.23, p.s * 0.32, p.s * 0.42, 5);
+  ctx.fill();
+  ctx.stroke();
+  ctx.fillStyle = "#f7b732";
+  ctx.fillRect(-p.s * 0.07, -p.s * 0.29, p.s * 0.14, p.s * 0.07);
+  ctx.restore();
+}
+
+function drawPlayer() {
+  const p = project(state.player.x, state.player.y, 0.34);
+  ctx.save();
+  ctx.translate(p.x, p.y);
+  ctx.fillStyle = "#6ee7f2";
+  ctx.strokeStyle = "#061014";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.roundRect(-p.s * 0.28, -p.s * 0.2, p.s * 0.56, p.s * 0.36, 8);
+  ctx.fill();
+  ctx.stroke();
+  ctx.fillStyle = "#f4f0e8";
+  ctx.fillRect(-p.s * 0.12, -p.s * 0.31, p.s * 0.24, p.s * 0.13);
+  ctx.fillStyle = "#0b0d10";
+  ctx.fillRect(-p.s * 0.18, p.s * 0.12, p.s * 0.13, p.s * 0.12);
+  ctx.fillRect(p.s * 0.05, p.s * 0.12, p.s * 0.13, p.s * 0.12);
+  ctx.restore();
+}
+
+function drawHazard() {
+  const hx = 3.6 + Math.sin(state.time * 1.3) * 1.5;
+  const hy = 1.25;
+  const p = project(hx, hy, 0.26);
+  ctx.save();
+  ctx.translate(p.x, p.y);
+  ctx.rotate(state.time * 3);
+  ctx.fillStyle = "#ff6f61";
+  ctx.strokeStyle = "#220807";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  for (let i = 0; i < 8; i++) {
+    const r = i % 2 === 0 ? p.s * 0.34 : p.s * 0.16;
+    const a = (Math.PI * 2 * i) / 8;
+    ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+  }
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  ctx.restore();
+  return { x: hx, y: hy };
+}
+
+function clampPlayer() {
+  state.player.x = Math.max(0.35, Math.min(7.65, state.player.x));
+  state.player.y = Math.max(0.35, Math.min(3.65, state.player.y));
+}
+
+function update(dt) {
+  if (state.won) return;
+  const speed = 2.2;
+  let dx = 0;
+  let dy = 0;
+  if (state.keys.has("arrowleft") || state.keys.has("a")) dx -= 1;
+  if (state.keys.has("arrowright") || state.keys.has("d")) dx += 1;
+  if (state.keys.has("arrowup") || state.keys.has("w")) dy -= 1;
+  if (state.keys.has("arrowdown") || state.keys.has("s")) dy += 1;
+  const mag = Math.hypot(dx, dy) || 1;
+  state.player.x += (dx / mag) * speed * dt;
+  state.player.y += (dy / mag) * speed * dt;
+  clampPlayer();
+
+  for (const b of batteries) {
+    if (!b.hit && Math.hypot(state.player.x - b.x, state.player.y - b.y) < 0.52) {
+      b.hit = true;
+      state.player.collected += 1;
+    }
+  }
+
+  const hazard = { x: 3.6 + Math.sin(state.time * 1.3) * 1.5, y: 1.25 };
+  if (Math.hypot(state.player.x - hazard.x, state.player.y - hazard.y) < 0.5) {
+    state.player.x = 0.35;
+    state.player.y = 0.35;
+  }
+
+  if (state.player.collected === batteries.length && state.player.x > 7.0 && state.player.y > 3.0) {
+    state.won = true;
+  }
+}
+
+function drawHud() {
+  ctx.fillStyle = "rgba(8, 10, 12, 0.72)";
+  ctx.fillRect(24, 24, 330, 78);
+  ctx.fillStyle = "#f4f0e8";
+  ctx.font = `${Math.max(18, canvas.width / 55)}px system-ui`;
+  ctx.fillText(`Battery Rover`, 42, 55);
+  ctx.font = `${Math.max(14, canvas.width / 78)}px system-ui`;
+  ctx.fillText(`Energy ${state.player.collected}/${batteries.length}`, 42, 84);
+  if (state.won) {
+    ctx.fillStyle = "rgba(7, 12, 10, 0.82)";
+    ctx.fillRect(canvas.width * 0.32, canvas.height * 0.4, canvas.width * 0.36, 96);
+    ctx.fillStyle = "#a7f3d0";
+    ctx.font = `${Math.max(24, canvas.width / 38)}px system-ui`;
+    ctx.textAlign = "center";
+    ctx.fillText("Prototype loop complete", canvas.width / 2, canvas.height * 0.4 + 58);
+    ctx.textAlign = "left";
+  }
+}
+
+function draw() {
+  resize();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const block of blocks) {
+    drawPrism(block.x + block.w / 2, block.y + block.h / 2, block.w, block.h, block.z, block.d, block.color);
+  }
+  drawPrism(7.3, 3.3, 0.9, 0.55, 0.02, 0.08, "#8fcf8a");
+  for (const b of batteries) drawBattery(b);
+  drawHazard();
+  drawPlayer();
+  drawHud();
+}
+
+let last = performance.now();
+function loop(now) {
+  const dt = Math.min(0.04, (now - last) / 1000);
+  last = now;
+  state.time += dt;
+  update(dt);
+  draw();
+  requestAnimationFrame(loop);
+}
+
+window.addEventListener("keydown", (event) => state.keys.add(event.key.toLowerCase()));
+window.addEventListener("keyup", (event) => state.keys.delete(event.key.toLowerCase()));
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
+

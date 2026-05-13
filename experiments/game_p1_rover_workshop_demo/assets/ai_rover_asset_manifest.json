@@ -1,0 +1,22 @@
+{
+  "manifest_version": "p1_ai_rover_assets_v1",
+  "updated_at": "2026-05-13T04:12:00+08:00",
+  "assets": [
+    {
+      "asset_id": "RW-ROVER-001",
+      "role": "player_avatar_visual",
+      "runtime_path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+      "source_chain": "OpenAI image reference -> TRELLIS mesh-only GLB -> Blender cleanup/material/proxy export -> Three.js/P1 visual import",
+      "sha256": "cc8267891277a6fa909440fb81995993b5b5e3b7750c534fdaec6c929555ab79",
+      "triangles": 42300,
+      "collision_strategy": "procedural rover state/proxy; generated visual mesh is visual only; exported COLLIDER_PROXY_* mesh is hidden at runtime",
+      "provenance": "assets/provenance/rw-rover-001.json",
+      "limitations": [
+        "mesh generated from mesh-only TRELLIS output",
+        "Blender-authored rover-v1 material slots, no external texture maps",
+        "not animated",
+        "not Unity-imported"
+      ]
+    }
+  ]
+}

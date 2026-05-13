@@ -1,0 +1,93 @@
+{
+  "pixel_stats": {
+    "distinct_sample_colors": 4096,
+    "height": 913,
+    "nonblank": true,
+    "nontransparent_pixels": 1314720,
+    "width": 1440
+  },
+  "state": {
+    "checks": {
+      "battery_count_incremented": true,
+      "gear_collected": true,
+      "upgrade_unlocked": true
+    },
+    "hud": {
+      "batteries": "3 / 3",
+      "bridge": "Ready",
+      "energy": "93",
+      "gate": "Closed",
+      "gear": "3 / 3",
+      "upgrade": "Boosted"
+    },
+    "hudText": "BATTERIES\n3 / 3\nENERGY\n93\nGEAR\n3 / 3\nMAGNET\nBoosted\nBRIDGE\nReady\nGATE\nClosed\nStart\nReset",
+    "state": {
+      "aiAssets": {
+        "heroRover": {
+          "assetId": "RW-ROVER-001",
+          "bboxSize": [
+            2,
+            1.7361558871343732,
+            1.809220552444458
+          ],
+          "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+          "hiddenProxyMeshCount": 1,
+          "materialNames": [
+            "rw_rover_v1_body_teal",
+            "rw_rover_v1_rubber_dark",
+            "rw_rover_v1_safety_yellow",
+            "rw_rover_v1_sensor_glass"
+          ],
+          "meshCount": 4,
+          "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+          "ready": {},
+          "status": "loaded",
+          "triangles": 42300
+        },
+        "workshopCrate": {
+          "assetId": "RW-CRATE-AI-001",
+          "bboxSize": [
+            0.9995670914649963,
+            0.9967367649078369,
+            0.9996874928474426
+          ],
+          "collisionStrategy": "visual landmark only; no generated mesh collision",
+          "meshCount": 1,
+          "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+          "ready": {},
+          "status": "loaded",
+          "triangles": 110066
+        }
+      },
+      "batteries": 3,
+      "bridgeBuilt": false,
+      "cleaningBot": {
+        "segment": 3,
+        "x": -3.9,
+        "y": 0.34,
+        "z": 1.4069849999956667
+      },
+      "energy": 93,
+      "finished": false,
+      "gateOpen": false,
+      "gear": 3,
+      "rover": {
+        "x": 1.5,
+        "y": 0.35,
+        "z": -1.8
+      },
+      "started": true,
+      "upgradeUnlocked": true
+    }
+  },
+  "step": {
+    "action": "navigate_to",
+    "expect": [
+      "battery_count_incremented",
+      "gear_collected",
+      "upgrade_unlocked"
+    ],
+    "id": "pickup",
+    "target": "battery_route"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "url": "http://localhost:8765/index.html?evidence=rifle&camera=first",
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/evidence/rifle_evidence_cdp_first.png",
+  "probe": {
+    "rifleAsset": {
+      "url": "assets/models/groza_procedural_candidate.glb",
+      "status": "loaded",
+      "error": null
+    },
+    "weaponAssets": {
+      "pistol": {
+        "url": "assets/models/pistol_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "shotgun": {
+        "url": "assets/models/shotgun_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "rifle": {
+        "url": "assets/models/groza_procedural_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "dmr": {
+        "url": "assets/models/dmr_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      }
+    },
+    "player": {
+      "weapon": "rifle",
+      "cameraMode": "first",
+      "lobby": false,
+      "dead": false
+    },
+    "viewGun": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb",
+      "hasMuzzle": true
+    },
+    "thirdGun": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb",
+      "hasMuzzle": true
+    },
+    "evidenceCameraRifle": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb"
+    },
+    "m5WeaponShowcase": {
+      "assetSources": null,
+      "count": 0
+    }
+  },
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "warning",
+      "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x114004bc600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x114004bc600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x114004bc600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x114004bc600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[weapon-glb] pistol loaded assets/models/pistol_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[weapon-glb] shotgun loaded assets/models/shotgun_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[weapon-glb] dmr loaded assets/models/dmr_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[weapon-glb] rifle loaded assets/models/groza_procedural_candidate.glb"
+    }
+  ],
+  "blockingEvents": [],
+  "chromeStderrTail": [
+    "[5496:3101120:0513/085555.997410:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready.",
+    "[5496:3101120:0513/085555.998559:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports",
+    "[5496:3101120:0513/085555.998655:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports",
+    "[5496:3101120:0513/085555.998727:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/yuanshaochen/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)",
+    "[5496:3101120:0513/085555.998770:VERBOSE1:chrome/updater/updater.cc:103] Crash reporting initialized.",
+    "[5496:3101132:0513/085555.999059:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `/Users/yuanshaochen/Library/Application Support/Google/GoogleUpdater/149.0.7814.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake`",
+    "[5499:3101136:0513/085556.006727:VERBOSE1:chrome/updater/updater.cc:352] Version: 149.0.7814.0, opt, ARM_64, command line: /Users/yuanshaochen/Library/Application Support/Google/GoogleUpdater/149.0.7814.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2",
+    "[5499:3101136:0513/085556.006889:VERBOSE1:chrome/updater/updater.cc:355] OS version: 26.4.1, arch: arm64, System uptime (seconds): 124711, parent pid: 5496",
+    "[5499:3101136:0513/085556.009041:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log",
+    "[5501:3101140:0513/085556.016503:VERBOSE1:chrome/updater/updater.cc:352] Version: 149.0.7814.0, opt, ARM_64, command line: /Users/yuanshaochen/Library/Application Support/Google/GoogleUpdater/149.0.7814.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/yuanshaochen/Library/Application Support/Google/GoogleUpdater/149.0.7814.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=149.0.7814.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2",
+    "[5501:3101140:0513/085556.016692:VERBOSE1:chrome/updater/updater.cc:355] OS version: 26.4.1, arch: arm64, System uptime (seconds): 124711, parent pid: 1",
+    "[5501:3101140:0513/085556.018799:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log",
+    "[5499:3101136:0513/085556.019227:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready.",
+    "[5499:3101136:0513/085556.019952:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports",
+    "[5499:3101136:0513/085556.020035:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports",
+    "[5499:3101136:0513/085556.020094:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/yuanshaochen/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)",
+    "[5499:3101136:0513/085556.020130:VERBOSE1:chrome/updater/updater.cc:103] Crash reporting initialized.",
+    "[5499:3101136:0513/085556.020314:VERBOSE1:chrome/updater/ipc/update_service_internal_proxy_mojo.cc:61] Run",
+    "[5361:3099472:0513/085605.543998:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT",
+    ""
+  ]
+}

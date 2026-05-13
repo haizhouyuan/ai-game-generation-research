@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-05-13T07:04:31+08:00",
+  "artifacts": [
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/inputs/rw_rover_001_openai_orthographic.png",
+      "sha256": "60fbef87cfcde012219131c336697d9a7c551d77e329f9b1f21454fc39fdb930",
+      "role": "orthographic_reference_sheet"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/inputs/rw_rover_001_openai_single_3q.png",
+      "sha256": "b90dd3c1b4853e68743e9126bb7f7e527dab1605642f950b7c4472ffc3ea6019",
+      "role": "single_view_3d_input"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_trellis_meshonly.glb",
+      "sha256": "f8d133c7a1188d62d729a9f952e0ee7abeb0bdb3ad9daa428b886f7dd8d568d3",
+      "role": "rejected_four_view_candidate"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_single3q_trellis_meshonly.glb",
+      "sha256": "8c6c2063e47aa656e8131d6da0454939ba60f0242a55b51fc8bfddc50d13d6fa",
+      "role": "raw_promoted_trellis_meshonly_candidate"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+      "sha256": "cc8267891277a6fa909440fb81995993b5b5e3b7750c534fdaec6c929555ab79",
+      "role": "cleaned_runtime_candidate_with_proxy_and_rover_v1_materials"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+      "sha256": "aa254a919d08a92c5e1963fd78a7e4bab49ad878c22a80d8e97ae1e577fb1a44",
+      "role": "textured_runtime_candidate_with_proxy_rover_v1_materials_uvs_and_embedded_textures"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/assets/models/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+      "sha256": "aa254a919d08a92c5e1963fd78a7e4bab49ad878c22a80d8e97ae1e577fb1a44",
+      "role": "p1_textured_runtime_copy"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_render.png",
+      "sha256": "434107a776521cd636e6438c24a4eef7ed473ae51695ff6a09233ccc9271ebfd",
+      "role": "textured_blender_render_preview"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_report.json",
+      "sha256": "b8d1794ec9ea64b2994e90299762a52e4b4a3ba47e1614e792b6a132bef71ee0",
+      "role": "textured_blender_cleanup_report"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/three_glb_parse_inventory_textured.json",
+      "sha256": "dd3f97401b0954832393a15e6623e26f0def5006139f16d3650ee751ddd47353",
+      "role": "textured_threejs_parse_report"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/textures/rw_rover_v1_body_teal.png",
+      "sha256": "ab5dee03ea064fd454d0972739672790187a4a8d30ad82167e518f385f92cdcb",
+      "role": "authoring_base_color_texture"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/textures/rw_rover_v1_safety_yellow.png",
+      "sha256": "87db78b2cd6ebe3d9acbac4bf0e16dd0015fa9773663dcc2a18eec47570252f3",
+      "role": "authoring_base_color_texture"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/textures/rw_rover_v1_rubber_dark.png",
+      "sha256": "b4ce4cd7a9e9719de671d36871677e7c02f437942872ff6c54d54aa987b2a551",
+      "role": "authoring_base_color_texture"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/textures/rw_rover_v1_sensor_glass.png",
+      "sha256": "1e0e5aa85f65c41c6cbae3ae085df534bebadbf7935412b68a3dd12562d16306",
+      "role": "authoring_base_color_texture"
+    },
+    {
+      "path": "experiments/rw_rover_001_asset_chain_20260513/provenance/asset_provenance.json",
+      "sha256": "b2374d9aedcb51a60713cb8720acd0968ae6c982c28f217b5b9948f38ac6baba",
+      "role": "experiment_asset_provenance"
+    },
+    {
+      "path": "docs/rover_rig_animation_decision_2026-05-13.md",
+      "sha256": "f217f4d7b3efe93a82631972911f5ce336c7c567b14cdddf62efb64e3b50a200",
+      "role": "rig_animation_decision"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/release_packet.json",
+      "sha256": "57dc68c6f35bfd80d8bee0fdd2b204b783565aecddcc1b678929e86e9fbe542d",
+      "role": "p1_g4_texture_gate_release_packet"
+    }
+  ]
+}

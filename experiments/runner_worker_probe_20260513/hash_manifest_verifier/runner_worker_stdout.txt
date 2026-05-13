@@ -1,0 +1,15 @@
+
+DONE
+
+Files changed:
+- `tools/verify_artifact_hashes.py` — hash manifest verifier supporting two manifest shapes
+- `tests/test_verify_artifact_hashes.py` — 16 focused pytest cases covering success/failure for both shapes
+
+Commands run:
+- `.venv/bin/python -m pytest tests/test_verify_artifact_hashes.py -q && .venv/bin/ruff check tools/verify_artifact_hashes.py tests/test_verify_artifact_hashes.py`
+- Verified against real manifests: `experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/artifact_hashes.json` (23 hashes) and `experiments/rw_rover_001_asset_chain_20260513/artifact_hashes.json` (17 hashes)
+
+Notes:
+- Evidence shape: paths resolve relative to manifest's parent directory
+- Asset-chain shape: paths first try repo-relative from cwd, fall back to manifest's parent directory
+- Error output goes to stderr with nonzero exit on any mismatch/missing/invalid/unsupported case

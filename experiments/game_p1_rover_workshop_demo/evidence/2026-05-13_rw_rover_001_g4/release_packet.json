@@ -1,0 +1,91 @@
+{
+  "artifacts": [
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_g4/assets/asset_provenance.json",
+      "sha256": "ff7d6812422df0282fa4a1bb4238a0bc9155ae608ac6cb1c2ff97d6811de8c8e",
+      "type": "asset_provenance.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_g4/console_summary.json",
+      "sha256": "269d0531599e7f99e71bafba7daba334b159b2d441163a40b076bfe6010a054f",
+      "type": "console_summary.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_g4/network_summary.json",
+      "sha256": "8fd204e6c459b424e0a1a6c60b55db86d32d29d41d3e905a9702606f102aa04e",
+      "type": "network_summary.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_g4/scenario_result.json",
+      "sha256": "79b2e16acfd80a44d1abf3be786f8ce6a9bd0161eda4f7178ac82fc90e74b306",
+      "type": "scenario_result.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_g4/browser_log.jsonl",
+      "sha256": "87eaeca5d59218a1e62ee1400615337b5d4b2fb359ce772eda9bb837b6c727d1",
+      "type": "browser_log.jsonl"
+    }
+  ],
+  "asset_provenance": [
+    {
+      "asset_id": "RW-ROVER-001",
+      "collision_strategy": "visual avatar only; gameplay movement and collision use the procedural rover proxy",
+      "kind": "openai_to_trellis_meshonly_to_blender_glb",
+      "known_limitations": "Mesh-only, runtime material, no rig/animation, not textured/PBR, not Unity-imported.",
+      "non_procedural": true,
+      "source": "experiments/game_p1_rover_workshop_demo/assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+      "tool": "OpenAI image reference, TRELLIS-image-large mesh-only export, Blender 5.1.1 cleanup, Three.js GLTFLoader runtime import"
+    },
+    {
+      "asset_id": "RW-CRATE-AI-001",
+      "collision_strategy": "visual landmark only; no generated mesh collision",
+      "kind": "trellis_meshonly_glb",
+      "known_limitations": "Mesh-only, not textured/PBR, not Blender-cleaned, not Unity-imported, not the hero rover asset.",
+      "non_procedural": true,
+      "source": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+      "tool": "TRELLIS-image-large mesh-only export; Three.js GLTFLoader runtime import"
+    },
+    {
+      "asset_id": "p1_procedural_rover",
+      "collision_strategy": "simple proxy box controlled by game state",
+      "kind": "procedural_threejs_geometry",
+      "known_limitations": "Not a generated GLB hero asset; Unity and Blender import are not claimed.",
+      "non_procedural": false,
+      "source": "experiments/game_p1_rover_workshop_demo/index.html",
+      "tool": "Three.js BufferGeometry primitives"
+    },
+    {
+      "asset_id": "p1_workshop_props",
+      "collision_strategy": "deterministic QA state transitions for gate validation",
+      "kind": "procedural_threejs_geometry",
+      "known_limitations": "No external mesh, texture, or material generation was used.",
+      "non_procedural": false,
+      "source": "experiments/game_p1_rover_workshop_demo/index.html",
+      "tool": "Three.js boxes, cylinder, and torus primitives"
+    }
+  ],
+  "checks": {
+    "finish": "pass",
+    "gate_or_puzzle": "pass",
+    "hashes": "pass",
+    "hazard": "pass",
+    "hud": "pass",
+    "input": "pass",
+    "load": "pass",
+    "nonblank_canvas": "pass",
+    "pickup": "pass",
+    "screenshots": "pass"
+  },
+  "entrypoint": "experiments/game_p1_rover_workshop_demo/index.html",
+  "gate_level": "G4",
+  "known_limitations": [
+    "P1 now imports RW-ROVER-001 as an AI-assisted mesh-only visual avatar and RW-CRATE-AI-001 as a visual landmark.",
+    "Imported AI-assisted GLBs are not used as gameplay collision; generated-mesh collision remains unproven and intentionally excluded.",
+    "RW-ROVER-001 is mesh-only with runtime material applied in Three.js; it is not textured/PBR, animated, or Unity-imported.",
+    "The deterministic QA path uses the prototype's local __prototypeGate API to avoid brittle pointer-lock automation."
+  ],
+  "packet_version": "prototype_evidence_gate.v1",
+  "promotable": true,
+  "prototype_id": "p1_rover_workshop",
+  "release_id": "p1_rover_workshop_20260512T202055Z_g4"
+}

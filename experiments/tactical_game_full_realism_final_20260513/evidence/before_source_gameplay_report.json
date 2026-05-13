@@ -1,0 +1,64 @@
+{
+  "id": "baseline_source",
+  "url": "http://localhost:8766/14.html",
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/evidence/before_source_gameplay.png",
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "warning",
+      "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "method": "Runtime.exceptionThrown",
+      "type": null,
+      "text": "ReferenceError: updateFlashes is not defined\n    at update (http://localhost:8766/14.html:1115:224)\n    at loop (http://localhost:8766/14.html:1116:62)"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x11c0047d200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x11c0047d200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x11c0047d200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x11c0047d200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    },
+    {
+      "method": "Runtime.exceptionThrown",
+      "type": null,
+      "text": "NotAllowedError: A user gesture is required to request Pointer Lock."
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ],
+  "blockingEvents": [
+    {
+      "method": "Runtime.exceptionThrown",
+      "type": null,
+      "text": "ReferenceError: updateFlashes is not defined\n    at update (http://localhost:8766/14.html:1115:224)\n    at loop (http://localhost:8766/14.html:1116:62)"
+    },
+    {
+      "method": "Runtime.exceptionThrown",
+      "type": null,
+      "text": "NotAllowedError: A user gesture is required to request Pointer Lock."
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ]
+}

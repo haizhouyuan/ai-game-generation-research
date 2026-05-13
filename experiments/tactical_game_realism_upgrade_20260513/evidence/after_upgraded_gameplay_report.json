@@ -1,0 +1,33 @@
+{
+  "id": "upgraded_derivative",
+  "url": "http://localhost:8765/index.html",
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/evidence/after_upgraded_gameplay.png",
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "warning",
+      "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[weapon-glb] pistol loaded assets/models/pistol_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[weapon-glb] shotgun loaded assets/models/shotgun_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[weapon-glb] rifle loaded assets/models/groza_procedural_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[weapon-glb] dmr loaded assets/models/dmr_m5_candidate.glb"
+    }
+  ],
+  "blockingEvents": []
+}

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+SECRETS_ENV="${RUNNER_SECRETS_ENV:-${ROOT_DIR}/.secrets/credentials.env}"
+
+if [ -f "${SECRETS_ENV}" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  . "${SECRETS_ENV}"
+  set +a
+fi
+
+export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-${ROOT_DIR}/.claude-kimi}"
+mkdir -p "${CLAUDE_CONFIG_DIR}"
+chmod 700 "${CLAUDE_CONFIG_DIR}" 2>/dev/null || true
+
+export ANTHROPIC_BASE_URL="${KIMI_CLAUDE_BASE_URL:-https://api.kimi.com/coding/}"
+if [ -n "${KIMI_CODINGPLAN_API_KEY:-}" ]; then
+  export ANTHROPIC_API_KEY="${KIMI_CODINGPLAN_API_KEY}"
+fi
+export ENABLE_TOOL_SEARCH="${ENABLE_TOOL_SEARCH:-false}"
+unset ANTHROPIC_AUTH_TOKEN CLAUDE_CODE_AUTH_TOKEN
+
+if [ "${RUNNER_READ_ONLY:-}" != "1" ]; then
+  exec claude --dangerously-skip-permissions --permission-mode bypassPermissions "$@"
+fi
+
+exec claude "$@"

@@ -1,0 +1,27 @@
+SUPERSEDED: this log is retained as historical evidence for the pre-material rover-v1 pass.
+Current promoted materialized GLB SHA is cc8267891277a6fa909440fb81995993b5b5e3b7750c534fdaec6c929555ab79.
+
+04:26:42 | INFO: Data are loaded, start creating Blender stuff
+04:26:42 | INFO: Blender create Mesh node geometry_0
+04:26:42 | INFO: glTF import finished in 0.03s
+INFO Draco mesh compression is available, use library at /Applications/Blender.app/Contents/Resources/5.1/scripts/addons_core/io_scene_gltf2/libextern_draco.dylib
+04:26:42 | INFO: Starting glTF 2.0 export
+04:26:42 | INFO: Extracting primitive: geometry_0
+04:26:42 | INFO: Primitives created: 1
+04:26:42 | INFO: Extracting primitive: Cube.001
+04:26:42 | INFO: Primitives created: 1
+04:26:42 | INFO: Finished glTF 2.0 export in 0.04134821891784668 s
+00:00.884  render           | Saved: '/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q/blender_cleanup_render.png'
+
+{
+  "cleaned_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+  "cleaned_glb_sha256": "293f0ceaa3f8b984cde5c5ba72f332dd67968d44cf8b8a3413d0164140667b8c",
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_single3q_trellis_meshonly.glb",
+  "render": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q/blender_cleanup_render.png",
+  "render_sha256": "6b320995637d9b398a3ebc1f68acf0837493e086304d37b2aa385e7cdec45cd7",
+  "report": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q/blender_cleanup_report.json",
+  "status": "DONE"
+}
+Blender 5.1.1 (hash b70da489d7f4 built 2026-04-14 01:46:23)
+
+Blender quit

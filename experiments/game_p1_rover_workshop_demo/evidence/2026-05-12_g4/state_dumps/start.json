@@ -1,0 +1,52 @@
+{
+  "pixel_stats": {
+    "distinct_sample_colors": 4096,
+    "height": 913,
+    "nonblank": true,
+    "nontransparent_pixels": 1314720,
+    "width": 1440
+  },
+  "state": {
+    "checks": {
+      "play_state": true
+    },
+    "hud": {
+      "batteries": "0 / 3",
+      "bridge": "Waiting",
+      "energy": "100",
+      "gate": "Closed",
+      "gear": "0 / 3",
+      "upgrade": "Locked"
+    },
+    "hudText": "BATTERIES\n0 / 3\nENERGY\n100\nGEAR\n0 / 3\nMAGNET\nLocked\nBRIDGE\nWaiting\nGATE\nClosed\nStart\nReset",
+    "state": {
+      "batteries": 0,
+      "bridgeBuilt": false,
+      "cleaningBot": {
+        "segment": 0,
+        "x": -3.9,
+        "y": 0.34,
+        "z": 0.95
+      },
+      "energy": 100,
+      "finished": false,
+      "gateOpen": false,
+      "gear": 0,
+      "rover": {
+        "x": -5,
+        "y": 0.35,
+        "z": 4
+      },
+      "started": true,
+      "upgradeUnlocked": false
+    }
+  },
+  "step": {
+    "action": "click",
+    "expect": [
+      "play_state"
+    ],
+    "id": "start",
+    "target": "start_button"
+  }
+}

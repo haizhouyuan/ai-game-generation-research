@@ -1,0 +1,91 @@
+{
+  "artifacts": [
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_material_g4/assets/asset_provenance.json",
+      "sha256": "3e280dd540941e558812860d79ec21246412698468ef99783047624375c04fb1",
+      "type": "asset_provenance.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_material_g4/console_summary.json",
+      "sha256": "269d0531599e7f99e71bafba7daba334b159b2d441163a40b076bfe6010a054f",
+      "type": "console_summary.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_material_g4/network_summary.json",
+      "sha256": "27fc221b5f344a565dc29f2f9b5922be57a0e2dd3f6017f33f9c6b9049237c41",
+      "type": "network_summary.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_material_g4/scenario_result.json",
+      "sha256": "6bb417160083adffc3891daac6b655018639edfa56e76a7d8ab45ec83a210960",
+      "type": "scenario_result.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_material_g4/browser_log.jsonl",
+      "sha256": "910a750421efd53f23ba28261f8180eeef089044a22845d4313fdf81e89a4957",
+      "type": "browser_log.jsonl"
+    }
+  ],
+  "asset_provenance": [
+    {
+      "asset_id": "RW-ROVER-001",
+      "collision_strategy": "visual avatar only; gameplay movement and collision use the procedural rover proxy",
+      "kind": "openai_to_trellis_meshonly_to_blender_glb",
+      "known_limitations": "Mesh generated from mesh-only TRELLIS output with Blender-authored PBR-style material slots; no external texture maps, no rig/animation, not Unity-imported.",
+      "non_procedural": true,
+      "source": "experiments/game_p1_rover_workshop_demo/assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+      "tool": "OpenAI image reference, TRELLIS-image-large mesh-only export, Blender 5.1.1 cleanup/material/proxy export, Three.js GLTFLoader runtime import"
+    },
+    {
+      "asset_id": "RW-CRATE-AI-001",
+      "collision_strategy": "visual landmark only; no generated mesh collision",
+      "kind": "trellis_meshonly_glb",
+      "known_limitations": "Mesh-only, not textured/PBR, not Blender-cleaned, not Unity-imported, not the hero rover asset.",
+      "non_procedural": true,
+      "source": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+      "tool": "TRELLIS-image-large mesh-only export; Three.js GLTFLoader runtime import"
+    },
+    {
+      "asset_id": "p1_procedural_rover",
+      "collision_strategy": "simple proxy box controlled by game state",
+      "kind": "procedural_threejs_geometry",
+      "known_limitations": "Not a generated GLB hero asset; Unity and Blender import are not claimed.",
+      "non_procedural": false,
+      "source": "experiments/game_p1_rover_workshop_demo/index.html",
+      "tool": "Three.js BufferGeometry primitives"
+    },
+    {
+      "asset_id": "p1_workshop_props",
+      "collision_strategy": "deterministic QA state transitions for gate validation",
+      "kind": "procedural_threejs_geometry",
+      "known_limitations": "No external mesh, texture, or material generation was used.",
+      "non_procedural": false,
+      "source": "experiments/game_p1_rover_workshop_demo/index.html",
+      "tool": "Three.js boxes, cylinder, and torus primitives"
+    }
+  ],
+  "checks": {
+    "finish": "pass",
+    "gate_or_puzzle": "pass",
+    "hashes": "pass",
+    "hazard": "pass",
+    "hud": "pass",
+    "input": "pass",
+    "load": "pass",
+    "nonblank_canvas": "pass",
+    "pickup": "pass",
+    "screenshots": "pass"
+  },
+  "entrypoint": "experiments/game_p1_rover_workshop_demo/index.html",
+  "gate_level": "G4",
+  "known_limitations": [
+    "P1 now imports RW-ROVER-001 as an AI-assisted visual avatar with Blender-authored rover-v1 PBR-style material slots, and RW-CRATE-AI-001 as a visual landmark.",
+    "Imported AI-assisted GLBs are not used as gameplay collision; generated-mesh collision remains unproven and intentionally excluded.",
+    "RW-ROVER-001 has procedural material slots but no external texture maps, no rig/animation, and is not Unity-imported.",
+    "The deterministic QA path uses the prototype's local __prototypeGate API to avoid brittle pointer-lock automation."
+  ],
+  "packet_version": "prototype_evidence_gate.v1",
+  "promotable": true,
+  "prototype_id": "p1_rover_workshop",
+  "release_id": "p1_rover_workshop_20260512T211118Z_g4"
+}

@@ -1,0 +1,13 @@
+; Engine configuration file.
+; P6 minimal import probe project; no external dependencies.
+
+config_version=5
+
+[application]
+
+config/name="GAME-P6 Godot Import Probe"
+config/features=PackedStringArray("4.4")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

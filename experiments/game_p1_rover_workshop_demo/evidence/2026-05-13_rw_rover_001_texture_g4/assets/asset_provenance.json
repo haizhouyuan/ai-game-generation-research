@@ -1,0 +1,38 @@
+[
+  {
+    "asset_id": "RW-ROVER-001",
+    "collision_strategy": "visual avatar only; gameplay movement and collision use the procedural rover proxy",
+    "kind": "openai_to_trellis_meshonly_to_blender_glb",
+    "known_limitations": "Mesh generated from mesh-only TRELLIS output with Blender-authored material slots and procedural embedded base-color maps; runtime animation is parent-transform feedback only, no skeletal rig, no source-baked photoreal PBR maps, not Unity-imported.",
+    "non_procedural": true,
+    "source": "experiments/game_p1_rover_workshop_demo/assets/models/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+    "tool": "OpenAI image reference, TRELLIS-image-large mesh-only export, Blender 5.1.1 cleanup/material/procedural texture/proxy export, Three.js GLTFLoader runtime import"
+  },
+  {
+    "asset_id": "RW-CRATE-AI-001",
+    "collision_strategy": "visual landmark only; no generated mesh collision",
+    "kind": "trellis_meshonly_glb",
+    "known_limitations": "Mesh-only, not textured/PBR, not Blender-cleaned, not Unity-imported, not the hero rover asset.",
+    "non_procedural": true,
+    "source": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+    "tool": "TRELLIS-image-large mesh-only export; Three.js GLTFLoader runtime import"
+  },
+  {
+    "asset_id": "p1_procedural_rover",
+    "collision_strategy": "simple proxy box controlled by game state; visual fallback meshes are hidden after RW-ROVER-001 loads",
+    "kind": "procedural_threejs_geometry",
+    "known_limitations": "Gameplay proxy and GLB-load fallback only, not the promoted visual avatar; Unity and Blender import are not claimed for this procedural fallback.",
+    "non_procedural": false,
+    "source": "experiments/game_p1_rover_workshop_demo/index.html",
+    "tool": "Three.js BufferGeometry primitives"
+  },
+  {
+    "asset_id": "p1_workshop_props",
+    "collision_strategy": "deterministic QA state transitions for gate validation",
+    "kind": "procedural_threejs_geometry",
+    "known_limitations": "No external mesh, texture, or material generation was used.",
+    "non_procedural": false,
+    "source": "experiments/game_p1_rover_workshop_demo/index.html",
+    "tool": "Three.js boxes, cylinder, and torus primitives"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "cleaned_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/blender_seed_202/groza_trellis_seed_202_cleaned.glb",
+  "cleaned_glb_sha256": "33ca222b3da9f8eb3c488c755d753e6f4a183794366fa0c5fb2f01d0f73e5023",
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/outputs/groza_trellis_seed_202.glb",
+  "render": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/blender_seed_202/blender_cleanup_render.png",
+  "render_sha256": "0a563e83733081e6371ca86a74fe9f4622c631d6e58b087e730053636888abc6",
+  "report": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/blender_seed_202/blender_cleanup_report.json",
+  "status": "DONE"
+}

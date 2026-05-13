@@ -1,0 +1,53 @@
+{
+  "archived": true,
+  "backend_events": [
+    {
+      "thread_id": "thr_fake_1",
+      "type": "thread/started"
+    },
+    {
+      "thread_id": "thr_fake_1",
+      "turn_id": "turn_fake_1",
+      "type": "turn/started"
+    },
+    {
+      "thread_id": "thr_fake_1",
+      "turn_id": "turn_fake_1",
+      "type": "turn/completed"
+    },
+    {
+      "input": "phase4 smoke steer",
+      "thread_id": "thr_fake_1",
+      "type": "turn/steered"
+    },
+    {
+      "thread_id": "thr_fake_1",
+      "type": "turn/interrupted"
+    },
+    {
+      "forked_from": "thr_fake_1",
+      "thread_id": "thr_fake_2",
+      "type": "thread/started"
+    },
+    {
+      "thread_id": "thr_fake_1",
+      "type": "thread/archived"
+    },
+    {
+      "thread_id": "thr_fake_2",
+      "type": "thread/archived"
+    }
+  ],
+  "events": [],
+  "forked_thread_id": "thr_fake_2",
+  "interrupted": true,
+  "read_thread_id": "thr_fake_1",
+  "thread_id": "thr_fake_1",
+  "transport": {
+    "fake_server_backend": true,
+    "local_only": true,
+    "real_app_server_connected": false,
+    "url": "http://127.0.0.1:57620/rpc"
+  },
+  "turn_id": "turn_fake_1"
+}

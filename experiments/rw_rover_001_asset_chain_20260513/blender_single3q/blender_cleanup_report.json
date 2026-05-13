@@ -1,0 +1,83 @@
+{
+  "cleanup": {
+    "normalized_bbox_max": [
+      0.9999999403953552,
+      0.904610276222229,
+      0.8680779337882996
+    ],
+    "normalized_bbox_min": [
+      -1.0,
+      -0.9046102166175842,
+      -0.8680779337882996
+    ],
+    "normalized_dimensions": [
+      2.0,
+      1.809220552444458,
+      1.7361558675765991
+    ],
+    "original_bbox_max": [
+      0.47619056701660156,
+      0.4226391315460205,
+      0.4073360860347748
+    ],
+    "original_bbox_min": [
+      -0.4598190188407898,
+      -0.42408475279808044,
+      -0.4051932096481323
+    ],
+    "original_dimensions": [
+      0.9360095858573914,
+      0.8467239141464233,
+      0.8125293254852295
+    ],
+    "scale_factor": 2.136730253855238
+  },
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_single3q_trellis_meshonly.glb",
+  "input_sha256": "8c6c2063e47aa656e8131d6da0454939ba60f0242a55b51fc8bfddc50d13d6fa",
+  "material_names": [
+    "rw_rover_v1_body_teal",
+    "rw_rover_v1_rubber_dark",
+    "rw_rover_v1_safety_yellow",
+    "rw_rover_v1_sensor_glass"
+  ],
+  "material_strategy": {
+    "material_names": [
+      "rw_rover_v1_body_teal",
+      "rw_rover_v1_safety_yellow",
+      "rw_rover_v1_rubber_dark",
+      "rw_rover_v1_sensor_glass"
+    ],
+    "polygon_material_counts": {
+      "rw_rover_v1_body_teal": 22576,
+      "rw_rover_v1_rubber_dark": 15502,
+      "rw_rover_v1_safety_yellow": 1938,
+      "rw_rover_v1_sensor_glass": 2272
+    },
+    "strategy": "rover-v1",
+    "texture_state": "pbr_materials_no_external_textures"
+  },
+  "mesh_object_count": 1,
+  "mesh_objects": [
+    {
+      "faces": 42288,
+      "material_slots": 4,
+      "name": "geometry_0",
+      "vertices": 21066
+    }
+  ],
+  "proxy_collider": {
+    "center": [
+      -2.9802322387695312e-08,
+      2.9802322387695312e-08,
+      0.0
+    ],
+    "dimensions": [
+      2.0,
+      1.809220552444458,
+      1.7361558675765991
+    ],
+    "name": "COLLIDER_PROXY_bbox_simple_box",
+    "type": "box"
+  },
+  "texture_state": "pbr_materials_no_external_textures"
+}

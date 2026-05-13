@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+SECRETS_ENV="${RUNNER_SECRETS_ENV:-${ROOT_DIR}/.secrets/credentials.env}"
+
+if [ -f "${SECRETS_ENV}" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  . "${SECRETS_ENV}"
+  set +a
+fi
+
+export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-${ROOT_DIR}/.claude-minimax}"
+mkdir -p "${CLAUDE_CONFIG_DIR}"
+chmod 700 "${CLAUDE_CONFIG_DIR}" 2>/dev/null || true
+
+export ANTHROPIC_BASE_URL="${MINIMAX_ANTHROPIC_BASE_URL:-https://api.minimaxi.com/anthropic}"
+if [ -n "${MINIMAX_API_KEY:-}" ]; then
+  export ANTHROPIC_API_KEY="${MINIMAX_API_KEY}"
+fi
+unset ANTHROPIC_AUTH_TOKEN CLAUDE_CODE_AUTH_TOKEN
+
+MODEL="${MINIMAX_MODEL:-MiniMax-M2.7-highspeed}"
+MAX_CONCURRENCY="${CLAUDEMINMAX_MAX_CONCURRENCY:-1}"
+case "${MAX_CONCURRENCY}" in
+  ''|*[!0-9]*) MAX_CONCURRENCY=1 ;;
+esac
+if [ "${MAX_CONCURRENCY}" -lt 1 ]; then
+  MAX_CONCURRENCY=1
+fi
+if [ "${MAX_CONCURRENCY}" -gt 2 ]; then
+  MAX_CONCURRENCY=2
+fi
+
+LOCK_DIR="${CLAUDEMINMAX_LOCK_DIR:-${ROOT_DIR}/tmp/claudeminmax-runtime-locks}"
+mkdir -p "${LOCK_DIR}"
+
+run_claude() {
+  claude_args=(--model "${MODEL}")
+  if [ "${RUNNER_READ_ONLY:-}" != "1" ]; then
+    claude_args=(--dangerously-skip-permissions --permission-mode bypassPermissions "${claude_args[@]}")
+  fi
+  claude "${claude_args[@]}" "$@"
+}
+
+try_clear_stale_lock() {
+  local lock_dir="$1"
+  local pid_file="${lock_dir}/pid"
+
+  if [ ! -d "${lock_dir}" ]; then
+    return
+  fi
+
+  if [ ! -s "${pid_file}" ]; then
+    rm -rf "${lock_dir}"
+    return
+  fi
+
+  local lock_pid
+  lock_pid="$(cat "${pid_file}" 2>/dev/null || true)"
+  case "${lock_pid}" in
+    ''|*[!0-9]*) rm -rf "${lock_dir}" ;;
+    *)
+      if ! kill -0 "${lock_pid}" 2>/dev/null; then
+        rm -rf "${lock_dir}"
+      fi
+      ;;
+  esac
+}
+
+run_with_lock() {
+  local lock_dir="$1"
+  shift
+
+  printf '%s\n' "$$" > "${lock_dir}/pid"
+  cleanup() {
+    rm -rf "${lock_dir}"
+  }
+  trap cleanup EXIT INT TERM
+
+  set +e
+  run_claude "$@"
+  local status="$?"
+  set -e
+  cleanup
+  trap - EXIT INT TERM
+  exit "${status}"
+}
+
+for slot in $(seq 1 "${MAX_CONCURRENCY}"); do
+  lock_dir="${LOCK_DIR}/slot-${slot}.lockdir"
+  try_clear_stale_lock "${lock_dir}"
+  if mkdir "${lock_dir}" 2>/dev/null; then
+    run_with_lock "${lock_dir}" "$@"
+  fi
+done
+
+lock_dir="${LOCK_DIR}/slot-1.lockdir"
+while ! mkdir "${lock_dir}" 2>/dev/null; do
+  try_clear_stale_lock "${lock_dir}"
+  sleep 2
+done
+run_with_lock "${lock_dir}" "$@"

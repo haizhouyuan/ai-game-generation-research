@@ -1,0 +1,95 @@
+{
+  "checks": {
+    "finish": "not_applicable",
+    "gate_or_puzzle": "not_applicable",
+    "hashes": "pass",
+    "hazard": "not_applicable",
+    "hud": "pass",
+    "input": "pass",
+    "load": "pass",
+    "nonblank_canvas": "pass",
+    "pickup": "not_applicable",
+    "screenshots": "pass"
+  },
+  "entrypoint": "experiments/game_p0_chatgpt_html_baseline_20260509/14.html",
+  "prototype_id": "p0_chatgpt_html_baseline",
+  "steps": [
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 3914,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "canvas_present": true,
+          "hud_present": true,
+          "page_ready": true
+        },
+        "hudText": "\u6dd8\u6c70\u6570\n0\n\u5f53\u524d\u67aa\u68b0\nP-9 \u624b\u67aa\n\u5f39\u836f\n15 / 45\n\u67aa\u68b0\u76ae\u80a4\n\u9ed1\u94c1"
+      },
+      "step": {
+        "action": "open",
+        "expect": [
+          "page_ready",
+          "canvas_present",
+          "hud_present"
+        ],
+        "id": "load"
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "play_state": true
+        },
+        "hudText": "\u6dd8\u6c70\u6570\n0\n\u5f53\u524d\u67aa\u68b0\nP-9 \u624b\u67aa\n\u5f39\u836f\n15 / 45\n\u67aa\u68b0\u76ae\u80a4\n\u9ed1\u94c1"
+      },
+      "step": {
+        "action": "click",
+        "expect": [
+          "play_state"
+        ],
+        "id": "start",
+        "target": "start_button"
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "hud_present": true,
+          "input_dispatched": true
+        },
+        "hudText": "\u6dd8\u6c70\u6570\n0\n\u5f53\u524d\u67aa\u68b0\nP-9 \u624b\u67aa\n\u5f39\u836f\n15 / 45\n\u67aa\u68b0\u76ae\u80a4\n\u9ed1\u94c1"
+      },
+      "step": {
+        "action": "replay",
+        "expect": [
+          "input_dispatched",
+          "hud_present"
+        ],
+        "id": "input",
+        "keys": [
+          "KeyW"
+        ]
+      }
+    }
+  ],
+  "url": "http://127.0.0.1:62877/experiments/game_p0_chatgpt_html_baseline_20260509/14.html"
+}

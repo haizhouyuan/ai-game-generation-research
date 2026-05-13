@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "task_id": "controller-core-phase1",
+  "lane_id": "controller-core",
+  "repo_id": "ai-game-generation-research",
+  "thread_id": null,
+  "turn_id": null,
+  "status": "done",
+  "summary": "Initialized the managed-agents registry foundation.",
+  "work_performed": [
+    "Created lanes configuration.",
+    "Created SQLite schema.",
+    "Created read-only registry CLI."
+  ],
+  "files_changed": [
+    {
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/config/lanes.yaml",
+      "change_type": "created",
+      "notes": "Initial lane and task source config."
+    }
+  ],
+  "commands_run": [
+    {
+      "command": "python3 tools/managed_codex/codex_managed.py status",
+      "cwd": "/Users/yuanshaochen/Projects/ai-game-generation-research",
+      "status": "passed",
+      "notes": "Registry summary printed lane and task states."
+    }
+  ],
+  "tests": [
+    {
+      "name": "registry-cli-status",
+      "status": "passed",
+      "evidence": "/Users/yuanshaochen/Projects/ai-game-generation-research/tools/managed_codex/examples/worker_result_valid.json"
+    }
+  ],
+  "evidence": [
+    {
+      "type": "doc",
+      "path_or_url": "/Users/yuanshaochen/Projects/ai-game-generation-research/docs/production_goal_managed_agents_game_chain_2026-05-12.md",
+      "notes": "Production goal source."
+    }
+  ],
+  "risks": [
+    "This example is only a schema fixture and is not a live worker receipt."
+  ],
+  "blockers": [],
+  "needs_human": false,
+  "human_question": null,
+  "next_action": {
+    "recommended_state": "review",
+    "prompt": null
+  }
+}

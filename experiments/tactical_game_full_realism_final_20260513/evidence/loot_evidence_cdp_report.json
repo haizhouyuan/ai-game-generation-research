@@ -1,0 +1,317 @@
+{
+  "url": "http://localhost:8765/index.html?evidence=loot",
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/evidence/loot_evidence_cdp.png",
+  "probe": {
+    "rifleAsset": {
+      "url": "assets/models/groza_procedural_candidate.glb",
+      "status": "loaded",
+      "error": null
+    },
+    "weaponAssets": {
+      "pistol": {
+        "url": "assets/models/pistol_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "shotgun": {
+        "url": "assets/models/shotgun_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "rifle": {
+        "url": "assets/models/groza_procedural_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "dmr": {
+        "url": "assets/models/dmr_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      }
+    },
+    "finalAssetKit": {
+      "characterPlayer": {
+        "url": "assets/models/character_player_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "characterEnemy": {
+        "url": "assets/models/character_enemy_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootAmmo": {
+        "url": "assets/models/loot_ammo_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootBandage": {
+        "url": "assets/models/loot_bandage_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootFirstAid": {
+        "url": "assets/models/loot_firstaid_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootMedkit": {
+        "url": "assets/models/loot_medkit_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootRevive": {
+        "url": "assets/models/loot_revive_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootVest": {
+        "url": "assets/models/loot_vest_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootHelmet": {
+        "url": "assets/models/loot_helmet_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propCrate": {
+        "url": "assets/models/prop_crate_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propContainer": {
+        "url": "assets/models/prop_container_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propLadderStair": {
+        "url": "assets/models/prop_ladder_stair_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propInteriorFurniture": {
+        "url": "assets/models/prop_interior_furniture_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propBuildingDetail": {
+        "url": "assets/models/prop_building_detail_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propGroundWallFence": {
+        "url": "assets/models/prop_ground_wall_fence_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propTree": {
+        "url": "assets/models/prop_tree_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propRockCluster": {
+        "url": "assets/models/prop_rock_cluster_final.glb",
+        "status": "loaded",
+        "error": null
+      }
+    },
+    "player": {
+      "weapon": "rifle",
+      "cameraMode": "first",
+      "lobby": false,
+      "dead": false
+    },
+    "viewGun": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb",
+      "hasMuzzle": true
+    },
+    "thirdGun": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb",
+      "hasMuzzle": true
+    },
+    "evidenceCameraRifle": {
+      "assetSource": null
+    },
+    "m5WeaponShowcase": {
+      "assetSources": null,
+      "count": 0
+    },
+    "finalEvidenceShowcase": {
+      "assetSources": {
+        "lootAmmo": "assets/models/loot_ammo_final.glb",
+        "lootBandage": "assets/models/loot_bandage_final.glb",
+        "lootFirstAid": "assets/models/loot_firstaid_final.glb",
+        "lootMedkit": "assets/models/loot_medkit_final.glb",
+        "lootRevive": "assets/models/loot_revive_final.glb",
+        "lootVest": "assets/models/loot_vest_final.glb",
+        "lootHelmet": "assets/models/loot_helmet_final.glb"
+      },
+      "count": 7
+    },
+    "finalRuntime": {
+      "playerAsset": "assets/models/character_player_final.glb",
+      "enemyAssets": [
+        "assets/models/character_enemy_final.glb",
+        "assets/models/character_enemy_final.glb"
+      ],
+      "lootFinalCount": 47,
+      "environmentPropsAdded": true
+    }
+  },
+  "imageStats": {
+    "ok": true,
+    "width": 1440,
+    "height": 813,
+    "litRatio": 0.7978016359918201,
+    "darkRatio": 0.15966257668711656,
+    "colorfulRatio": 0.6514314928425358,
+    "edgeRatio": 0.040746421267893664
+  },
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "warning",
+      "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x10c00309600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x10c00309600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x10c00309600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x10c00309600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:pistol loaded assets/models/pistol_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:shotgun loaded assets/models/shotgun_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:rifle loaded assets/models/groza_procedural_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:characterPlayer loaded assets/models/character_player_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:dmr loaded assets/models/dmr_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:characterEnemy loaded assets/models/character_enemy_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootAmmo loaded assets/models/loot_ammo_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootBandage loaded assets/models/loot_bandage_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootFirstAid loaded assets/models/loot_firstaid_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootRevive loaded assets/models/loot_revive_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootMedkit loaded assets/models/loot_medkit_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootVest loaded assets/models/loot_vest_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootHelmet loaded assets/models/loot_helmet_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propContainer loaded assets/models/prop_container_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propCrate loaded assets/models/prop_crate_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propLadderStair loaded assets/models/prop_ladder_stair_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propInteriorFurniture loaded assets/models/prop_interior_furniture_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propBuildingDetail loaded assets/models/prop_building_detail_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propGroundWallFence loaded assets/models/prop_ground_wall_fence_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propTree loaded assets/models/prop_tree_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propRockCluster loaded assets/models/prop_rock_cluster_final.glb"
+    }
+  ],
+  "blockingEvents": [],
+  "chromeStderrTail": [
+    "",
+    "DevTools listening on ws://127.0.0.1:9307/devtools/browser/b359a0ef-ee7d-457b-9f35-e640775c9c0b",
+    "[16118:3205666:0513/103009.659721:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c00309600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[16118:3205666:0513/103009.996641:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c00309600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[16118:3205666:0513/103009.997039:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c00309600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[16118:3205666:0513/103010.082467:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c00309600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+    "Trying to load the allocator multiple times. This is *not* supported.",
+    "[16103:3205622:0513/103013.408396:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT",
+    "Created TensorFlow Lite XNNPACK delegate for CPU.",
+    "[16103:3205622:0513/103043.076361:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT",
+    ""
+  ]
+}

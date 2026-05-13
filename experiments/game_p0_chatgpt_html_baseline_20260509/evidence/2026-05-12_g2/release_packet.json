@@ -1,0 +1,47 @@
+{
+  "artifacts": [
+    {
+      "path": "experiments/game_p0_chatgpt_html_baseline_20260509/evidence/2026-05-12_g2/console_summary.json",
+      "sha256": "098cfa15f36774c894cfc07a2906e544e8f4cf301d92617cd18704a29a48c213",
+      "type": "console_summary.json"
+    },
+    {
+      "path": "experiments/game_p0_chatgpt_html_baseline_20260509/evidence/2026-05-12_g2/network_summary.json",
+      "sha256": "0a661a38a7ae19427b6217c3a8a9d661f324c89c00dcd4acc20569eb2820946c",
+      "type": "network_summary.json"
+    },
+    {
+      "path": "experiments/game_p0_chatgpt_html_baseline_20260509/evidence/2026-05-12_g2/scenario_result.json",
+      "sha256": "aa7d3af51ba9ae4e56c6afa4ce81f842cfd431c7aec3021ec5015fb2b2bdccae",
+      "type": "scenario_result.json"
+    },
+    {
+      "path": "experiments/game_p0_chatgpt_html_baseline_20260509/evidence/2026-05-12_g2/browser_log.jsonl",
+      "sha256": "a3f902ece463f77d5b67f702ae431f02d6f09458aea930e46ec0872b2716524a",
+      "type": "browser_log.jsonl"
+    }
+  ],
+  "asset_provenance": [],
+  "checks": {
+    "finish": "not_applicable",
+    "gate_or_puzzle": "not_applicable",
+    "hashes": "pass",
+    "hazard": "not_applicable",
+    "hud": "pass",
+    "input": "pass",
+    "load": "pass",
+    "nonblank_canvas": "pass",
+    "pickup": "not_applicable",
+    "screenshots": "pass"
+  },
+  "entrypoint": "experiments/game_p0_chatgpt_html_baseline_20260509/14.html",
+  "gate_level": "G2",
+  "known_limitations": [
+    "P0 is preserved as an excitement baseline, not a production route.",
+    "P0 G2 checks load, start, HUD, input dispatch, screenshots, and hashes only."
+  ],
+  "packet_version": "prototype_evidence_gate.v1",
+  "promotable": false,
+  "prototype_id": "p0_chatgpt_html_baseline",
+  "release_id": "p0_chatgpt_html_baseline_20260512T080139Z_g2"
+}

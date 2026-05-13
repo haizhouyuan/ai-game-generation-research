@@ -1,0 +1,211 @@
+{
+  "allowlisted_update_validation": {
+    "allowlisted": true,
+    "candidate_artifact_hash_replacement_required": false,
+    "drift_reasons": [],
+    "edge_unchanged": true,
+    "new_hash_ok": true,
+    "node_id": "source_artifact_0",
+    "old_hash_ok": true,
+    "order_preserved": true,
+    "pass": true,
+    "shape_pass": true
+  },
+  "baseline_release_packet": {
+    "bundle_sha256": "c9c4999a76f43e02d1660e4a6e6f2438c631aa8e3003b179c51a200fb2d3e507",
+    "source_p26_sha256": "4e5ae7c3fcb07513be3ce100afadc7dd500daa2de99319be55956854ecd0043c",
+    "topological_order": [
+      "p24_integrity_matrix",
+      "p24_integrity_manifest",
+      "p24_version_report",
+      "source_artifact_0",
+      "source_artifact_1",
+      "source_artifact_2",
+      "source_artifact_3",
+      "source_artifact_4"
+    ]
+  },
+  "baseline_shape": {
+    "acyclic": true,
+    "artifact_rows": [
+      {
+        "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+        "exists": true,
+        "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+        "id": "p24_integrity_matrix",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json"
+      },
+      {
+        "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+        "exists": true,
+        "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+        "id": "p24_integrity_manifest",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json"
+      },
+      {
+        "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+        "exists": true,
+        "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+        "id": "p24_version_report",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json"
+      },
+      {
+        "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "exists": true,
+        "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "id": "source_artifact_0",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json"
+      },
+      {
+        "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+        "exists": true,
+        "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+        "id": "source_artifact_1",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json"
+      },
+      {
+        "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+        "exists": true,
+        "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+        "id": "source_artifact_2",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md"
+      },
+      {
+        "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+        "exists": true,
+        "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+        "id": "source_artifact_3",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json"
+      },
+      {
+        "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+        "exists": true,
+        "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+        "id": "source_artifact_4",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md"
+      }
+    ],
+    "computed_order": [
+      "p24_integrity_matrix",
+      "p24_integrity_manifest",
+      "p24_version_report",
+      "source_artifact_0",
+      "source_artifact_1",
+      "source_artifact_2",
+      "source_artifact_3",
+      "source_artifact_4"
+    ],
+    "duplicate_nodes": [],
+    "edge_rows": [
+      {
+        "from": "p24_integrity_matrix",
+        "from_ok": true,
+        "order_ok": true,
+        "to": "p24_integrity_manifest",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_matrix",
+        "from_ok": true,
+        "order_ok": true,
+        "to": "p24_version_report",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "order_ok": true,
+        "to": "source_artifact_0",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "order_ok": true,
+        "to": "source_artifact_1",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "order_ok": true,
+        "to": "source_artifact_2",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "order_ok": true,
+        "to": "source_artifact_3",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "order_ok": true,
+        "to": "source_artifact_4",
+        "to_ok": true
+      }
+    ],
+    "expected_order": [
+      "p24_integrity_matrix",
+      "p24_integrity_manifest",
+      "p24_version_report",
+      "source_artifact_0",
+      "source_artifact_1",
+      "source_artifact_2",
+      "source_artifact_3",
+      "source_artifact_4"
+    ],
+    "pass": true,
+    "topological_order_ok": true
+  },
+  "batch": "P27-A game contract bundle release packet review",
+  "boundaries": [
+    "Release packet covers local reviewer-contract artifacts only.",
+    "This does not claim screenshot/visual QA.",
+    "This does not claim mesh-accurate GLB collision.",
+    "This does not claim production game quality."
+  ],
+  "checks": {
+    "allowlisted_update_candidate_accepted": true,
+    "baseline_p26_bundle_loaded": true,
+    "baseline_topological_order_preserved": true,
+    "cycle_counter_inherited": true,
+    "duplicate_node_counter_inherited": true,
+    "graph_diff_packet_compact_hashable": true,
+    "missing_artifact_counter_inherited": true,
+    "rejected_update_candidate_blocked": true,
+    "tampered_hash_counter_inherited": true
+  },
+  "graph_diff_packet": {
+    "bytes": 1647,
+    "compact": true,
+    "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/graph_diff_packet.json",
+    "sha256": "ca14c992033be324869a110050e595a2b41a0b9fcf743ac3b8df0bd7f7e86a3b"
+  },
+  "overall_pass": true,
+  "rejected_update_validation": {
+    "allowlisted": true,
+    "candidate_artifact_hash_replacement_required": false,
+    "drift_reasons": [
+      "edge_drift",
+      "node_drift"
+    ],
+    "edge_unchanged": false,
+    "new_hash_ok": true,
+    "node_id": "source_artifact_0",
+    "old_hash_ok": true,
+    "order_preserved": true,
+    "pass": false,
+    "shape_pass": false
+  }
+}

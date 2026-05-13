@@ -1,0 +1,800 @@
+[
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/character_enemy_final.glb",
+    "bytes": 467124,
+    "scenes": 1,
+    "meshes": 49,
+    "triangles": 9708,
+    "uvAttributeMeshes": 49,
+    "materialNames": [
+      "black_nylon_webbing",
+      "charcoal_enemy_cloth",
+      "maroon_enemy_plate_carrier",
+      "medical_red_marking",
+      "muted_skin_visible_face",
+      "smoked_blue_visor_glass",
+      "tan_canvas_fabric"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.5260617943034264,
+        -0.5700000077486038,
+        -2.039000028133392
+      ],
+      "max": [
+        0.5260617943034264,
+        0.6049999818205833,
+        0.029999999329447746
+      ],
+      "size": [
+        1.0521235886068527,
+        1.1749999895691872,
+        2.06900002746284
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/character_player_final.glb",
+    "bytes": 467092,
+    "scenes": 1,
+    "meshes": 49,
+    "triangles": 9708,
+    "uvAttributeMeshes": 49,
+    "materialNames": [
+      "black_nylon_webbing",
+      "brass_cartridge_metal",
+      "ceramic_plate_carrier",
+      "muted_skin_visible_face",
+      "olive_ripstop_cloth",
+      "smoked_blue_visor_glass",
+      "tan_canvas_fabric"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.5260617943034264,
+        -0.5700000077486038,
+        -2.039000028133392
+      ],
+      "max": [
+        0.5260617943034264,
+        0.6049999818205833,
+        0.029999999329447746
+      ],
+      "size": [
+        1.0521235886068527,
+        1.1749999895691872,
+        2.06900002746284
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/dmr_m5_candidate.glb",
+    "bytes": 413576,
+    "scenes": 1,
+    "meshes": 46,
+    "triangles": 7704,
+    "uvAttributeMeshes": 46,
+    "materialNames": [
+      "blackened_steel",
+      "bright_edge_wear",
+      "dark_optic_glass",
+      "fiber_reinforced_polymer",
+      "matte_rubber",
+      "tan_polymer_grip",
+      "worn_blued_steel"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -2.3250001072883606,
+        -0.4099999964237213,
+        -0.7449999898672104
+      ],
+      "max": [
+        3.2250000834465027,
+        0.4099999964237213,
+        0.9824660929134988
+      ],
+      "size": [
+        5.550000190734863,
+        0.8199999928474426,
+        1.7274660827807091
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/groza_procedural_candidate.glb",
+    "bytes": 1104512,
+    "scenes": 1,
+    "meshes": 87,
+    "triangles": 21540,
+    "uvAttributeMeshes": 87,
+    "materialNames": [
+      "blackened_steel",
+      "brass_markings",
+      "bright_edge_wear",
+      "matte_rubber",
+      "oiled_dark_wood",
+      "transparent_collider_proxy",
+      "worn_blued_steel"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -2.0250000059604645,
+        -0.4099999964237213,
+        -0.7799999862909317
+      ],
+      "max": [
+        2.7249999940395355,
+        0.4099999964237213,
+        1.8925265658546575
+      ],
+      "size": [
+        4.75,
+        0.8199999928474426,
+        2.672526552145589
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_ammo_final.glb",
+    "bytes": 44604,
+    "scenes": 1,
+    "meshes": 9,
+    "triangles": 852,
+    "uvAttributeMeshes": 9,
+    "materialNames": [
+      "black_nylon_webbing",
+      "brass_cartridge_metal",
+      "worn_painted_metal"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.4099999964237213,
+        -0.25999999046325684,
+        -0.7100000495801476
+      ],
+      "max": [
+        0.4099999964237213,
+        0.25999999046325684,
+        0
+      ],
+      "size": [
+        0.8199999928474426,
+        0.5199999809265137,
+        0.7100000495801476
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_bandage_final.glb",
+    "bytes": 53280,
+    "scenes": 1,
+    "meshes": 6,
+    "triangles": 936,
+    "uvAttributeMeshes": 6,
+    "materialNames": [
+      "black_nylon_webbing",
+      "medical_red_marking",
+      "tan_canvas_fabric"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.31679999828338623,
+        -0.2199999988079071,
+        -0.6500000422373562
+      ],
+      "max": [
+        0.31679999828338623,
+        0.3783999979496002,
+        -0.026399999856948853
+      ],
+      "size": [
+        0.6335999965667725,
+        0.5983999967575073,
+        0.6236000423804073
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_firstaid_final.glb",
+    "bytes": 43684,
+    "scenes": 1,
+    "meshes": 4,
+    "triangles": 752,
+    "uvAttributeMeshes": 4,
+    "materialNames": [
+      "black_nylon_webbing",
+      "medical_red_marking",
+      "tan_canvas_fabric"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.31679999828338623,
+        -0.2199999988079071,
+        -0.40039999783039093
+      ],
+      "max": [
+        0.31679999828338623,
+        0.3783999979496002,
+        -0.026399999856948853
+      ],
+      "size": [
+        0.6335999965667725,
+        0.5983999967575073,
+        0.3739999979734421
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_helmet_final.glb",
+    "bytes": 65688,
+    "scenes": 1,
+    "meshes": 4,
+    "triangles": 1292,
+    "uvAttributeMeshes": 4,
+    "materialNames": [
+      "black_nylon_webbing",
+      "ceramic_plate_carrier",
+      "smoked_blue_visor_glass"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.3749999925494194,
+        -0.3400000035762787,
+        -0.5708000181436539
+      ],
+      "max": [
+        0.3749999925494194,
+        0.3699999935925007,
+        -0.14920006589889567
+      ],
+      "size": [
+        0.7499999850988388,
+        0.7099999971687794,
+        0.4215999522447582
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_medkit_final.glb",
+    "bytes": 43676,
+    "scenes": 1,
+    "meshes": 4,
+    "triangles": 752,
+    "uvAttributeMeshes": 4,
+    "materialNames": [
+      "black_nylon_webbing",
+      "medical_red_marking",
+      "tan_canvas_fabric"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.42480000853538513,
+        -0.29499998688697815,
+        -0.5368999764323235
+      ],
+      "max": [
+        0.42480000853538513,
+        0.5073999911546707,
+        -0.03540000319480896
+      ],
+      "size": [
+        0.8496000170707703,
+        0.8023999780416489,
+        0.5014999732375145
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_revive_final.glb",
+    "bytes": 28932,
+    "scenes": 1,
+    "meshes": 3,
+    "triangles": 536,
+    "uvAttributeMeshes": 3,
+    "materialNames": [
+      "revive_glowing_glass",
+      "scratched_dark_steel"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.2800000011920929,
+        -0.2800000011920929,
+        -0.7117999917984008
+      ],
+      "max": [
+        0.2800000011920929,
+        0.2800000011920929,
+        0
+      ],
+      "size": [
+        0.5600000023841858,
+        0.5600000023841858,
+        0.7117999917984008
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_vest_final.glb",
+    "bytes": 41596,
+    "scenes": 1,
+    "meshes": 4,
+    "triangles": 752,
+    "uvAttributeMeshes": 4,
+    "materialNames": [
+      "black_nylon_webbing",
+      "ceramic_plate_carrier"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.3100000023841858,
+        -0.09000000357627869,
+        -0.7899999916553497
+      ],
+      "max": [
+        0.3100000023841858,
+        0.20499999821186066,
+        -0.04999998211860657
+      ],
+      "size": [
+        0.6200000047683716,
+        0.29500000178813934,
+        0.7400000095367432
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/pistol_m5_candidate.glb",
+    "bytes": 180476,
+    "scenes": 1,
+    "meshes": 20,
+    "triangles": 3584,
+    "uvAttributeMeshes": 20,
+    "materialNames": [
+      "blackened_steel",
+      "bright_edge_wear",
+      "dark_optic_glass",
+      "fiber_reinforced_polymer",
+      "matte_rubber",
+      "worn_blued_steel"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.724999975413084,
+        -0.28999999165534973,
+        -0.45000001043081284
+      ],
+      "max": [
+        1.1499999670470844,
+        0.28999999165534973,
+        0.7974575751628971
+      ],
+      "size": [
+        1.8749999424601684,
+        0.5799999833106995,
+        1.2474575855937098
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_building_detail_final.glb",
+    "bytes": 81344,
+    "scenes": 1,
+    "meshes": 9,
+    "triangles": 1556,
+    "uvAttributeMeshes": 9,
+    "materialNames": [
+      "brass_cartridge_metal",
+      "scratched_dark_steel",
+      "worn_painted_metal"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.754122506827116,
+        -0.8499999865889549,
+        -1.2199999690055847
+      ],
+      "max": [
+        0.8700000196695328,
+        1.0499999895691872,
+        -0.4599999934434891
+      ],
+      "size": [
+        1.6241225264966488,
+        1.899999976158142,
+        0.7599999755620956
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_container_final.glb",
+    "bytes": 170068,
+    "scenes": 1,
+    "meshes": 19,
+    "triangles": 3268,
+    "uvAttributeMeshes": 19,
+    "materialNames": [
+      "faded_yellow_warning_paint",
+      "scratched_dark_steel",
+      "worn_painted_metal"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -1.125,
+        -0.5400000214576721,
+        -1.1200000047683716
+      ],
+      "max": [
+        1.125,
+        1.280000001192093,
+        0
+      ],
+      "size": [
+        2.25,
+        1.820000022649765,
+        1.1200000047683716
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_crate_final.glb",
+    "bytes": 67744,
+    "scenes": 1,
+    "meshes": 7,
+    "triangles": 1316,
+    "uvAttributeMeshes": 7,
+    "materialNames": [
+      "scratched_dark_steel",
+      "sealed_rough_wood"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.6399999856948853,
+        -0.490000007674098,
+        -0.7799999713897705
+      ],
+      "max": [
+        0.6399999856948853,
+        0.490000007674098,
+        0
+      ],
+      "size": [
+        1.2799999713897705,
+        0.980000015348196,
+        0.7799999713897705
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ground_wall_fence_final.glb",
+    "bytes": 75128,
+    "scenes": 1,
+    "meshes": 13,
+    "triangles": 1356,
+    "uvAttributeMeshes": 13,
+    "materialNames": [
+      "faded_yellow_warning_paint",
+      "patched_dark_asphalt",
+      "scratched_dark_steel",
+      "weathered_cast_concrete"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -1.125,
+        -0.7799999862909317,
+        -0.8499999940395355
+      ],
+      "max": [
+        1.125,
+        1.054999977350235,
+        0
+      ],
+      "size": [
+        2.25,
+        1.8349999636411667,
+        0.8499999940395355
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_interior_furniture_final.glb",
+    "bytes": 110452,
+    "scenes": 1,
+    "meshes": 11,
+    "triangles": 2068,
+    "uvAttributeMeshes": 11,
+    "materialNames": [
+      "faded_yellow_warning_paint",
+      "scratched_dark_steel",
+      "sealed_rough_wood",
+      "worn_painted_metal"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.9800000190734863,
+        -0.800000011920929,
+        -1.5749999526888132
+      ],
+      "max": [
+        1.1549999713897705,
+        0.28999999165534973,
+        0
+      ],
+      "size": [
+        2.134999990463257,
+        1.0900000035762787,
+        1.5749999526888132
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ladder_stair_final.glb",
+    "bytes": 148480,
+    "scenes": 1,
+    "meshes": 23,
+    "triangles": 2684,
+    "uvAttributeMeshes": 23,
+    "materialNames": [
+      "faded_yellow_warning_paint",
+      "scratched_dark_steel"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.547999981790781,
+        -1.0550000071525574,
+        -1.1779999658465385
+      ],
+      "max": [
+        0.547999981790781,
+        1.0574999619275331,
+        -0.08999999798834324
+      ],
+      "size": [
+        1.095999963581562,
+        2.1124999690800905,
+        1.0879999678581953
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_rock_cluster_final.glb",
+    "bytes": 25108,
+    "scenes": 1,
+    "meshes": 4,
+    "triangles": 672,
+    "uvAttributeMeshes": 4,
+    "materialNames": [
+      "granite_rough_rock"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -1.0349999046325706,
+        -0.591999997973442,
+        -0.5499999827146524
+      ],
+      "max": [
+        0.8619999365806592,
+        0.5149999971687791,
+        0.054999977946280865
+      ],
+      "size": [
+        1.8969998412132298,
+        1.1069999951422211,
+        0.6049999606609333
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_tree_final.glb",
+    "bytes": 65708,
+    "scenes": 1,
+    "meshes": 10,
+    "triangles": 1356,
+    "uvAttributeMeshes": 10,
+    "materialNames": [
+      "layered_tree_bark",
+      "mixed_leaf_clusters"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -1.2246710275411559,
+        -1.2860873341560364,
+        -3.162399709320063
+      ],
+      "max": [
+        1.40764785158634,
+        1.2715107202529907,
+        -0.9099999815225601
+      ],
+      "size": [
+        2.632318879127496,
+        2.557598054409027,
+        2.2523997277975027
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/rifle_obj_baseline.glb",
+    "bytes": 107992,
+    "scenes": 1,
+    "meshes": 12,
+    "triangles": 2172,
+    "uvAttributeMeshes": 1,
+    "materialNames": [
+      "(unnamed)",
+      "blackMetal",
+      "darkMetal",
+      "glass",
+      "gold",
+      "gunBody",
+      "lensDark",
+      "matteBlack",
+      "polymer",
+      "rubber",
+      "steel",
+      "tan"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.29392697289586067,
+        -0.7749999761581421,
+        -1.8404544842411084
+      ],
+      "max": [
+        0.2939269654452801,
+        0.7750002290039255,
+        1.8404542441067229
+      ],
+      "size": [
+        0.5878539383411407,
+        1.5500002051620676,
+        3.6809087283478314
+      ]
+    }
+  },
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/shotgun_m5_candidate.glb",
+    "bytes": 224500,
+    "scenes": 1,
+    "meshes": 28,
+    "triangles": 3992,
+    "uvAttributeMeshes": 28,
+    "materialNames": [
+      "blackened_steel",
+      "brass_rounds",
+      "bright_edge_wear",
+      "dark_optic_glass",
+      "fiber_reinforced_polymer",
+      "matte_rubber",
+      "tan_polymer_grip",
+      "worn_blued_steel"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -1.8599999696016312,
+        -0.375,
+        -0.574999988079071
+      ],
+      "max": [
+        2.630000057951871,
+        0.375,
+        0.574999988079071
+      ],
+      "size": [
+        4.490000027553503,
+        0.75,
+        1.149999976158142
+      ]
+    }
+  }
+]

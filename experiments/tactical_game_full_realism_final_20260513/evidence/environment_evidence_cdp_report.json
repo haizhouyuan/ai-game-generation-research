@@ -1,0 +1,327 @@
+{
+  "url": "http://localhost:8765/index.html?evidence=environment",
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/evidence/environment_evidence_cdp.png",
+  "probe": {
+    "rifleAsset": {
+      "url": "assets/models/groza_procedural_candidate.glb",
+      "status": "loaded",
+      "error": null
+    },
+    "weaponAssets": {
+      "pistol": {
+        "url": "assets/models/pistol_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "shotgun": {
+        "url": "assets/models/shotgun_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "rifle": {
+        "url": "assets/models/groza_procedural_candidate.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "dmr": {
+        "url": "assets/models/dmr_m5_candidate.glb",
+        "status": "loaded",
+        "error": null
+      }
+    },
+    "finalAssetKit": {
+      "characterPlayer": {
+        "url": "assets/models/character_player_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "characterEnemy": {
+        "url": "assets/models/character_enemy_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootAmmo": {
+        "url": "assets/models/loot_ammo_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootBandage": {
+        "url": "assets/models/loot_bandage_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootFirstAid": {
+        "url": "assets/models/loot_firstaid_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootMedkit": {
+        "url": "assets/models/loot_medkit_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootRevive": {
+        "url": "assets/models/loot_revive_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootVest": {
+        "url": "assets/models/loot_vest_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "lootHelmet": {
+        "url": "assets/models/loot_helmet_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propCrate": {
+        "url": "assets/models/prop_crate_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propContainer": {
+        "url": "assets/models/prop_container_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propLadderStair": {
+        "url": "assets/models/prop_ladder_stair_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propInteriorFurniture": {
+        "url": "assets/models/prop_interior_furniture_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propBuildingDetail": {
+        "url": "assets/models/prop_building_detail_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propGroundWallFence": {
+        "url": "assets/models/prop_ground_wall_fence_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propTree": {
+        "url": "assets/models/prop_tree_final.glb",
+        "status": "loaded",
+        "error": null
+      },
+      "propRockCluster": {
+        "url": "assets/models/prop_rock_cluster_final.glb",
+        "status": "loaded",
+        "error": null
+      }
+    },
+    "player": {
+      "weapon": "rifle",
+      "cameraMode": "third",
+      "lobby": false,
+      "dead": false
+    },
+    "viewGun": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb",
+      "hasMuzzle": true
+    },
+    "thirdGun": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb",
+      "hasMuzzle": true
+    },
+    "evidenceCameraRifle": {
+      "assetSource": null
+    },
+    "m5WeaponShowcase": {
+      "assetSources": null,
+      "count": 0
+    },
+    "finalEvidenceShowcase": {
+      "assetSources": {
+        "propCrate": "assets/models/prop_crate_final.glb",
+        "propContainer": "assets/models/prop_container_final.glb",
+        "propLadderStair": "assets/models/prop_ladder_stair_final.glb",
+        "propInteriorFurniture": "assets/models/prop_interior_furniture_final.glb",
+        "propBuildingDetail": "assets/models/prop_building_detail_final.glb",
+        "propGroundWallFence": "assets/models/prop_ground_wall_fence_final.glb",
+        "propTree": "assets/models/prop_tree_final.glb",
+        "propRockCluster": "assets/models/prop_rock_cluster_final.glb"
+      },
+      "count": 8
+    },
+    "finalRuntime": {
+      "playerAsset": "assets/models/character_player_final.glb",
+      "enemyAssets": [
+        "assets/models/character_enemy_final.glb",
+        "assets/models/character_enemy_final.glb"
+      ],
+      "lootFinalCount": 42,
+      "environmentPropsAdded": true
+    }
+  },
+  "imageStats": {
+    "ok": true,
+    "width": 1440,
+    "height": 813,
+    "litRatio": 0.7698619631901841,
+    "darkRatio": 0.1401840490797546,
+    "colorfulRatio": 0.551840490797546,
+    "edgeRatio": 0.05547034764826176
+  },
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "warning",
+      "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x12c004e8a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x12c004e8a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x12c004e8a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x12c004e8a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:shotgun loaded assets/models/shotgun_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:pistol loaded assets/models/pistol_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:dmr loaded assets/models/dmr_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:characterEnemy loaded assets/models/character_enemy_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:characterPlayer loaded assets/models/character_player_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:rifle loaded assets/models/groza_procedural_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootAmmo loaded assets/models/loot_ammo_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootBandage loaded assets/models/loot_bandage_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootFirstAid loaded assets/models/loot_firstaid_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootMedkit loaded assets/models/loot_medkit_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootVest loaded assets/models/loot_vest_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootRevive loaded assets/models/loot_revive_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootHelmet loaded assets/models/loot_helmet_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propCrate loaded assets/models/prop_crate_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propContainer loaded assets/models/prop_container_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propLadderStair loaded assets/models/prop_ladder_stair_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propBuildingDetail loaded assets/models/prop_building_detail_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propGroundWallFence loaded assets/models/prop_ground_wall_fence_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propInteriorFurniture loaded assets/models/prop_interior_furniture_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propRockCluster loaded assets/models/prop_rock_cluster_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propTree loaded assets/models/prop_tree_final.glb"
+    }
+  ],
+  "blockingEvents": [],
+  "chromeStderrTail": [
+    "[16275:3207840:0513/103027.446319:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready.",
+    "[16275:3207840:0513/103027.447046:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports",
+    "[16275:3207840:0513/103027.447170:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports",
+    "[16275:3207840:0513/103027.447231:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/yuanshaochen/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)",
+    "[16275:3207840:0513/103027.447272:VERBOSE1:chrome/updater/updater.cc:103] Crash reporting initialized.",
+    "[16275:3207853:0513/103027.447506:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `/Users/yuanshaochen/Library/Application Support/Google/GoogleUpdater/149.0.7814.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake`",
+    "[16278:3207857:0513/103027.456022:VERBOSE1:chrome/updater/updater.cc:352] Version: 149.0.7814.0, opt, ARM_64, command line: /Users/yuanshaochen/Library/Application Support/Google/GoogleUpdater/149.0.7814.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2",
+    "[16278:3207857:0513/103027.456375:VERBOSE1:chrome/updater/updater.cc:355] OS version: 26.4.1, arch: arm64, System uptime (seconds): 130382, parent pid: 16275",
+    "[16278:3207857:0513/103027.460528:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log",
+    "[16280:3207861:0513/103027.471852:VERBOSE1:chrome/updater/updater.cc:352] Version: 149.0.7814.0, opt, ARM_64, command line: /Users/yuanshaochen/Library/Application Support/Google/GoogleUpdater/149.0.7814.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/yuanshaochen/Library/Application Support/Google/GoogleUpdater/149.0.7814.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=149.0.7814.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2",
+    "[16280:3207861:0513/103027.472061:VERBOSE1:chrome/updater/updater.cc:355] OS version: 26.4.1, arch: arm64, System uptime (seconds): 130382, parent pid: 1",
+    "[16280:3207861:0513/103027.474660:VERBOSE2:chrome/updater/event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log",
+    "[16278:3207857:0513/103027.475234:VERBOSE1:chrome/updater/crash_reporter.cc:124] Crash handler launched and ready.",
+    "[16278:3207857:0513/103027.476417:VERBOSE1:chrome/updater/crash_client.cc:108] Found 0 completed crash reports",
+    "[16278:3207857:0513/103027.476493:VERBOSE1:chrome/updater/crash_client.cc:132] Found 0 pending crash reports",
+    "[16278:3207857:0513/103027.476555:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/yuanshaochen/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)",
+    "[16278:3207857:0513/103027.476625:VERBOSE1:chrome/updater/updater.cc:103] Crash reporting initialized.",
+    "[16278:3207857:0513/103027.476842:VERBOSE1:chrome/updater/ipc/update_service_internal_proxy_mojo.cc:61] Run",
+    "[16104:3205624:0513/103038.296273:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT",
+    ""
+  ]
+}

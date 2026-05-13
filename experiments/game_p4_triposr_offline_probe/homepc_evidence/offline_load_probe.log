@@ -1,0 +1,16 @@
+/home/yuanhaizhou/.local/lib/python3.10/site-packages/numba/np/ufunc/parallel.py:373: NumbaWarning: [1mThe TBB threading layer requires TBB version 2021 update 6 or later i.e., TBB_INTERFACE_VERSION >= 12060. Found TBB_INTERFACE_VERSION = 12050. The TBB threading layer is disabled.[0m
+  warnings.warn(problem)
+/usr/lib/python3/dist-packages/paramiko/pkey.py:82: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "cipher": algorithms.TripleDES,
+/usr/lib/python3/dist-packages/paramiko/transport.py:261: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "class": algorithms.TripleDES,
+/home/yuanhaizhou/models/p3_ai_cad_game/repos/triposr_raw_fetch/source/tsr/system.py:69: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(weight_path, map_location="cpu")
+offline=true
+proxy_env {'HTTP_PROXY': None, 'HTTPS_PROXY': None, 'ALL_PROXY': None, 'http_proxy': None, 'https_proxy': None, 'all_proxy': None, 'NO_PROXY': '*', 'no_proxy': '*'}
+cuda_available True visible 1
+load_seconds 2.702
+class TSR
+param_count 419275628
+renderer_chunk_size_before 0
+device_probe cuda:0

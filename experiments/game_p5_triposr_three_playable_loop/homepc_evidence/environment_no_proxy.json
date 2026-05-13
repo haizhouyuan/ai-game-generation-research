@@ -1,0 +1,23 @@
+{
+  "network_mode": "offline/no-proxy",
+  "proxy_keys_present_after_unset": {},
+  "NO_PROXY": "*",
+  "no_proxy": "*",
+  "HF_HUB_OFFLINE": "1",
+  "TRANSFORMERS_OFFLINE": "1",
+  "source_root": "/home/yuanhaizhou/models/p3_ai_cad_game/repos/triposr_raw_fetch/source",
+  "model_root": "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/triposr_minimal_model_dir",
+  "experiment_root": "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p5_triposr_synthetic_probe_20260512",
+  "input_images": [
+    {
+      "path": "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p5_triposr_synthetic_probe_20260512/images/synthetic_block.png",
+      "bytes": 2545,
+      "sha256": "f55002c294321dab249a9adafaff5ee901db2557dc976dcca9bc51f5008b8169"
+    },
+    {
+      "path": "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p5_triposr_synthetic_probe_20260512/images/synthetic_tower.png",
+      "bytes": 2942,
+      "sha256": "9e8c6884d219263cb1fb3f65188453cf16a755e4b7d627be001acd3522a3924f"
+    }
+  ]
+}

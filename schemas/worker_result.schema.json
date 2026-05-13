@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.codex/managed-agents/worker_result.schema.json",
+  "title": "Managed Codex Worker Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "lane_id",
+    "repo_id",
+    "status",
+    "summary",
+    "work_performed",
+    "files_changed",
+    "commands_run",
+    "tests",
+    "evidence",
+    "risks",
+    "blockers",
+    "needs_human",
+    "next_action"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0"]
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lane_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repo_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "thread_id": {
+      "type": ["string", "null"]
+    },
+    "turn_id": {
+      "type": ["string", "null"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["done", "partial", "blocked", "needs_review", "needs_human", "failed", "no_op"]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "work_performed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "files_changed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "change_type"],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "change_type": {
+            "type": "string",
+            "enum": ["created", "modified", "deleted", "none"]
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "commands_run": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["command", "cwd", "status"],
+        "properties": {
+          "command": {
+            "type": "string"
+          },
+          "cwd": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["passed", "failed", "skipped"]
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["passed", "failed", "skipped"]
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "path_or_url"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["doc", "log", "screenshot", "asset", "hash", "source", "test", "other"]
+          },
+          "path_or_url": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "needs_human": {
+      "type": "boolean"
+    },
+    "human_question": {
+      "type": ["string", "null"]
+    },
+    "next_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recommended_state"],
+      "properties": {
+        "recommended_state": {
+          "type": "string",
+          "enum": ["queue_next_turn", "review", "archive", "wait_for_human", "retry", "stop"]
+        },
+        "prompt": {
+          "type": ["string", "null"]
+        }
+      }
+    }
+  }
+}

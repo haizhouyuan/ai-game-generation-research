@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify-assets": "node tools/verify_asset_inventory.mjs"
+  },
+  "dependencies": {
+    "three": "0.181.2"
+  }
+}

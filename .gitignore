@@ -1,0 +1,38 @@
+# Large/generated artifacts
+.DS_Store
+artifacts/
+outputs/
+*.blend
+*.fbx
+*.glb
+*.gltf
+*.obj
+*.stl
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.mov
+
+# Keep the final playable evidence packet in git. These files are small enough
+# for normal GitHub hosting and are needed for reproducible before/after review.
+!experiments/tactical_game_full_realism_final_20260513/assets/models/*.glb
+!experiments/tactical_game_full_realism_final_20260513/assets/models/*_preview.png
+!experiments/tactical_game_full_realism_final_20260513/evidence/*.png
+
+# Local-only external material. Public repo keeps summaries/records, not raw
+# app downloads, vendored source archives, or private transcript extracts.
+external/downloads/
+external/research_sources/
+external/chatgpt_app_extracts/
+
+# Local tool state
+.cache/
+.managed_codex/
+.pytest_cache/
+.ruff_cache/
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+*.egg-info/

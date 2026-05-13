@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    "no downloads",
+    "no installs",
+    "no private uploads",
+    "no ChatGPT Pro",
+    "no ChatgptREST",
+    "no visual QA claim",
+    "no mesh-accurate collision claim"
+  ],
+  "source_p26_result": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p26_contract_bundle_graph_verifier_20260512/validator_result.json",
+  "source_p26_sha256": "4e5ae7c3fcb07513be3ce100afadc7dd500daa2de99319be55956854ecd0043c",
+  "task": "game_p27_contract_bundle_release_packet_review_20260512"
+}

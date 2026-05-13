@@ -1,0 +1,765 @@
+{
+  "checks": {
+    "finish": "pass",
+    "gate_or_puzzle": "pass",
+    "hashes": "pass",
+    "hazard": "pass",
+    "hud": "pass",
+    "input": "pass",
+    "load": "pass",
+    "nonblank_canvas": "pass",
+    "pickup": "pass",
+    "screenshots": "pass"
+  },
+  "entrypoint": "experiments/game_p1_rover_workshop_demo/index.html",
+  "prototype_id": "p1_rover_workshop",
+  "steps": [
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "ai_glb_prop_loaded": true,
+          "ai_hero_rover_loaded": true,
+          "ai_hero_rover_materials_present": true,
+          "canvas_present": true,
+          "hud_mobile_guard_present": true,
+          "hud_present": true,
+          "page_ready": true,
+          "route_signposting_present": true
+        },
+        "hud": {
+          "batteries": "0 / 3",
+          "bridge": "Waiting",
+          "energy": "100",
+          "gate": "Closed",
+          "gear": "0 / 3",
+          "upgrade": "Locked"
+        },
+        "hudText": "BATTERIES\n0 / 3\nENERGY\n100\nGEAR\n0 / 3\nMAGNET\nLocked\nBRIDGE\nWaiting\nGATE\nClosed\nStart\nReset",
+        "state": {
+          "aiAssets": {
+            "heroRover": {
+              "assetId": "RW-ROVER-001",
+              "bboxSize": [
+                2,
+                1.7361558871343732,
+                1.809220552444458
+              ],
+              "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+              "hiddenProxyMeshCount": 1,
+              "materialNames": [
+                "rw_rover_v1_body_teal",
+                "rw_rover_v1_rubber_dark",
+                "rw_rover_v1_safety_yellow",
+                "rw_rover_v1_sensor_glass"
+              ],
+              "meshCount": 4,
+              "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 42300
+            },
+            "workshopCrate": {
+              "assetId": "RW-CRATE-AI-001",
+              "bboxSize": [
+                0.9995670914649963,
+                0.9967367649078369,
+                0.9996874928474426
+              ],
+              "collisionStrategy": "visual landmark only; no generated mesh collision",
+              "meshCount": 1,
+              "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 110066
+            }
+          },
+          "batteries": 0,
+          "bridgeBuilt": false,
+          "cleaningBot": {
+            "segment": 0,
+            "x": -3.9,
+            "y": 0.34,
+            "z": 0.95
+          },
+          "energy": 100,
+          "finished": false,
+          "gateOpen": false,
+          "gear": 0,
+          "rover": {
+            "x": -5,
+            "y": 0.35,
+            "z": 4
+          },
+          "started": false,
+          "upgradeUnlocked": false
+        }
+      },
+      "step": {
+        "action": "open",
+        "expect": [
+          "page_ready",
+          "canvas_present",
+          "hud_present",
+          "route_signposting_present",
+          "hud_mobile_guard_present",
+          "ai_hero_rover_loaded",
+          "ai_hero_rover_materials_present",
+          "ai_glb_prop_loaded"
+        ],
+        "id": "load"
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "play_state": true
+        },
+        "hud": {
+          "batteries": "0 / 3",
+          "bridge": "Waiting",
+          "energy": "100",
+          "gate": "Closed",
+          "gear": "0 / 3",
+          "upgrade": "Locked"
+        },
+        "hudText": "BATTERIES\n0 / 3\nENERGY\n100\nGEAR\n0 / 3\nMAGNET\nLocked\nBRIDGE\nWaiting\nGATE\nClosed\nStart\nReset",
+        "state": {
+          "aiAssets": {
+            "heroRover": {
+              "assetId": "RW-ROVER-001",
+              "bboxSize": [
+                2,
+                1.7361558871343732,
+                1.809220552444458
+              ],
+              "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+              "hiddenProxyMeshCount": 1,
+              "materialNames": [
+                "rw_rover_v1_body_teal",
+                "rw_rover_v1_rubber_dark",
+                "rw_rover_v1_safety_yellow",
+                "rw_rover_v1_sensor_glass"
+              ],
+              "meshCount": 4,
+              "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 42300
+            },
+            "workshopCrate": {
+              "assetId": "RW-CRATE-AI-001",
+              "bboxSize": [
+                0.9995670914649963,
+                0.9967367649078369,
+                0.9996874928474426
+              ],
+              "collisionStrategy": "visual landmark only; no generated mesh collision",
+              "meshCount": 1,
+              "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 110066
+            }
+          },
+          "batteries": 0,
+          "bridgeBuilt": false,
+          "cleaningBot": {
+            "segment": 0,
+            "x": -3.9,
+            "y": 0.34,
+            "z": 0.95
+          },
+          "energy": 100,
+          "finished": false,
+          "gateOpen": false,
+          "gear": 0,
+          "rover": {
+            "x": -5,
+            "y": 0.35,
+            "z": 4
+          },
+          "started": true,
+          "upgradeUnlocked": false
+        }
+      },
+      "step": {
+        "action": "click",
+        "expect": [
+          "play_state"
+        ],
+        "id": "start",
+        "target": "start_button"
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "position_changed": true
+        },
+        "hud": {
+          "batteries": "0 / 3",
+          "bridge": "Waiting",
+          "energy": "100",
+          "gate": "Closed",
+          "gear": "0 / 3",
+          "upgrade": "Locked"
+        },
+        "hudText": "BATTERIES\n0 / 3\nENERGY\n100\nGEAR\n0 / 3\nMAGNET\nLocked\nBRIDGE\nWaiting\nGATE\nClosed\nStart\nReset",
+        "state": {
+          "aiAssets": {
+            "heroRover": {
+              "assetId": "RW-ROVER-001",
+              "bboxSize": [
+                2,
+                1.7361558871343732,
+                1.809220552444458
+              ],
+              "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+              "hiddenProxyMeshCount": 1,
+              "materialNames": [
+                "rw_rover_v1_body_teal",
+                "rw_rover_v1_rubber_dark",
+                "rw_rover_v1_safety_yellow",
+                "rw_rover_v1_sensor_glass"
+              ],
+              "meshCount": 4,
+              "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 42300
+            },
+            "workshopCrate": {
+              "assetId": "RW-CRATE-AI-001",
+              "bboxSize": [
+                0.9995670914649963,
+                0.9967367649078369,
+                0.9996874928474426
+              ],
+              "collisionStrategy": "visual landmark only; no generated mesh collision",
+              "meshCount": 1,
+              "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 110066
+            }
+          },
+          "batteries": 0,
+          "bridgeBuilt": false,
+          "cleaningBot": {
+            "segment": 1,
+            "x": -1.05,
+            "y": 0.34,
+            "z": 2.339654999987035
+          },
+          "energy": 100,
+          "finished": false,
+          "gateOpen": false,
+          "gear": 0,
+          "rover": {
+            "x": -4.800878730417868,
+            "y": 0.35,
+            "z": 3.8008787304178684
+          },
+          "started": true,
+          "upgradeUnlocked": false
+        }
+      },
+      "step": {
+        "action": "replay",
+        "expect": [
+          "position_changed"
+        ],
+        "id": "input",
+        "keys": [
+          "KeyW",
+          "KeyD"
+        ]
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "battery_count_incremented": true,
+          "gear_collected": true,
+          "upgrade_unlocked": true
+        },
+        "hud": {
+          "batteries": "3 / 3",
+          "bridge": "Ready",
+          "energy": "93",
+          "gate": "Closed",
+          "gear": "3 / 3",
+          "upgrade": "Boosted"
+        },
+        "hudText": "BATTERIES\n3 / 3\nENERGY\n93\nGEAR\n3 / 3\nMAGNET\nBoosted\nBRIDGE\nReady\nGATE\nClosed\nStart\nReset",
+        "state": {
+          "aiAssets": {
+            "heroRover": {
+              "assetId": "RW-ROVER-001",
+              "bboxSize": [
+                2,
+                1.7361558871343732,
+                1.809220552444458
+              ],
+              "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+              "hiddenProxyMeshCount": 1,
+              "materialNames": [
+                "rw_rover_v1_body_teal",
+                "rw_rover_v1_rubber_dark",
+                "rw_rover_v1_safety_yellow",
+                "rw_rover_v1_sensor_glass"
+              ],
+              "meshCount": 4,
+              "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 42300
+            },
+            "workshopCrate": {
+              "assetId": "RW-CRATE-AI-001",
+              "bboxSize": [
+                0.9995670914649963,
+                0.9967367649078369,
+                0.9996874928474426
+              ],
+              "collisionStrategy": "visual landmark only; no generated mesh collision",
+              "meshCount": 1,
+              "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 110066
+            }
+          },
+          "batteries": 3,
+          "bridgeBuilt": false,
+          "cleaningBot": {
+            "segment": 3,
+            "x": -3.9,
+            "y": 0.34,
+            "z": 1.3626150000043187
+          },
+          "energy": 93,
+          "finished": false,
+          "gateOpen": false,
+          "gear": 3,
+          "rover": {
+            "x": 1.5,
+            "y": 0.35,
+            "z": -1.8
+          },
+          "started": true,
+          "upgradeUnlocked": true
+        }
+      },
+      "step": {
+        "action": "navigate_to",
+        "expect": [
+          "battery_count_incremented",
+          "gear_collected",
+          "upgrade_unlocked"
+        ],
+        "id": "pickup",
+        "target": "battery_route"
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "hazard_feedback": true,
+          "patrol_hazard_feedback": true
+        },
+        "hud": {
+          "batteries": "3 / 3",
+          "bridge": "Ready",
+          "energy": "83",
+          "gate": "Closed",
+          "gear": "3 / 3",
+          "upgrade": "Boosted"
+        },
+        "hudText": "BATTERIES\n3 / 3\nENERGY\n83\nGEAR\n3 / 3\nMAGNET\nBoosted\nBRIDGE\nReady\nGATE\nClosed\nStart\nReset",
+        "state": {
+          "aiAssets": {
+            "heroRover": {
+              "assetId": "RW-ROVER-001",
+              "bboxSize": [
+                2,
+                1.7361558871343732,
+                1.809220552444458
+              ],
+              "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+              "hiddenProxyMeshCount": 1,
+              "materialNames": [
+                "rw_rover_v1_body_teal",
+                "rw_rover_v1_rubber_dark",
+                "rw_rover_v1_safety_yellow",
+                "rw_rover_v1_sensor_glass"
+              ],
+              "meshCount": 4,
+              "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 42300
+            },
+            "workshopCrate": {
+              "assetId": "RW-CRATE-AI-001",
+              "bboxSize": [
+                0.9995670914649963,
+                0.9967367649078369,
+                0.9996874928474426
+              ],
+              "collisionStrategy": "visual landmark only; no generated mesh collision",
+              "meshCount": 1,
+              "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 110066
+            }
+          },
+          "batteries": 3,
+          "bridgeBuilt": false,
+          "cleaningBot": {
+            "segment": 0,
+            "x": -3.9,
+            "y": 0.34,
+            "z": 0.95
+          },
+          "energy": 83,
+          "finished": false,
+          "gateOpen": false,
+          "gear": 3,
+          "rover": {
+            "x": -3.65,
+            "y": 0.35,
+            "z": 1.03
+          },
+          "started": true,
+          "upgradeUnlocked": true
+        }
+      },
+      "step": {
+        "action": "navigate_near",
+        "expect": [
+          "hazard_feedback",
+          "patrol_hazard_feedback"
+        ],
+        "id": "hazard",
+        "target": "spark_tile_01"
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "bridge_blocks_before_repair": true,
+          "bridge_hud_repaired": true,
+          "bridge_route_open": true,
+          "gate_01_open": true,
+          "repair_bridge_built": true
+        },
+        "hud": {
+          "batteries": "3 / 3",
+          "bridge": "Repaired",
+          "energy": "83",
+          "gate": "Open",
+          "gear": "3 / 3",
+          "upgrade": "Boosted"
+        },
+        "hudText": "BATTERIES\n3 / 3\nENERGY\n83\nGEAR\n3 / 3\nMAGNET\nBoosted\nBRIDGE\nRepaired\nGATE\nOpen\nStart\nReset",
+        "state": {
+          "aiAssets": {
+            "heroRover": {
+              "assetId": "RW-ROVER-001",
+              "bboxSize": [
+                2,
+                1.7361558871343732,
+                1.809220552444458
+              ],
+              "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+              "hiddenProxyMeshCount": 1,
+              "materialNames": [
+                "rw_rover_v1_body_teal",
+                "rw_rover_v1_rubber_dark",
+                "rw_rover_v1_safety_yellow",
+                "rw_rover_v1_sensor_glass"
+              ],
+              "meshCount": 4,
+              "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 42300
+            },
+            "workshopCrate": {
+              "assetId": "RW-CRATE-AI-001",
+              "bboxSize": [
+                0.9995670914649963,
+                0.9967367649078369,
+                0.9996874928474426
+              ],
+              "collisionStrategy": "visual landmark only; no generated mesh collision",
+              "meshCount": 1,
+              "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 110066
+            }
+          },
+          "batteries": 3,
+          "bridgeBuilt": true,
+          "cleaningBot": {
+            "segment": 1,
+            "x": -1.05,
+            "y": 0.34,
+            "z": 2.389680000008643
+          },
+          "energy": 83,
+          "finished": false,
+          "gateOpen": true,
+          "gear": 3,
+          "rover": {
+            "x": 3.0836,
+            "y": 0.35,
+            "z": 3.95
+          },
+          "started": true,
+          "upgradeUnlocked": true
+        }
+      },
+      "step": {
+        "action": "activate",
+        "expect": [
+          "gate_01_open",
+          "bridge_blocks_before_repair",
+          "repair_bridge_built",
+          "bridge_hud_repaired",
+          "bridge_route_open"
+        ],
+        "id": "gate",
+        "target": "switch_01_and_repair_bridge_pad_01"
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "bridge_hud_repaired": true,
+          "bridge_route_open": true,
+          "repair_bridge_built": true
+        },
+        "hud": {
+          "batteries": "3 / 3",
+          "bridge": "Repaired",
+          "energy": "83",
+          "gate": "Open",
+          "gear": "3 / 3",
+          "upgrade": "Boosted"
+        },
+        "hudText": "BATTERIES\n3 / 3\nENERGY\n83\nGEAR\n3 / 3\nMAGNET\nBoosted\nBRIDGE\nRepaired\nGATE\nOpen\nStart\nReset",
+        "state": {
+          "aiAssets": {
+            "heroRover": {
+              "assetId": "RW-ROVER-001",
+              "bboxSize": [
+                2,
+                1.7361558871343732,
+                1.809220552444458
+              ],
+              "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+              "hiddenProxyMeshCount": 1,
+              "materialNames": [
+                "rw_rover_v1_body_teal",
+                "rw_rover_v1_rubber_dark",
+                "rw_rover_v1_safety_yellow",
+                "rw_rover_v1_sensor_glass"
+              ],
+              "meshCount": 4,
+              "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 42300
+            },
+            "workshopCrate": {
+              "assetId": "RW-CRATE-AI-001",
+              "bboxSize": [
+                0.9995670914649963,
+                0.9967367649078369,
+                0.9996874928474426
+              ],
+              "collisionStrategy": "visual landmark only; no generated mesh collision",
+              "meshCount": 1,
+              "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 110066
+            }
+          },
+          "batteries": 3,
+          "bridgeBuilt": true,
+          "cleaningBot": {
+            "segment": 1,
+            "x": -1.05,
+            "y": 0.34,
+            "z": 2.4246250000000007
+          },
+          "energy": 83,
+          "finished": true,
+          "gateOpen": true,
+          "gear": 3,
+          "rover": {
+            "x": 2.2,
+            "y": 0.35,
+            "z": 1.2
+          },
+          "started": true,
+          "upgradeUnlocked": true
+        }
+      },
+      "step": {
+        "action": "activate",
+        "expect": [
+          "repair_bridge_built",
+          "bridge_hud_repaired",
+          "bridge_route_open"
+        ],
+        "id": "bridge",
+        "target": "repair_bridge_pad_01"
+      }
+    },
+    {
+      "pixel_stats": {
+        "distinct_sample_colors": 4096,
+        "height": 913,
+        "nonblank": true,
+        "nontransparent_pixels": 1314720,
+        "width": 1440
+      },
+      "state": {
+        "checks": {
+          "result_screen": true
+        },
+        "hud": {
+          "batteries": "3 / 3",
+          "bridge": "Repaired",
+          "energy": "83",
+          "gate": "Open",
+          "gear": "3 / 3",
+          "upgrade": "Boosted"
+        },
+        "hudText": "BATTERIES\n3 / 3\nENERGY\n83\nGEAR\n3 / 3\nMAGNET\nBoosted\nBRIDGE\nRepaired\nGATE\nOpen\nStart\nReset",
+        "state": {
+          "aiAssets": {
+            "heroRover": {
+              "assetId": "RW-ROVER-001",
+              "bboxSize": [
+                2,
+                1.7361558871343732,
+                1.809220552444458
+              ],
+              "collisionStrategy": "visual avatar mesh only; gameplay collision remains the procedural rover proxy",
+              "hiddenProxyMeshCount": 1,
+              "materialNames": [
+                "rw_rover_v1_body_teal",
+                "rw_rover_v1_rubber_dark",
+                "rw_rover_v1_safety_yellow",
+                "rw_rover_v1_sensor_glass"
+              ],
+              "meshCount": 4,
+              "path": "assets/models/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 42300
+            },
+            "workshopCrate": {
+              "assetId": "RW-CRATE-AI-001",
+              "bboxSize": [
+                0.9995670914649963,
+                0.9967367649078369,
+                0.9996874928474426
+              ],
+              "collisionStrategy": "visual landmark only; no generated mesh collision",
+              "meshCount": 1,
+              "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+              "ready": {},
+              "status": "loaded",
+              "triangles": 110066
+            }
+          },
+          "batteries": 3,
+          "bridgeBuilt": true,
+          "cleaningBot": {
+            "segment": 1,
+            "x": -1.05,
+            "y": 0.34,
+            "z": 2.4246250000000007
+          },
+          "energy": 83,
+          "finished": true,
+          "gateOpen": true,
+          "gear": 3,
+          "rover": {
+            "x": 5,
+            "y": 0.35,
+            "z": 4
+          },
+          "started": true,
+          "upgradeUnlocked": true
+        }
+      },
+      "step": {
+        "action": "navigate_to",
+        "expect": [
+          "result_screen"
+        ],
+        "id": "finish",
+        "target": "finish_charging_pad"
+      }
+    }
+  ],
+  "url": "http://127.0.0.1:57329/experiments/game_p1_rover_workshop_demo/index.html"
+}

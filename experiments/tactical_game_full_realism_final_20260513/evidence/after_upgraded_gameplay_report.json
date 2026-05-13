@@ -1,0 +1,118 @@
+{
+  "id": "upgraded_derivative",
+  "url": "http://localhost:8765/index.html",
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/evidence/after_upgraded_gameplay.png",
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "warning",
+      "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:pistol loaded assets/models/pistol_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:shotgun loaded assets/models/shotgun_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:rifle loaded assets/models/groza_procedural_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] weapon:dmr loaded assets/models/dmr_m5_candidate.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:characterEnemy loaded assets/models/character_enemy_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:characterPlayer loaded assets/models/character_player_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootAmmo loaded assets/models/loot_ammo_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootBandage loaded assets/models/loot_bandage_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootFirstAid loaded assets/models/loot_firstaid_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootRevive loaded assets/models/loot_revive_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootMedkit loaded assets/models/loot_medkit_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootHelmet loaded assets/models/loot_helmet_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:lootVest loaded assets/models/loot_vest_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propCrate loaded assets/models/prop_crate_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propContainer loaded assets/models/prop_container_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propLadderStair loaded assets/models/prop_ladder_stair_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propInteriorFurniture loaded assets/models/prop_interior_furniture_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propBuildingDetail loaded assets/models/prop_building_detail_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propGroundWallFence loaded assets/models/prop_ground_wall_fence_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propRockCluster loaded assets/models/prop_rock_cluster_final.glb"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[asset-glb] final:propTree loaded assets/models/prop_tree_final.glb"
+    }
+  ],
+  "blockingEvents": []
+}

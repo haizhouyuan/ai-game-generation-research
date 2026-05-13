@@ -1,0 +1,18 @@
+path	api_url	tree_size	written_size	sha256	status	error
+LICENSE	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/6c440ca1ef32cedcc2257b99953add129199ed26	1080	1080	ade0a66629bdd7e01e46b3296b3851cff0fd27989bca53da470ad6e96ed620fb	pass	
+README.md	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/307552501b9f0f6599bd00cb6f08824a4c9c61af	4589	4589	92b03aca5fea7ef52844ab5d79e82573e78982bb58091de9e7126df506f0f781	pass	
+examples/chair.png	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/fee2a21d1c9bbdf707631060f110539401265a1d	114705	114705	2503c12a74419d91a4c6c9f1affc48fee6e2b8b9091956ca6211e91ada57b5bf	pass	
+gradio_app.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/22092da32381673811cf8965547898c5b1a86951	7147	7147	966639162b0e54b8d02748968e77c90aec38bbc123aa5db2d1d81eb92fda9f80	pass	
+requirements.txt	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/c905bdb3540890d0af5382f984f48ef74d9a270c	203	203	741408247598c63e9f08cdb5f6fc753d78ac9185bb961cbe7ba8c5c0132aae48	pass	
+run.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/1150529c1b9525c88e87dba44fa649129b1d2d95	6292	6292	bc1c124b3439f8ceb00ebd441848487ae7650af71053a80b266ae5db15784282	pass	
+tsr/bake_texture.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/642a4242e7952999e3a329d9a3fc7995dd3f86b0	5374	5374	931d066c25d5943dc7b71469b63c308df3f37b8e7f6df558ee5e348d7936d5b7	pass	
+tsr/models/isosurface.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/076321b81f573ab95a6c7d5328f6366e0f33c38e	1926	1926	94c9a2ec27f8fe3c2fb57558ef28be253eb77074d2c171d49a41cf73d95d6f5e	pass	
+tsr/models/nerf_renderer.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/0cf3ab6e31f79c3af8e75384f48c0e874621c2b8	5673	5673	afe8c12c964078b2c6bb3922d2e30969aa59f7edbacb8cb73d2c3df839dc785f	pass	
+tsr/models/network_utils.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/470c92b9a99901e93dee2b98e80eea53cfdf3f9d	3473	3473	b3d48e86be9ca3f3abc1bfd774f640fd350e4365843d804e2a3145e7692e1419	pass	
+tsr/models/tokenizers/image.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/d4034b25a7b2e8f38630fd69a0bae75ed2a5edb0	2116	2116	f6da23124dfabe6a1f8d0d27693d0cece6574de68be15487a77781b6a9d73195	pass	
+tsr/models/tokenizers/triplane.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/ecdd7fd2201c974bb70b18a90a633287b814886f	1237	1237	44811fbd53013d6f49e229ecfd0717f89dd8ebeb71608aeb1f8e5ed1d5e8e378	pass	
+tsr/models/transformer/attention.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/34bd99778ce168cb68192c183814f098a3d08e67	26341	26341	347c1a707257cb4eb664ebe9ecd16db7b6006131e74925c049245d2c0101ba7e	pass	
+tsr/models/transformer/basic_transformer_block.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/1ea41b0192b6fbb368fe3a587b7c04b0253d23b3	13202	13202	ced8ce4c5c5bbc13368130bc15dee1717cc6bc7f35699f64d03aeec185b1198e	pass	
+tsr/models/transformer/transformer_1d.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/a98d0fb98136ea873aef708717a809e434e7ca14	9325	9325	fd83a71d59d04ef0a45dbadcc63f9d56d354ebc011a40f5589eb1786a1dd15f4	pass	
+tsr/system.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/bcdb69b2e5c85b3c0ffebd7ff82fc4fe7b3d543e	6608	6608	7aec93e421394ad7c746b6d63a0189532b57b26af9a199fc75ac3bb7c993c94f	pass	
+tsr/utils.py	https://api.github.com/repos/VAST-AI-Research/TripoSR/git/blobs/9758f2e44cd4091f2124929edc89b59e98fff667	15172	15172	d9d1a645fef7ea489615bff3471fd01a4941a2c0e138c5dff5daae619563279b	pass	

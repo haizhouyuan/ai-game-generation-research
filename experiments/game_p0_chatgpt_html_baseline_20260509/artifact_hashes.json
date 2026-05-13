@@ -1,0 +1,17 @@
+{
+  "experiment": "game_p0_chatgpt_html_baseline_20260509",
+  "source": "/Users/yuanshaochen/Documents/14.html",
+  "captured_at": "2026-05-12T10:18:00+08:00",
+  "artifacts": [
+    {
+      "path": "14.html",
+      "bytes": 99869,
+      "sha256": "ad82e7d5da575f8e2f783b39e1bfed4736dc032faa6be7ed8be6a66dacbad8b3"
+    },
+    {
+      "path": "lobby_screenshot.png",
+      "bytes": 330818,
+      "sha256": "99cbf0c622ca2095b2fc77ad6f229e516d3c88724b2a5633ab5edce64c92530a"
+    }
+  ]
+}

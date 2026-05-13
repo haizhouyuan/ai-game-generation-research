@@ -1,0 +1,94 @@
+{
+  "assets/asset_provenance.json": {
+    "sha256": "9aad59317323698f6e3bc8c6e52c486ca1ed61b04f42036c3f6341b90138259e",
+    "size_bytes": 2306
+  },
+  "browser_log.jsonl": {
+    "sha256": "88212b00858833dcdfa8d09d107d06d695bbe79e2cf9fcce0471443f78afb4b8",
+    "size_bytes": 50914
+  },
+  "closeout.md": {
+    "sha256": "d094d80dceb56741e52eee9a8f144209e18ecf52d73211d93229eec4ec76c0ca",
+    "size_bytes": 386
+  },
+  "console_summary.json": {
+    "sha256": "269d0531599e7f99e71bafba7daba334b159b2d441163a40b076bfe6010a054f",
+    "size_bytes": 75
+  },
+  "network_summary.json": {
+    "sha256": "a1990e55f47c6efce5a794f2ce22b0bdf37ea0a00e71a15e3999b89facbc51de",
+    "size_bytes": 2685
+  },
+  "release_packet.json": {
+    "sha256": "57dc68c6f35bfd80d8bee0fdd2b204b783565aecddcc1b678929e86e9fbe542d",
+    "size_bytes": 5036
+  },
+  "scenario_result.json": {
+    "sha256": "40b56ab7f98e0248c27fd9e8043ceaadc35365db840ab8914b63094e12159bf8",
+    "size_bytes": 26081
+  },
+  "screenshots/00_load.png": {
+    "sha256": "f409cd165b1de4b873fe67ba929103f958b0900765663b6c63fe7acbbbf7fd26",
+    "size_bytes": 187198
+  },
+  "screenshots/01_start.png": {
+    "sha256": "a28a81eeafc9bce536f80724f1c77147fb94ab3a822f1304eb624b569ea9f079",
+    "size_bytes": 193031
+  },
+  "screenshots/02_input.png": {
+    "sha256": "5057c5a973cf699b0ae428f11a532792562e6927fd622e78923f2d98cf9c5f85",
+    "size_bytes": 197031
+  },
+  "screenshots/03_pickup.png": {
+    "sha256": "30e0d9017eca3e8351fea28653673ab01d993196e018f78a5a6146086090d41f",
+    "size_bytes": 168029
+  },
+  "screenshots/04_hazard.png": {
+    "sha256": "d7032dfee25c3277ee1ffdbc51cde9840f959903936e16b5d6be8daa6b07e645",
+    "size_bytes": 191305
+  },
+  "screenshots/05_gate.png": {
+    "sha256": "23313806e4640085c9066320dba21ce60061aad17ae4c22aae5b7f7b613ba254",
+    "size_bytes": 173740
+  },
+  "screenshots/06_finish.png": {
+    "sha256": "0d53da849797a47dacc825aa57a783e051ebb82ea230fc4bcacaa21087da2baa",
+    "size_bytes": 172991
+  },
+  "screenshots/bridge.png": {
+    "sha256": "d541cc95f73a31a9b5dd37c1fd68e370dbe512e8eef9dd09a66d4b1b75d153c7",
+    "size_bytes": 216736
+  },
+  "state_dumps/bridge.json": {
+    "sha256": "c38adadea535a7e71707aafb1e9be816f31b09d26bd86919bdab318afe64c9e5",
+    "size_bytes": 2777
+  },
+  "state_dumps/finish.json": {
+    "sha256": "587b1ae61b42a5eaa191d6bd15265a1b1516ed0b14ea0563cd7c05e911cdf95b",
+    "size_bytes": 2639
+  },
+  "state_dumps/gate.json": {
+    "sha256": "cb7487011fce28915ed2be9720d2849208a5be2965b927a7817e48fb80c66b7b",
+    "size_bytes": 2924
+  },
+  "state_dumps/hazard.json": {
+    "sha256": "a6405bb7ac9f62457387e6f23aeb387dec4dac9c1ae393bc00a9b0b443c99f94",
+    "size_bytes": 2702
+  },
+  "state_dumps/input.json": {
+    "sha256": "184dde68884fc41b09379ef1e693c640e88e84046a5c4b2922571303d5ec2871",
+    "size_bytes": 2690
+  },
+  "state_dumps/load.json": {
+    "sha256": "20cb2399ca10cb15b82e14e6f5ab4f1c5b8b792a137c42e4e62766904bf5bb6f",
+    "size_bytes": 3263
+  },
+  "state_dumps/pickup.json": {
+    "sha256": "a9413ef9756a9894b63e12727b0b3742983e091382219ad1208fdde35705c7ec",
+    "size_bytes": 2774
+  },
+  "state_dumps/start.json": {
+    "sha256": "03880a487c0c03261d9d85c2796f7a43ba4c95cccbbf533873a6e71eb19f5510",
+    "size_bytes": 2612
+  }
+}

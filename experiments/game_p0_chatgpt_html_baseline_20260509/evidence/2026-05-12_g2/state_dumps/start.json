@@ -1,0 +1,23 @@
+{
+  "pixel_stats": {
+    "distinct_sample_colors": 4096,
+    "height": 913,
+    "nonblank": true,
+    "nontransparent_pixels": 1314720,
+    "width": 1440
+  },
+  "state": {
+    "checks": {
+      "play_state": true
+    },
+    "hudText": "\u6dd8\u6c70\u6570\n0\n\u5f53\u524d\u67aa\u68b0\nP-9 \u624b\u67aa\n\u5f39\u836f\n15 / 45\n\u67aa\u68b0\u76ae\u80a4\n\u9ed1\u94c1"
+  },
+  "step": {
+    "action": "click",
+    "expect": [
+      "play_state"
+    ],
+    "id": "start",
+    "target": "start_button"
+  }
+}

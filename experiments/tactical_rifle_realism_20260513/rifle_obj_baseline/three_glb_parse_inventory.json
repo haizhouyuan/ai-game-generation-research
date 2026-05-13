@@ -1,0 +1,46 @@
+[
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_realism_20260513/rifle_obj_baseline/rifle_obj_baseline.glb",
+    "bytes": 107992,
+    "scenes": 1,
+    "meshes": 12,
+    "triangles": 2172,
+    "uvAttributeMeshes": 1,
+    "materialNames": [
+      "(unnamed)",
+      "blackMetal",
+      "darkMetal",
+      "glass",
+      "gold",
+      "gunBody",
+      "lensDark",
+      "matteBlack",
+      "polymer",
+      "rubber",
+      "steel",
+      "tan"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.29392697289586067,
+        -0.7749999761581421,
+        -1.8404544842411084
+      ],
+      "max": [
+        0.2939269654452801,
+        0.7750002290039255,
+        1.8404542441067229
+      ],
+      "size": [
+        0.5878539383411407,
+        1.5500002051620676,
+        3.6809087283478314
+      ]
+    }
+  }
+]

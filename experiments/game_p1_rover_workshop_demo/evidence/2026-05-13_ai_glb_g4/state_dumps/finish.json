@@ -1,0 +1,68 @@
+{
+  "pixel_stats": {
+    "distinct_sample_colors": 4096,
+    "height": 913,
+    "nonblank": true,
+    "nontransparent_pixels": 1314720,
+    "width": 1440
+  },
+  "state": {
+    "checks": {
+      "result_screen": true
+    },
+    "hud": {
+      "batteries": "3 / 3",
+      "bridge": "Repaired",
+      "energy": "83",
+      "gate": "Open",
+      "gear": "3 / 3",
+      "upgrade": "Boosted"
+    },
+    "hudText": "BATTERIES\n3 / 3\nENERGY\n83\nGEAR\n3 / 3\nMAGNET\nBoosted\nBRIDGE\nRepaired\nGATE\nOpen\nStart\nReset",
+    "state": {
+      "aiAssets": {
+        "workshopCrate": {
+          "assetId": "RW-CRATE-AI-001",
+          "bboxSize": [
+            0.9995670914649963,
+            0.9967367649078369,
+            0.9996874928474426
+          ],
+          "collisionStrategy": "visual landmark only; no generated mesh collision",
+          "meshCount": 1,
+          "path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+          "ready": {},
+          "status": "loaded",
+          "triangles": 110066
+        }
+      },
+      "batteries": 3,
+      "bridgeBuilt": true,
+      "cleaningBot": {
+        "segment": 1,
+        "x": -1.05,
+        "y": 0.34,
+        "z": 2.379240000004324
+      },
+      "energy": 83,
+      "finished": true,
+      "gateOpen": true,
+      "gear": 3,
+      "rover": {
+        "x": 5,
+        "y": 0.35,
+        "z": 4
+      },
+      "started": true,
+      "upgradeUnlocked": true
+    }
+  },
+  "step": {
+    "action": "navigate_to",
+    "expect": [
+      "result_screen"
+    ],
+    "id": "finish",
+    "target": "finish_charging_pad"
+  }
+}

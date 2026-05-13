@@ -1,0 +1,84 @@
+{
+  "schema_version": "asset_provenance_p1_v0",
+  "asset_id": "RW-ROVER-001",
+  "asset_name": "Friendly workshop rover",
+  "p1_role": "player_avatar",
+  "status": "reference",
+  "source": {
+    "kind": "openai_image",
+    "prompt_id": "IMG-002",
+    "prompt_text_path": "docs/rover_workshop_asset_generation_plan_2026-05-12.md",
+    "reference_image_path": "experiments/hero_rover_reference_20260513/inputs/rw-rover-001_orthographic_reference_openai_20260513.png",
+    "reference_image_sha256": "60fbef87cfcde012219131c336697d9a7c551d77e329f9b1f21454fc39fdb930",
+    "model_or_tool": "Codex built-in image_gen",
+    "tool_version": "not_exposed",
+    "operator": "Codex",
+    "generated_at": "2026-05-13T03:58:00+08:00"
+  },
+  "generation": {
+    "generator": "openai_image_reference",
+    "command_or_notebook": "built-in image_gen tool; source prompt recorded in report",
+    "host": "Mac",
+    "input_paths": [
+      "docs/rover_workshop_asset_generation_plan_2026-05-12.md"
+    ],
+    "output_paths": [
+      "experiments/hero_rover_reference_20260513/inputs/rw-rover-001_orthographic_reference_openai_20260513.png"
+    ],
+    "output_sha256": "60fbef87cfcde012219131c336697d9a7c551d77e329f9b1f21454fc39fdb930",
+    "download_evidence_path": "",
+    "large_download_approval": "not_required"
+  },
+  "asset_files": {
+    "raw_glb_path": "",
+    "cleaned_glb_path": "",
+    "preview_image_path": "experiments/hero_rover_reference_20260513/inputs/rw-rover-001_orthographic_reference_openai_20260513.png",
+    "texture_paths": [],
+    "material_report_path": "",
+    "mesh_stats_path": ""
+  },
+  "validation": {
+    "reference_review": {
+      "passed": true,
+      "notes_path": "experiments/hero_rover_reference_20260513/reports/rw-rover-001_reference_report.md",
+      "known_limitations": [
+        "reference sheet only; no GLB candidate yet",
+        "orthographic consistency is visual, not measured geometry",
+        "image contains stylized lighting and may need foreground/background cleanup before single-image 3D tools"
+      ]
+    },
+    "blender_inspection": {
+      "passed": false,
+      "notes_path": "",
+      "known_limitations": [
+        "no generated rover GLB exists yet"
+      ]
+    },
+    "threejs_validation": {
+      "passed": false,
+      "parser_report_path": "",
+      "screenshot_path": "",
+      "bbox": null,
+      "material_count": null,
+      "texture_count": null
+    },
+    "gameplay_validation": {
+      "passed": false,
+      "test_log_path": "",
+      "collider_proxy_path": "",
+      "notes": "Generated mesh collision is not allowed; future gameplay integration must use a simple proxy collider."
+    }
+  },
+  "license_and_rights": {
+    "source_license": "OpenAI generated output; project-local provenance required",
+    "allowed_use_notes": "Use as internal production reference and downstream image-to-3D input for the research project.",
+    "third_party_dependencies": []
+  },
+  "limitations": [
+    "reference image only, not a model",
+    "not textured GLB",
+    "not Blender-cleaned",
+    "not Three.js-validated",
+    "not Unity-imported"
+  ]
+}

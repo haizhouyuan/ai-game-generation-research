@@ -1,0 +1,705 @@
+repos:
+  - repo_id: ai-game-generation-research
+    path: /Users/yuanshaochen/Projects/ai-game-generation-research
+    role: game-generation-research
+    default_branch: main
+
+lanes:
+  - lane_id: controller-core
+    title: Production managed-agents controller
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: lead-orchestrator
+    safety_policy: local-only-human-gated
+
+  - lane_id: research-current-best-practices
+    title: Current tooling and community best-practices research
+    state: enabled
+    auto_continue: false
+    concurrency: 2
+    owner: research-worker
+    safety_policy: citations-no-large-downloads
+
+  - lane_id: capability-registry
+    title: Prior experiment capability registry and reusable skill templates
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: capability-worker
+    safety_policy: evidence-required-no-claims-without-local-proof
+
+  - lane_id: unity-agent-mcp
+    title: Unity Agent MCP and editor integration
+    state: paused
+    auto_continue: false
+    concurrency: 1
+    owner: unity-worker
+    safety_policy: no-editor-download-until-no-proxy-verified
+
+  - lane_id: threejs-playable-runtime
+    title: Fast browser playable runtime and validators
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: game-runtime-worker
+    safety_policy: local-browser-validation
+
+  - lane_id: asset-generation
+    title: AI image and image-to-3D asset pipeline
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: asset-worker
+    safety_policy: homepc-gpu-no-large-unapproved-downloads
+
+  - lane_id: blender-authoring
+    title: Blender cleanup, material, screenshot, and GLB export
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: blender-worker
+    safety_policy: host-must-be-verified
+
+  - lane_id: game-design
+    title: P1 child-friendly game design and asset plan
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: game-designer
+    safety_policy: no-private-child-data
+
+  - lane_id: game-prototype
+    title: Playable game demo implementation
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: prototype-worker
+    safety_policy: design-gated-local-only
+
+  - lane_id: qa-evidence
+    title: Automated validation, review packets, and release evidence
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: qa-worker
+    safety_policy: evidence-required
+
+  - lane_id: download-provenance
+    title: No-proxy download, source, size, and hash governance
+    state: enabled
+    auto_continue: false
+    concurrency: 1
+    owner: provenance-worker
+    safety_policy: no-system-proxy-changes
+
+tasks:
+  - task_id: controller-core-phase1
+    lane_id: controller-core
+    repo_id: ai-game-generation-research
+    title: Registry and read-only CLI foundation
+    state: task_complete
+    priority: 100
+    goal: Add lanes config, SQLite registry, worker result schema, and read-only status commands.
+    done_criteria: CLI can initialize registry and explain lanes, tasks, and threads without changing dispatch behavior.
+
+  - task_id: controller-core-phase2
+    lane_id: controller-core
+    repo_id: ai-game-generation-research
+    title: Scheduler policy and fake App Server tests
+    state: task_complete
+    priority: 95
+    goal: Add deterministic dispatch policy checks, fake App Server harness, and request validation boundary.
+    done_criteria: Tests cover disabled lane, duplicate dispatch guard, cooldown, retry limit, needs_human stop, timeout interrupt, and invalid worker result.
+
+  - task_id: controller-core-phase3
+    lane_id: controller-core
+    repo_id: ai-game-generation-research
+    title: Controller issues, artifact/evidence index, and event collector
+    state: task_complete
+    priority: 96
+    goal: Make controller usage self-improving by recording issues, indexing artifacts/evidence, and collecting App Server events.
+    done_criteria: CLI records controller issues, persists worker result evidence/artifacts, lists indexed items, and imports App Server events.
+
+  - task_id: controller-core-phase4
+    lane_id: controller-core
+    repo_id: ai-game-generation-research
+    title: Guarded App Server adapter and fake/local proof
+    state: task_complete
+    priority: 94
+    goal: Build the schema-driven App Server adapter boundary for thread start/read/fork, turn start/interrupt, review, and archive using fake and local-only HTTP proof.
+    done_criteria: Adapter calls are schema-driven, local-only by default, logged as codex_events, and covered by replayable fake plus local HTTP boundary proof.
+
+  - task_id: controller-core-phase4-live-proof
+    lane_id: controller-core
+    repo_id: ai-game-generation-research
+    title: Disposable live App Server lifecycle proof
+    state: task_complete
+    priority: 93
+    goal: Exercise a real disposable Codex App Server lifecycle for thread start/read/fork, turn start/interrupt, review, and archive through the local app-server stdio endpoint.
+    done_criteria: DONE evidence exists in experiments/appserver_phase4_live_probe_20260513 for initialize, thread/start, turn/start, turn/interrupt, thread/read, thread/fork, review/start, and thread/archive; the proof stays local-only and does not expose an unauthenticated remote control surface.
+
+  - task_id: controller-core-phase5
+    lane_id: controller-core
+    repo_id: ai-game-generation-research
+    title: Production status report and dashboard closeout
+    state: task_complete
+    priority: 89
+    goal: Make the controller answer who is doing what, who is blocked, what evidence exists, and what the next dispatch decision is.
+    done_criteria: Dashboard/status output is generated from registry state and attached to a dated execution status report after every managed run.
+
+  - task_id: capability-registry-001
+    lane_id: capability-registry
+    repo_id: ai-game-generation-research
+    title: Initial capability registry from prior experiments
+    state: task_complete
+    priority: 92
+    goal: Classify prior P0-P27 and toolchain experiments into available, partial, blocked, planned, and rejected capabilities.
+    done_criteria: Initial capability entries exist for P0, P2/P5, P26, Godot CI, no-proxy download, Unity MCP, Blender MCP, and TRELLIS textured export.
+
+  - task_id: capability-registry-002
+    lane_id: capability-registry
+    repo_id: ai-game-generation-research
+    title: Promote reusable capabilities into worker skills/templates
+    state: task_complete
+    priority: 88
+    goal: Turn available capabilities into worker-usable skill templates with commands, expected inputs, outputs, evidence, and failure modes.
+    done_criteria: GLB validator, asset provenance packet, scene QA gate, and no-proxy download templates are discoverable by agents before task dispatch.
+
+  - task_id: research-current-001
+    lane_id: research-current-best-practices
+    repo_id: ai-game-generation-research
+    title: Current best-practices matrix
+    state: task_complete
+    priority: 80
+    goal: Build dated matrix for Unity AI/MCP, community Unity MCPs, Blender MCP, Three.js, OpenAI image, image-to-3D, and OpenGame.
+    done_criteria: Matrix cites sources and marks each candidate adopt, probe, defer, or reject.
+
+  - task_id: game-design-001
+    lane_id: game-design
+    repo_id: ai-game-generation-research
+    title: P1 child-friendly game design spec
+    state: task_complete
+    priority: 85
+    goal: Convert the P0 HTML game's excitement loop into a child-friendly exploration, collection, and puzzle game spec.
+    done_criteria: Spec includes target player, core loop, P0 feature mapping, level structure, asset list, scene schema sketch, and acceptance tests.
+
+  - task_id: game-prototype-001
+    lane_id: game-prototype
+    repo_id: ai-game-generation-research
+    title: P1 modular Three.js playable slice
+    state: task_complete
+    priority: 90
+    goal: Implement the first Rover Workshop playable slice with movement, camera, three batteries, one hazard, one puzzle gate, finish pad, HUD, and local run path.
+    done_criteria: Demo runs locally and has smoke evidence for load, movement, pickup, hazard interaction, gate, finish, screenshot, and hashes.
+
+  - task_id: qa-001
+    lane_id: qa-evidence
+    repo_id: ai-game-generation-research
+    title: Prototype evidence gate
+    state: task_complete
+    priority: 82
+    goal: Define and implement the first evidence gate for browser playable prototypes.
+    done_criteria: Evidence gate checks load, nonblank canvas, HUD, input, collect, hazard, finish, screenshot, and release packet fields.
+
+  - task_id: download-001
+    lane_id: download-provenance
+    repo_id: ai-game-generation-research
+    title: Governed Node/npm and browser QA environment setup
+    state: task_complete
+    priority: 83
+    goal: Set up the frontend/browser validation toolchain without changing Clash/system proxy behavior and without unapproved large downloads.
+    done_criteria: Node/npm or an accepted alternative is installed or selected, all downloads have source/size/hash/no-proxy evidence, and P0/P1 browser gates can run locally.
+
+  - task_id: threejs-001
+    lane_id: threejs-playable-runtime
+    repo_id: ai-game-generation-research
+    title: P0 automated playable smoke test
+    state: task_complete
+    priority: 75
+    goal: Add evidence that the original HTML game loads, starts, renders nonblank canvas, exposes HUD, and accepts basic input.
+    done_criteria: Test logs, screenshot, and hashes are stored under the P0 experiment outputs.
+
+  - task_id: asset-001
+    lane_id: asset-generation
+    repo_id: ai-game-generation-research
+    title: Image-to-GLB validation template
+    state: task_complete
+    priority: 70
+    goal: Standardize P26-style input image to GLB to readback to preview to hash evidence.
+    done_criteria: Template states required artifacts, commands, readbacks, and limitations.
+
+  - task_id: asset-002
+    lane_id: asset-generation
+    repo_id: ai-game-generation-research
+    title: Rover Workshop art and 3D asset plan
+    state: task_complete
+    priority: 78
+    goal: Convert the P1 design into concept image prompts, orthographic reference prompts, GLB candidate list, texture/material plan, and validation checklist.
+    done_criteria: Asset plan maps each P1 asset to procedural, OpenAI image, TRELLIS/TripoSR/Hunyuan3D, Blender cleanup, and Three.js validation steps.
+
+  - task_id: asset-003
+    lane_id: asset-generation
+    repo_id: ai-game-generation-research
+    title: RW-ROVER-001 hero rover materialized asset chain
+    state: task_complete
+    priority: 84
+    goal: Run one hero rover chain from OpenAI image reference through TRELLIS mesh-only generation, Blender cleanup/material pass, Three.js parse, and P1 visual integration.
+    done_criteria: Reference images, raw GLB, materialized cleaned GLB, Blender report/render, Three.js parse, P1 G4 evidence, hashes, provenance, and limitations are recorded.
+
+  - task_id: asset-004
+    lane_id: asset-generation
+    repo_id: ai-game-generation-research
+    title: Tactical compound realistic rifle hero asset
+    state: queued
+    priority: 92
+    goal: Upgrade the rifle/GROZA-style weapon asset for /Users/yuanshaochen/Documents/14.html using a realistic GLB pipeline, then integrate it into first-person, third-person, NPC, and loot contexts.
+    done_criteria: Asset inventory, reference image/provenance, at least three candidate routes or documented skips, selected cleaned GLB, Blender report/render, Three.js parse, in-game browser evidence, hashes, and limitations are recorded.
+
+  - task_id: unity-mcp-001
+    lane_id: unity-agent-mcp
+    repo_id: ai-game-generation-research
+    title: Unity host and MCP readiness probe
+    state: blocked
+    priority: 60
+    goal: Verify Unity Editor/MCP host availability and document install/download constraints before any large editor download.
+    done_criteria: Hub status, Editor status, account/tooling blockers, and no-proxy plan are documented.
+
+capabilities:
+  - capability_id: p0-html-baseline
+    title: Preserved ChatGPT HTML game baseline
+    category: game-baseline
+    status: available
+    lane_id: game-design
+    summary: Original single-file HTML game is preserved as an experience baseline, not a production codebase.
+    evidence_paths:
+      - experiments/game_p0_chatgpt_html_baseline_20260509/report.md
+      - experiments/game_p0_chatgpt_html_baseline_20260509/14.html
+      - experiments/game_p0_g2_browser_smoke_20260512/p0_g2_browser_smoke.json
+      - experiments/game_p0_g2_browser_smoke_20260512/p0_after_start.png
+      - experiments/game_p0_g2_browser_smoke_20260512/artifact_hashes.json
+      - experiments/game_p0_chatgpt_html_baseline_20260509/evidence/2026-05-12_g2/release_packet.json
+      - docs/game_p1_child_friendly_design_spec_2026-05-12.md
+    commands: []
+    inputs:
+      - /Users/yuanshaochen/Documents/14.html
+    outputs:
+      - experiments/game_p0_chatgpt_html_baseline_20260509/14.html
+      - experiments/game_p0_chatgpt_html_baseline_20260509/lobby_screenshot.png
+    limitations:
+      - Not production architecture.
+      - Tactical shooting theme is not carried forward.
+      - Automated G2 smoke is load/start/HUD/input evidence only, not a full playthrough.
+    next_steps:
+      - Use P0 G2 as a baseline smoke packet while P1 carries full G4 playthrough proof.
+
+  - capability_id: browser-prototype-evidence-gate
+    title: Browser prototype evidence gate
+    category: qa-evidence
+    status: available
+    lane_id: qa-evidence
+    summary: Zero-npm local Chrome CDP gate for G2/G4 browser prototype evidence packets, screenshots, hashes, state dumps, and console/network fail-close checks.
+    evidence_paths:
+      - tools/run_browser_prototype_gate.py
+      - tools/verify_artifact_hashes.py
+      - scenarios/p0_smoke_g2.json
+      - scenarios/p1_rover_workshop_g4.json
+      - experiments/game_p0_chatgpt_html_baseline_20260509/evidence/2026-05-12_g2/release_packet.json
+      - experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/release_packet.json
+      - docs/capability_templates/browser_prototype_gate.md
+    commands:
+      - python3 tools/run_browser_prototype_gate.py --prototype-id p1_rover_workshop --entrypoint experiments/game_p1_rover_workshop_demo/index.html --scenario scenarios/p1_rover_workshop_g4.json --out experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4 --gate-level G4 --server-bind 127.0.0.1 --timeout-ms 30000
+      - python3 tools/verify_artifact_hashes.py experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/artifact_hashes.json
+    inputs:
+      - Static browser prototype entrypoint
+      - browser_prototype_gate.v1 scenario JSON
+    outputs:
+      - release_packet.json
+      - artifact_hashes.json
+      - screenshots
+      - state_dumps
+      - closeout.md
+    limitations:
+      - Uses local Chrome CDP, not Playwright.
+      - Console/network summaries are real CDP event summaries and now affect promotability, but they are still lighter than a full HAR/trace export.
+    next_steps:
+      - Extend console and request event collection when a richer browser transport is available.
+
+  - capability_id: p1-rover-workshop-browser-demo
+    title: P1 Rover Workshop browser playable demo
+    category: playable-prototype
+    status: available
+    lane_id: game-prototype
+    summary: Child-friendly Three.js slice with rover movement, batteries, hazard, switch gate, finish pad, HUD, RW-ROVER-001 AI-assisted visual avatar with Blender rover-v1 material slots, procedural embedded base-color maps, UV proof, RW-CRATE-AI-001 visual landmark, and G4 evidence packet.
+    evidence_paths:
+      - experiments/game_p1_rover_workshop_demo/index.html
+      - scenarios/p1_rover_workshop_g4.json
+      - experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/release_packet.json
+      - experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/artifact_hashes.json
+      - docs/capability_templates/browser_prototype_gate.md
+      - experiments/game_p1_rover_workshop_demo/assets/provenance/rw-rover-001.json
+      - experiments/game_p1_rover_workshop_demo/assets/provenance/rw-crate-ai-001.json
+      - experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/screenshots/00_load.png
+    commands:
+      - python3 tools/run_browser_prototype_gate.py --prototype-id p1_rover_workshop --entrypoint experiments/game_p1_rover_workshop_demo/index.html --scenario scenarios/p1_rover_workshop_g4.json --out experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4 --gate-level G4 --server-bind 127.0.0.1 --timeout-ms 30000
+    inputs:
+      - docs/game_p1_child_friendly_design_spec_2026-05-12.md
+      - Local Three.js module from prior P2 experiment node_modules
+    outputs:
+      - Browser playable HTML
+      - G4 release packet
+      - Procedural and AI-assisted asset provenance manifest
+    limitations:
+      - RW-ROVER-001 is generated from mesh-only TRELLIS output, then assigned heuristic Blender rover-v1 material slots plus procedural embedded base-color maps and planar UV proof; it has no source-baked photoreal PBR maps or rig.
+      - Imported AI-assisted GLBs are visual-only and not used as gameplay collision.
+      - Gameplay-critical movement/collision still use procedural state/proxies.
+      - Does not claim Unity import.
+      - Earlier P1 G4 packets are retained in experiment folders as historical pre-fail-close evidence; this capability points to the latest texture G4 packet as current promotable proof.
+    next_steps:
+      - Improve rover rig/animation and source-baked texture quality before treating it as production art.
+      - Import the asset into Unity only after a Unity host is available.
+
+  - capability_id: threejs-glb-playable-validator
+    title: Three.js GLB playable validation path
+    category: runtime-validator
+    status: available
+    lane_id: threejs-playable-runtime
+    summary: Existing P2/P5 experiments prove GLB import, browser playable loop, DOM status, screenshots, and pixel checks.
+    evidence_paths:
+      - experiments/game_p2_glb_three_import_loop/report.md
+      - experiments/game_p5_triposr_three_playable_loop/report.md
+      - experiments/rw_rover_001_asset_chain_20260513/outputs/three_glb_parse_inventory.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q/three_glb_parse_inventory_cleaned.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/three_glb_parse_inventory_textured.json
+      - experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/release_packet.json
+      - docs/p2_glb_three_capability_matrix_2026-05-11.md
+      - docs/p5_triposr_three_playable_capability_matrix_2026-05-12.md
+      - docs/capability_templates/glb_playable_validator.md
+    commands:
+      - npm-based experiment commands in P2/P5 directories where node_modules are available
+    inputs:
+      - GLB asset
+      - browser playable scene
+    outputs:
+      - GLTFLoader parse report
+      - screenshot
+      - DOM/playable status
+    limitations:
+      - Fast validation path only; not final engine commitment.
+      - npm package workflows still need a real package manager; current QA path uses Python CDP instead.
+    next_steps:
+      - Promote into a managed worker template.
+
+  - capability_id: p26-trellis-meshonly-glb
+    title: TRELLIS mesh-only GLB asset generation and readback
+    category: asset-generation
+    status: available
+    lane_id: asset-generation
+    summary: P26 proves reference image to TRELLIS mesh-only GLB, trimesh readback, preview, hashes, and Three.js parser readback; RW-ROVER-001 reuses the same HomePC cached path for the hero rover mesh candidate and adds a Blender material plus procedural texture/UV pass.
+    evidence_paths:
+      - experiments/game_p26_trellis_meshonly_asset_validation_20260512/report.md
+      - experiments/game_p26_trellis_meshonly_asset_validation_20260512/artifact_hashes.json
+      - experiments/rw_rover_001_asset_chain_20260513/reports/rw_rover_001_asset_chain_report.md
+      - experiments/rw_rover_001_asset_chain_20260513/artifact_hashes.json
+      - experiments/rw_rover_001_asset_chain_20260513/provenance/asset_provenance.json
+      - docs/capability_templates/asset_provenance_packet.md
+    commands:
+      - HomePC TRELLIS inference and validation commands documented in P26 report
+    inputs:
+      - reference image
+      - TRELLIS-image-large weights on HomePC
+    outputs:
+      - mesh-only GLB
+      - preview image
+      - mesh/readback reports
+      - artifact hashes
+    limitations:
+      - Textured GLB path remains blocked.
+      - Generated mesh is not trusted as gameplay collision.
+      - RW-ROVER-001 has Blender-authored procedural base-color maps and UV proof but no source-baked photoreal PBR maps; not final production art.
+    next_steps:
+      - Compare against TripoSR/Hunyuan3D only when existing caches or governed downloads make that worthwhile.
+      - Improve rigging/animation and source-baked texture strategy before claiming production hero art.
+
+  - capability_id: trellis-textured-export
+    title: TRELLIS textured GLB export
+    category: asset-generation
+    status: partial
+    lane_id: asset-generation
+    summary: TRELLIS native textured export remains blocked by missing rasterization dependency, but RW-ROVER-001 now has a Blender fallback procedural texture/UV proof.
+    evidence_paths:
+      - experiments/game_p26_trellis_meshonly_asset_validation_20260512/report.md
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_report.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/three_glb_parse_inventory_textured.json
+    commands: []
+    inputs:
+      - TRELLIS reference image pipeline
+    outputs:
+      - expected native TRELLIS textured GLB or Blender fallback textured GLB
+    limitations:
+      - Missing diff_gaussian_rasterization blocker.
+      - Native TRELLIS textured export still lacks material/texture readback.
+      - Blender fallback procedural texture proof is not source-baked photoreal PBR.
+    next_steps:
+      - Either install/fix native textured dependency under download policy or improve Blender/OpenAI texture fallback.
+
+  - capability_id: godot-scene-ci-reviewer-packet
+    title: Godot scene CI and reviewer packet chain
+    category: qa-evidence
+    status: available
+    lane_id: qa-evidence
+    summary: P14-P27 provide reusable headless scene gates, fixture manifests, baseline hashes, reviewer contracts, and release packets.
+    evidence_paths:
+      - experiments/game_p20_reusable_scene_ci_command_20260512/report.md
+      - experiments/game_p27_contract_bundle_release_packet_review_20260512/closeout.md
+      - docs/p20_reusable_scene_ci_command_capability_matrix_2026-05-12.md
+      - docs/p24_reviewer_contract_version_integrity_manifest_capability_matrix_2026-05-12.md
+      - docs/capability_templates/scene_qa_release_packet.md
+    commands:
+      - python3 experiments/game_p20_reusable_scene_ci_command_20260512/run_scene_ci_command.py
+      - python3 experiments/game_p27_contract_bundle_release_packet_review_20260512/run_p27_release_packet_review.py
+    inputs:
+      - scene fixture manifest
+      - accepted baseline hash
+    outputs:
+      - run log
+      - validator result
+      - release packet
+    limitations:
+      - Headless assertions do not replace visual QA.
+      - Currently Godot-specific; Three.js and Unity gates need adapters.
+    next_steps:
+      - Extract reviewer packet template into a generic QA worker skill.
+
+  - capability_id: download-no-proxy-governance
+    title: Command-local no-proxy download governance
+    category: infrastructure
+    status: available
+    lane_id: download-provenance
+    summary: Download policy and helper script allow useful downloads while protecting paid Clash traffic budget and requiring source/size/hash/no-proxy evidence.
+    evidence_paths:
+      - docs/direct_download_policy_2026-05-12.md
+      - docs/download_registry_controller_update_2026-05-13.md
+      - tools/download_no_proxy.sh
+      - src/managed_codex/registry_ops.py
+      - src/managed_codex/cli.py
+      - tests/test_registry_ops.py
+      - tests/test_event_dashboard_cli.py
+      - external/research_sources/README.md
+      - docs/capability_templates/no_proxy_governed_download.md
+    commands:
+      - tools/download_no_proxy.sh
+      - .venv/bin/codex-managed download-record SOURCE_URL --task TASK_ID --size-bytes BYTES --status planned
+      - .venv/bin/codex-managed downloads --json-output
+    inputs:
+      - source URL
+      - expected output path
+    outputs:
+      - retained source snapshot
+      - hash and no-proxy evidence
+      - registry download records with needs_approval state for unapproved >1GiB files
+    limitations:
+      - Any single file over 1GB still needs explicit approval for that exact source/version/size; this is a confirmation guard, not a download ban.
+      - Homebrew package discovery may trigger index downloads and should be handled as a separate governed task.
+    next_steps:
+      - Use download-record for future governed downloads and metadata-only approval packets.
+
+  - capability_id: unity-agent-mcp
+    title: Unity Agent MCP/editor control path
+    category: engine-integration
+    status: blocked
+    lane_id: unity-agent-mcp
+    summary: Unity is the strategic mature engine path. Unity Hub 3.18.0 is installed and headless commands work, but local Editor/MCP/account readiness is not yet proven.
+    evidence_paths:
+      - docs/unity_agent_workchain_research_2026-05-12.md
+      - docs/current_best_practices_matrix_2026-05-12.md
+      - docs/local_engine_host_probe_2026-05-13.md
+      - docs/download_records/unity_hub_3_18_0_2026-05-13.md
+      - docs/download_records/unity_editor_6000_3_15f1_approval_2026-05-13.md
+      - docs/unity_hub_host_probe_2026-05-13.md
+      - docs/capability_templates/unity_editor_mcp_probe.md
+      - experiments/unity_host_probe_20260513/outputs/unity_hub_headless_help.txt
+      - experiments/unity_host_probe_20260513/outputs/unity_hub_editors_installed.json
+      - experiments/unity_host_probe_20260513/outputs/unity_hub_releases_arm64.json
+      - experiments/unity_host_probe_20260513/outputs/unity_editor_6000_3_15f1_selection_meta.json
+      - experiments/unity_host_probe_20260513/outputs/unity_6000_3_15f1_macos_arm64_pkg_head.txt
+      - experiments/unity_host_probe_20260513/logs/unity_hub_range_lsof.txt
+    commands: []
+    inputs:
+      - Unity Editor host
+      - official or community Unity MCP
+    outputs:
+      - disposable scene mutation proof
+      - console/test/play-mode evidence
+    limitations:
+      - Unity Hub 3.18.0 is installed, but no Unity Editor is installed.
+      - Hub headless installed-editor query returned [].
+      - Unity 6000.3.15f1 arm64 is selected for approval review; its package is 5,112,633,639 bytes and should be downloaded only after explicit approval for that exact package and with no-proxy evidence.
+      - Official Unity MCP still needs Unity 6.x, packages, account/terms/cloud/subscription readiness, and local relay proof.
+      - Large editor downloads must obey no-proxy and >1GB approval.
+    next_steps:
+      - Get explicit approval before downloading Unity 6000.3.15f1 arm64.
+      - Use docs/capability_templates/unity_editor_mcp_probe.md for the approved download/install, MCP route, and disposable scene mutation evidence chain.
+      - After Editor install, run a disposable scene mutation proof before promoting Unity capability.
+
+  - capability_id: blender-mcp-authoring
+    title: Blender MCP asset cleanup and authoring
+    category: asset-authoring
+    status: partial
+    lane_id: blender-authoring
+    summary: Local Blender Python cleanup/export/render proof is available and has been applied to RW-ROVER-001; Blender MCP control remains unproven.
+    evidence_paths:
+      - docs/unity_agent_workchain_research_2026-05-12.md
+      - external/research_sources/README.md
+      - docs/local_engine_host_probe_2026-05-13.md
+      - docs/download_records/blender_5_1_1_2026-05-13.md
+      - docs/blender_host_proof_2026-05-13.md
+      - experiments/blender_host_probe_20260513/outputs/summary.json
+      - experiments/blender_host_probe_20260513/outputs/blender_cleanup_report.json
+      - experiments/blender_host_probe_20260513/outputs/three_glb_parse_inventory.json
+      - experiments/blender_host_probe_20260513/outputs/blender_cleanup_render.png
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q/summary.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q/blender_cleanup_report.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q/three_glb_parse_inventory_cleaned.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q/blender_cleanup_render.png
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/summary.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_report.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/three_glb_parse_inventory_textured.json
+      - experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_render.png
+    commands:
+      - /Applications/Blender.app/Contents/MacOS/Blender --background --python experiments/blender_host_probe_20260513/blender_glb_cleanup_probe.py -- experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb experiments/blender_host_probe_20260513/outputs
+    inputs:
+      - GLB or blend asset
+      - Blender host
+    outputs:
+      - cleaned GLB
+      - viewport screenshot
+      - material report
+    limitations:
+      - Blender MCP is not configured or proven yet.
+      - Current textured proof creates procedural base-color maps and planar UVs, not production UVs or source-baked photoreal PBR.
+      - Blender Python is privileged and must use disposable files.
+    next_steps:
+      - Configure Blender MCP only after a safe local control surface is selected and reviewed.
+      - Use the parameterized --output-name cleanup option for future asset-specific GLB exports.
+
+  - capability_id: external-coding-runner-pool
+    title: External coding runner pool for token-efficient delegation
+    category: infrastructure
+    status: partial
+    lane_id: controller-core
+    summary: Local Gemini CLI is verified and a separate local-coding-runners workspace provides local Claude Code wrappers for MiniMax/Kimi-backed planning, review, and three real low-risk bounded MiniMax worker turns. Claude MiniMax, Claude Kimi, and Gemini now share one narrow local MCP surface for artifact-manifest verification. Secrets remain outside this repo.
+    evidence_paths:
+      - docs/external_runner_efficiency_setup_2026-05-13.md
+      - docs/source_snapshots/chatgpt_codex_app_dual_agent_clipboard_2026-05-13.txt
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/README.md
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/CLAUDE.md
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/bin/runner-review
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/bin/runner-worker
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/bin/runner-capabilities-audit
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/bin/managed-artifact-mcp
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/tests/test_managed_artifact_mcp.py
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/prompts/read_only_code_review.md
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/prompts/implementation_plan_review.md
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/prompts/mechanical_worker_task.md
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/prompts/runner_worker_probe_task.md
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/prompts/browser_prototype_gate_template_task.md
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/runner_mcp_skill_inventory_2026-05-13.md
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/runner_worker_dry_run_probe_2026-05-13.txt
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/runner_worker_real_probe_dry_run_2026-05-13.txt
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/runner_worker_real_probe_stdout_2026-05-13.txt
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/runner_worker_real_probe_stderr_2026-05-13.txt
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/runner_capabilities_audit_after_real_probe_2026-05-13.txt
+      - docs/runner_snapshots/local_coding_runners_2026-05-13/managed_artifact_mcp_tool_call_probe_2026-05-13.txt
+      - docs/capability_templates/external_runner_worker.md
+      - experiments/runner_worker_probe_20260513/runner_worker_probe_report.md
+      - experiments/runner_worker_probe_20260513/worker_probe_result.md
+      - experiments/runner_worker_probe_20260513/browser_gate_template/runner_worker_browser_gate_template_report.md
+      - experiments/runner_worker_probe_20260513/browser_gate_template/runner_worker_dry_run_prompt.txt
+      - experiments/runner_worker_probe_20260513/browser_gate_template/runner_worker_stdout.txt
+      - experiments/runner_worker_probe_20260513/browser_gate_template/runner_worker_stderr.txt
+      - experiments/runner_worker_probe_20260513/hash_manifest_verifier/runner_worker_hash_manifest_verifier_report.md
+      - experiments/runner_worker_probe_20260513/hash_manifest_verifier/runner_worker_dry_run_prompt.txt
+      - experiments/runner_worker_probe_20260513/hash_manifest_verifier/runner_worker_stdout.txt
+      - experiments/runner_worker_probe_20260513/hash_manifest_verifier/runner_worker_stderr.txt
+      - tools/verify_artifact_hashes.py
+      - tests/test_verify_artifact_hashes.py
+    commands:
+      - "gemini -p 'Reply with exactly: GEMINI_OK' --output-format text --skip-trust"
+      - "/Users/yuanshaochen/Projects/local-coding-runners/bin/runner-env-check"
+      - "/Users/yuanshaochen/Projects/local-coding-runners/bin/runner-capabilities-audit"
+      - "/Users/yuanshaochen/Projects/local-coding-runners/bin/claudeminmax --version"
+      - "/Users/yuanshaochen/Projects/local-coding-runners/bin/claudekimi --version"
+      - "/Users/yuanshaochen/Projects/local-coding-runners/bin/runner-review --help"
+      - "/Users/yuanshaochen/Projects/local-coding-runners/bin/runner-worker --help"
+      - "/Users/yuanshaochen/Projects/ai-game-generation-research/.venv/bin/python -m pytest /Users/yuanshaochen/Projects/local-coding-runners/tests/test_managed_artifact_mcp.py -q"
+      - "RUNNER_READ_ONLY=1 RUNNER_TIMEOUT_SECONDS=90 /Users/yuanshaochen/Projects/local-coding-runners/bin/claudeminmax -p 'Use the managed-artifact-verifier MCP tool to verify experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/artifact_hashes.json in /Users/yuanshaochen/Projects/ai-game-generation-research, then reply with only the exact exit_code line from the tool result.' --output-format text --allowedTools 'mcp__managed-artifact-verifier__verify_artifact_hashes'"
+      - "/Users/yuanshaochen/Projects/local-coding-runners/bin/runner-worker minimax --workspace /Users/yuanshaochen/Projects/ai-game-generation-research --prompt /Users/yuanshaochen/Projects/local-coding-runners/prompts/mechanical_worker_task.md --write-scope 'owned files/modules only' --verify '.venv/bin/python -m pytest -q targeted_test.py' --dry-run"
+      - "RUNNER_TIMEOUT_SECONDS=180 /Users/yuanshaochen/Projects/local-coding-runners/bin/runner-worker minimax --workspace /Users/yuanshaochen/Projects/ai-game-generation-research --prompt /Users/yuanshaochen/Projects/local-coding-runners/prompts/runner_worker_probe_task.md --write-scope 'experiments/runner_worker_probe_20260513/worker_probe_result.md' --verify 'test -f experiments/runner_worker_probe_20260513/worker_probe_result.md && rg -n \"RUNNER_WORKER_PROBE_OK|provider: minimax|write_scope:\" experiments/runner_worker_probe_20260513/worker_probe_result.md' --i-understand-write-access"
+    inputs:
+      - scoped worker prompt
+      - explicit write boundary or read-only instruction
+    outputs:
+      - worker analysis
+      - review findings
+      - optional patch plan
+      - bounded worker prompt dry-run
+      - real low-risk bounded worker probe evidence
+      - browser prototype gate template from a second bounded worker proof
+      - hash-manifest verifier tool from a third bounded worker proof
+      - narrow local MCP artifact verifier connected in Claude MiniMax, Claude Kimi, and Gemini
+    limitations:
+      - Required evidence is repo-relative and portable; private local runner files are documented but not required capability evidence.
+      - runner-worker can call write-capable provider wrappers only after explicit --i-understand-write-access and a dry-run-reviewed prompt.
+      - "Three real write-capable proofs exist, all intentionally low-risk and narrow: a single marker file, a single browser gate template, and a hash-manifest verifier utility."
+      - Local wrappers can mutate files if given write tools; use read-only prompts/tools for review work and runner-worker for low-risk mechanical implementation.
+      - Gemini skills are enabled and one narrow local MCP server is connected; YogaS2 remote-only MCP entries are not copied because their localhost and /vol1 paths are machine-specific.
+      - API key values are stored only in the private local-coding-runners directory, not in this repository.
+    next_steps:
+      - Use runner-worker only for low-risk scoped tasks until repeated nontrivial probes are reviewed.
+      - Add more MCP surfaces only when a concrete local service exists or an SSH tunnel to YogaS2 is intentionally configured and verified.
+
+controller_issues:
+  - issue_id: ctrl-20260512-python39-typing-compat
+    title: Python 3.9 runtime rejected newer union type annotations
+    severity: high
+    state: fixed
+    lane_id: controller-core
+    task_id: controller-core-phase3
+    symptom: Managed CLI crashed under the repo's Python 3.9 runtime when newer annotation syntax was used.
+    root_cause: Controller code briefly used annotations that require newer Python semantics while pyproject declares Python >=3.9.
+    improvement: Keep controller code Python 3.9 compatible or raise the declared runtime after explicit environment work.
+    evidence: tests/test_event_dashboard_cli.py; .venv/bin/python -m pytest -q
+
+  - issue_id: ctrl-20260512-ruff-regression
+    title: Controller phase3 changes introduced import and line-length lint regressions
+    severity: medium
+    state: fixed
+    lane_id: controller-core
+    task_id: controller-core-phase3
+    symptom: ruff check failed after adding dashboard/event commands.
+    root_cause: New CLI output rows exceeded configured line length and imports were unsorted.
+    improvement: Run ruff before declaring controller work complete and keep dashboard row definitions wrapped.
+    evidence: .venv/bin/ruff check src tests
+
+  - issue_id: ctrl-20260512-homebrew-node-probe
+    title: Homebrew Node probe stalled on formula index download
+    severity: medium
+    state: fixed
+    lane_id: controller-core
+    task_id: controller-core-phase3
+    symptom: Checking Homebrew Node/npm availability triggered a slow formula.jws.json download.
+    root_cause: Frontend toolchain discovery was not governed as a no-proxy/provenance task.
+    improvement: Accepted bundled Node plus Python CDP/Chrome as the browser QA path; npm installs remain governed future work.
+    evidence: experiments/environment_browser_qa_probe_20260512/browser_qa_env_probe.json; tools/run_browser_prototype_gate.py; experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/release_packet.json
+
+  - issue_id: ctrl-20260513-phase4-live-appserver-proof-gap
+    title: Disposable live App Server proof was missing
+    severity: high
+    state: fixed
+    lane_id: controller-core
+    task_id: controller-core-phase4-live-proof
+    symptom: The guarded App Server adapter had replayable fake plus local HTTP boundary evidence, but no disposable live Codex App Server thread/turn/review/archive run had been captured.
+    root_cause: Phase4 completion was reconciled from schema-driven fake/local boundary work before a real local App Server endpoint was connected and exercised.
+    improvement: Added a raw v2 stdio App Server live probe and captured disposable local lifecycle evidence, including the protocol limitation that metadata-only threads do not materialize rollout files for fork/archive.
+    evidence: tools/codex_appserver_live_probe.py; experiments/appserver_phase4_live_probe_20260513/live_include_turn_probe.json; experiments/appserver_phase4_live_probe_20260513/live_review_probe.json; experiments/appserver_phase4_live_probe_20260513/live_metadata_probe.json; docs/managed_agents_execution_status_2026-05-13.md

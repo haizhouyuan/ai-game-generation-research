@@ -1,0 +1,364 @@
+{
+  "artifacts": [
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/index.html",
+      "sha256": "f7b1ee5f9c8e11b36757a348e62b7506288b2c1918fa236dac0834a570f08a83",
+      "size_bytes": 131448
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/README.md",
+      "sha256": "36061560cafe37584b78b3d395914198e5d48d14c711b188834226ec210b2d8e",
+      "size_bytes": 4047
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/report.md",
+      "sha256": "1aa76023f86948c08ca68f252c92a5f793ac1c96e7b6191d2571b50c5ce1874a",
+      "size_bytes": 3936
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/asset_registry.json",
+      "sha256": "7118eae3ffa5ab986b3772dc9e89d5c0bccfdd0541209b48f326d76ba64143c0",
+      "size_bytes": 26991
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/asset_inventory_matrix.json",
+      "sha256": "56fd3c11a4e6bca00718abef4c5779c9ca19d0e6e14705393e9569f2c8943548",
+      "size_bytes": 17587
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/final_asset_kit_report.json",
+      "sha256": "2d6bc259c134b70f3e707a3b42f35a3565e1cbe8c92a1cfbd2b7d833de4a2271",
+      "size_bytes": 30142
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/final_three_glb_parse_inventory.json",
+      "sha256": "5f1a405d167f9da81caf8563fb76990f32458969426225f7dc1de33b1ac70c5c",
+      "size_bytes": 20141
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/tools/blender_final_asset_kit.py",
+      "sha256": "30d65bab2c95cfb6036114d560c2ffec42c4f9d811fa2741abc4ea124240aafd",
+      "size_bytes": 20127
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/tools/blender_m5_weapon_variants.py",
+      "sha256": "87d1d8947f4376941179fc87ccd60108c367ac34d3a2cc9886f9358adc92fd30",
+      "size_bytes": 13364
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/tools/build_final_manifests.py",
+      "sha256": "4487f17e2f4f2ec0f98702807fb4bc68e464ff63697de5ffe905e146a6e34ec0",
+      "size_bytes": 20043
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/tools/cdp_before_after_capture.mjs",
+      "sha256": "7cb24e9ddfd58e7808ec0b5032a82798d335a59e7075a72eba52955b914f28fb",
+      "size_bytes": 5778
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/tools/cdp_evidence_capture.mjs",
+      "sha256": "c2a6469e759bd635d7807d473f3ed2dd0e5acbfa4ffe7aab7fdd23f1df452b08",
+      "size_bytes": 11332
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/tools/verify_integration.py",
+      "sha256": "9cd153f271dde10e65f9bbbbfa43134f1b2e44dce9adc1d6564622158e306f3d",
+      "size_bytes": 11353
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/pistol_m5_candidate.glb",
+      "sha256": "aa1fd450ed947ecff9dc9c9ff07a5f4f329d6359d3a462064483bac72cd60255",
+      "size_bytes": 180476
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/shotgun_m5_candidate.glb",
+      "sha256": "9a4c3cd89716952c365853ad58de15d4223db95bc3a5f412ad39b5ac7a63bad2",
+      "size_bytes": 224500
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/groza_procedural_candidate.glb",
+      "sha256": "484a001db8aecd926a0069ae1dbca923d9572dc48dc1919fde7cede4b04179ea",
+      "size_bytes": 1104512
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/dmr_m5_candidate.glb",
+      "sha256": "52f1acdfef814aed6ca4e5ee8351bc47f5f38db5720ed50e090e4abc293f20c8",
+      "size_bytes": 413576
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/character_player_final.glb",
+      "sha256": "9e228f0ad1001142023fd40e36933fbdceeffa6e37248ddbe27b8bfc9aae0ea2",
+      "size_bytes": 467092
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/character_enemy_final.glb",
+      "sha256": "8c40c323aef1f8fda5e34c11ce6bbd30441f5da989d43580ea86a9b7f3bf1bd0",
+      "size_bytes": 467124
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_ammo_final.glb",
+      "sha256": "7287e96ad38717d82a5864fa7d0cff6b4e16a8ed7b87da2216f7c4b3450a60a2",
+      "size_bytes": 44604
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_bandage_final.glb",
+      "sha256": "86e0374e4596beb0cc39dbf8a052a77f7e34f140f08e9918f05f4aac0ad3a44e",
+      "size_bytes": 53280
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_firstaid_final.glb",
+      "sha256": "e33bb86cc4c69a4732672f04de353b8ddda828535b35cf70b1bb18959e15f2aa",
+      "size_bytes": 43684
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_medkit_final.glb",
+      "sha256": "b795c012f46aeb1357c5c6a353176f99328e2cfeac8ddc6e039beb3cf025569b",
+      "size_bytes": 43676
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_revive_final.glb",
+      "sha256": "f0bfdf8560717f653b6f53c35050be980447cbb82cf9ef25bdce57655552f658",
+      "size_bytes": 28932
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_vest_final.glb",
+      "sha256": "1479a1ccb1b0587082efa11f31646e0b1ba4b3c78df77161f1159b549093d3c1",
+      "size_bytes": 41596
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_helmet_final.glb",
+      "sha256": "57f4664e08f076ceb2363e1bf6e3b86830f14454dddeea06287e55c01f7472db",
+      "size_bytes": 65688
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_crate_final.glb",
+      "sha256": "3bb5d96ffc83ca6afdd86192019a04b15a375a3eb8a896edc0379f180abff968",
+      "size_bytes": 67744
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_container_final.glb",
+      "sha256": "10e0ea2d6d40d02b1c2b49a06b59f450bfbb5ea78ebbdced473d596286d0b134",
+      "size_bytes": 170068
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ladder_stair_final.glb",
+      "sha256": "e6e43c793a2980d099d7b0cb12bdeff57f46164e1c9f9354dfd9dbc58f54fd03",
+      "size_bytes": 148480
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_interior_furniture_final.glb",
+      "sha256": "0f8e908ba39bc40fe424c30afd944e699603e0370630e25fd4668d98b0f571dd",
+      "size_bytes": 110452
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_building_detail_final.glb",
+      "sha256": "0d8b6dc1c89bf3a374c9c914bdc16162422cdb1b7e5f274ea9d0df5e6d6be038",
+      "size_bytes": 81344
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ground_wall_fence_final.glb",
+      "sha256": "b0f2b81a20b9a1ed7264dc08fa6e9b539bd13ab41a818495d7d2781f9c710a6d",
+      "size_bytes": 75128
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_tree_final.glb",
+      "sha256": "2168a23fe4ea809e220417d79d95248a66c524c74ba0fc3caccadc5ed31fecc6",
+      "size_bytes": 65708
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_rock_cluster_final.glb",
+      "sha256": "05630a33665f07791a38aa03a4bc44de499bbc499e5e8a5127626035d262edb9",
+      "size_bytes": 25108
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/character_enemy_final_preview.png",
+      "sha256": "1a309cdf64de87de9f3a7af8a84e89f5655d738047ec362040988fefeab3e781",
+      "size_bytes": 511886
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/character_player_final_preview.png",
+      "sha256": "9ca222badcf81449e5b7fcfe4a29dd3fef98a746f701f05688d6f78dff6a7aba",
+      "size_bytes": 509149
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/dmr_m5_preview.png",
+      "sha256": "c1ac4462258f698d03ca94ababa71e800e4a62faf60868f050f2018cfad88650",
+      "size_bytes": 893100
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_ammo_final_preview.png",
+      "sha256": "1f117038677b0b65116d9d0ac7416c6aea954fd1fd4f8e92e9df871face34804",
+      "size_bytes": 460054
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_bandage_final_preview.png",
+      "sha256": "22e43444affec8937cae3f35fc0802031cb9bcf5d83a4b528dcd08a3b682450f",
+      "size_bytes": 460477
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_firstaid_final_preview.png",
+      "sha256": "d80a9a15376ef5b0802a3d3766a557ea932c12a2a472f98b73e6c6456036c193",
+      "size_bytes": 456298
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_helmet_final_preview.png",
+      "sha256": "40843a8965c53f2e61f091d2454df5eae1e7536c3804d6add4c80457dee8512a",
+      "size_bytes": 453830
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_medkit_final_preview.png",
+      "sha256": "9c23ecfabda402b1f5889a482d425d77dfa928541cba1afc406683cdaf5e04ed",
+      "size_bytes": 470822
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_revive_final_preview.png",
+      "sha256": "370ff83238ae7158eeea783b595fc2854c9e473f240956b61e8464552eb9b47f",
+      "size_bytes": 456633
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/loot_vest_final_preview.png",
+      "sha256": "70165a1bdfff5c8de16e1fecd436a0dd27621506a1b5cde2cbfb7591a1cbd3a6",
+      "size_bytes": 453423
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/pistol_m5_preview.png",
+      "sha256": "3a8fdb82f12a47ca2a6d10cf58a7dd3cef4c62d0dca0ba1b2d513db2929a10c1",
+      "size_bytes": 810411
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_building_detail_final_preview.png",
+      "sha256": "52d90fbe36d3a1a4f4073eb7b8ba5e8f55a1f8a7fbc1e2f4baae96e526d05c2f",
+      "size_bytes": 477681
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_container_final_preview.png",
+      "sha256": "1d10fb2d2bb73f314984b179104d5f5697f60ed62cd17576a1bfb0951406843a",
+      "size_bytes": 626441
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_crate_final_preview.png",
+      "sha256": "4c43744420ff9ffaff44581da120852690fedf93bc24a9a207714c6c0acb8c96",
+      "size_bytes": 505556
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ground_wall_fence_final_preview.png",
+      "sha256": "e070906f06a603cda3995fc45f3db5f62893b4fba8f2fe6316804f6848c05b26",
+      "size_bytes": 558376
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_interior_furniture_final_preview.png",
+      "sha256": "e141ddfff5fae944a40a6c096f4d37abaff68cb547c96005f36d5e551a209933",
+      "size_bytes": 542000
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ladder_stair_final_preview.png",
+      "sha256": "2732effc36fdfb3f7c7a7bbf528244d3db0cf97ed8ee7fe28ebce7db77af49c9",
+      "size_bytes": 534041
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_rock_cluster_final_preview.png",
+      "sha256": "d369755afc409548ed59f97420d9dd6393ac2583ccd1b76896a848202fe74321",
+      "size_bytes": 493953
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/prop_tree_final_preview.png",
+      "sha256": "067f472079454ecb6c7bb0a06171d5be54942f76a1633e342af5d045919f43e0",
+      "size_bytes": 595598
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/assets/models/shotgun_m5_preview.png",
+      "sha256": "3d934768178b01b44a7804a81474fbf313c50a03ced583266f27c32fdaf5b745",
+      "size_bytes": 880097
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/after_upgraded_gameplay.png",
+      "sha256": "ff690223ecf92f20471d94329b1a6b095a5aa7c31df62a379c2a8c145bab2d1b",
+      "size_bytes": 292623
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/before_source_gameplay.png",
+      "sha256": "615d9124dfcf1b211da496cbe47b37f620a7c4ff4e4fc702eab5074a61fc4abc",
+      "size_bytes": 262013
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/characters_evidence_cdp.png",
+      "sha256": "b19789ebf9ebe84181fd1327c2ee06de861ff0e5fa7da2d9e4bd3b5bcc95d577",
+      "size_bytes": 187940
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/environment_evidence_cdp.png",
+      "sha256": "942144428127a57b2e8bbe99efa5672dea9fd78e7c0b6d176273ea93912a12be",
+      "size_bytes": 290889
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/final_evidence_cdp.png",
+      "sha256": "ee006dd6003eda61f3544435a988851f0e58af27e0e1b1705aab80c70cabb769",
+      "size_bytes": 220238
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/loot_evidence_cdp.png",
+      "sha256": "a94a1070c565f5609a6d93c92b06a900744cb44a9f642c042285393278a65699",
+      "size_bytes": 183230
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/rifle_evidence_cdp_first.png",
+      "sha256": "d8830e04db52caf654a501fb28eceb01ce24d7f32d14a5f55276ba18f49af849",
+      "size_bytes": 179556
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/rifle_evidence_cdp_third.png",
+      "sha256": "3f67d067956c321dcaabf554653865c45474e5677ff5be16bfa3921e8fa00608",
+      "size_bytes": 272695
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/weapons_evidence_cdp.png",
+      "sha256": "f097b09db94327274ba8e6b574ed9362c1893ef8fdb1f10a6efe630690dd60c1",
+      "size_bytes": 187674
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/after_upgraded_gameplay_report.json",
+      "sha256": "640610b4ff336f2b710771a26ee1a9f6f4e8f277aa6c91179508aae8f7150239",
+      "size_bytes": 4212
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/before_source_gameplay_report.json",
+      "sha256": "2a53dd4a755867e560d02158501a180c671844f327dfb03bbb872496ee712075",
+      "size_bytes": 2606
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/characters_evidence_cdp_report.json",
+      "sha256": "262d2be1b015ff353dd6eab1ae87ce64f5c00716fd96e365b5bbb5a659b8a458",
+      "size_bytes": 12272
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/environment_evidence_cdp_report.json",
+      "sha256": "b6a76c6a1e45b438351beabd40181c87125623001c527d4bd2ec5efb8bd32259",
+      "size_bytes": 13385
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/final_evidence_cdp_report.json",
+      "sha256": "90ae25c930042875aa5e63124b9cccdc094dcc500e155fa6c4efe3c891f5dcfa",
+      "size_bytes": 13011
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/loot_evidence_cdp_report.json",
+      "sha256": "c11b17c818a0f73181d70a1d692874120781d13d4271a4ab5615aed1b04211e2",
+      "size_bytes": 11154
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/rifle_evidence_cdp_first_report.json",
+      "sha256": "1ff312eca4ba88c0d5a886ad058fe433febbf5f9e743f2221a432c3dc0ffd7dd",
+      "size_bytes": 12685
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/rifle_evidence_cdp_third_report.json",
+      "sha256": "a96d8f0c2387f019627801c9dec8db7ecf762e996c3201212b8bf04d392dd8ff",
+      "size_bytes": 10787
+    },
+    {
+      "path": "experiments/tactical_game_full_realism_final_20260513/evidence/weapons_evidence_cdp_report.json",
+      "sha256": "6b692a0767d56e7ceb975b120733dfbd39b165104044c959491d4a15cf862700",
+      "size_bytes": 10971
+    }
+  ]
+}

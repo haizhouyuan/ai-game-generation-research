@@ -1,0 +1,895 @@
+{
+  "pipeline": "Blender final full-realism tactical asset kit",
+  "assets": [
+    {
+      "name": "character_player_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/character_player_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/character_player_final_preview.png",
+      "sha256": "9e228f0ad1001142023fd40e36933fbdceeffa6e37248ddbe27b8bfc9aae0ea2",
+      "preview_sha256": "9ca222badcf81449e5b7fcfe4a29dd3fef98a746f701f05688d6f78dff6a7aba",
+      "mesh_object_count": 49,
+      "bbox": {
+        "min": [
+          -0.5260617733001709,
+          -0.029999999329447746,
+          -0.5699999928474426
+        ],
+        "max": [
+          0.5260617733001709,
+          2.0390000343322754,
+          0.6049999594688416
+        ],
+        "size": [
+          1.0521235466003418,
+          2.069000005722046,
+          1.1749999523162842
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "tactical human silhouette",
+        "helmet",
+        "plate carrier",
+        "backpack",
+        "gloves",
+        "pads"
+      ]
+    },
+    {
+      "name": "character_enemy_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/character_enemy_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/character_enemy_final_preview.png",
+      "sha256": "8c40c323aef1f8fda5e34c11ce6bbd30441f5da989d43580ea86a9b7f3bf1bd0",
+      "preview_sha256": "1a309cdf64de87de9f3a7af8a84e89f5655d738047ec362040988fefeab3e781",
+      "mesh_object_count": 49,
+      "bbox": {
+        "min": [
+          -0.5260617733001709,
+          -0.029999999329447746,
+          -0.5699999928474426
+        ],
+        "max": [
+          0.5260617733001709,
+          2.0390000343322754,
+          0.6049999594688416
+        ],
+        "size": [
+          1.0521235466003418,
+          2.069000005722046,
+          1.1749999523162842
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "tactical human silhouette",
+        "helmet",
+        "plate carrier",
+        "backpack",
+        "gloves",
+        "pads"
+      ]
+    },
+    {
+      "name": "loot_ammo_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_ammo_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_ammo_final_preview.png",
+      "sha256": "7287e96ad38717d82a5864fa7d0cff6b4e16a8ed7b87da2216f7c4b3450a60a2",
+      "preview_sha256": "1f117038677b0b65116d9d0ac7416c6aea954fd1fd4f8e92e9df871face34804",
+      "mesh_object_count": 9,
+      "bbox": {
+        "min": [
+          -0.4099999964237213,
+          0.0,
+          -0.25999999046325684
+        ],
+        "max": [
+          0.4099999964237213,
+          0.7100000381469727,
+          0.25999999046325684
+        ],
+        "size": [
+          0.8199999928474426,
+          0.7100000381469727,
+          0.5199999809265137
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "ammo",
+        "readable pickup prop",
+        "PBR-style material factors"
+      ]
+    },
+    {
+      "name": "loot_bandage_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_bandage_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_bandage_final_preview.png",
+      "sha256": "86e0374e4596beb0cc39dbf8a052a77f7e34f140f08e9918f05f4aac0ad3a44e",
+      "preview_sha256": "22e43444affec8937cae3f35fc0802031cb9bcf5d83a4b528dcd08a3b682450f",
+      "mesh_object_count": 6,
+      "bbox": {
+        "min": [
+          -0.31679999828338623,
+          0.026399999856948853,
+          -0.2199999988079071
+        ],
+        "max": [
+          0.31679999828338623,
+          0.6500000357627869,
+          0.3783999979496002
+        ],
+        "size": [
+          0.6335999965667725,
+          0.6236000061035156,
+          0.5983999967575073
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "bandage",
+        "readable pickup prop",
+        "PBR-style material factors"
+      ]
+    },
+    {
+      "name": "loot_firstaid_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_firstaid_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_firstaid_final_preview.png",
+      "sha256": "e33bb86cc4c69a4732672f04de353b8ddda828535b35cf70b1bb18959e15f2aa",
+      "preview_sha256": "d80a9a15376ef5b0802a3d3766a557ea932c12a2a472f98b73e6c6456036c193",
+      "mesh_object_count": 4,
+      "bbox": {
+        "min": [
+          -0.31679999828338623,
+          0.026399999856948853,
+          -0.2199999988079071
+        ],
+        "max": [
+          0.31679999828338623,
+          0.40039998292922974,
+          0.3783999979496002
+        ],
+        "size": [
+          0.6335999965667725,
+          0.3739999830722809,
+          0.5983999967575073
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "firstaid",
+        "readable pickup prop",
+        "PBR-style material factors"
+      ]
+    },
+    {
+      "name": "loot_medkit_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_medkit_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_medkit_final_preview.png",
+      "sha256": "b795c012f46aeb1357c5c6a353176f99328e2cfeac8ddc6e039beb3cf025569b",
+      "preview_sha256": "9c23ecfabda402b1f5889a482d425d77dfa928541cba1afc406683cdaf5e04ed",
+      "mesh_object_count": 4,
+      "bbox": {
+        "min": [
+          -0.42480000853538513,
+          0.03540000319480896,
+          -0.29499998688697815
+        ],
+        "max": [
+          0.42480000853538513,
+          0.536899983882904,
+          0.5073999762535095
+        ],
+        "size": [
+          0.8496000170707703,
+          0.5015000104904175,
+          0.8023999929428101
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "medkit",
+        "readable pickup prop",
+        "PBR-style material factors"
+      ]
+    },
+    {
+      "name": "loot_revive_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_revive_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_revive_final_preview.png",
+      "sha256": "f0bfdf8560717f653b6f53c35050be980447cbb82cf9ef25bdce57655552f658",
+      "preview_sha256": "370ff83238ae7158eeea783b595fc2854c9e473f240956b61e8464552eb9b47f",
+      "mesh_object_count": 3,
+      "bbox": {
+        "min": [
+          -0.2800000011920929,
+          0.0,
+          -0.2800000011920929
+        ],
+        "max": [
+          0.2800000011920929,
+          0.7117999792098999,
+          0.2800000011920929
+        ],
+        "size": [
+          0.5600000023841858,
+          0.7117999792098999,
+          0.5600000023841858
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "revive",
+        "readable pickup prop",
+        "PBR-style material factors"
+      ]
+    },
+    {
+      "name": "loot_vest_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_vest_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_vest_final_preview.png",
+      "sha256": "1479a1ccb1b0587082efa11f31646e0b1ba4b3c78df77161f1159b549093d3c1",
+      "preview_sha256": "70165a1bdfff5c8de16e1fecd436a0dd27621506a1b5cde2cbfb7591a1cbd3a6",
+      "mesh_object_count": 4,
+      "bbox": {
+        "min": [
+          -0.3100000023841858,
+          0.04999998211860657,
+          -0.09000000357627869
+        ],
+        "max": [
+          0.3100000023841858,
+          0.7899999618530273,
+          0.20499999821186066
+        ],
+        "size": [
+          0.6200000047683716,
+          0.7400000095367432,
+          0.29500001668930054
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "vest",
+        "readable pickup prop",
+        "PBR-style material factors"
+      ]
+    },
+    {
+      "name": "loot_helmet_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_helmet_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/loot_helmet_final_preview.png",
+      "sha256": "57f4664e08f076ceb2363e1bf6e3b86830f14454dddeea06287e55c01f7472db",
+      "preview_sha256": "40843a8965c53f2e61f091d2454df5eae1e7536c3804d6add4c80457dee8512a",
+      "mesh_object_count": 4,
+      "bbox": {
+        "min": [
+          -0.375,
+          0.14920006692409515,
+          -0.3400000035762787
+        ],
+        "max": [
+          0.375,
+          0.5708000063896179,
+          0.3700000047683716
+        ],
+        "size": [
+          0.75,
+          0.4215999245643616,
+          0.7100000381469727
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "helmet",
+        "readable pickup prop",
+        "PBR-style material factors"
+      ]
+    },
+    {
+      "name": "prop_crate_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_crate_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_crate_final_preview.png",
+      "sha256": "3bb5d96ffc83ca6afdd86192019a04b15a375a3eb8a896edc0379f180abff968",
+      "preview_sha256": "4c43744420ff9ffaff44581da120852690fedf93bc24a9a207714c6c0acb8c96",
+      "mesh_object_count": 7,
+      "bbox": {
+        "min": [
+          -0.6399999856948853,
+          0.0,
+          -0.49000000953674316
+        ],
+        "max": [
+          0.6399999856948853,
+          0.7799999713897705,
+          0.49000000953674316
+        ],
+        "size": [
+          1.2799999713897705,
+          0.7799999713897705,
+          0.9800000190734863
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "crate",
+        "environment prop",
+        "beveled materialized geometry"
+      ]
+    },
+    {
+      "name": "prop_container_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_container_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_container_final_preview.png",
+      "sha256": "10e0ea2d6d40d02b1c2b49a06b59f450bfbb5ea78ebbdced473d596286d0b134",
+      "preview_sha256": "1d10fb2d2bb73f314984b179104d5f5697f60ed62cd17576a1bfb0951406843a",
+      "mesh_object_count": 19,
+      "bbox": {
+        "min": [
+          -1.125,
+          0.0,
+          -0.5400000214576721
+        ],
+        "max": [
+          1.125,
+          1.1200000047683716,
+          1.2799999713897705
+        ],
+        "size": [
+          2.25,
+          1.1200000047683716,
+          1.8199999332427979
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "container",
+        "environment prop",
+        "beveled materialized geometry"
+      ]
+    },
+    {
+      "name": "prop_ladder_stair_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ladder_stair_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ladder_stair_final_preview.png",
+      "sha256": "e6e43c793a2980d099d7b0cb12bdeff57f46164e1c9f9354dfd9dbc58f54fd03",
+      "preview_sha256": "2732effc36fdfb3f7c7a7bbf528244d3db0cf97ed8ee7fe28ebce7db77af49c9",
+      "mesh_object_count": 23,
+      "bbox": {
+        "min": [
+          -0.5479999780654907,
+          0.08999999612569809,
+          -1.0550000667572021
+        ],
+        "max": [
+          0.5479999780654907,
+          1.1779999732971191,
+          1.0575000047683716
+        ],
+        "size": [
+          1.0959999561309814,
+          1.087999939918518,
+          2.1125001907348633
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "ladder_stair",
+        "environment prop",
+        "beveled materialized geometry"
+      ]
+    },
+    {
+      "name": "prop_interior_furniture_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_interior_furniture_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_interior_furniture_final_preview.png",
+      "sha256": "0f8e908ba39bc40fe424c30afd944e699603e0370630e25fd4668d98b0f571dd",
+      "preview_sha256": "e141ddfff5fae944a40a6c096f4d37abaff68cb547c96005f36d5e551a209933",
+      "mesh_object_count": 11,
+      "bbox": {
+        "min": [
+          -0.9800000190734863,
+          0.0,
+          -0.800000011920929
+        ],
+        "max": [
+          1.1549999713897705,
+          1.5749999284744263,
+          0.28999999165534973
+        ],
+        "size": [
+          2.134999990463257,
+          1.5749999284744263,
+          1.090000033378601
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "interior_furniture",
+        "environment prop",
+        "beveled materialized geometry"
+      ]
+    },
+    {
+      "name": "prop_building_detail_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_building_detail_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_building_detail_final_preview.png",
+      "sha256": "0d8b6dc1c89bf3a374c9c914bdc16162422cdb1b7e5f274ea9d0df5e6d6be038",
+      "preview_sha256": "52d90fbe36d3a1a4f4073eb7b8ba5e8f55a1f8a7fbc1e2f4baae96e526d05c2f",
+      "mesh_object_count": 9,
+      "bbox": {
+        "min": [
+          -0.7541224956512451,
+          0.4599999785423279,
+          -0.8499999642372131
+        ],
+        "max": [
+          0.8700000047683716,
+          1.2200000286102295,
+          1.0499999523162842
+        ],
+        "size": [
+          1.6241225004196167,
+          0.7600000500679016,
+          1.8999998569488525
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "building_detail",
+        "environment prop",
+        "beveled materialized geometry"
+      ]
+    },
+    {
+      "name": "prop_ground_wall_fence_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ground_wall_fence_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_ground_wall_fence_final_preview.png",
+      "sha256": "b0f2b81a20b9a1ed7264dc08fa6e9b539bd13ab41a818495d7d2781f9c710a6d",
+      "preview_sha256": "e070906f06a603cda3995fc45f3db5f62893b4fba8f2fe6316804f6848c05b26",
+      "mesh_object_count": 13,
+      "bbox": {
+        "min": [
+          -1.125,
+          0.0,
+          -0.7799999713897705
+        ],
+        "max": [
+          1.125,
+          0.8500000238418579,
+          1.0549999475479126
+        ],
+        "size": [
+          2.25,
+          0.8500000238418579,
+          1.834999918937683
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "ground_wall_fence",
+        "environment prop",
+        "beveled materialized geometry"
+      ]
+    },
+    {
+      "name": "prop_tree_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_tree_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_tree_final_preview.png",
+      "sha256": "2168a23fe4ea809e220417d79d95248a66c524c74ba0fc3caccadc5ed31fecc6",
+      "preview_sha256": "067f472079454ecb6c7bb0a06171d5be54942f76a1633e342af5d045919f43e0",
+      "mesh_object_count": 10,
+      "bbox": {
+        "min": [
+          -1.2246710062026978,
+          0.9099999666213989,
+          -1.2860872745513916
+        ],
+        "max": [
+          1.4076478481292725,
+          3.1623997688293457,
+          1.2715107202529907
+        ],
+        "size": [
+          2.6323189735412598,
+          2.2523999214172363,
+          2.557598114013672
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "tree",
+        "environment prop",
+        "beveled materialized geometry"
+      ]
+    },
+    {
+      "name": "prop_rock_cluster_final",
+      "glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_rock_cluster_final.glb",
+      "preview": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_full_realism_final_20260513/assets/models/prop_rock_cluster_final_preview.png",
+      "sha256": "05630a33665f07791a38aa03a4bc44de499bbc499e5e8a5127626035d262edb9",
+      "preview_sha256": "d369755afc409548ed59f97420d9dd6393ac2583ccd1b76896a848202fe74321",
+      "mesh_object_count": 4,
+      "bbox": {
+        "min": [
+          -1.0349998474121094,
+          -0.054999977350234985,
+          -0.5920000076293945
+        ],
+        "max": [
+          0.8619999289512634,
+          0.5499999523162842,
+          0.5149999856948853
+        ],
+        "size": [
+          1.8969998359680176,
+          0.6049998998641968,
+          1.1069999933242798
+        ]
+      },
+      "material_names": [
+        "black_nylon_webbing",
+        "brass_cartridge_metal",
+        "ceramic_plate_carrier",
+        "charcoal_enemy_cloth",
+        "faded_yellow_warning_paint",
+        "granite_rough_rock",
+        "layered_tree_bark",
+        "maroon_enemy_plate_carrier",
+        "medical_red_marking",
+        "mixed_leaf_clusters",
+        "muted_skin_visible_face",
+        "olive_ripstop_cloth",
+        "patched_dark_asphalt",
+        "revive_glowing_glass",
+        "scratched_dark_steel",
+        "sealed_rough_wood",
+        "smoked_blue_visor_glass",
+        "tan_canvas_fabric",
+        "weathered_cast_concrete",
+        "worn_painted_metal"
+      ],
+      "notes": [
+        "rock_cluster",
+        "environment prop",
+        "beveled materialized geometry"
+      ]
+    }
+  ]
+}

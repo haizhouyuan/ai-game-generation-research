@@ -1,0 +1,29 @@
+06:18:21 | INFO: Data are loaded, start creating Blender stuff
+06:18:21 | INFO: Blender create Mesh node geometry_0
+06:18:21 | INFO: glTF import finished in 0.02s
+/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/blender_host_probe_20260513/blender_glb_cleanup_probe.py:156: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material.use_nodes = True
+/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/blender_host_probe_20260513/blender_glb_cleanup_probe.py:299: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material.use_nodes = True
+INFO Draco mesh compression is available, use library at /Applications/Blender.app/Contents/Resources/5.1/scripts/addons_core/io_scene_gltf2/libextern_draco.dylib
+06:18:22 | INFO: Starting glTF 2.0 export
+06:18:22 | INFO: Extracting primitive: geometry_0
+06:18:22 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+06:18:22 | INFO: Primitives created: 4
+06:18:22 | INFO: Extracting primitive: Cube.001
+06:18:22 | INFO: Primitives created: 1
+06:18:22 | INFO: Finished glTF 2.0 export in 0.04892587661743164 s
+00:01.859  render           | Saved: '/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_render.png'
+
+{
+  "cleaned_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+  "cleaned_glb_sha256": "aa254a919d08a92c5e1963fd78a7e4bab49ad878c22a80d8e97ae1e577fb1a44",
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_single3q_trellis_meshonly.glb",
+  "render": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_render.png",
+  "render_sha256": "434107a776521cd636e6438c24a4eef7ed473ae51695ff6a09233ccc9271ebfd",
+  "report": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_report.json",
+  "status": "DONE"
+}
+Blender 5.1.1 (hash b70da489d7f4 built 2026-04-14 01:46:23)
+
+Blender quit

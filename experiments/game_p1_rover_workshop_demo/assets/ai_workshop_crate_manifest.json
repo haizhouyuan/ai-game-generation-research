@@ -1,0 +1,17 @@
+{
+  "manifest_version": "p1_asset_manifest.v1",
+  "prototype_id": "p1_rover_workshop",
+  "updated_at": "2026-05-13T00:00:00+08:00",
+  "assets": [
+    {
+      "asset_id": "RW-CRATE-AI-001",
+      "asset_name": "AI-assisted workshop crate",
+      "runtime_role": "visual_landmark",
+      "runtime_path": "../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+      "source_experiment": "experiments/game_p26_trellis_meshonly_asset_validation_20260512",
+      "provenance_path": "experiments/game_p1_rover_workshop_demo/assets/provenance/rw-crate-ai-001.json",
+      "status": "runtime_imported",
+      "collision_strategy": "visual landmark only; not used for gameplay collision"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-05-13T07:58:28+08:00",
+  "artifacts": [
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/rifle_obj_baseline/rifle_obj_baseline.glb",
+      "sha256": "c90ecae487078dd37809690b91ff1f27ae662984d703868972534916f4cbc9db",
+      "role": "existing_obj_baseline_glb"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/rifle_obj_baseline/preview.png",
+      "sha256": "df912a3a4aab3331393325852bacc86b1b27874c58a55f9aef4a83aacb2a3b18",
+      "role": "existing_obj_baseline_blender_preview"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/rifle_obj_baseline/blender_weapon_candidate_report.json",
+      "sha256": "694b1870134dd9d037466d7f6349b3b6a33abd0c10eec4290bf00be6848d750f",
+      "role": "existing_obj_baseline_blender_report"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/rifle_obj_baseline/three_glb_parse_inventory.json",
+      "sha256": "8e63a323904232ac473d7c51bdefd4e33e9caec5c4b4cc738fa7ca66227a66c5",
+      "role": "existing_obj_baseline_threejs_parse_report"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/blender_obj_weapon_candidate.py",
+      "sha256": "404dce821b85e06c491b65d55dbb9518bade8ef340b9f9f6012feacc5e305616",
+      "role": "blender_obj_import_export_script"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/groza_procedural/groza_procedural_candidate.glb",
+      "sha256": "484a001db8aecd926a0069ae1dbca923d9572dc48dc1919fde7cede4b04179ea",
+      "role": "local_groza_procedural_candidate_glb"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/groza_procedural/preview.png",
+      "sha256": "af030610a93ccf8d809817979edeb403f4c2aab9c84ed0dd07ce2bda49286d5f",
+      "role": "local_groza_procedural_blender_preview"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/groza_procedural/blender_groza_procedural_report.json",
+      "sha256": "7c310a6f964e1de8460389c9bdf8246f2c9c7da6abcebb5bfc0f339969ea082c",
+      "role": "local_groza_procedural_blender_report"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/groza_procedural/three_glb_parse_inventory.json",
+      "sha256": "513951b3eadd856d5eca374d44392899e87cf79204125ee8616ade8f116fc501",
+      "role": "local_groza_procedural_threejs_parse_report"
+    },
+    {
+      "path": "experiments/tactical_rifle_realism_20260513/blender_groza_procedural_candidate.py",
+      "sha256": "566a919acc73472eae8fa2822911d8b558a5b1e7f56aac088f3bbdb0933935e5",
+      "role": "blender_groza_procedural_generation_script"
+    }
+  ]
+}

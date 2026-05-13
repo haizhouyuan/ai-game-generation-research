@@ -1,0 +1,64 @@
+{
+  "cleanup": {
+    "normalized_bbox_max": [
+      1.0,
+      0.36440759897232056,
+      0.8134446740150452
+    ],
+    "normalized_bbox_min": [
+      -1.0,
+      -0.36440756916999817,
+      -0.8134446740150452
+    ],
+    "normalized_dimensions": [
+      2.0,
+      0.7288151979446411,
+      1.6268893480300903
+    ],
+    "original_bbox_max": [
+      0.500038743019104,
+      0.18167252838611603,
+      0.4057268798351288
+    ],
+    "original_bbox_min": [
+      -0.4990326464176178,
+      -0.18239666521549225,
+      -0.40696242451667786
+    ],
+    "original_dimensions": [
+      0.9990713596343994,
+      0.3640691936016083,
+      0.8126893043518066
+    ],
+    "scale_factor": 2.0018590070802156
+  },
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_trellis_meshonly.glb",
+  "input_sha256": "f8d133c7a1188d62d729a9f952e0ee7abeb0bdb3ad9daa428b886f7dd8d568d3",
+  "material_names": [
+    "DefaultMaterial"
+  ],
+  "mesh_object_count": 1,
+  "mesh_objects": [
+    {
+      "faces": 22794,
+      "material_slots": 1,
+      "name": "geometry_0",
+      "vertices": 11319
+    }
+  ],
+  "proxy_collider": {
+    "center": [
+      0.0,
+      1.4901161193847656e-08,
+      0.0
+    ],
+    "dimensions": [
+      2.0,
+      0.7288151979446411,
+      1.6268893480300903
+    ],
+    "name": "COLLIDER_PROXY_bbox_simple_box",
+    "type": "box"
+  },
+  "texture_state": "materials-present-textures-not-assumed"
+}

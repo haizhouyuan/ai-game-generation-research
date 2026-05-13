@@ -1,0 +1,28 @@
+{
+  "scenario_version": "browser_prototype_gate.v1",
+  "prototype_id": "p0_chatgpt_html_baseline",
+  "gate_level": "G2",
+  "known_limitations": [
+    "P0 is preserved as an excitement baseline, not a production route.",
+    "P0 G2 checks load, start, HUD, input dispatch, screenshots, and hashes only."
+  ],
+  "steps": [
+    {
+      "id": "load",
+      "action": "open",
+      "expect": ["page_ready", "canvas_present", "hud_present"]
+    },
+    {
+      "id": "start",
+      "action": "click",
+      "target": "start_button",
+      "expect": ["play_state"]
+    },
+    {
+      "id": "input",
+      "action": "replay",
+      "keys": ["KeyW"],
+      "expect": ["input_dispatched", "hud_present"]
+    }
+  ]
+}

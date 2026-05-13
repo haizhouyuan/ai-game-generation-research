@@ -1,0 +1,24 @@
+03:45:51 | INFO: Data are loaded, start creating Blender stuff
+03:45:51 | INFO: Blender create Mesh node geometry_0
+03:45:51 | INFO: glTF import finished in 0.06s
+INFO Draco mesh compression is available, use library at /Applications/Blender.app/Contents/Resources/5.1/scripts/addons_core/io_scene_gltf2/libextern_draco.dylib
+03:45:51 | INFO: Starting glTF 2.0 export
+03:45:51 | INFO: Extracting primitive: geometry_0
+03:45:51 | INFO: Primitives created: 1
+03:45:52 | INFO: Extracting primitive: Cube.001
+03:45:52 | INFO: Primitives created: 1
+03:45:52 | INFO: Finished glTF 2.0 export in 0.0996391773223877 s
+00:05.933  render           | Saved: '/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/blender_host_probe_20260513/outputs/blender_cleanup_render.png'
+
+{
+  "cleaned_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/blender_host_probe_20260513/outputs/typical_misc_crate_blender_cleaned_with_proxy.glb",
+  "cleaned_glb_sha256": "7b4391d31f09053859aaf229587b6ec3432bbf2799cfec1fc0caaf1edb34a387",
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+  "render": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/blender_host_probe_20260513/outputs/blender_cleanup_render.png",
+  "render_sha256": "94ab8be637f669c693788334fe6b151de7eb906c23ad544214b9dbf11c8ab3b9",
+  "report": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/blender_host_probe_20260513/outputs/blender_cleanup_report.json",
+  "status": "DONE"
+}
+Blender 5.1.1 (hash b70da489d7f4 built 2026-04-14 01:46:23)
+
+Blender quit

@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Rover Workshop: Battery Rescue</title>
+  <style>
+    html,body{margin:0;height:100%;overflow:hidden;background:#111814;color:#f6fbf6;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    #game{position:fixed;inset:0;width:100%;height:100%;display:block}
+    #hud{position:fixed;left:0;right:0;top:0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:12px 14px;background:linear-gradient(180deg,rgba(17,24,20,.9),rgba(17,24,20,.28));z-index:2;flex-wrap:wrap}
+    .cluster{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    #hud .cluster:first-child{flex:1 1 360px}
+    .pill{min-width:76px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);border-radius:8px;padding:8px 10px;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+    .pill.good{border-color:rgba(159,227,192,.5);background:rgba(62,110,81,.38)}
+    .pill.warn{border-color:rgba(255,122,89,.55);background:rgba(113,49,36,.38)}
+    .label{display:block;color:#b9c9bd;font-size:11px;font-weight:750;text-transform:uppercase}
+    .value{display:block;font-size:18px;font-weight:900;line-height:1.1}
+    .meter{width:100%;height:5px;margin-top:6px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden}
+    .meter span{display:block;height:100%;width:100%;background:#9fe3c0;transition:width .18s ease,background .18s ease}
+    #objective{position:fixed;left:14px;bottom:14px;max-width:min(560px,calc(100vw - 28px));border:1px solid rgba(255,255,255,.18);background:rgba(17,24,20,.82);border-radius:8px;padding:11px 12px 12px;font-size:15px;font-weight:800;z-index:2;box-shadow:0 18px 48px rgba(0,0,0,.28)}
+    #objectiveText{display:block;margin-top:2px;font-size:16px;line-height:1.22}
+    #objectiveHint{display:block;margin-top:4px;color:#cde1d2;font-size:12px;font-weight:700;line-height:1.25}
+    #stepRail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:10px}
+    .step{height:6px;border-radius:999px;background:rgba(255,255,255,.18)}
+    .step.active{background:#f4c95d}
+    .step.done{background:#9fe3c0}
+    #toast{position:fixed;left:50%;top:84px;transform:translateX(-50%);min-width:min(420px,calc(100vw - 28px));border:1px solid rgba(255,255,255,.2);background:rgba(23,43,35,.9);border-radius:8px;padding:10px 12px;text-align:center;font-size:15px;font-weight:900;z-index:4;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}
+    #toast.show{opacity:1;transform:translate(-50%,8px)}
+    #worldLabels{position:fixed;inset:0;pointer-events:none;z-index:2}
+    .tag{position:absolute;transform:translate(-50%,-100%);border:1px solid rgba(255,255,255,.2);background:rgba(17,24,20,.82);border-radius:8px;padding:5px 7px;color:#f6fbf6;font-size:12px;font-weight:900;white-space:nowrap;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+    .tag.ready{background:rgba(57,96,76,.9)}
+    .tag.warn{background:rgba(113,49,36,.92)}
+    .tag.goal{background:rgba(68,49,116,.9)}
+    .tag.route{background:rgba(26,76,72,.92);border-color:rgba(111,216,206,.45)}
+    #result{position:fixed;inset:auto 50% 70px auto;transform:translateX(50%);display:none;min-width:min(460px,calc(100vw - 28px));border:1px solid rgba(255,255,255,.2);background:rgba(28,54,44,.92);border-radius:8px;padding:16px;text-align:center;z-index:3;box-shadow:0 22px 70px rgba(0,0,0,.35)}
+    #result.show{display:block}
+    #result h1{margin:0 0 6px;font-size:28px;letter-spacing:0}
+    #resultSummary{margin:0 0 12px;color:#d6eadc;font-weight:750;line-height:1.35}
+    button{border:0;border-radius:8px;padding:10px 12px;background:#f4c95d;color:#1b241c;font-weight:900;cursor:pointer}
+    button.secondary{background:#9fe3c0}
+    @media(max-width:720px){#hud{gap:8px;padding:10px;max-height:44vh;overflow:auto}.pill{min-width:58px;padding:7px 8px}.value{font-size:16px}#objective{font-size:13px;left:10px;right:10px;bottom:10px;max-width:none;max-height:32vh;overflow:auto}#objectiveText{font-size:14px}}
+    @media(max-width:460px){#hud .cluster:first-child{flex-basis:100%}.pill{min-width:50px}.label{font-size:10px}.value{font-size:14px}button{padding:8px 10px}#toast{top:118px}}
+  </style>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="hud">
+    <div class="cluster">
+      <div class="pill"><span class="label">Batteries</span><span id="batteryHud" class="value">0 / 3</span></div>
+      <div id="energyPill" class="pill"><span class="label">Energy</span><span id="energyHud" class="value">100</span><div class="meter"><span id="energyMeter"></span></div></div>
+      <div id="gearPill" class="pill"><span class="label">Gear</span><span id="gearHud" class="value">0 / 3</span></div>
+      <div id="upgradePill" class="pill"><span class="label">Magnet</span><span id="upgradeHud" class="value">Locked</span></div>
+      <div id="bridgePill" class="pill"><span class="label">Bridge</span><span id="bridgeHud" class="value">Waiting</span></div>
+      <div id="gatePill" class="pill"><span class="label">Gate</span><span id="gateHud" class="value">Closed</span></div>
+    </div>
+    <div class="cluster">
+      <button id="startBtn">Start</button>
+      <button id="resetBtn" class="secondary">Reset</button>
+    </div>
+  </div>
+  <div id="objective">
+    <span class="label">Objective</span>
+    <span id="objectiveText">Bring three batteries to the charging pad.</span>
+    <span id="objectiveHint">Start in the blue bay, collect green batteries, use the yellow switch, finish on purple.</span>
+    <div id="stepRail"><span class="step active"></span><span class="step"></span><span class="step"></span><span class="step"></span><span class="step"></span></div>
+  </div>
+  <div id="toast"></div>
+  <div id="worldLabels"></div>
+  <div id="result"><h1>Workshop Charged</h1><div id="resultSummary"></div><button id="replayBtn">Replay</button></div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "../game_p2_glb_three_import_loop/node_modules/three/build/three.module.js",
+        "three/addons/": "../game_p2_glb_three_import_loop/node_modules/three/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    const canvas = document.getElementById('game');
+    const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0xb8d6c0);
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0xb8d6c0, 18, 42);
+    const camera = new THREE.PerspectiveCamera(48, 1, .1, 100);
+    const state = {
+      started:false, batteries:0, required:3, energy:100, gear:0, gearRequired:3,
+      gateOpen:false, bridgeBuilt:false, finished:false, upgradeUnlocked:false, finishGlow:0,
+      rover:new THREE.Vector3(-5, .35, 4), velocity:new THREE.Vector3(), heading:0,
+      objective:'Bring three batteries to the charging pad.',
+      hint:'Start in the blue bay, collect green batteries, use the yellow switch, finish on purple.',
+      hazardCooldown:0, cleaningCooldown:0, cleaningBotTime:0, cleaningBotSegment:0,
+      toastUntil:0, feedbackPulse:0,
+      aiAssets:{
+        heroRover:{
+          assetId:'RW-ROVER-001',
+          status:'pending',
+          path:'assets/models/rw_rover_001_single3q_blender_textured_with_proxy.glb',
+          triangles:42300,
+          bboxSize:[2,1.7361558871343732,1.809220552444458],
+          textureState:'procedural embedded base-color maps with Blender-authored UV proof',
+          rigState:'no_skeletal_rig_single_generated_mesh',
+          animationStrategy:'runtime_parent_transform_feedback_only',
+          collisionStrategy:'visual avatar mesh only; gameplay collision remains the procedural rover proxy'
+        },
+        workshopCrate:{
+          assetId:'RW-CRATE-AI-001',
+          status:'pending',
+          path:'../game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb',
+          triangles:110066,
+          bboxSize:[0.9995670914649963,0.9967367649078369,0.9996874928474426],
+          collisionStrategy:'visual landmark only; no generated mesh collision'
+        }
+      }
+    };
+    const keys = new Set();
+    const objects = {};
+    const labels = [];
+    const pickups = [];
+    const clock = new THREE.Clock();
+
+    const materials = {
+      floor:new THREE.MeshStandardMaterial({color:0x6f8f72, roughness:.82}),
+      path:new THREE.MeshStandardMaterial({color:0xd8c27a, roughness:.72}),
+      rover:new THREE.MeshStandardMaterial({color:0x4ba3c7, roughness:.46, metalness:.08}),
+      accent:new THREE.MeshStandardMaterial({color:0xf4c95d, roughness:.38}),
+      battery:new THREE.MeshStandardMaterial({color:0x7ee081, emissive:0x2f6f45, emissiveIntensity:.45}),
+      hazard:new THREE.MeshStandardMaterial({color:0xff7a59, emissive:0x6d1d12, emissiveIntensity:.35}),
+      gate:new THREE.MeshStandardMaterial({color:0x57636b, roughness:.55}),
+      bridge:new THREE.MeshStandardMaterial({color:0x9fe3c0, emissive:0x1d6b47, emissiveIntensity:.14, roughness:.5}),
+      bridgeWaiting:new THREE.MeshStandardMaterial({color:0x42504d, roughness:.76}),
+      finish:new THREE.MeshStandardMaterial({color:0xb994ff, emissive:0x38226b, emissiveIntensity:.3}),
+      finishBeam:new THREE.MeshStandardMaterial({color:0xa9fff1, emissive:0x57e8d7, emissiveIntensity:.65, transparent:true, opacity:.42}),
+      zoneBlue:new THREE.MeshStandardMaterial({color:0x63b5d1, roughness:.68}),
+      zoneOrange:new THREE.MeshStandardMaterial({color:0xe7a64f, roughness:.68}),
+      zoneCyan:new THREE.MeshStandardMaterial({color:0x6bd8ce, roughness:.68}),
+      cleanBot:new THREE.MeshStandardMaterial({color:0xeaf7f3, roughness:.42, metalness:.05}),
+      cleanBotTrim:new THREE.MeshStandardMaterial({color:0x54c6c6, emissive:0x0b4d4d, emissiveIntensity:.26, roughness:.45}),
+      cleanBotBrush:new THREE.MeshStandardMaterial({color:0xf4c95d, roughness:.52}),
+      route:new THREE.MeshStandardMaterial({color:0x5ecfc2, emissive:0x0e4c48, emissiveIntensity:.18, roughness:.7}),
+      routeArrow:new THREE.MeshStandardMaterial({color:0xffffff, emissive:0x6bd8ce, emissiveIntensity:.2, roughness:.48}),
+      signPanel:new THREE.MeshStandardMaterial({color:0x244a47, emissive:0x082b28, emissiveIntensity:.12, roughness:.52}),
+      rubber:new THREE.MeshStandardMaterial({color:0x1f2a2d, roughness:.6})
+    };
+    const cleaningBotRoute = [
+      new THREE.Vector3(-3.9,.34,.95),
+      new THREE.Vector3(-1.05,.34,.95),
+      new THREE.Vector3(-1.05,.34,2.65),
+      new THREE.Vector3(-3.9,.34,2.65)
+    ];
+
+    function addBox(name, size, position, material){
+      const mesh = new THREE.Mesh(new THREE.BoxGeometry(size.x,size.y,size.z), material);
+      mesh.position.copy(position);
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      scene.add(mesh);
+      objects[name] = mesh;
+      return mesh;
+    }
+
+    function addLabel(text, target, className=''){
+      const element = document.createElement('div');
+      element.className = `tag ${className}`.trim();
+      element.textContent = text;
+      document.getElementById('worldLabels').appendChild(element);
+      labels.push({element, target});
+      return element;
+    }
+
+    function flash(message){
+      state.toastUntil = performance.now() + 1600;
+      state.feedbackPulse = performance.now() + 700;
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+    }
+
+    function addRouteSign(id, text, position, angle=0){
+      const group = new THREE.Group();
+      group.name = id;
+      group.position.copy(position);
+      group.rotation.y = angle;
+      const post = new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,.82,12), materials.rubber);
+      post.position.y = .42;
+      const panel = new THREE.Mesh(new THREE.BoxGeometry(.86,.38,.08), materials.signPanel.clone());
+      panel.position.y = .93;
+      const cap = new THREE.Mesh(new THREE.ConeGeometry(.16,.22,3), materials.routeArrow.clone());
+      cap.position.set(.52,.93,0);
+      cap.rotation.z = -Math.PI / 2;
+      group.add(post,panel,cap);
+      scene.add(group);
+      objects.routeSigns.push(group);
+      addLabel(text, group, 'route');
+      return group;
+    }
+
+    function addGroundArrow(id, position, angle=0){
+      const arrow = new THREE.Group();
+      arrow.name = id;
+      arrow.position.copy(position);
+      arrow.rotation.y = angle;
+      const stem = new THREE.Mesh(new THREE.BoxGeometry(.18,.035,.62), materials.route);
+      const head = new THREE.Mesh(new THREE.ConeGeometry(.22,.32,3), materials.routeArrow.clone());
+      head.position.z = -.46;
+      head.rotation.x = Math.PI / 2;
+      arrow.add(stem, head);
+      scene.add(arrow);
+      objects.routeArrows.push(arrow);
+      return arrow;
+    }
+
+    function buildRouteSignposting(){
+      objects.routeSigns = [];
+      objects.routeArrows = [];
+      addRouteSign('routeSignStart', '1 Start bay', new THREE.Vector3(-5.95,.08,4.55), Math.PI / 8);
+      addRouteSign('routeSignPickups', '2 Batteries + gears', new THREE.Vector3(-1.25,.08,4.2), -Math.PI / 5);
+      addRouteSign('routeSignSwitch', '3 Yellow switch', new THREE.Vector3(-2.05,.08,-2.95), Math.PI / 2);
+      addRouteSign('routeSignBridge', '4 Repair bridge', new THREE.Vector3(1.25,.08,1.9), -Math.PI / 4);
+      addRouteSign('routeSignCharge', '5 Charge pad', new THREE.Vector3(4.15,.08,4.9), -Math.PI / 2);
+      addGroundArrow('routeArrowA', new THREE.Vector3(-4.35,.12,3.65), -Math.PI / 3);
+      addGroundArrow('routeArrowB', new THREE.Vector3(-1.25,.12,2.15), Math.PI / 7);
+      addGroundArrow('routeArrowC', new THREE.Vector3(-1.55,.12,-1.15), 0);
+      addGroundArrow('routeArrowD', new THREE.Vector3(1.35,.12,.35), -Math.PI / 2);
+      addGroundArrow('routeArrowE', new THREE.Vector3(3.7,.12,3.75), -Math.PI / 2);
+    }
+
+    function buildScene(){
+      scene.add(new THREE.HemisphereLight(0xf7fff6,0x324636,1.9));
+      const sun = new THREE.DirectionalLight(0xffffff,1.6);
+      sun.position.set(-4,9,6);
+      scene.add(sun);
+      addBox('floor', new THREE.Vector3(16,.2,12), new THREE.Vector3(0,-.1,0), materials.floor);
+      addBox('path', new THREE.Vector3(14,.04,2.3), new THREE.Vector3(0,.04,1.2), materials.path);
+      addBox('entryZone', new THREE.Vector3(3.8,.05,2.8), new THREE.Vector3(-5.1,.06,3.2), materials.zoneBlue);
+      addBox('puzzleZone', new THREE.Vector3(3.3,.05,2.4), new THREE.Vector3(-1.4,.07,-2.45), materials.zoneOrange);
+      addBox('chargeLane', new THREE.Vector3(2.8,.05,2.8), new THREE.Vector3(5,.06,4), materials.zoneCyan);
+      addBox('workbench', new THREE.Vector3(3,.8,1), new THREE.Vector3(-4,.4,-3.2), materials.gate);
+      addBox('shelf', new THREE.Vector3(1.1,1.9,3), new THREE.Vector3(5,.95,-2.8), materials.gate);
+      addBox('toolRack', new THREE.Vector3(2.7,.18,.18), new THREE.Vector3(-.2,1.3,-3.05), materials.accent);
+      addBox('safetyRailA', new THREE.Vector3(.18,.38,8.5), new THREE.Vector3(-7.2,.18,.6), materials.rubber);
+      addBox('safetyRailB', new THREE.Vector3(.18,.38,8.5), new THREE.Vector3(7.2,.18,.6), materials.rubber);
+      addBox('gateLightLeft', new THREE.Vector3(.18,.75,.18), new THREE.Vector3(1.82,.48,-.34), materials.hazard.clone());
+      addBox('gateLightRight', new THREE.Vector3(.18,.75,.18), new THREE.Vector3(4.18,.48,-.34), materials.hazard.clone());
+      buildRouteSignposting();
+      objects.rover = new THREE.Group();
+      const body = addBox('roverBody', new THREE.Vector3(1.1,.45,.82), new THREE.Vector3(0,.4,0), materials.rover);
+      const head = addBox('roverHead', new THREE.Vector3(.48,.32,.42), new THREE.Vector3(.15,.82,-.02), materials.accent);
+      objects.rover.add(body, head);
+      objects.roverProceduralVisuals = [body, head];
+      for(const x of [-.45,.45]) for(const z of [-.42,.42]){
+        const wheel = new THREE.Mesh(new THREE.CylinderGeometry(.18,.18,.14,18), materials.rubber);
+        wheel.rotation.z = Math.PI/2;
+        wheel.position.set(x,.22,z);
+        objects.rover.add(wheel);
+        objects.roverProceduralVisuals.push(wheel);
+      }
+      scene.add(objects.rover);
+      addAiHeroRoverVisual();
+      [['battery1',-2,2.9],['battery2',1.5,-1.8],['battery3',4,2.8]].forEach(([name,x,z], index)=>{
+        const pack = addBox(name, new THREE.Vector3(.42,.58,.26), new THREE.Vector3(x,.34,z), materials.battery);
+        const cap = addBox(name+'Cap', new THREE.Vector3(.18,.12,.28), new THREE.Vector3(x,.75,z), materials.accent);
+        objects[name+'Group'] = [pack, cap];
+        const label = addLabel(`Battery ${index+1}`, pack.position, 'ready');
+        pickups.push({id:name, kind:'battery', meshes:[pack, cap], position:pack.position, collected:false, label});
+      });
+      [['gear1',-5,-1.8],['gear2',-.8,3.55],['gear3',5.6,-.9]].forEach(([name,x,z], index)=>{
+        const gear = new THREE.Mesh(new THREE.TorusGeometry(.28,.07,10,24), materials.accent);
+        gear.position.set(x,.46,z);
+        gear.rotation.x = Math.PI/2;
+        scene.add(gear);
+        objects[name] = gear;
+        const gearLabel = addLabel(`Gear ${index+1}`, gear.position, 'ready');
+        pickups.push({id:name, kind:'gear', meshes:[gear], position:gear.position, collected:false, label:gearLabel});
+      });
+      objects.upgradeStation = addBox('upgradeStation', new THREE.Vector3(.9,.7,.7), new THREE.Vector3(-3.2,.36,-1.85), materials.gate);
+      objects.upgradeLens = new THREE.Mesh(new THREE.SphereGeometry(.24,18,12), materials.finish.clone());
+      objects.upgradeLens.position.set(-3.2,.86,-1.85);
+      scene.add(objects.upgradeLens);
+      addBox('hazard', new THREE.Vector3(1.9,.08,1.4), new THREE.Vector3(.5,.09,2.85), materials.hazard);
+      objects.warningRing = new THREE.Mesh(new THREE.TorusGeometry(1.12,.035,10,36), materials.hazard.clone());
+      objects.warningRing.position.set(.5,.16,2.85);
+      objects.warningRing.rotation.x = Math.PI/2;
+      scene.add(objects.warningRing);
+      buildCleaningBot();
+      addBox('switch', new THREE.Vector3(.55,.3,.55), new THREE.Vector3(-1.2,.22,-2.5), materials.accent);
+      objects.gate = addBox('gate', new THREE.Vector3(2.2,1.45,.35), new THREE.Vector3(3,.75,.1), materials.gate.clone());
+      objects.bridgeGap = addBox('bridgeGap', new THREE.Vector3(3.15,.06,3.9), new THREE.Vector3(4.15,.06,3.05), materials.rubber);
+      objects.repairPad = addBox('repairPad', new THREE.Vector3(1.05,.12,1.05), new THREE.Vector3(2.2,.12,1.2), materials.bridgeWaiting);
+      objects.repairBeacon = new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,.72,20), materials.accent.clone());
+      objects.repairBeacon.position.set(2.2,.52,1.2);
+      scene.add(objects.repairBeacon);
+      objects.bridge = addBox('bridge', new THREE.Vector3(3.15,.16,3.9), new THREE.Vector3(4.15,-.3,3.05), materials.bridge.clone());
+      objects.finish = new THREE.Mesh(new THREE.CylinderGeometry(1,1,.12,40), materials.finish);
+      objects.finish.position.set(5,.08,4);
+      scene.add(objects.finish);
+      objects.finishBeam = new THREE.Mesh(new THREE.CylinderGeometry(.22,.62,3.2,28), materials.finishBeam);
+      objects.finishBeam.position.set(5,1.72,4);
+      scene.add(objects.finishBeam);
+      addLabel('Spark tile', objects.hazard.position, 'warn');
+      addLabel('Cleaning bot patrol', objects.cleaningBot, 'ready');
+      addLabel('Magnet station', objects.upgradeStation.position, 'goal');
+      addLabel('Switch opens gate', objects.switch.position, 'ready');
+      addLabel('Gear bridge repair', objects.repairPad.position, 'goal');
+      addLabel('Charging pad', objects.finish.position, 'goal');
+      addAiWorkshopCrate();
+      updateObjects();
+    }
+
+    function addAiHeroRoverVisual(){
+      const asset = state.aiAssets.heroRover;
+      const loader = new GLTFLoader();
+      asset.ready = new Promise(resolve => {
+        loader.load(
+          asset.path,
+          gltf => {
+            const group = gltf.scene;
+            group.name = asset.assetId;
+            group.position.set(0,.66,0);
+            group.rotation.y = Math.PI / 2;
+            group.scale.setScalar(.45);
+            let visualMeshCount = 0;
+            let hiddenProxyMeshCount = 0;
+            const materialNames = new Set();
+            group.traverse(node => {
+              if(node.isMesh){
+                if(node.name.startsWith('COLLIDER_PROXY')){
+                  node.visible = false;
+                  hiddenProxyMeshCount += 1;
+                  return;
+                }
+                visualMeshCount += 1;
+                node.castShadow = true;
+                node.receiveShadow = true;
+                if(!node.material){
+                  node.material = materials.rover.clone();
+                }
+                const nodeMaterials = Array.isArray(node.material) ? node.material : [node.material];
+                nodeMaterials.forEach(material => {
+                  if(material?.name) materialNames.add(material.name);
+                });
+              }
+            });
+            objects.rover.add(group);
+            objects.roverProceduralVisuals.forEach(mesh => mesh.visible = false);
+            asset.status = 'loaded';
+            asset.meshCount = visualMeshCount;
+            asset.hiddenProxyMeshCount = hiddenProxyMeshCount;
+            asset.hiddenProceduralFallbackCount = objects.roverProceduralVisuals.length;
+            asset.materialNames = Array.from(materialNames).sort();
+            resolve(true);
+          },
+          undefined,
+          error => {
+            console.warn('AI hero rover failed to load', error);
+            asset.status = 'failed';
+            asset.error = String(error?.message || error);
+            resolve(false);
+          }
+        );
+      });
+    }
+
+    function addAiWorkshopCrate(){
+      const asset = state.aiAssets.workshopCrate;
+      const marker = addBox('aiCrateProxyMarker', new THREE.Vector3(1.05,.08,1.05), new THREE.Vector3(-5.6,.08,-3.85), materials.route);
+      marker.visible = false;
+      const loader = new GLTFLoader();
+      asset.ready = new Promise(resolve => {
+        loader.load(
+          asset.path,
+          gltf => {
+            const group = gltf.scene;
+            group.name = asset.assetId;
+            group.position.set(-5.6,.62,-3.85);
+            group.rotation.y = Math.PI / 5;
+            group.scale.setScalar(.9);
+            group.traverse(node => {
+              if(node.isMesh){
+                node.castShadow = true;
+                node.receiveShadow = true;
+                if(!node.material) node.material = materials.gate.clone();
+              }
+            });
+            scene.add(group);
+            objects.aiWorkshopCrate = group;
+            asset.status = 'loaded';
+            asset.meshCount = 1;
+            addLabel('AI GLB crate', group, 'ready');
+            resolve(true);
+          },
+          undefined,
+          error => {
+            console.warn('AI GLB crate failed to load', error);
+            asset.status = 'failed';
+            asset.error = String(error?.message || error);
+            resolve(false);
+          }
+        );
+      });
+    }
+
+    function buildCleaningBot(){
+      for(let i=0; i<cleaningBotRoute.length; i++){
+        const current = cleaningBotRoute[i];
+        const next = cleaningBotRoute[(i+1) % cleaningBotRoute.length];
+        const midpoint = current.clone().lerp(next, .5);
+        const length = current.distanceTo(next);
+        const marker = addBox(`cleaningBotRoute${i}`, new THREE.Vector3(length,.035,.16), new THREE.Vector3(midpoint.x,.08,midpoint.z), materials.route);
+        marker.rotation.y = Math.atan2(next.x - current.x, next.z - current.z) - Math.PI / 2;
+      }
+      objects.cleaningBot = new THREE.Group();
+      const base = new THREE.Mesh(new THREE.CylinderGeometry(.5,.58,.26,28), materials.cleanBot);
+      base.position.y = .18;
+      const dome = new THREE.Mesh(new THREE.SphereGeometry(.38,24,14), materials.cleanBotTrim);
+      dome.scale.set(1,.45,1);
+      dome.position.y = .36;
+      const bumper = new THREE.Mesh(new THREE.TorusGeometry(.48,.045,8,28), materials.rubber);
+      bumper.rotation.x = Math.PI/2;
+      bumper.position.y = .23;
+      const eyeLeft = new THREE.Mesh(new THREE.SphereGeometry(.045,10,8), materials.rubber);
+      eyeLeft.position.set(-.14,.43,.33);
+      const eyeRight = eyeLeft.clone();
+      eyeRight.position.x = .14;
+      const brush = new THREE.Mesh(new THREE.CylinderGeometry(.08,.08,.74,12), materials.cleanBotBrush);
+      brush.rotation.z = Math.PI/2;
+      brush.position.set(0,.08,.5);
+      objects.cleaningBot.add(base,dome,bumper,eyeLeft,eyeRight,brush);
+      scene.add(objects.cleaningBot);
+      updateCleaningBot(0, true);
+    }
+
+    function resize(){
+      const w = window.innerWidth, h = window.innerHeight;
+      renderer.setSize(w,h,false);
+      camera.aspect = w/h;
+      camera.updateProjectionMatrix();
+    }
+
+    function start(){
+      if(state.finished) reset();
+      state.started=true;
+      state.objective='Follow signs 1-5: batteries/gears, switch, bridge pad, charging pad.';
+      state.hint='Teal arrows and route plaques mark the intended workshop loop.';
+      flash('Route signs lit. Follow 1 to 5.');
+      updateHud();
+    }
+    function reset(){
+      state.started=false; state.batteries=0; state.energy=100; state.gear=0; state.gateOpen=false; state.bridgeBuilt=false; state.finished=false; state.upgradeUnlocked=false;
+      state.rover.set(-5,.35,4); state.velocity.set(0,0,0); state.heading=0; state.hazardCooldown=0; state.cleaningCooldown=0; state.cleaningBotTime=0; state.cleaningBotSegment=0;
+      state.objective='Bring three batteries to the charging pad.';
+      state.hint='Follow signs 1-5: blue start, pickups, yellow switch, bridge repair, purple charge.';
+      document.getElementById('result').classList.remove('show');
+      for(const name of ['battery1','battery2','battery3']) objects[name+'Group'].forEach(mesh=>mesh.visible=true);
+      pickups.forEach(pickup => {
+        pickup.collected = false;
+        pickup.meshes.forEach(mesh => mesh.visible = true);
+        if(pickup.label) pickup.label.dataset.hidden = 'false';
+      });
+      updateObjects(); updateHud();
+    }
+
+    function openGate(){
+      state.started=true;
+      state.gateOpen=true;
+      state.rover.set(-1.2,.35,-2.5);
+      state.objective='Gate open. Repair the little bridge, then roll to the charging pad.';
+      state.hint='The bridge pad needs the three gear magnet boost before the finish lane is safe.';
+      flash('Gate open. Follow the purple pad.');
+      updateObjects(); updateHud();
+    }
+
+    function finish(){
+      state.started=true;
+      if(state.batteries < state.required){
+        state.objective = `Charging pad needs ${state.required - state.batteries} more batteries.`;
+        state.hint = 'The finish only works after the real pickup route is complete.';
+        updateHud();
+        return false;
+      }
+      if(!state.gateOpen){
+        state.objective = 'The charging pad is ready after the gate switch opens.';
+        state.hint = 'Use the yellow switch before rolling onto the purple pad.';
+        updateHud();
+        return false;
+      }
+      if(!state.bridgeBuilt){
+        state.objective = 'The charging pad is across the repair bridge.';
+        state.hint = 'Use the gear-powered bridge pad after the magnet boost to finish the route.';
+        updateHud();
+        return false;
+      }
+      state.gateOpen = true;
+      state.finished=true;
+      state.rover.set(5,.35,4);
+      state.objective='Charging complete.';
+      state.hint='Replay to try a smoother route with more energy left.';
+      document.getElementById('resultSummary').textContent = `${state.batteries} batteries delivered, ${state.energy} energy remaining, magnet ${state.upgradeUnlocked ? 'boosted' : 'locked'}, bridge ${state.bridgeBuilt ? 'repaired' : 'waiting'}.`;
+      document.getElementById('result').classList.add('show');
+      flash('Workshop charged. Great run.');
+      updateObjects(); updateHud();
+      return true;
+    }
+
+    function updateObjects(){
+      objects.rover.position.copy(state.rover);
+      objects.rover.rotation.y = state.heading;
+      objects.gate.position.y = state.gateOpen ? -.55 : .75;
+      objects.gate.material.color.setHex(state.gateOpen ? 0x87d6a4 : 0x57636b);
+      objects.gateLightLeft.material.color.setHex(state.gateOpen ? 0x9fe3c0 : 0xff7a59);
+      objects.gateLightRight.material.color.setHex(state.gateOpen ? 0x9fe3c0 : 0xff7a59);
+      objects.gateLightLeft.material.emissiveIntensity = state.gateOpen ? .75 : .35;
+      objects.gateLightRight.material.emissiveIntensity = state.gateOpen ? .75 : .35;
+      objects.bridge.position.y = state.bridgeBuilt ? .16 : -.3;
+      objects.bridgeGap.visible = !state.bridgeBuilt;
+      objects.repairPad.material.color.setHex(state.bridgeBuilt ? 0x9fe3c0 : state.upgradeUnlocked ? 0xf4c95d : 0x42504d);
+      objects.repairBeacon.material.emissiveIntensity = state.bridgeBuilt ? .7 : state.upgradeUnlocked ? .35 : .05;
+      objects.finish.material.emissiveIntensity = state.batteries >= state.required ? .85 : .2;
+      objects.finishBeam.visible = state.batteries >= state.required && state.gateOpen && state.bridgeBuilt;
+      objects.finishBeam.rotation.y += .02;
+      objects.upgradeLens.material.emissiveIntensity = state.upgradeUnlocked ? .9 : .2;
+      const feedbackActive = performance.now() < state.feedbackPulse;
+      const feedbackScale = feedbackActive ? 1.04 + Math.sin(performance.now() * .03) * .035 : 1;
+      objects.rover.scale.setScalar(feedbackScale);
+      objects.warningRing.scale.setScalar(1 + Math.sin(performance.now() * .006) * .08);
+      objects.finish.rotation.z += .015;
+      objects.routeArrows?.forEach((arrow, index) => {
+        arrow.children.forEach(part => {
+          if(part.material.emissiveIntensity !== undefined) part.material.emissiveIntensity = .12 + Math.sin(performance.now() * .004 + index) * .08;
+        });
+      });
+      pickups.forEach((pickup, index) => {
+        if(pickup.collected) return;
+        const bob = Math.sin(performance.now() * .004 + index) * .035;
+        pickup.meshes.forEach(mesh => {
+          mesh.rotation.y += pickup.kind === 'gear' ? .045 : .018;
+          mesh.position.y += (pickup.kind === 'gear' ? .46 : mesh.position.y > .6 ? .75 : .34) + bob - mesh.position.y;
+        });
+      });
+      if(objects.cleaningBot){
+        objects.cleaningBot.children.forEach((part, index) => {
+          if(index === 5) part.rotation.y += .16;
+        });
+      }
+    }
+
+    function updateCleaningBot(dt, snap=false){
+      if(!snap) state.cleaningBotTime += dt;
+      const routeSpeed = 1.45;
+      let distance = state.cleaningBotTime * routeSpeed;
+      let segmentIndex = 0;
+      for(let guard=0; guard<cleaningBotRoute.length; guard++){
+        const current = cleaningBotRoute[segmentIndex];
+        const next = cleaningBotRoute[(segmentIndex + 1) % cleaningBotRoute.length];
+        const segmentLength = current.distanceTo(next);
+        if(distance <= segmentLength){
+          const t = segmentLength === 0 ? 0 : distance / segmentLength;
+          objects.cleaningBot.position.copy(current).lerp(next, t);
+          objects.cleaningBot.rotation.y = Math.atan2(next.x - current.x, next.z - current.z);
+          state.cleaningBotSegment = segmentIndex;
+          return;
+        }
+        distance -= segmentLength;
+        segmentIndex = (segmentIndex + 1) % cleaningBotRoute.length;
+        if(segmentIndex === 0) state.cleaningBotTime = distance / routeSpeed;
+      }
+      objects.cleaningBot.position.copy(cleaningBotRoute[0]);
+    }
+
+    function worldPosition(target){
+      return target.isVector3 ? target.clone() : target.getWorldPosition(new THREE.Vector3());
+    }
+
+    function updateLabels(){
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      labels.forEach(label => {
+        if(label.element.dataset.hidden === 'true'){
+          label.element.style.display = 'none';
+          return;
+        }
+        const pos = worldPosition(label.target);
+        pos.y += 1.05;
+        pos.project(camera);
+        const visible = pos.z < 1 && pos.x > -1.15 && pos.x < 1.15 && pos.y > -1.15 && pos.y < 1.15;
+        label.element.style.display = visible ? 'block' : 'none';
+        if(visible){
+          label.element.style.left = `${(pos.x * .5 + .5) * width}px`;
+          label.element.style.top = `${(-pos.y * .5 + .5) * height}px`;
+        }
+      });
+      if(performance.now() > state.toastUntil) document.getElementById('toast').classList.remove('show');
+    }
+
+    function collectPickup(pickup){
+      pickup.collected = true;
+      pickup.meshes.forEach(mesh => mesh.visible = false);
+      if(pickup.label) pickup.label.dataset.hidden = 'true';
+      if(pickup.kind === 'battery'){
+        state.batteries = Math.min(state.required, state.batteries + 1);
+        state.objective = state.batteries >= state.required ? 'All batteries loaded. Follow sign 3 to the yellow switch.' : `${state.required - state.batteries} batteries still glowing.`;
+        state.hint = state.batteries >= state.required ? 'The final path opens at the yellow switch, then sign 4 marks the bridge pad.' : 'Green batteries sparkle near the numbered route plaques.';
+        flash(`Battery loaded: ${state.batteries} / ${state.required}`);
+      } else {
+        state.gear += 1;
+        if(state.gear >= state.gearRequired && !state.upgradeUnlocked){
+          state.upgradeUnlocked = true;
+          state.objective = 'Magnet boosted. Keep gathering batteries, then follow sign 3.';
+          state.hint = 'The pickup radius is wider now, and the bridge repair pad can use the gears.';
+          flash('Magnet boosted. Pickups pull in sooner.');
+        } else {
+          state.hint = `${Math.max(0,state.gearRequired-state.gear)} gear tokens until the magnet boost. Route plaques point to the full loop.`;
+          flash('Gear token found. Nice sparkle.');
+        }
+      }
+      updateHud();
+    }
+
+    function tryInteractions(dt){
+      pickups.forEach(pickup => {
+        const pickupRange = state.upgradeUnlocked ? 1.25 : .82;
+        if(!pickup.collected && state.rover.distanceTo(pickup.position) < pickupRange) collectPickup(pickup);
+      });
+      const nearSwitch = state.rover.distanceTo(objects.switch.position) < .9;
+      if(nearSwitch && !state.gateOpen){
+        state.gateOpen = true;
+        state.objective = state.batteries >= state.required ? 'Gate open. Repair the gear bridge next.' : 'Gate open. Keep collecting batteries before you finish.';
+        flash('Switch clicked. Gate open.');
+        updateHud();
+      }
+      const nearRepairPad = state.rover.distanceTo(objects.repairPad.position) < .9;
+      if(nearRepairPad && !state.bridgeBuilt){
+        if(state.upgradeUnlocked && state.gear >= state.gearRequired){
+          state.bridgeBuilt = true;
+          state.objective = 'Bridge repaired. Roll across to the charging pad.';
+          state.hint = 'The rover used its magnet boost to snap the gear bridge into place.';
+          flash('Gear bridge repaired.');
+        } else {
+          state.objective = 'The bridge pad needs the magnet boost.';
+          state.hint = `${Math.max(0,state.gearRequired-state.gear)} gear tokens left before the repair bridge can lock in.`;
+          flash('Bridge pad is waiting for gears.');
+        }
+        updateObjects();
+        updateHud();
+      }
+      const hazardPulse = .55 + Math.sin(performance.now() * .006) * .45;
+      objects.hazard.material.emissiveIntensity = .22 + hazardPulse * .42;
+      state.hazardCooldown = Math.max(0, state.hazardCooldown - dt);
+      state.cleaningCooldown = Math.max(0, state.cleaningCooldown - dt);
+      if(state.rover.distanceTo(objects.hazard.position) < 1.1 && state.hazardCooldown <= 0){
+        state.energy = Math.max(0, state.energy - 10);
+        state.hazardCooldown = 1.15;
+        state.velocity.z += .08;
+        state.objective = 'Spark tile drained a little energy. Keep rolling.';
+        flash('Soft spark. Energy dipped.');
+        updateHud();
+      }
+      if(state.rover.distanceTo(objects.cleaningBot.position) < .86 && state.cleaningCooldown <= 0){
+        state.energy = Math.max(0, state.energy - 7);
+        state.cleaningCooldown = 1.25;
+        const nudge = state.rover.clone().sub(objects.cleaningBot.position);
+        if(nudge.lengthSq() < .001) nudge.set(.1,0,.1);
+        nudge.y = 0;
+        nudge.normalize().multiplyScalar(.12);
+        state.velocity.add(nudge);
+        state.objective = 'Cleaning bot brushed past. Energy dipped, but the route is clear.';
+        state.hint = 'Give the friendly vacuum a little room on the teal patrol loop.';
+        flash('Friendly cleaning bump. Keep rolling.');
+        updateHud();
+      }
+      if(state.rover.distanceTo(objects.finish.position) < 1.1){
+        if(state.batteries >= state.required && state.gateOpen) finish();
+        else if(state.batteries < state.required){
+          state.objective = `Charging pad needs ${state.required - state.batteries} more batteries.`;
+          updateHud();
+        } else if(!state.gateOpen){
+          state.objective = 'The charging pad is ready after the gate switch opens.';
+          updateHud();
+        }
+      }
+    }
+
+    function moveRoverTo(position){
+      state.rover.copy(position);
+      state.rover.y = .35;
+      state.velocity.set(0,0,0);
+      updateObjects();
+    }
+
+    function applyMovement(input, dt){
+      if(input.lengthSq() > 0){
+        input.normalize().multiplyScalar(4.4 * dt);
+        state.velocity.lerp(input, .32);
+        state.heading = Math.atan2(state.velocity.x, state.velocity.z);
+      } else {
+        state.velocity.multiplyScalar(.82);
+      }
+      const next = state.rover.clone().add(state.velocity);
+      const gateBlocked = !state.gateOpen && next.x > 2.05 && next.x < 4.05 && Math.abs(next.z - .1) < .82;
+      const bridgeBlocked = !state.bridgeBuilt && next.x > 2.55 && next.x < 5.75 && next.z > 1.05 && next.z < 5.05;
+      if(!gateBlocked && !bridgeBlocked) state.rover.copy(next);
+      state.rover.x = THREE.MathUtils.clamp(state.rover.x,-7,7);
+      state.rover.z = THREE.MathUtils.clamp(state.rover.z,-5,5);
+    }
+
+    function collectAllByRoute(){
+      state.started = true;
+      pickups.forEach(pickup => {
+        if(!pickup.collected){
+          moveRoverTo(pickup.position);
+          tryInteractions(0);
+        }
+      });
+      state.rover.set(1.5,.35,-1.8);
+      state.objective='Three batteries loaded. Open the workshop gate, then repair the bridge.';
+      state.hint='Magnet boosted. The gear bridge can be repaired after the switch.';
+      updateObjects();
+      updateHud();
+    }
+
+    function updateHud(){
+      const energyRatio = THREE.MathUtils.clamp(state.energy / 100, 0, 1);
+      const activeStep = state.finished ? 5 : state.bridgeBuilt ? 4 : state.gateOpen ? 3 : state.batteries >= state.required ? 2 : state.started ? 1 : 0;
+      document.getElementById('batteryHud').textContent = `${state.batteries} / ${state.required}`;
+      document.getElementById('energyHud').textContent = Math.round(state.energy);
+      document.getElementById('energyMeter').style.width = `${Math.round(energyRatio * 100)}%`;
+      document.getElementById('energyMeter').style.background = state.energy < 45 ? '#ff9b73' : '#9fe3c0';
+      document.getElementById('energyPill').classList.toggle('warn', state.energy < 45);
+      document.getElementById('gearHud').textContent = `${state.gear} / ${state.gearRequired}`;
+      document.getElementById('gearPill').classList.toggle('good', state.gear >= state.gearRequired);
+      document.getElementById('gateHud').textContent = state.gateOpen ? 'Open' : 'Closed';
+      document.getElementById('gatePill').classList.toggle('good', state.gateOpen);
+      document.getElementById('bridgeHud').textContent = state.bridgeBuilt ? 'Repaired' : state.upgradeUnlocked ? 'Ready' : 'Waiting';
+      document.getElementById('bridgePill').classList.toggle('good', state.bridgeBuilt);
+      document.getElementById('upgradeHud').textContent = state.upgradeUnlocked ? 'Boosted' : 'Locked';
+      document.getElementById('upgradePill').classList.toggle('good', state.upgradeUnlocked);
+      document.getElementById('objectiveText').textContent = state.objective;
+      document.getElementById('objectiveHint').textContent = state.hint;
+      [...document.querySelectorAll('#stepRail .step')].forEach((step, index) => {
+        step.classList.toggle('done', index < activeStep);
+        step.classList.toggle('active', index === activeStep);
+      });
+    }
+
+    function tick(){
+      const dt = Math.min(clock.getDelta(), .05);
+      if(state.started && !state.finished){
+        updateCleaningBot(dt);
+        const input = new THREE.Vector3(
+          (keys.has('KeyD')||keys.has('ArrowRight') ? 1 : 0) - (keys.has('KeyA')||keys.has('ArrowLeft') ? 1 : 0),
+          0,
+          (keys.has('KeyS')||keys.has('ArrowDown') ? 1 : 0) - (keys.has('KeyW')||keys.has('ArrowUp') ? 1 : 0)
+        );
+        applyMovement(input, dt);
+        tryInteractions(dt);
+      } else {
+        updateCleaningBot(0, true);
+      }
+      updateObjects();
+      camera.position.set(state.rover.x-4,5.5,state.rover.z+7);
+      camera.lookAt(state.rover.x,.3,state.rover.z);
+      renderer.render(scene,camera);
+      updateLabels();
+      requestAnimationFrame(tick);
+    }
+
+    function qaState(extraChecks={}){
+      return {
+        checks: extraChecks,
+        hud: {
+          batteries: document.getElementById('batteryHud').textContent,
+          energy: document.getElementById('energyHud').textContent,
+          gate: document.getElementById('gateHud').textContent,
+          bridge: document.getElementById('bridgeHud').textContent,
+          gear: document.getElementById('gearHud').textContent,
+          upgrade: document.getElementById('upgradeHud').textContent
+        },
+        hudText: document.getElementById('hud').innerText,
+        state: {
+          started: state.started,
+          batteries: state.batteries,
+          energy: state.energy,
+          gear: state.gear,
+          upgradeUnlocked: state.upgradeUnlocked,
+          gateOpen: state.gateOpen,
+          bridgeBuilt: state.bridgeBuilt,
+          finished: state.finished,
+          rover: {x: state.rover.x, y: state.rover.y, z: state.rover.z},
+          cleaningBot: {
+            x: objects.cleaningBot?.position.x || 0,
+            y: objects.cleaningBot?.position.y || 0,
+            z: objects.cleaningBot?.position.z || 0,
+            segment: state.cleaningBotSegment
+          },
+          aiAssets: state.aiAssets
+        }
+      };
+    }
+
+    function hasRouteSignposting(){
+      const routeLabelCount = labels.filter(label => label.element.classList.contains('route')).length;
+      return objects.routeSigns?.length >= 5 && objects.routeArrows?.length >= 5 && routeLabelCount >= 5;
+    }
+
+    function hasMobileHudGuard(){
+      const styleText = [...document.styleSheets]
+        .flatMap(sheet => [...sheet.cssRules].map(rule => rule.cssText))
+        .join(' ');
+      return styleText.includes('@media (max-width: 720px)')
+        && styleText.includes('max-height: 44vh')
+        && styleText.includes('@media (max-width: 460px)')
+        && styleText.includes('flex-basis: 100%');
+    }
+
+    window.__prototypeGate = {
+      async runStep(step){
+        if(step.id === 'load') {
+          await state.aiAssets.heroRover.ready;
+          await state.aiAssets.workshopCrate.ready;
+          return qaState({
+          page_ready: document.readyState === 'complete',
+          canvas_present: !!canvas,
+	          hud_present: !!document.getElementById('hud'),
+	          route_signposting_present: hasRouteSignposting(),
+	          hud_mobile_guard_present: hasMobileHudGuard(),
+	          ai_hero_rover_loaded: state.aiAssets.heroRover.status === 'loaded',
+	          ai_hero_rover_materials_present: state.aiAssets.heroRover.materialNames?.length >= 4,
+	          ai_hero_rover_animation_strategy_present: state.aiAssets.heroRover.animationStrategy === 'runtime_parent_transform_feedback_only',
+	          ai_hero_rover_replaced_procedural_visuals: state.aiAssets.heroRover.hiddenProceduralFallbackCount === 6,
+	          ai_glb_prop_loaded: state.aiAssets.workshopCrate.status === 'loaded'
+	          });
+        }
+        if(step.id === 'start'){start(); return qaState({play_state: state.started && !state.finished});}
+        if(step.id === 'input'){
+          start();
+          const before = state.rover.clone();
+          applyMovement(new THREE.Vector3(1,0,-1), .2);
+          updateObjects(); updateHud();
+          return qaState({position_changed: before.distanceTo(state.rover) > .1});
+        }
+        if(step.id === 'pickup'){
+          collectAllByRoute();
+          return qaState({battery_count_incremented: state.batteries === 3, gear_collected: state.gear === state.gearRequired, upgrade_unlocked: state.upgradeUnlocked});
+        }
+        if(step.id === 'hazard'){
+          state.energy = 100;
+          state.hazardCooldown = 0;
+          state.cleaningCooldown = 0;
+          state.cleaningBotTime = 0;
+          updateCleaningBot(0, true);
+          moveRoverTo(objects.hazard.position);
+          tryInteractions(0);
+          const afterSpark = state.energy;
+          state.cleaningCooldown = 0;
+          moveRoverTo(objects.cleaningBot.position.clone().add(new THREE.Vector3(.25,.01,.08)));
+          tryInteractions(0);
+          return qaState({
+            hazard_feedback: afterSpark === 90,
+            patrol_hazard_feedback: state.energy === 83 && state.started && !state.finished && state.objective.includes('Cleaning bot')
+          });
+        }
+        if(step.id === 'gate'){
+          moveRoverTo(objects.switch.position);
+          tryInteractions(0);
+          moveRoverTo(new THREE.Vector3(2.45,.35,3.95));
+          applyMovement(new THREE.Vector3(1,0,0), .45);
+          const bridgeBlocksBeforeRepair = state.rover.x < 2.75;
+          moveRoverTo(objects.repairPad.position);
+          tryInteractions(0);
+          moveRoverTo(new THREE.Vector3(2.45,.35,3.95));
+          applyMovement(new THREE.Vector3(1,0,0), .45);
+          const bridgeOpensAfterRepair = state.rover.x > 2.95;
+          return qaState({
+            gate_01_open: state.gateOpen,
+            bridge_blocks_before_repair: bridgeBlocksBeforeRepair,
+            repair_bridge_built: state.bridgeBuilt,
+            bridge_hud_repaired: document.getElementById('bridgeHud').textContent === 'Repaired',
+            bridge_route_open: bridgeOpensAfterRepair && state.bridgeBuilt && !objects.bridgeGap.visible && objects.bridge.position.y > 0
+          });
+        }
+        if(step.id === 'bridge'){
+          moveRoverTo(objects.repairPad.position);
+          tryInteractions(0);
+          return qaState({
+            repair_bridge_built: state.bridgeBuilt,
+            bridge_hud_repaired: document.getElementById('bridgeHud').textContent === 'Repaired',
+            bridge_route_open: state.bridgeBuilt && !objects.bridgeGap.visible && objects.bridge.position.y > 0
+          });
+        }
+        if(step.id === 'finish'){
+          moveRoverTo(objects.finish.position);
+          tryInteractions(0);
+          return qaState({result_screen: state.finished && document.getElementById('result').classList.contains('show')});
+        }
+        return qaState({unknown_step: false});
+      },
+      getState(){return qaState({state_available:true});}
+    };
+
+    document.getElementById('startBtn').addEventListener('click', start);
+    document.getElementById('resetBtn').addEventListener('click', reset);
+    document.getElementById('replayBtn').addEventListener('click', () => { reset(); start(); });
+    window.addEventListener('keydown', event => keys.add(event.code));
+    window.addEventListener('keyup', event => keys.delete(event.code));
+    window.addEventListener('resize', resize);
+    buildScene(); resize(); reset(); tick();
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-05-13T08:35:00+08:00",
+  "artifacts": [
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/inputs/groza_reference.png",
+      "sha256": "af030610a93ccf8d809817979edeb403f4c2aab9c84ed0dd07ce2bda49286d5f",
+      "role": "trellis_input_reference_from_local_groza_procedural_preview"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/outputs/groza_trellis_seed_42.glb",
+      "sha256": "9bd49e88380464525c82ae75607db3d051bd52206157b9f401f1c6badada2ca7",
+      "role": "raw_trellis_meshonly_seed_42"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/outputs/groza_trellis_seed_101.glb",
+      "sha256": "87261caa8265ac76a3cbd0b9d4225fed385473760d3189e3af772b4075533876",
+      "role": "raw_trellis_meshonly_seed_101"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/outputs/groza_trellis_seed_202.glb",
+      "sha256": "122bba360aefb2d301b2444a30e1b8c7780346706d20a9fc4cde10b62acdee3f",
+      "role": "raw_trellis_meshonly_seed_202"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/outputs/three_glb_parse_inventory.json",
+      "sha256": "b12e43b097430af7a06b9320e4dfb2fdf7e97aa867be724ebad6dbb7fcd7efec",
+      "role": "raw_trellis_threejs_parse_inventory"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/blender_seed_42/groza_trellis_seed_42_cleaned.glb",
+      "sha256": "305d3ff6d8063b65173423ef9889d38af3f08f7eae77b0226894dc2bb1e5ff09",
+      "role": "blender_cleaned_trellis_seed_42"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/blender_seed_42/blender_cleanup_render.png",
+      "sha256": "504caffa511ce4f2f29bca7d357c435323c5489c8abdf97f45e503f3bb9669b6",
+      "role": "blender_render_trellis_seed_42"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/blender_seed_101/groza_trellis_seed_101_cleaned.glb",
+      "sha256": "43718636a1ccd0f7dab98ddb7f6c65ec9448b1f64fccc042640303d00cfb8ca9",
+      "role": "blender_cleaned_trellis_seed_101"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/blender_seed_101/blender_cleanup_render.png",
+      "sha256": "7e959e88cb01f6384a1dc349a87e43e3d404194a7827efcd626d49e3702731f6",
+      "role": "blender_render_trellis_seed_101"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/blender_seed_202/groza_trellis_seed_202_cleaned.glb",
+      "sha256": "33ca222b3da9f8eb3c488c755d753e6f4a183794366fa0c5fb2f01d0f73e5023",
+      "role": "blender_cleaned_trellis_seed_202"
+    },
+    {
+      "path": "experiments/tactical_rifle_trellis_20260513/blender_seed_202/blender_cleanup_render.png",
+      "sha256": "0a563e83733081e6371ca86a74fe9f4622c631d6e58b087e730053636888abc6",
+      "role": "blender_render_trellis_seed_202"
+    }
+  ]
+}

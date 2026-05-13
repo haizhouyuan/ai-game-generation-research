@@ -1,0 +1,341 @@
+{
+  "generated_at": "2026-05-13T03:44:27.435802+00:00",
+  "goal": "production_goal_full_realistic_3d_tactical_game_final_2026-05-13.md",
+  "acceptance": [
+    {
+      "visible_class": "first-person weapons",
+      "current_state": "Four GLB weapon slots load through weaponAssets and first-person createGunModel/rebuildGuns path.",
+      "target_realism_level": "Game-ready hard-surface GLB weapons with visible silhouette, optic/detail geometry, muzzle anchor, and PBR-style material factors.",
+      "generation_acquisition_route": "Local Blender weapon candidates and selected GROZA GLB.",
+      "cleanup_route": "Blender export to GLB, Three parser inventory, first/third/weapons CDP evidence.",
+      "integration_file_function": "index.html: weaponAssets, createWeaponAssetModel, createGunModel, rebuildGuns",
+      "evidence_files_required": [
+        "evidence/weapons_evidence_cdp.png",
+        "evidence/rifle_evidence_cdp_first.png",
+        "evidence/rifle_evidence_cdp_third.png"
+      ],
+      "asset_ids": [
+        "pistol_m5_candidate",
+        "shotgun_m5_candidate",
+        "groza_procedural_candidate",
+        "dmr_m5_candidate"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "third-person/player/NPC weapons",
+      "current_state": "Shared weapon GLB path is used by player third-person, NPC mount, world loot, and first-person contexts.",
+      "target_realism_level": "Same weapon assets visible across character/world contexts without procedural fallback in evidence.",
+      "generation_acquisition_route": "Shared GLB registry with per-context transforms.",
+      "cleanup_route": "Runtime probe checks assetSource for viewGun, thirdGun, weapon showcase.",
+      "integration_file_function": "index.html: refreshWeaponAssetUsers, createEnemy, spawnLootAt, createGunModel",
+      "evidence_files_required": [
+        "evidence/weapons_evidence_cdp.png",
+        "evidence/rifle_evidence_cdp_third.png"
+      ],
+      "asset_ids": [
+        "pistol_m5_candidate",
+        "shotgun_m5_candidate",
+        "groza_procedural_candidate",
+        "dmr_m5_candidate"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "player body",
+      "current_state": "Player body uses final GLB tactical overlay and keeps original collider/hit logic separate.",
+      "target_realism_level": "Non-capsule tactical body silhouette with gear, helmet, armor, backpack, gloves, and pads.",
+      "generation_acquisition_route": "Local Blender modular character kit.",
+      "cleanup_route": "Preview render, GLB parse inventory, visual-only runtime overlay.",
+      "integration_file_function": "index.html: finalAssetKit, attachFinalCharacterVisual, refreshFinalAssetUsers",
+      "evidence_files_required": [
+        "evidence/characters_evidence_cdp.png",
+        "assets/models/character_player_final_preview.png"
+      ],
+      "asset_ids": [
+        "character_player_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "NPC body",
+      "current_state": "Enemy body uses final GLB tactical overlay and enemy hitboxes skip visualOnly meshes.",
+      "target_realism_level": "Distinct enemy tactical body silhouette with gear and team color.",
+      "generation_acquisition_route": "Local Blender modular enemy variant.",
+      "cleanup_route": "Preview render, GLB parse inventory, visual-only runtime overlay.",
+      "integration_file_function": "index.html: createEnemy, attachFinalCharacterVisual",
+      "evidence_files_required": [
+        "evidence/characters_evidence_cdp.png",
+        "assets/models/character_enemy_final_preview.png"
+      ],
+      "asset_ids": [
+        "character_enemy_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "helmet",
+      "current_state": "Helmet geometry appears on player, enemy, and helmet pickup GLBs.",
+      "target_realism_level": "Ballistic helmet with visor/rails/comms readable in screenshot and preview.",
+      "generation_acquisition_route": "Local Blender modular helmet meshes.",
+      "cleanup_route": "Preview render, character/loot evidence modes.",
+      "integration_file_function": "index.html: attachFinalCharacterVisual, createFinalLootVisual",
+      "evidence_files_required": [
+        "evidence/characters_evidence_cdp.png",
+        "evidence/loot_evidence_cdp.png"
+      ],
+      "asset_ids": [
+        "character_player_final",
+        "character_enemy_final",
+        "loot_helmet_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "armor/plate carrier",
+      "current_state": "Plate carrier panels and vest pickup are GLB assets.",
+      "target_realism_level": "Readable armored vest/plate carrier with pouches and material variation.",
+      "generation_acquisition_route": "Local Blender modular armor kit.",
+      "cleanup_route": "Preview render, character/loot evidence modes.",
+      "integration_file_function": "index.html: attachFinalCharacterVisual, createFinalLootVisual",
+      "evidence_files_required": [
+        "evidence/characters_evidence_cdp.png",
+        "evidence/loot_evidence_cdp.png"
+      ],
+      "asset_ids": [
+        "character_player_final",
+        "character_enemy_final",
+        "loot_vest_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "backpack, pouches, straps, rig, gloves, pads",
+      "current_state": "Character GLBs include backpack, pouches, shoulder/knee pads, gloves, and webbing material groups.",
+      "target_realism_level": "Full tactical gear silhouette rather than primitive capsule accessories.",
+      "generation_acquisition_route": "Local Blender modular character gear.",
+      "cleanup_route": "Preview render, GLB parse inventory, character evidence mode.",
+      "integration_file_function": "index.html: attachFinalCharacterVisual",
+      "evidence_files_required": [
+        "evidence/characters_evidence_cdp.png"
+      ],
+      "asset_ids": [
+        "character_player_final",
+        "character_enemy_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "ammo, med items, revive item, armor/helmet pickups",
+      "current_state": "All non-weapon loot families have final GLB props and preserve pickup behavior.",
+      "target_realism_level": "Readable world pickup props for tactical gameplay.",
+      "generation_acquisition_route": "Local Blender loot kit.",
+      "cleanup_route": "Preview render, GLB parse inventory, loot evidence mode.",
+      "integration_file_function": "index.html: finalLootAssetByKind, createFinalLootVisual, spawnLootAt",
+      "evidence_files_required": [
+        "evidence/loot_evidence_cdp.png"
+      ],
+      "asset_ids": [
+        "loot_ammo_final",
+        "loot_bandage_final",
+        "loot_firstaid_final",
+        "loot_medkit_final",
+        "loot_revive_final",
+        "loot_vest_final",
+        "loot_helmet_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "crates and storage props",
+      "current_state": "Crate/storage GLB is staged in loot and yard areas.",
+      "target_realism_level": "Beveled storage crate with straps/handles/material variation.",
+      "generation_acquisition_route": "Local Blender environment kit.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png"
+      ],
+      "asset_ids": [
+        "prop_crate_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "containers",
+      "current_state": "Container GLB adds corrugation, door leaves, locking bars, and warning stripe.",
+      "target_realism_level": "Container surfaces no longer read as flat boxes.",
+      "generation_acquisition_route": "Local Blender environment kit.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png",
+        "assets/models/prop_container_final_preview.png"
+      ],
+      "asset_ids": [
+        "prop_container_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "ladders/stairs",
+      "current_state": "Ladder/stair/railing GLB staged near building and rooftop routes.",
+      "target_realism_level": "Industrial stairs, railings, ladder rungs, and anti-slip edges.",
+      "generation_acquisition_route": "Local Blender environment kit.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png",
+        "assets/models/prop_ladder_stair_final_preview.png"
+      ],
+      "asset_ids": [
+        "prop_ladder_stair_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "rocks",
+      "current_state": "Rock cluster GLB is scattered around the compound.",
+      "target_realism_level": "Clustered rough rocks with material variation.",
+      "generation_acquisition_route": "Local Blender environment kit.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png"
+      ],
+      "asset_ids": [
+        "prop_rock_cluster_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "trees/bushes/grass",
+      "current_state": "Tree GLB with trunk, branches, and leaf clusters is scattered in the compound perimeter.",
+      "target_realism_level": "Readable vegetation silhouettes, not pure cone/cylinder placeholders.",
+      "generation_acquisition_route": "Local Blender environment kit plus existing grass field.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png"
+      ],
+      "asset_ids": [
+        "prop_tree_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "building exteriors",
+      "current_state": "Building detail GLBs add AC/vents/pipes/utility boxes; wall/fence kit supports compound perimeter detail.",
+      "target_realism_level": "Facade details break up flat building walls.",
+      "generation_acquisition_route": "Local Blender facade/detail kit.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png"
+      ],
+      "asset_ids": [
+        "prop_building_detail_final",
+        "prop_ground_wall_fence_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "building interiors",
+      "current_state": "Interior furniture GLB includes workbench, cabinet, shelves, and light bar.",
+      "target_realism_level": "Indoor spaces have readable furniture and utility detail.",
+      "generation_acquisition_route": "Local Blender interior kit.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png",
+        "assets/models/prop_interior_furniture_final_preview.png"
+      ],
+      "asset_ids": [
+        "prop_interior_furniture_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "doors/windows/vents/pipes/utility details",
+      "current_state": "Building detail GLB includes wall AC, louvers, pipe, junction box, and warning plate.",
+      "target_realism_level": "Facade utility details visible in game and preview.",
+      "generation_acquisition_route": "Local Blender building detail kit.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png",
+        "assets/models/prop_building_detail_final_preview.png"
+      ],
+      "asset_ids": [
+        "prop_building_detail_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "ground/roads/walls/fences",
+      "current_state": "Ground/road/wall/fence kit GLB adds asphalt patch, road markings, concrete wall, fence posts/wires, gate plate.",
+      "target_realism_level": "Compound perimeter and road surfaces no longer rely only on flat colored planes.",
+      "generation_acquisition_route": "Local Blender ground/perimeter kit.",
+      "cleanup_route": "Preview render, environment evidence mode.",
+      "integration_file_function": "index.html: addFinalEnvironmentProps",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png",
+        "assets/models/prop_ground_wall_fence_final_preview.png"
+      ],
+      "asset_ids": [
+        "prop_ground_wall_fence_final"
+      ],
+      "material_evidence_grade": "material_factors_only",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    },
+    {
+      "visible_class": "lighting, sky, fog, shadow configuration",
+      "current_state": "ACES tone mapping, PCF shadows, sun/hemisphere lights, fog, sky shader, and day/sunset/night modes are configured in runtime.",
+      "target_realism_level": "Lighting/camera/material response supports the integrated realistic asset kit.",
+      "generation_acquisition_route": "Runtime Three.js lighting/composition pass.",
+      "cleanup_route": "CDP browser evidence with imageStats and no blocking events.",
+      "integration_file_function": "index.html: renderer/toneMapping/shadowMap, applySkyMode, evidence camera staging",
+      "evidence_files_required": [
+        "evidence/environment_evidence_cdp.png",
+        "evidence/final_evidence_cdp.png"
+      ],
+      "asset_ids": [],
+      "material_evidence_grade": "runtime_lighting_config",
+      "acceptance_status": "accepted",
+      "notes": "Accepted by GLB/header/parser reports, CDP screenshot reports with imageStats, and verified artifact hashes."
+    }
+  ]
+}

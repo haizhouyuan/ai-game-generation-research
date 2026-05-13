@@ -1,0 +1,35 @@
+{
+  "algorithm": "sha256",
+  "artifacts": [
+    {
+      "bytes": 10783,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p26_contract_bundle_graph_verifier_20260512/run_p26_contract_bundle_graph_verifier.py",
+      "sha256": "b4f50b097fb612a65e401234580db53811b2be5871dd4dad5f8846587e86cd6b"
+    },
+    {
+      "bytes": 2308,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p26_contract_bundle_graph_verifier_20260512/validator.py",
+      "sha256": "aae26d65659b7aa4780b1a7ac61964c4de29cedc0b0e3e3dd01527c3ab513789"
+    },
+    {
+      "bytes": 34503,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p26_contract_bundle_graph_verifier_20260512/validator_result.json",
+      "sha256": "4e5ae7c3fcb07513be3ce100afadc7dd500daa2de99319be55956854ecd0043c"
+    },
+    {
+      "bytes": 733,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p26_contract_bundle_graph_verifier_20260512/closeout.md",
+      "sha256": "5078dba0e7a950884848490464a086b68bc18aca1ae4796c3647de2bd98e4709"
+    },
+    {
+      "bytes": 36369,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p25_artifact_dependency_graph_stale_reference_counters_20260512/outputs/validator_result.json",
+      "sha256": "2d22f4e4bdf2ed240eaf5ce7b30f4d055e3928b6c3b456d715dd3d187f516c90"
+    },
+    {
+      "bytes": 4047,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p25_artifact_dependency_graph_stale_reference_counters_20260512/outputs/artifact_dependency_graph_manifest.json",
+      "sha256": "b889e1bdc62e9ff349053f9d1265fa24f7fe9c95244ae1aeaea3fbe643671265"
+    }
+  ]
+}

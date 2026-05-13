@@ -1,0 +1,294 @@
+{
+  "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+  "forkedThreadId": "019e1da7-8152-7010-af9a-3d7b5a314295",
+  "includeTurn": true,
+  "initializeResultKeys": [
+    "codexHome",
+    "platformFamily",
+    "platformOs",
+    "userAgent"
+  ],
+  "mode": "include-turn",
+  "notificationCount": 16,
+  "notifications": [
+    {
+      "method": "remoteControl/status/changed",
+      "params": {
+        "environmentId": null,
+        "status": "disabled"
+      }
+    },
+    {
+      "method": "thread/started",
+      "params": {
+        "thread": {
+          "agentNickname": null,
+          "agentRole": null,
+          "cliVersion": "0.130.0-alpha.5",
+          "createdAt": 1778613977,
+          "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+          "ephemeral": false,
+          "forkedFromId": null,
+          "gitInfo": null,
+          "id": "019e1da7-80fc-7a02-bdb8-439ad00edec3",
+          "modelProvider": "openai",
+          "name": null,
+          "path": "/Users/yuanshaochen/.codex/sessions/2026/05/13/rollout-2026-05-13T03-26-17-019e1da7-80fc-7a02-bdb8-439ad00edec3.jsonl",
+          "preview": "",
+          "sessionId": "019e1da7-80fc-7a02-bdb8-439ad00edec3",
+          "source": "vscode",
+          "status": {
+            "type": "idle"
+          },
+          "threadSource": "user",
+          "turns": [],
+          "updatedAt": 1778613977
+        }
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "codex_apps",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "turn/started",
+      "params": {
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3",
+        "turn": {
+          "completedAt": null,
+          "durationMs": null,
+          "error": null,
+          "id": "019e1da7-813f-7763-80f1-0626ae970916",
+          "items": [],
+          "itemsView": "notLoaded",
+          "startedAt": 1778613977,
+          "status": "inProgress"
+        }
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "type": "idle"
+        },
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3"
+      }
+    },
+    {
+      "method": "turn/completed",
+      "params": {
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3",
+        "turn": {
+          "completedAt": 1778613977,
+          "durationMs": 12,
+          "error": null,
+          "id": "019e1da7-813f-7763-80f1-0626ae970916",
+          "items": [],
+          "itemsView": "notLoaded",
+          "startedAt": 1778613977,
+          "status": "interrupted"
+        }
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "ready"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "codex_apps",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "thread/started",
+      "params": {
+        "thread": {
+          "agentNickname": null,
+          "agentRole": null,
+          "cliVersion": "0.130.0-alpha.5",
+          "createdAt": 1778613977,
+          "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+          "ephemeral": false,
+          "forkedFromId": "019e1da7-80fc-7a02-bdb8-439ad00edec3",
+          "gitInfo": null,
+          "id": "019e1da7-8152-7010-af9a-3d7b5a314295",
+          "modelProvider": "openai",
+          "name": null,
+          "path": "/Users/yuanshaochen/.codex/sessions/2026/05/13/rollout-2026-05-13T03-26-17-019e1da7-8152-7010-af9a-3d7b5a314295.jsonl",
+          "preview": "",
+          "sessionId": "019e1da7-8152-7010-af9a-3d7b5a314295",
+          "source": "vscode",
+          "status": {
+            "type": "idle"
+          },
+          "threadSource": null,
+          "turns": [],
+          "updatedAt": 1778613977
+        }
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "codex_apps",
+        "status": "cancelled"
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "type": "notLoaded"
+        },
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3"
+      }
+    },
+    {
+      "method": "thread/archived",
+      "params": {
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "ready"
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "type": "notLoaded"
+        },
+        "threadId": "019e1da7-8152-7010-af9a-3d7b5a314295"
+      }
+    }
+  ],
+  "parentThreadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3",
+  "requests": [
+    {
+      "id": "initialize",
+      "method": "initialize",
+      "params": {
+        "capabilities": {
+          "experimentalApi": true
+        },
+        "clientInfo": {
+          "name": "codex-appserver-live-probe",
+          "title": "Codex App Server Live Probe",
+          "version": "0.1.0"
+        }
+      }
+    },
+    {
+      "id": "thread-start",
+      "method": "thread/start",
+      "params": {
+        "approvalPolicy": "never",
+        "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+        "ephemeral": false,
+        "model": "gpt-5.4-mini",
+        "sandbox": "read-only",
+        "threadSource": "user"
+      }
+    },
+    {
+      "id": "turn-start",
+      "method": "turn/start",
+      "params": {
+        "approvalPolicy": "never",
+        "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+        "effort": "minimal",
+        "input": [
+          {
+            "text": "Disposable App Server lifecycle probe. Reply exactly APP_SERVER_PROBE_OK. Do not run tools.",
+            "type": "text"
+          }
+        ],
+        "sandboxPolicy": {
+          "networkAccess": false,
+          "type": "readOnly"
+        },
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3"
+      }
+    },
+    {
+      "id": "turn-interrupt",
+      "method": "turn/interrupt",
+      "params": {
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3",
+        "turnId": "019e1da7-813f-7763-80f1-0626ae970916"
+      }
+    },
+    {
+      "id": "thread-read-after-interrupt",
+      "method": "thread/read",
+      "params": {
+        "includeTurns": true,
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3"
+      }
+    },
+    {
+      "id": "thread-fork",
+      "method": "thread/fork",
+      "params": {
+        "approvalPolicy": "never",
+        "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+        "ephemeral": false,
+        "excludeTurns": true,
+        "sandbox": "read-only",
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3"
+      }
+    },
+    {
+      "id": "archive-parent",
+      "method": "thread/archive",
+      "params": {
+        "threadId": "019e1da7-80fc-7a02-bdb8-439ad00edec3"
+      }
+    },
+    {
+      "id": "archive-fork",
+      "method": "thread/archive",
+      "params": {
+        "threadId": "019e1da7-8152-7010-af9a-3d7b5a314295"
+      }
+    }
+  ],
+  "status": "DONE",
+  "turnId": "019e1da7-813f-7763-80f1-0626ae970916",
+  "turnInterrupted": true,
+  "turnStarted": true
+}

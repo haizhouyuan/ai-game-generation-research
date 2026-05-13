@@ -1,0 +1,24 @@
+08:14:17 | INFO: Data are loaded, start creating Blender stuff
+08:14:17 | INFO: Blender create Mesh node geometry_0
+08:14:17 | INFO: glTF import finished in 0.01s
+INFO Draco mesh compression is available, use library at /Applications/Blender.app/Contents/Resources/5.1/scripts/addons_core/io_scene_gltf2/libextern_draco.dylib
+08:14:17 | INFO: Starting glTF 2.0 export
+08:14:17 | INFO: Extracting primitive: geometry_0
+08:14:17 | INFO: Primitives created: 1
+08:14:17 | INFO: Extracting primitive: Cube.001
+08:14:17 | INFO: Primitives created: 1
+08:14:17 | INFO: Finished glTF 2.0 export in 0.012049198150634766 s
+00:00.729  render           | Saved: '/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/blender_seed_202/blender_cleanup_render.png'
+
+{
+  "cleaned_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/blender_seed_202/groza_trellis_seed_202_cleaned.glb",
+  "cleaned_glb_sha256": "33ca222b3da9f8eb3c488c755d753e6f4a183794366fa0c5fb2f01d0f73e5023",
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/outputs/groza_trellis_seed_202.glb",
+  "render": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/blender_seed_202/blender_cleanup_render.png",
+  "render_sha256": "0a563e83733081e6371ca86a74fe9f4622c631d6e58b087e730053636888abc6",
+  "report": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/blender_seed_202/blender_cleanup_report.json",
+  "status": "DONE"
+}
+Blender 5.1.1 (hash b70da489d7f4 built 2026-04-14 01:46:23)
+
+Blender quit

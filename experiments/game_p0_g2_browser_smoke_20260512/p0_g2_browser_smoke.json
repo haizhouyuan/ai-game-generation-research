@@ -1,0 +1,38 @@
+{
+  "after": {
+    "hasCanvas": true,
+    "hudText": "\u6dd8\u6c70\u6570\n0\n\u5f53\u524d\u67aa\u68b0\nP-9 \u624b\u67aa\n\u5f39\u836f\n15 / 45\n\u67aa\u68b0\u76ae\u80a4\n\u9ed1\u94c1",
+    "lobbyDisplay": "none",
+    "pauseDisplay": "none",
+    "topHudText": "\u6dd8\u6c70\u6570\n0\n\u751f\u547d\u503c\n100\n\u4f53\u529b\n100\n\u89c6\u89d2\n\u7b2c\u4e09\u4eba\u79f0\n\u697c\u5c42\n\u5730\u9762\nNPC \u6570\u91cf\n2\n\u62bd\u5956\u5e01\n0\n\u9632\u5f39\u8863\n\u65e0\n\u5934\u76d4\n\u65e0"
+  },
+  "before": {
+    "canvasCount": 1,
+    "cdnErrorDisplay": "none",
+    "hasHud": true,
+    "hasStartButton": true,
+    "title": "\u6218\u672f\u623f\u533a\u751f\u5b58\uff1a\u89c6\u89c9\u771f\u5b9e\u611f\u4f18\u5316\u7248"
+  },
+  "checks": {
+    "canvas_present": true,
+    "cdn_loaded": true,
+    "hud_present": true,
+    "input_dispatched": true,
+    "loaded_title": true,
+    "screenshot_written": true,
+    "start_clicked": true
+  },
+  "chrome_path": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "input_result": {
+    "clickedStart": true,
+    "dispatchedKeyW": true
+  },
+  "limitations": [
+    "Keyboard input is synthetic CDP dispatch, not a full human playthrough.",
+    "Pointer lock is not treated as required for this smoke gate."
+  ],
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p0_g2_browser_smoke_20260512/p0_after_start.png",
+  "screenshot_sha256": "9bba0282c2a08ae20d70eabe0a9cfb52268db90c9f2028a7e17c95768fae97c1",
+  "status": "passed",
+  "url": "http://127.0.0.1:8766/14.html"
+}

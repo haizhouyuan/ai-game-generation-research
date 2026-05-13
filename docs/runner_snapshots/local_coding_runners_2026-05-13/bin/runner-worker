@@ -1,0 +1,250 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+
+usage() {
+  cat <<'EOF'
+Usage:
+  runner-worker minimax --workspace PATH --prompt PROMPT_FILE --write-scope TEXT --verify COMMAND --i-understand-write-access
+  runner-worker kimi    --workspace PATH --prompt PROMPT_FILE --write-scope TEXT --verify COMMAND --i-understand-write-access
+  runner-worker minimax --workspace PATH --prompt PROMPT_FILE --write-scope TEXT --verify COMMAND --dry-run
+
+Runs a bounded write-capable Claude Code compatible worker turn from inside
+the requested workspace. This is for low-risk mechanical implementation tasks
+with explicit write scope and verification commands.
+
+Required:
+  provider                         minimax or kimi
+  --workspace PATH                 existing local workspace directory
+  --prompt PROMPT_FILE             task prompt file
+  --write-scope TEXT               owned files/modules the worker may edit
+  --verify COMMAND                 verification command the worker must run
+  --i-understand-write-access      required unless --dry-run is set
+
+Optional:
+  --do-not-edit TEXT               extra forbidden paths or ownership notes
+  --evidence TEXT                  expected evidence/artifacts
+  --dry-run                        print the composed prompt and do not call a provider
+
+Environment:
+  RUNNER_TIMEOUT_SECONDS           Timeout in seconds, default 1200.
+
+Safety:
+  - No package installs, large downloads, paid API calls beyond the provider
+    turn, secret access, git commits, pushes, or destructive git commands.
+  - Use a clean worktree or explicit file ownership. The prompt tells the
+    worker other agents may be active and unrelated edits must not be reverted.
+EOF
+}
+
+kill_tree() {
+  local signal="$1"
+  local pid="$2"
+  local child
+
+  while read -r child; do
+    if [ -n "${child}" ]; then
+      kill_tree "${signal}" "${child}"
+    fi
+  done < <(pgrep -P "${pid}" 2>/dev/null || true)
+
+  kill "-${signal}" "${pid}" 2>/dev/null || true
+}
+
+if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
+  usage
+  exit 0
+fi
+
+if [ "$#" -lt 1 ]; then
+  usage >&2
+  exit 64
+fi
+
+provider="$1"
+shift
+case "${provider}" in
+  minimax) runner="${ROOT_DIR}/bin/claudeminmax" ;;
+  kimi) runner="${ROOT_DIR}/bin/claudekimi" ;;
+  *)
+    printf 'unknown provider: %s\n' "${provider}" >&2
+    usage >&2
+    exit 64
+    ;;
+esac
+
+workspace=""
+prompt_source=""
+write_scope=""
+verify_command=""
+do_not_edit=""
+evidence=""
+dry_run=0
+ack_write=0
+
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --workspace)
+      workspace="${2:-}"
+      shift 2
+      ;;
+    --prompt)
+      prompt_source="${2:-}"
+      shift 2
+      ;;
+    --write-scope)
+      write_scope="${2:-}"
+      shift 2
+      ;;
+    --verify)
+      verify_command="${2:-}"
+      shift 2
+      ;;
+    --do-not-edit)
+      do_not_edit="${2:-}"
+      shift 2
+      ;;
+    --evidence)
+      evidence="${2:-}"
+      shift 2
+      ;;
+    --dry-run)
+      dry_run=1
+      shift
+      ;;
+    --i-understand-write-access)
+      ack_write=1
+      shift
+      ;;
+    *)
+      printf 'unknown option: %s\n' "$1" >&2
+      usage >&2
+      exit 64
+      ;;
+  esac
+done
+
+if [ -z "${workspace}" ] || [ ! -d "${workspace}" ]; then
+  printf 'workspace is required and must be a directory\n' >&2
+  exit 66
+fi
+if [ -z "${prompt_source}" ] || [ ! -f "${prompt_source}" ]; then
+  printf 'prompt file is required\n' >&2
+  exit 66
+fi
+if [ -z "${write_scope}" ]; then
+  printf 'write scope is required\n' >&2
+  exit 64
+fi
+if [ -z "${verify_command}" ]; then
+  printf 'verification command is required\n' >&2
+  exit 64
+fi
+if [ "${dry_run}" -ne 1 ] && [ "${ack_write}" -ne 1 ]; then
+  printf 'refusing write-capable run without --i-understand-write-access\n' >&2
+  exit 64
+fi
+
+task_prompt="$(cat "${prompt_source}")"
+composed_prompt="$(cat <<EOF
+You are a bounded implementation worker. Other agents may also be active in this repository.
+
+Workspace:
+${workspace}
+
+Write scope:
+${write_scope}
+
+Do not edit:
+${do_not_edit:-Any unrelated files, private credential directories, generated caches, or files outside the write scope.}
+
+Task prompt:
+${task_prompt}
+
+Verification command(s):
+${verify_command}
+
+Expected evidence/artifacts:
+${evidence:-List every file changed and every command run.}
+
+Rules:
+- Stay inside the workspace and write scope.
+- Do not read or print secrets.
+- Do not install packages, make large downloads, call unrelated paid APIs, commit, push, run destructive git commands, or revert unrelated edits.
+- If the task needs broader ownership, credentials, downloads, or product judgment, stop and return BLOCKED.
+- Run the verification command(s) before reporting DONE.
+
+Return exactly one of these shapes:
+
+DONE
+
+Files changed:
+- ...
+
+Commands run:
+- ...
+
+Notes:
+- ...
+
+or:
+
+BLOCKED
+
+Reason:
+...
+
+Needed context:
+...
+EOF
+)"
+
+if [ "${dry_run}" -eq 1 ]; then
+  printf '%s\n' "${composed_prompt}"
+  exit 0
+fi
+
+timeout_seconds="${RUNNER_TIMEOUT_SECONDS:-1200}"
+case "${timeout_seconds}" in
+  ''|*[!0-9]*) timeout_seconds=1200 ;;
+esac
+if [ "${timeout_seconds}" -lt 1 ]; then
+  timeout_seconds=1200
+fi
+
+prompt_file="$(mktemp "${TMPDIR:-/tmp}/runner-worker-prompt.XXXXXX")"
+cleanup_prompt() {
+  rm -f "${prompt_file}"
+}
+trap cleanup_prompt EXIT INT TERM
+printf '%s\n' "${composed_prompt}" > "${prompt_file}"
+
+(
+  cd "${workspace}"
+  RUNNER_WORKER=1 "${runner}" --print --output-format text < "${prompt_file}"
+) &
+runner_pid="$!"
+
+(
+  sleep "${timeout_seconds}"
+  kill_tree TERM "${runner_pid}"
+  sleep 5
+  kill_tree KILL "${runner_pid}"
+) &
+watchdog_pid="$!"
+
+set +e
+wait "${runner_pid}"
+status="$?"
+set -e
+
+kill "${watchdog_pid}" 2>/dev/null || true
+wait "${watchdog_pid}" 2>/dev/null || true
+cleanup_prompt
+trap - EXIT INT TERM
+
+if [ "${status}" -eq 143 ] || [ "${status}" -eq 137 ]; then
+  printf 'runner worker timed out after %s seconds\n' "${timeout_seconds}" >&2
+fi
+exit "${status}"

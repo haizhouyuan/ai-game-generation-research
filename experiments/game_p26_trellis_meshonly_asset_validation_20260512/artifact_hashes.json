@@ -1,0 +1,33 @@
+{
+  "experiment": "game_p26_trellis_meshonly_asset_validation_20260512",
+  "generated_at": "2026-05-12T10:04:00+08:00",
+  "source_host": "homepc",
+  "source_path": "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p26_trellis_asset_validation_20260512",
+  "artifacts": [
+    {
+      "path": "inputs/typical_misc_crate.png",
+      "bytes": 642105,
+      "sha256": "59fd9884301faca93265166d90078e8c31e76c7f93524b1db31975df4b450748"
+    },
+    {
+      "path": "outputs/typical_misc_crate_trellis_meshonly.glb",
+      "bytes": 2198560,
+      "sha256": "ef03de6e567402ace47af327da875ab10caf093aa1fd209f291371fb82208944"
+    },
+    {
+      "path": "outputs/typical_misc_crate_trellis_meshonly_preview.png",
+      "bytes": 356563,
+      "sha256": "f2c7eb6076f78bd4a7e99bbcc78cfe1fb858c82abbf9b2c880e20102f9d63945"
+    },
+    {
+      "path": "outputs/three_glb_parse_inventory.json",
+      "bytes": 622,
+      "sha256": "fede9f884ea73b348f36c52d13d3fbb7021c5b24e99be4f886938436e2d7b7c4"
+    },
+    {
+      "path": "logs/meshonly_rerun_20260512.log",
+      "bytes": 13663,
+      "sha256": "c08036e5f765f09b6723730a943a783d7934548bb0e1a3065c1b2e83b187febe"
+    }
+  ]
+}

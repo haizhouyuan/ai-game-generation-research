@@ -1,0 +1,20 @@
+All required terms are present. The template is complete.
+
+DONE
+
+Files changed:
+- `docs/capability_templates/browser_prototype_gate.md`
+
+Commands run:
+- `test -f docs/capability_templates/browser_prototype_gate.md && rg -n "Purpose|Inputs|Commands / Placeholders|Required Evidence|Pass Criteria|Failure Modes|WORKER_RESULT Expectations|Current Local Proof|p0_smoke_g2|p1_rover_workshop_g4|window.__prototypeGate|127.0.0.1|release_packet.json|console_summary.json|network_summary.json|Unity" docs/capability_templates/browser_prototype_gate.md`
+
+Notes:
+- Created the browser prototype gate template with all required sections and content.
+- Includes separate P0 G2 and P1 G4 command examples with correct entrypoints, scenarios, and dated output directories.
+- Documents all failure modes: page_load_timeout, missing_gate_api, blank_canvas, expectation_failure, console_errors, network_failures, missing_provenance, missing_hashes, non_loopback_binding.
+- Requires all specified artifacts: release_packet.json, artifact_hashes.json, screenshots, state_dumps, console_summary.json, network_summary.json, closeout.md.
+- States that P1 requires window.__prototypeGate, P0 uses legacy path.
+- States --server-bind must remain 127.0.0.1.
+- States local Chrome CDP + static server only, not a production browser farm.
+- Includes all four limitations (CDP summaries lighter than HAR, deterministic evidence doesn't replace human playtest, GLBs visual-only unless provenance/collider strategy says otherwise, browser gate doesn't prove Unity import).
+- No new evidence was claimed generated, no capability marked complete.

@@ -1,0 +1,55 @@
+{
+  "algorithm": "sha256",
+  "artifacts": [
+    {
+      "bytes": 527,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/input_manifest.json",
+      "sha256": "82bb8493a9f01cfd147e97f19cc30155f286e63ebee0e5070a7443f731ed9618"
+    },
+    {
+      "bytes": 16296,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/run_p27_release_packet_review.py",
+      "sha256": "8a5670554a4badd1564029804a5a7527c48d4b47ba1d21247529c10d4f03997a"
+    },
+    {
+      "bytes": 3368,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/validator.py",
+      "sha256": "bd62da831d2710308d155184b308e9ff3e85ae567bd2b5ac0d59bab3b9166dc3"
+    },
+    {
+      "bytes": 7978,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/validator_result.json",
+      "sha256": "44af4b51250041f4d299a5b6d3f85d7c8c79dc38e18779034d554b063afa7748"
+    },
+    {
+      "bytes": 7085,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/release_packet.json",
+      "sha256": "7e2e914de026b0c7e6923965d52f3d53907277f92ec6a351c5450225d88d375a"
+    },
+    {
+      "bytes": 1647,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/graph_diff_packet.json",
+      "sha256": "9431deece50d9246013770a1fddaf6464f73b773ee7bbdd6fdab9ae0a085f3ce"
+    },
+    {
+      "bytes": 6886,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/allowlisted_update_candidate.json",
+      "sha256": "0ba06ad0a7ae76fc4d86d39eb5268435864a8c69b7190e1f2c5c41195f7987ae"
+    },
+    {
+      "bytes": 7248,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/rejected_update_candidate.json",
+      "sha256": "50b9bc660fdbba4bec891e0a47c3d43bb593657484cabc4b6af6cc80392be3a5"
+    },
+    {
+      "bytes": 925,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p27_contract_bundle_release_packet_review_20260512/closeout.md",
+      "sha256": "d199af824c9344a7f0d3f278a391e3f1650db9e5bf2d10610fec1b54a15d9ccd"
+    },
+    {
+      "bytes": 34503,
+      "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p26_contract_bundle_graph_verifier_20260512/validator_result.json",
+      "sha256": "4e5ae7c3fcb07513be3ce100afadc7dd500daa2de99319be55956854ecd0043c"
+    }
+  ]
+}

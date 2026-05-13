@@ -1,0 +1,10 @@
+{
+  "p0_after_start.png": {
+    "sha256": "9bba0282c2a08ae20d70eabe0a9cfb52268db90c9f2028a7e17c95768fae97c1",
+    "size_bytes": 276721
+  },
+  "p0_g2_browser_smoke.json": {
+    "sha256": "3eb0d32781303e1b1688fabe7da087b188632914bd0957ef67d0ceb4bf2329b5",
+    "size_bytes": 1556
+  }
+}

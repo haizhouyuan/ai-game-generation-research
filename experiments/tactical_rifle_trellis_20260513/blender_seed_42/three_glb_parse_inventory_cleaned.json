@@ -1,0 +1,36 @@
+[
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/blender_seed_42/groza_trellis_seed_42_cleaned.glb",
+    "bytes": 1075180,
+    "scenes": 1,
+    "meshes": 2,
+    "triangles": 9418,
+    "uvAttributeMeshes": 1,
+    "materialNames": [
+      "DefaultMaterial",
+      "proxy_collider_wire_blue"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -0.5641217827796936,
+        -0.3668837547302246,
+        -1.0000000879517756
+      ],
+      "max": [
+        0.5641217827796936,
+        0.36688375659286976,
+        1.000000031257514
+      ],
+      "size": [
+        1.1282435655593872,
+        0.7337675113230944,
+        2.0000001192092896
+      ]
+    }
+  }
+]

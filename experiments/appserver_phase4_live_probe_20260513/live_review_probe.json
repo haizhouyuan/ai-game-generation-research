@@ -1,0 +1,531 @@
+{
+  "eventMethods": [
+    "remoteControl/status/changed",
+    "thread/started",
+    "mcpServer/startupStatus/updated",
+    "mcpServer/startupStatus/updated",
+    "thread/status/changed",
+    "turn/started",
+    "thread/status/changed",
+    "turn/completed",
+    "item/started",
+    "item/completed",
+    "mcpServer/startupStatus/updated",
+    "mcpServer/startupStatus/updated",
+    "mcpServer/startupStatus/updated",
+    "thread/status/changed",
+    "turn/started",
+    "item/started",
+    "item/completed",
+    "item/started",
+    "item/completed",
+    "thread/status/changed",
+    "turn/completed",
+    "mcpServer/startupStatus/updated",
+    "thread/status/changed",
+    "thread/status/changed"
+  ],
+  "materializationTurnId": "019e1da8-51c5-7842-b3f4-1e4519b4ee71",
+  "notifications": [
+    {
+      "method": "remoteControl/status/changed",
+      "params": {
+        "environmentId": null,
+        "status": "disabled"
+      }
+    },
+    {
+      "method": "thread/started",
+      "params": {
+        "thread": {
+          "agentNickname": null,
+          "agentRole": null,
+          "cliVersion": "0.130.0-alpha.5",
+          "createdAt": 1778614030,
+          "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+          "ephemeral": false,
+          "forkedFromId": null,
+          "gitInfo": null,
+          "id": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+          "modelProvider": "openai",
+          "name": null,
+          "path": "/Users/yuanshaochen/.codex/sessions/2026/05/13/rollout-2026-05-13T03-27-10-019e1da8-5183-7f63-921f-2efb8aed4f65.jsonl",
+          "preview": "",
+          "sessionId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+          "source": "vscode",
+          "status": {
+            "type": "idle"
+          },
+          "threadSource": "user",
+          "turns": [],
+          "updatedAt": 1778614030
+        }
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "codex_apps",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "activeFlags": [],
+          "type": "active"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    },
+    {
+      "method": "turn/started",
+      "params": {
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turn": {
+          "completedAt": null,
+          "durationMs": null,
+          "error": null,
+          "id": "019e1da8-51c5-7842-b3f4-1e4519b4ee71",
+          "items": [],
+          "itemsView": "notLoaded",
+          "startedAt": 1778614030,
+          "status": "inProgress"
+        }
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "type": "idle"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    },
+    {
+      "method": "turn/completed",
+      "params": {
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turn": {
+          "completedAt": 1778614030,
+          "durationMs": 12,
+          "error": null,
+          "id": "019e1da8-51c5-7842-b3f4-1e4519b4ee71",
+          "items": [],
+          "itemsView": "notLoaded",
+          "startedAt": 1778614030,
+          "status": "interrupted"
+        }
+      }
+    },
+    {
+      "method": "item/started",
+      "params": {
+        "item": {
+          "id": "019e1da8-51d2-7d00-a493-0df488c30166",
+          "review": "Disposable App Server review proof. Reply with a one-line APPROVED. Do not run tools.",
+          "type": "enteredReviewMode"
+        },
+        "startedAtMs": 1778614030804,
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turnId": "019e1da8-51d2-7d00-a493-0df488c30166"
+      }
+    },
+    {
+      "method": "item/completed",
+      "params": {
+        "completedAtMs": 1778614030804,
+        "item": {
+          "id": "019e1da8-51d2-7d00-a493-0df488c30166",
+          "review": "Disposable App Server review proof. Reply with a one-line APPROVED. Do not run tools.",
+          "type": "enteredReviewMode"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turnId": "019e1da8-51d2-7d00-a493-0df488c30166"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "ready"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "codex_apps",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "activeFlags": [],
+          "type": "active"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    },
+    {
+      "method": "turn/started",
+      "params": {
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turn": {
+          "completedAt": null,
+          "durationMs": null,
+          "error": null,
+          "id": "019e1da8-5217-7230-be9f-024b204ead40",
+          "items": [],
+          "itemsView": "notLoaded",
+          "startedAt": 1778614030,
+          "status": "inProgress"
+        }
+      }
+    },
+    {
+      "method": "item/started",
+      "params": {
+        "item": {
+          "id": "019e1da8-51d2-7d00-a493-0df488c30166",
+          "review": "Reviewer failed to output a response.",
+          "type": "exitedReviewMode"
+        },
+        "startedAtMs": 1778614030886,
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turnId": "019e1da8-51d2-7d00-a493-0df488c30166"
+      }
+    },
+    {
+      "method": "item/completed",
+      "params": {
+        "completedAtMs": 1778614030886,
+        "item": {
+          "id": "019e1da8-51d2-7d00-a493-0df488c30166",
+          "review": "Reviewer failed to output a response.",
+          "type": "exitedReviewMode"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turnId": "019e1da8-51d2-7d00-a493-0df488c30166"
+      }
+    },
+    {
+      "method": "item/started",
+      "params": {
+        "item": {
+          "id": "review_rollout_assistant",
+          "memoryCitation": null,
+          "phase": null,
+          "text": "Review was interrupted. Please re-run /review and wait for it to complete.",
+          "type": "agentMessage"
+        },
+        "startedAtMs": 1778614030886,
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turnId": "019e1da8-51d2-7d00-a493-0df488c30166"
+      }
+    },
+    {
+      "method": "item/completed",
+      "params": {
+        "completedAtMs": 1778614030886,
+        "item": {
+          "id": "review_rollout_assistant",
+          "memoryCitation": null,
+          "phase": null,
+          "text": "Review was interrupted. Please re-run /review and wait for it to complete.",
+          "type": "agentMessage"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turnId": "019e1da8-51d2-7d00-a493-0df488c30166"
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "type": "idle"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    },
+    {
+      "method": "turn/completed",
+      "params": {
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turn": {
+          "completedAt": 1778614030,
+          "durationMs": 83,
+          "error": null,
+          "id": "019e1da8-51d2-7d00-a493-0df488c30166",
+          "items": [],
+          "itemsView": "notLoaded",
+          "startedAt": 1778614030,
+          "status": "interrupted"
+        }
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "codex_apps",
+        "status": "cancelled"
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "type": "notLoaded"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    },
+    {
+      "method": "thread/status/changed",
+      "params": {
+        "status": {
+          "type": "notLoaded"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    }
+  ],
+  "parentThreadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+  "requests": [
+    {
+      "id": "initialize",
+      "method": "initialize",
+      "params": {
+        "capabilities": {
+          "experimentalApi": true
+        },
+        "clientInfo": {
+          "name": "managed-agents-live-review-probe",
+          "version": "0.1"
+        }
+      }
+    },
+    {
+      "id": "thread-start",
+      "method": "thread/start",
+      "params": {
+        "approvalPolicy": "never",
+        "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+        "ephemeral": false,
+        "model": "gpt-5.4-mini",
+        "sandbox": "read-only",
+        "threadSource": "user"
+      }
+    },
+    {
+      "id": "turn-start",
+      "method": "turn/start",
+      "params": {
+        "approvalPolicy": "never",
+        "effort": "minimal",
+        "input": [
+          {
+            "text": "Disposable review probe materialization. Reply OK. Do not run tools.",
+            "type": "text"
+          }
+        ],
+        "sandboxPolicy": {
+          "networkAccess": false,
+          "type": "readOnly"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    },
+    {
+      "id": "turn-interrupt",
+      "method": "turn/interrupt",
+      "params": {
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turnId": "019e1da8-51c5-7842-b3f4-1e4519b4ee71"
+      }
+    },
+    {
+      "id": "review-start",
+      "method": "review/start",
+      "params": {
+        "delivery": "inline",
+        "target": {
+          "instructions": "Disposable App Server review proof. Reply with a one-line APPROVED. Do not run tools.",
+          "type": "custom"
+        },
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    },
+    {
+      "id": "review-interrupt",
+      "method": "turn/interrupt",
+      "params": {
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turnId": "019e1da8-51d2-7d00-a493-0df488c30166"
+      }
+    },
+    {
+      "id": "archive-parent",
+      "method": "thread/archive",
+      "params": {
+        "threadId": "019e1da8-5183-7f63-921f-2efb8aed4f65"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "id": "initialize",
+      "result": {
+        "codexHome": "/Users/yuanshaochen/.codex",
+        "platformFamily": "unix",
+        "platformOs": "macos",
+        "userAgent": "Codex Desktop/0.130.0-alpha.5 (Mac OS 26.4.1; arm64) dumb (managed-agents-live-review-probe; 0.1)"
+      }
+    },
+    {
+      "id": "thread-start",
+      "result": {
+        "activePermissionProfile": null,
+        "approvalPolicy": "never",
+        "approvalsReviewer": "user",
+        "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+        "instructionSources": [],
+        "model": "gpt-5.4-mini",
+        "modelProvider": "openai",
+        "permissionProfile": {
+          "fileSystem": {
+            "entries": [
+              {
+                "access": "read",
+                "path": {
+                  "type": "special",
+                  "value": {
+                    "kind": "root"
+                  }
+                }
+              }
+            ],
+            "type": "restricted"
+          },
+          "network": {
+            "enabled": false
+          },
+          "type": "managed"
+        },
+        "reasoningEffort": "high",
+        "sandbox": {
+          "networkAccess": false,
+          "type": "readOnly"
+        },
+        "serviceTier": null,
+        "thread": {
+          "agentNickname": null,
+          "agentRole": null,
+          "cliVersion": "0.130.0-alpha.5",
+          "createdAt": 1778614030,
+          "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+          "ephemeral": false,
+          "forkedFromId": null,
+          "gitInfo": null,
+          "id": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+          "modelProvider": "openai",
+          "name": null,
+          "path": "/Users/yuanshaochen/.codex/sessions/2026/05/13/rollout-2026-05-13T03-27-10-019e1da8-5183-7f63-921f-2efb8aed4f65.jsonl",
+          "preview": "",
+          "sessionId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+          "source": "vscode",
+          "status": {
+            "type": "idle"
+          },
+          "threadSource": "user",
+          "turns": [],
+          "updatedAt": 1778614030
+        }
+      }
+    },
+    {
+      "id": "turn-start",
+      "result": {
+        "turn": {
+          "completedAt": null,
+          "durationMs": null,
+          "error": null,
+          "id": "019e1da8-51c5-7842-b3f4-1e4519b4ee71",
+          "items": [],
+          "itemsView": "notLoaded",
+          "startedAt": null,
+          "status": "inProgress"
+        }
+      }
+    },
+    {
+      "id": "turn-interrupt",
+      "result": {}
+    },
+    {
+      "id": "review-start",
+      "result": {
+        "reviewThreadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+        "turn": {
+          "completedAt": null,
+          "durationMs": null,
+          "error": null,
+          "id": "019e1da8-51d2-7d00-a493-0df488c30166",
+          "items": [
+            {
+              "content": [
+                {
+                  "text": "Disposable App Server review proof. Reply with a one-line APPROVED. Do not run tools.",
+                  "text_elements": [],
+                  "type": "text"
+                }
+              ],
+              "id": "019e1da8-51d2-7d00-a493-0df488c30166",
+              "type": "userMessage"
+            }
+          ],
+          "itemsView": "notLoaded",
+          "startedAt": null,
+          "status": "inProgress"
+        }
+      }
+    },
+    {
+      "error": {
+        "code": -32600,
+        "message": "expected active turn id 019e1da8-51d2-7d00-a493-0df488c30166 but found 019e1da8-5217-7230-be9f-024b204ead40"
+      },
+      "id": "review-interrupt"
+    },
+    {
+      "id": "archive-parent",
+      "result": {}
+    }
+  ],
+  "reviewThreadId": "019e1da8-5183-7f63-921f-2efb8aed4f65",
+  "reviewTurnId": "019e1da8-51d2-7d00-a493-0df488c30166",
+  "status": "DONE"
+}

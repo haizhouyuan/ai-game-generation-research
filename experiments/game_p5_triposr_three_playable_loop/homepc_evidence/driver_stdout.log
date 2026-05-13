@@ -1,0 +1,37 @@
+{
+  "command": [
+    "/home/yuanhaizhou/models/p3_ai_cad_game/envs/triposr/bin/python",
+    "/home/yuanhaizhou/models/p3_ai_cad_game/repos/triposr_raw_fetch/source/run.py",
+    "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p5_triposr_synthetic_probe_20260512/images/synthetic_block.png",
+    "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p5_triposr_synthetic_probe_20260512/images/synthetic_tower.png",
+    "--pretrained-model-name-or-path",
+    "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/triposr_minimal_model_dir",
+    "--output-dir",
+    "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p5_triposr_synthetic_probe_20260512/output",
+    "--model-save-format",
+    "glb",
+    "--no-remove-bg",
+    "--mc-resolution",
+    "64",
+    "--chunk-size",
+    "4096"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 5.075798988342285,
+  "outputs": [
+    {
+      "label": "triposr_p5_synthetic_block.glb",
+      "path": "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p5_triposr_synthetic_probe_20260512/output/0/mesh.glb",
+      "exists": true,
+      "bytes": 84084,
+      "sha256": "5748cef4e2f48d427449123fc4247474cf18c5c1979a71ac9f0372a6666e4c47"
+    },
+    {
+      "label": "triposr_p5_synthetic_tower.glb",
+      "path": "/home/yuanhaizhou/models/p3_ai_cad_game/experiments/p5_triposr_synthetic_probe_20260512/output/1/mesh.glb",
+      "exists": true,
+      "bytes": 54084,
+      "sha256": "aa38c6a9804692ad04b72483c4bb6452b3c8ab8c64a82afece4dea52fa00e6b2"
+    }
+  ]
+}

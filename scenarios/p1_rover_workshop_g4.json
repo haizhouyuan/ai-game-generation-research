@@ -1,0 +1,98 @@
+{
+  "scenario_version": "browser_prototype_gate.v1",
+  "prototype_id": "p1_rover_workshop",
+  "gate_level": "G4",
+  "known_limitations": [
+    "P1 now imports RW-ROVER-001 as an AI-assisted visual avatar with Blender-authored rover-v1 material slots, procedural embedded base-color maps, and UV proof; RW-CRATE-AI-001 remains a visual landmark.",
+    "Imported AI-assisted GLBs are not used as gameplay collision; generated-mesh collision remains unproven and intentionally excluded.",
+    "RW-ROVER-001 has procedural authoring texture maps embedded in the runtime GLB and runtime parent-transform feedback animation, but no skeletal rig, no source-baked photoreal PBR maps, and is not Unity-imported.",
+    "The deterministic QA path uses the prototype's local __prototypeGate API to avoid brittle pointer-lock automation."
+  ],
+  "asset_provenance": [
+    {
+      "asset_id": "RW-ROVER-001",
+      "kind": "openai_to_trellis_meshonly_to_blender_glb",
+      "source": "experiments/game_p1_rover_workshop_demo/assets/models/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+      "tool": "OpenAI image reference, TRELLIS-image-large mesh-only export, Blender 5.1.1 cleanup/material/procedural texture/proxy export, Three.js GLTFLoader runtime import",
+      "non_procedural": true,
+      "collision_strategy": "visual avatar only; gameplay movement and collision use the procedural rover proxy",
+      "known_limitations": "Mesh generated from mesh-only TRELLIS output with Blender-authored material slots and procedural embedded base-color maps; runtime animation is parent-transform feedback only, no skeletal rig, no source-baked photoreal PBR maps, not Unity-imported."
+    },
+    {
+      "asset_id": "RW-CRATE-AI-001",
+      "kind": "trellis_meshonly_glb",
+      "source": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+      "tool": "TRELLIS-image-large mesh-only export; Three.js GLTFLoader runtime import",
+      "non_procedural": true,
+      "collision_strategy": "visual landmark only; no generated mesh collision",
+      "known_limitations": "Mesh-only, not textured/PBR, not Blender-cleaned, not Unity-imported, not the hero rover asset."
+    },
+    {
+      "asset_id": "p1_procedural_rover",
+      "kind": "procedural_threejs_geometry",
+      "source": "experiments/game_p1_rover_workshop_demo/index.html",
+      "tool": "Three.js BufferGeometry primitives",
+      "non_procedural": false,
+      "collision_strategy": "simple proxy box controlled by game state; visual fallback meshes are hidden after RW-ROVER-001 loads",
+      "known_limitations": "Gameplay proxy and GLB-load fallback only, not the promoted visual avatar; Unity and Blender import are not claimed for this procedural fallback."
+    },
+    {
+      "asset_id": "p1_workshop_props",
+      "kind": "procedural_threejs_geometry",
+      "source": "experiments/game_p1_rover_workshop_demo/index.html",
+      "tool": "Three.js boxes, cylinder, and torus primitives",
+      "non_procedural": false,
+      "collision_strategy": "deterministic QA state transitions for gate validation",
+      "known_limitations": "No external mesh, texture, or material generation was used."
+    }
+  ],
+  "steps": [
+    {
+      "id": "load",
+      "action": "open",
+      "expect": ["page_ready", "canvas_present", "hud_present", "route_signposting_present", "hud_mobile_guard_present", "ai_hero_rover_loaded", "ai_hero_rover_materials_present", "ai_hero_rover_animation_strategy_present", "ai_hero_rover_replaced_procedural_visuals", "ai_glb_prop_loaded"]
+    },
+    {
+      "id": "start",
+      "action": "click",
+      "target": "start_button",
+      "expect": ["play_state"]
+    },
+    {
+      "id": "input",
+      "action": "replay",
+      "keys": ["KeyW", "KeyD"],
+      "expect": ["position_changed"]
+    },
+    {
+      "id": "pickup",
+      "action": "navigate_to",
+      "target": "battery_route",
+      "expect": ["battery_count_incremented", "gear_collected", "upgrade_unlocked"]
+    },
+    {
+      "id": "hazard",
+      "action": "navigate_near",
+      "target": "spark_tile_01",
+      "expect": ["hazard_feedback", "patrol_hazard_feedback"]
+    },
+    {
+      "id": "gate",
+      "action": "activate",
+      "target": "switch_01_and_repair_bridge_pad_01",
+      "expect": ["gate_01_open", "bridge_blocks_before_repair", "repair_bridge_built", "bridge_hud_repaired", "bridge_route_open"]
+    },
+    {
+      "id": "bridge",
+      "action": "activate",
+      "target": "repair_bridge_pad_01",
+      "expect": ["repair_bridge_built", "bridge_hud_repaired", "bridge_route_open"]
+    },
+    {
+      "id": "finish",
+      "action": "navigate_to",
+      "target": "finish_charging_pad",
+      "expect": ["result_screen"]
+    }
+  ]
+}

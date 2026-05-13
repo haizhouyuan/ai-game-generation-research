@@ -1,0 +1,72 @@
+{
+  "cleanup": {
+    "normalized_bbox_max": [
+      1.0,
+      0.6485715508460999,
+      0.21818993985652924
+    ],
+    "normalized_bbox_min": [
+      -1.0,
+      -0.6485715508460999,
+      -0.21818992495536804
+    ],
+    "normalized_dimensions": [
+      2.0,
+      1.2971431016921997,
+      0.4363798499107361
+    ],
+    "original_bbox_max": [
+      0.49478188157081604,
+      0.3251663148403168,
+      0.1730794906616211
+    ],
+    "original_bbox_min": [
+      -0.4991936683654785,
+      -0.3194979429244995,
+      -0.04379596561193466
+    ],
+    "original_dimensions": [
+      0.9939755201339722,
+      0.6446642875671387,
+      0.21687546372413635
+    ],
+    "scale_factor": 2.012121988407151
+  },
+  "input_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_trellis_20260513/outputs/groza_trellis_seed_202.glb",
+  "input_sha256": "122bba360aefb2d301b2444a30e1b8c7780346706d20a9fc4cde10b62acdee3f",
+  "material_names": [
+    "DefaultMaterial"
+  ],
+  "material_strategy": {
+    "strategy": "preserve",
+    "texture_state": "source_materials_preserved"
+  },
+  "mesh_object_count": 1,
+  "mesh_objects": [
+    {
+      "faces": 8670,
+      "material_slots": 1,
+      "name": "geometry_0",
+      "vertices": 4332
+    }
+  ],
+  "proxy_collider": {
+    "center": [
+      0.0,
+      0.0,
+      7.450580596923828e-09
+    ],
+    "dimensions": [
+      2.0,
+      1.2971431016921997,
+      0.4363798499107361
+    ],
+    "name": "COLLIDER_PROXY_bbox_simple_box",
+    "type": "box"
+  },
+  "texture_state": "source_materials_preserved",
+  "texture_strategy": {
+    "strategy": "none",
+    "texture_state": "source_materials_preserved"
+  }
+}

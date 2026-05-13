@@ -1,0 +1,155 @@
+{
+  "pipeline": "Blender procedural hard-surface M5 weapon variants",
+  "assets": [
+    {
+      "kind": "pistol",
+      "output_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/assets/models/pistol_m5_candidate.glb",
+      "preview_png": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/assets/models/pistol_m5_preview.png",
+      "output_sha256": "aa1fd450ed947ecff9dc9c9ff07a5f4f329d6359d3a462064483bac72cd60255",
+      "preview_sha256": "3a8fdb82f12a47ca2a6d10cf58a7dd3cef4c62d0dca0ba1b2d513db2929a10c1",
+      "mesh_object_count": 20,
+      "bbox": {
+        "min": [
+          -0.7249999642372131,
+          -0.7974575757980347,
+          -0.28999999165534973
+        ],
+        "max": [
+          1.149999976158142,
+          0.45000001788139343,
+          0.28999999165534973
+        ],
+        "size": [
+          1.875,
+          1.2474576234817505,
+          0.5799999833106995
+        ]
+      },
+      "anchors": [
+        {
+          "name": "Muzzle",
+          "location": [
+            1.17,
+            0.22,
+            0
+          ]
+        }
+      ],
+      "material_names": [
+        "blackened_steel",
+        "brass_rounds",
+        "bright_edge_wear",
+        "dark_optic_glass",
+        "fiber_reinforced_polymer",
+        "matte_rubber",
+        "tan_polymer_grip",
+        "worn_blued_steel"
+      ],
+      "limitations": [
+        "Local procedural hard-surface candidate, not scanned geometry.",
+        "Uses Blender PBR-style material factors without baked texture images.",
+        "Intended to replace low-fidelity in-game weapon primitives while higher-realism generator routes continue."
+      ]
+    },
+    {
+      "kind": "shotgun",
+      "output_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/assets/models/shotgun_m5_candidate.glb",
+      "preview_png": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/assets/models/shotgun_m5_preview.png",
+      "output_sha256": "9a4c3cd89716952c365853ad58de15d4223db95bc3a5f412ad39b5ac7a63bad2",
+      "preview_sha256": "3d934768178b01b44a7804a81474fbf313c50a03ced583266f27c32fdaf5b745",
+      "mesh_object_count": 28,
+      "bbox": {
+        "min": [
+          -1.8600000143051147,
+          -0.574999988079071,
+          -0.375
+        ],
+        "max": [
+          2.630000114440918,
+          0.574999988079071,
+          0.375
+        ],
+        "size": [
+          4.490000247955322,
+          1.149999976158142,
+          0.75
+        ]
+      },
+      "anchors": [
+        {
+          "name": "Muzzle",
+          "location": [
+            2.66,
+            0.16,
+            0
+          ]
+        }
+      ],
+      "material_names": [
+        "blackened_steel",
+        "brass_rounds",
+        "bright_edge_wear",
+        "dark_optic_glass",
+        "fiber_reinforced_polymer",
+        "matte_rubber",
+        "tan_polymer_grip",
+        "worn_blued_steel"
+      ],
+      "limitations": [
+        "Local procedural hard-surface candidate, not scanned geometry.",
+        "Uses Blender PBR-style material factors without baked texture images.",
+        "Intended to replace low-fidelity in-game weapon primitives while higher-realism generator routes continue."
+      ]
+    },
+    {
+      "kind": "dmr",
+      "output_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/assets/models/dmr_m5_candidate.glb",
+      "preview_png": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/assets/models/dmr_m5_preview.png",
+      "output_sha256": "52f1acdfef814aed6ca4e5ee8351bc47f5f38db5720ed50e090e4abc293f20c8",
+      "preview_sha256": "c1ac4462258f698d03ca94ababa71e800e4a62faf60868f050f2018cfad88650",
+      "mesh_object_count": 46,
+      "bbox": {
+        "min": [
+          -2.325000047683716,
+          -0.9824661016464233,
+          -0.4099999964237213
+        ],
+        "max": [
+          3.2250001430511475,
+          0.7450000047683716,
+          0.4099999964237213
+        ],
+        "size": [
+          5.550000190734863,
+          1.727466106414795,
+          0.8199999928474426
+        ]
+      },
+      "anchors": [
+        {
+          "name": "Muzzle",
+          "location": [
+            3.22,
+            0.08,
+            0
+          ]
+        }
+      ],
+      "material_names": [
+        "blackened_steel",
+        "brass_rounds",
+        "bright_edge_wear",
+        "dark_optic_glass",
+        "fiber_reinforced_polymer",
+        "matte_rubber",
+        "tan_polymer_grip",
+        "worn_blued_steel"
+      ],
+      "limitations": [
+        "Local procedural hard-surface candidate, not scanned geometry.",
+        "Uses Blender PBR-style material factors without baked texture images.",
+        "Intended to replace low-fidelity in-game weapon primitives while higher-realism generator routes continue."
+      ]
+    }
+  ]
+}

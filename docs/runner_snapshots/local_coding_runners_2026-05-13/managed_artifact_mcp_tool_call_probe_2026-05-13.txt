@@ -1,0 +1,2 @@
+RUNNER_READ_ONLY=1 RUNNER_TIMEOUT_SECONDS=90 ./bin/claudeminmax -p ... --allowedTools mcp__managed-artifact-verifier__verify_artifact_hashes
+exit_code: 0

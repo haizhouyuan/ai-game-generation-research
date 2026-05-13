@@ -1,0 +1,16 @@
+timestamp=2026-05-12T00:31:33+08:00
+hostname=yuanhaizhou-home
+proxy_env_after_unset:
+no_proxy=*
+NO_PROXY=*
+route_to_1.1.1.1:
+1.1.1.1 via 192.168.31.1 dev enp15s0 src 192.168.31.38 uid 1000 
+    cache 
+disk_home:
+文件系统        大小  已用  可用 已用% 挂载点
+/dev/nvme0n1p4  1.7T  864G  805G   52% /home
+gpu_snapshot:
+0, NVIDIA GeForce RTX 3090, 24576 MiB, 22964 MiB, 1273 MiB
+1, NVIDIA GeForce RTX 3090, 24576 MiB, 12 MiB, 24246 MiB
+p3_root_usage:
+5.7G	/home/yuanhaizhou/models/p3_ai_cad_game

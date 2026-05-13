@@ -1,0 +1,29 @@
+[
+  {
+    "asset_id": "RW-CRATE-AI-001",
+    "collision_strategy": "visual landmark only; no generated mesh collision",
+    "kind": "trellis_meshonly_glb",
+    "known_limitations": "Mesh-only, not textured/PBR, not Blender-cleaned, not Unity-imported, not the hero rover asset.",
+    "non_procedural": true,
+    "source": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+    "tool": "TRELLIS-image-large mesh-only export; Three.js GLTFLoader runtime import"
+  },
+  {
+    "asset_id": "p1_procedural_rover",
+    "collision_strategy": "simple proxy box controlled by game state",
+    "kind": "procedural_threejs_geometry",
+    "known_limitations": "Not a generated GLB hero asset; Unity and Blender import are not claimed.",
+    "non_procedural": false,
+    "source": "experiments/game_p1_rover_workshop_demo/index.html",
+    "tool": "Three.js BufferGeometry primitives"
+  },
+  {
+    "asset_id": "p1_workshop_props",
+    "collision_strategy": "deterministic QA state transitions for gate validation",
+    "kind": "procedural_threejs_geometry",
+    "known_limitations": "No external mesh, texture, or material generation was used.",
+    "non_procedural": false,
+    "source": "experiments/game_p1_rover_workshop_demo/index.html",
+    "tool": "Three.js boxes, cylinder, and torus primitives"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "contract_bundle_valid": true,
+    "cycle_counter_detected": true,
+    "duplicate_node_counter_detected": true,
+    "p25_missing_artifact_counter_inherited": true,
+    "p25_tampered_hash_counter_inherited": true,
+    "stale_bundle_counter_detected": true,
+    "topological_order_valid": true
+  },
+  "overall_pass": true
+}

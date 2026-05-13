@@ -1,0 +1,54 @@
+{
+  "baseline_to_allowlisted": {
+    "changed_nodes": [
+      {
+        "id": "source_artifact_0",
+        "new_sha256": "36ba6e91bf0de52b72b23239266c277c58b29b1c4d3c7cf690a37034f36a3f63",
+        "old_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "status": "modified"
+      }
+    ],
+    "edge_delta": {
+      "added": [],
+      "removed": []
+    },
+    "edge_delta_count": 0,
+    "node_delta_count": 1,
+    "packet_version": "1.0",
+    "reason": "allowlisted hash-only update",
+    "sha256": "acc7719633677595f9d63cadb6ea1717c89a7a1c3a8e5ec067bd37b88b033a84"
+  },
+  "baseline_to_rejected": {
+    "changed_nodes": [
+      {
+        "id": "orphan_drift_node",
+        "new_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "old_sha256": null,
+        "status": "added"
+      },
+      {
+        "id": "source_artifact_0",
+        "new_sha256": "36ba6e91bf0de52b72b23239266c277c58b29b1c4d3c7cf690a37034f36a3f63",
+        "old_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "status": "modified"
+      }
+    ],
+    "edge_delta": {
+      "added": [
+        {
+          "from": "source_artifact_0",
+          "kind": "stale_edge_counter",
+          "to": "stale_missing_node"
+        }
+      ],
+      "removed": []
+    },
+    "edge_delta_count": 1,
+    "node_delta_count": 2,
+    "packet_version": "1.0",
+    "reason": "stale edge and node drift",
+    "sha256": "9fea2e1df3e4fb2c50155d34c086450dc9fbef8b3ddae10a49188ce378d4b2a1"
+  },
+  "packet_version": "1.0",
+  "sha256": "ca14c992033be324869a110050e595a2b41a0b9fcf743ac3b8df0bd7f7e86a3b"
+}

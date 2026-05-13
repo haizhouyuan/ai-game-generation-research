@@ -1,0 +1,105 @@
+{
+  "schema_version": "asset_provenance_p1_v0",
+  "asset_id": "RW-ROVER-001",
+  "asset_name": "Friendly workshop rover",
+  "p1_role": "player_avatar_visual",
+  "status": "validated_browser_visual",
+  "source": {
+    "kind": "openai_image_to_trellis_to_blender",
+    "prompt_id": "IMG-002-plus-single-3q",
+    "prompt_text_path": "experiments/rw_rover_001_asset_chain_20260513/reports/rw_rover_001_asset_chain_report.md",
+    "reference_image_path": "experiments/rw_rover_001_asset_chain_20260513/inputs/rw_rover_001_openai_single_3q.png",
+    "reference_image_sha256": "b90dd3c1b4853e68743e9126bb7f7e527dab1605642f950b7c4472ffc3ea6019",
+    "model_or_tool": "Codex built-in image_gen; TRELLIS-image-large mesh-only; Blender 5.1.1",
+    "tool_version": "Blender 5.1.1; TRELLIS local HomePC checkout",
+    "operator": "Codex",
+    "generated_at": "2026-05-13T04:03:00+08:00"
+  },
+  "generation": {
+    "generator": "TRELLIS-image-large mesh-only",
+    "command_or_notebook": "experiments/rw_rover_001_asset_chain_20260513/reports/rw_rover_001_asset_chain_report.md",
+    "host": "HomePC for TRELLIS; Mac for Blender/Three.js/P1 integration",
+    "input_paths": [
+      "experiments/rw_rover_001_asset_chain_20260513/inputs/rw_rover_001_openai_single_3q.png"
+    ],
+    "output_paths": [
+      "experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_single3q_trellis_meshonly.glb",
+      "experiments/rw_rover_001_asset_chain_20260513/blender_single3q/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+      "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+      "experiments/game_p1_rover_workshop_demo/assets/models/rw_rover_001_single3q_blender_textured_with_proxy.glb"
+    ],
+    "output_sha256": "aa254a919d08a92c5e1963fd78a7e4bab49ad878c22a80d8e97ae1e577fb1a44",
+    "download_evidence_path": "",
+    "large_download_approval": "not_required_existing_homepc_cache"
+  },
+  "asset_files": {
+    "raw_glb_path": "experiments/rw_rover_001_asset_chain_20260513/outputs/rw_rover_001_single3q_trellis_meshonly.glb",
+    "cleaned_glb_path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+    "runtime_glb_path": "experiments/game_p1_rover_workshop_demo/assets/models/rw_rover_001_single3q_blender_textured_with_proxy.glb",
+    "preview_image_path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_render.png",
+    "texture_paths": [
+      "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/textures/rw_rover_v1_body_teal.png",
+      "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/textures/rw_rover_v1_safety_yellow.png",
+      "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/textures/rw_rover_v1_rubber_dark.png",
+      "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/textures/rw_rover_v1_sensor_glass.png"
+    ],
+    "material_report_path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_report.json",
+    "mesh_stats_path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/three_glb_parse_inventory_textured.json",
+    "rig_animation_decision_path": "docs/rover_rig_animation_decision_2026-05-13.md"
+  },
+  "validation": {
+    "blender_inspection": {
+      "passed": true,
+      "notes_path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_report.json",
+      "known_limitations": [
+        "Blender rover-v1 texture pass creates procedural authoring PNG base-color maps and planar UV proof.",
+        "Texture maps are embedded into the runtime GLB; they are not source-baked photoreal PBR maps."
+      ]
+    },
+    "threejs_validation": {
+      "passed": true,
+      "parser_report_path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/three_glb_parse_inventory_textured.json",
+      "screenshot_path": "experiments/rw_rover_001_asset_chain_20260513/blender_single3q_textured/blender_cleanup_render.png",
+      "bbox": {
+        "size": [
+          2,
+          1.7361558871343732,
+          1.809220552444458
+        ]
+      },
+      "material_count": 4,
+      "texture_count": 4,
+      "uv_attribute_meshes": 5,
+      "embedded_image_count": 4
+    },
+    "rig_animation_validation": {
+      "passed": true,
+      "notes_path": "docs/rover_rig_animation_decision_2026-05-13.md",
+      "rig_state": "no_skeletal_rig_single_generated_mesh",
+      "animation_strategy": "runtime_parent_transform_feedback_only"
+    },
+    "gameplay_validation": {
+      "passed": true,
+      "test_log_path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-13_rw_rover_001_texture_g4/release_packet.json",
+      "collider_proxy_path": "procedural rover state proxy in experiments/game_p1_rover_workshop_demo/index.html",
+            "notes": "The GLB is loaded in P1 as the rover visual avatar and G4 verifies ai_hero_rover_loaded plus ai_hero_rover_replaced_procedural_visuals. Runtime hides COLLIDER_PROXY_* meshes from the GLB and hides the six procedural fallback visual meshes; movement, pickup range, hazards, and collisions still use the existing procedural state/proxy."
+    }
+  },
+  "license_and_rights": {
+    "source_license": "OpenAI generated reference plus local TRELLIS mesh-only output",
+    "allowed_use_notes": "Project-local research/demo use with provenance and limitations.",
+    "third_party_dependencies": [
+      "TRELLIS-image-large local HomePC cache",
+      "Blender 5.1.1",
+      "Three.js GLTFLoader"
+    ]
+  },
+  "limitations": [
+    "mesh generated from mesh-only TRELLIS output",
+    "Blender-authored procedural base-color maps and UV proof, but no source-baked photoreal PBR maps",
+    "no skeletal animation rig; runtime animation is parent-transform feedback only",
+    "not used as gameplay collision",
+    "not Unity-imported",
+    "not a final production-quality hero asset"
+  ]
+}

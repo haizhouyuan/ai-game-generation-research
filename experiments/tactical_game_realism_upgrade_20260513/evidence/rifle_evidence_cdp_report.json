@@ -1,0 +1,83 @@
+{
+  "url": "http://localhost:8765/index.html?evidence=rifle",
+  "screenshot": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_game_realism_upgrade_20260513/evidence/rifle_evidence_cdp.png",
+  "probe": {
+    "rifleAsset": {
+      "url": "assets/models/groza_procedural_candidate.glb",
+      "status": "loaded",
+      "error": null
+    },
+    "player": {
+      "weapon": "rifle",
+      "cameraMode": "third",
+      "lobby": false,
+      "dead": false
+    },
+    "viewGun": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb",
+      "hasMuzzle": true
+    },
+    "thirdGun": {
+      "assetSource": "assets/models/groza_procedural_candidate.glb",
+      "hasMuzzle": true
+    }
+  },
+  "events": [
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "warning",
+      "text": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "method": "Runtime.exceptionThrown",
+      "type": null,
+      "text": "Uncaught"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x10c00478a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x10c00478a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x10c00478a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "warning",
+      "text": "[.WebGL-0x10c00478a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    },
+    {
+      "method": "Runtime.exceptionThrown",
+      "type": null,
+      "text": "Uncaught (in promise)"
+    },
+    {
+      "method": "Runtime.consoleAPICalled",
+      "type": "info",
+      "text": "[rifle-glb] loaded assets/models/groza_procedural_candidate.glb"
+    },
+    {
+      "method": "Log.entryAdded",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ],
+  "chromeStderrTail": [
+    "",
+    "DevTools listening on ws://127.0.0.1:9224/devtools/browser/0e89c59c-9e35-43c0-b7f7-1a205b5a24bf",
+    "Trying to load the allocator multiple times. This is *not* supported.",
+    "[2326:3069917:0513/082325.710051:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c00478a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[2326:3069917:0513/082325.783031:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c00478a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[2326:3069917:0513/082325.783369:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c00478a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[2326:3069917:0513/082325.784537:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c00478a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+    "[2320:3069896:0513/082325.970369:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT",
+    ""
+  ]
+}

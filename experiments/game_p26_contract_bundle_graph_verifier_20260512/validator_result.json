@@ -1,0 +1,806 @@
+{
+  "batch": "P26-A game contract bundle graph verifier",
+  "boundaries": [
+    "Dependency graph covers local reviewer-contract artifacts only.",
+    "This does not claim screenshot/visual QA.",
+    "This does not claim mesh-accurate GLB collision."
+  ],
+  "checks": {
+    "contract_bundle_valid": true,
+    "cycle_counter_detected": true,
+    "duplicate_node_counter_detected": true,
+    "p25_missing_artifact_counter_inherited": true,
+    "p25_tampered_hash_counter_inherited": true,
+    "stale_bundle_counter_detected": true,
+    "topological_order_valid": true
+  },
+  "contract_bundle": {
+    "boundary": "contract bundle covers local reviewer-contract artifacts only",
+    "bundle_id": "game_p26_contract_bundle_graph_20260512",
+    "bundle_version": "1.0",
+    "edges": [
+      {
+        "from": "p24_integrity_matrix",
+        "kind": "validates_manifest",
+        "to": "p24_integrity_manifest"
+      },
+      {
+        "from": "p24_integrity_matrix",
+        "kind": "validates_version",
+        "to": "p24_version_report"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "kind": "declares_artifact",
+        "to": "source_artifact_0"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "kind": "declares_artifact",
+        "to": "source_artifact_1"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "kind": "declares_artifact",
+        "to": "source_artifact_2"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "kind": "declares_artifact",
+        "to": "source_artifact_3"
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "kind": "declares_artifact",
+        "to": "source_artifact_4"
+      }
+    ],
+    "nodes": [
+      {
+        "bytes": 23635,
+        "id": "p24_integrity_matrix",
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json",
+        "role": "p24_integrity_matrix",
+        "sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+        "source_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json"
+      },
+      {
+        "bytes": 2335,
+        "id": "p24_integrity_manifest",
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json",
+        "role": "p24_integrity_manifest",
+        "sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+        "source_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json"
+      },
+      {
+        "bytes": 12555,
+        "id": "p24_version_report",
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json",
+        "role": "p24_version_report",
+        "sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+        "source_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json"
+      },
+      {
+        "bytes": 18157,
+        "id": "source_artifact_0",
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json",
+        "role": "source_artifact_0",
+        "sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "source_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json"
+      },
+      {
+        "bytes": 10798,
+        "id": "source_artifact_1",
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json",
+        "role": "source_artifact_1",
+        "sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+        "source_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json"
+      },
+      {
+        "bytes": 2151,
+        "id": "source_artifact_2",
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md",
+        "role": "source_artifact_2",
+        "sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+        "source_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md"
+      },
+      {
+        "bytes": 5480,
+        "id": "source_artifact_3",
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json",
+        "role": "source_artifact_3",
+        "sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+        "source_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json"
+      },
+      {
+        "bytes": 1226,
+        "id": "source_artifact_4",
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md",
+        "role": "source_artifact_4",
+        "sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+        "source_path": "/vol1/1000/projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md"
+      }
+    ],
+    "source_graph_id": "game_p25_scene_ci_artifact_dependency_graph_20260512",
+    "source_p25_sha256": "2d22f4e4bdf2ed240eaf5ce7b30f4d055e3928b6c3b456d715dd3d187f516c90",
+    "topological_order": [
+      "p24_integrity_matrix",
+      "p24_integrity_manifest",
+      "p24_version_report",
+      "source_artifact_0",
+      "source_artifact_1",
+      "source_artifact_2",
+      "source_artifact_3",
+      "source_artifact_4"
+    ]
+  },
+  "counters": {
+    "cycle": {
+      "pass": true,
+      "validation": {
+        "acyclic": false,
+        "artifact_rows": [
+          {
+            "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "exists": true,
+            "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "id": "p24_integrity_matrix",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json"
+          },
+          {
+            "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "exists": true,
+            "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "id": "p24_integrity_manifest",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json"
+          },
+          {
+            "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "exists": true,
+            "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "id": "p24_version_report",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json"
+          },
+          {
+            "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "exists": true,
+            "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "id": "source_artifact_0",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json"
+          },
+          {
+            "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "exists": true,
+            "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "id": "source_artifact_1",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json"
+          },
+          {
+            "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "exists": true,
+            "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "id": "source_artifact_2",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md"
+          },
+          {
+            "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "exists": true,
+            "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "id": "source_artifact_3",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json"
+          },
+          {
+            "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "exists": true,
+            "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "id": "source_artifact_4",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md"
+          }
+        ],
+        "computed_order": [],
+        "computed_order_ok": false,
+        "duplicate_nodes": [],
+        "expected_order": [
+          "p24_integrity_matrix",
+          "p24_integrity_manifest",
+          "p24_version_report",
+          "source_artifact_0",
+          "source_artifact_1",
+          "source_artifact_2",
+          "source_artifact_3",
+          "source_artifact_4"
+        ],
+        "order_set_ok": true,
+        "pass": false,
+        "source_ok": true,
+        "topological_order_ok": false,
+        "topological_rows": [
+          {
+            "from": "p24_integrity_matrix",
+            "from_ok": true,
+            "kind": "validates_manifest",
+            "order_ok": true,
+            "pass": true,
+            "to": "p24_integrity_manifest",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_matrix",
+            "from_ok": true,
+            "kind": "validates_version",
+            "order_ok": true,
+            "pass": true,
+            "to": "p24_version_report",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_0",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_1",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_2",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_3",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_4",
+            "to_ok": true
+          },
+          {
+            "from": "source_artifact_4",
+            "from_ok": true,
+            "kind": "cycle_counter",
+            "order_ok": false,
+            "pass": false,
+            "to": "p24_integrity_matrix",
+            "to_ok": true
+          }
+        ]
+      }
+    },
+    "duplicate_node": {
+      "pass": true,
+      "validation": {
+        "acyclic": false,
+        "artifact_rows": [
+          {
+            "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "exists": true,
+            "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "id": "p24_integrity_matrix",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json"
+          },
+          {
+            "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "exists": true,
+            "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "id": "p24_integrity_manifest",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json"
+          },
+          {
+            "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "exists": true,
+            "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "id": "p24_version_report",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json"
+          },
+          {
+            "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "exists": true,
+            "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "id": "source_artifact_0",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json"
+          },
+          {
+            "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "exists": true,
+            "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "id": "source_artifact_1",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json"
+          },
+          {
+            "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "exists": true,
+            "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "id": "source_artifact_2",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md"
+          },
+          {
+            "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "exists": true,
+            "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "id": "source_artifact_3",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json"
+          },
+          {
+            "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "exists": true,
+            "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "id": "source_artifact_4",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md"
+          },
+          {
+            "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "exists": true,
+            "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "id": "p24_integrity_matrix",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json"
+          }
+        ],
+        "computed_order": [
+          "p24_integrity_matrix",
+          "p24_integrity_manifest",
+          "p24_version_report",
+          "source_artifact_0",
+          "source_artifact_1",
+          "source_artifact_2",
+          "source_artifact_3",
+          "source_artifact_4"
+        ],
+        "computed_order_ok": false,
+        "duplicate_nodes": [
+          "p24_integrity_matrix"
+        ],
+        "expected_order": [
+          "p24_integrity_matrix",
+          "p24_integrity_manifest",
+          "p24_version_report",
+          "source_artifact_0",
+          "source_artifact_1",
+          "source_artifact_2",
+          "source_artifact_3",
+          "source_artifact_4"
+        ],
+        "order_set_ok": false,
+        "pass": false,
+        "source_ok": true,
+        "topological_order_ok": false,
+        "topological_rows": [
+          {
+            "from": "p24_integrity_matrix",
+            "from_ok": true,
+            "kind": "validates_manifest",
+            "order_ok": true,
+            "pass": true,
+            "to": "p24_integrity_manifest",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_matrix",
+            "from_ok": true,
+            "kind": "validates_version",
+            "order_ok": true,
+            "pass": true,
+            "to": "p24_version_report",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_0",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_1",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_2",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_3",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_4",
+            "to_ok": true
+          }
+        ]
+      }
+    },
+    "inherited_p25": {
+      "pass": true,
+      "source_checks": {
+        "missing_artifact_counter_detected": true,
+        "tampered_hash_counter_detected": true
+      }
+    },
+    "stale_bundle": {
+      "pass": true,
+      "validation": {
+        "acyclic": true,
+        "artifact_rows": [
+          {
+            "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "exists": true,
+            "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+            "id": "p24_integrity_matrix",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json"
+          },
+          {
+            "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "exists": true,
+            "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+            "id": "p24_integrity_manifest",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json"
+          },
+          {
+            "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "exists": true,
+            "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+            "id": "p24_version_report",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json"
+          },
+          {
+            "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "exists": true,
+            "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+            "id": "source_artifact_0",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json"
+          },
+          {
+            "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "exists": true,
+            "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+            "id": "source_artifact_1",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json"
+          },
+          {
+            "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "exists": true,
+            "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+            "id": "source_artifact_2",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md"
+          },
+          {
+            "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "exists": true,
+            "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+            "id": "source_artifact_3",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json"
+          },
+          {
+            "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "exists": true,
+            "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+            "id": "source_artifact_4",
+            "pass": true,
+            "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md"
+          }
+        ],
+        "computed_order": [
+          "p24_integrity_matrix",
+          "p24_integrity_manifest",
+          "p24_version_report",
+          "source_artifact_0",
+          "source_artifact_1",
+          "source_artifact_2",
+          "source_artifact_3",
+          "source_artifact_4"
+        ],
+        "computed_order_ok": true,
+        "duplicate_nodes": [],
+        "expected_order": [
+          "p24_integrity_matrix",
+          "p24_integrity_manifest",
+          "p24_version_report",
+          "source_artifact_0",
+          "source_artifact_1",
+          "source_artifact_2",
+          "source_artifact_3",
+          "source_artifact_4"
+        ],
+        "order_set_ok": true,
+        "pass": false,
+        "source_ok": false,
+        "topological_order_ok": true,
+        "topological_rows": [
+          {
+            "from": "p24_integrity_matrix",
+            "from_ok": true,
+            "kind": "validates_manifest",
+            "order_ok": true,
+            "pass": true,
+            "to": "p24_integrity_manifest",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_matrix",
+            "from_ok": true,
+            "kind": "validates_version",
+            "order_ok": true,
+            "pass": true,
+            "to": "p24_version_report",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_0",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_1",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_2",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_3",
+            "to_ok": true
+          },
+          {
+            "from": "p24_integrity_manifest",
+            "from_ok": true,
+            "kind": "declares_artifact",
+            "order_ok": true,
+            "pass": true,
+            "to": "source_artifact_4",
+            "to_ok": true
+          }
+        ]
+      }
+    }
+  },
+  "overall_pass": true,
+  "valid_bundle": {
+    "acyclic": true,
+    "artifact_rows": [
+      {
+        "current_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+        "exists": true,
+        "expected_sha256": "1072fd5d813955bd3b7f0c6786c5b757583a6722332d519d992795b2bcd3a786",
+        "id": "p24_integrity_matrix",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_check_matrix.json"
+      },
+      {
+        "current_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+        "exists": true,
+        "expected_sha256": "01ea531bf752a1cf601a32db83d17e638e9ab6c48f8545f552718625c1edadb7",
+        "id": "p24_integrity_manifest",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_artifact_integrity_manifest.json"
+      },
+      {
+        "current_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+        "exists": true,
+        "expected_sha256": "7d2430c0e73e9fd8718d3cc9460d381e97f6414adb713f49c0214125dbfe76f3",
+        "id": "p24_version_report",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p24_reviewer_contract_version_integrity_manifest_20260512/outputs/p24_reviewer_contract_version_migration_report.json"
+      },
+      {
+        "current_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "exists": true,
+        "expected_sha256": "778ff7b25e3994acbf776b49ff7dd11c4b571a213a05cdf8b5673f344d950e0e",
+        "id": "source_artifact_0",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_report.json"
+      },
+      {
+        "current_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+        "exists": true,
+        "expected_sha256": "3c7752e4331451b0d705dd66c4747c79ed29f505a6193833f984bf1c85d9e933",
+        "id": "source_artifact_1",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_exit_code_matrix.json"
+      },
+      {
+        "current_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+        "exists": true,
+        "expected_sha256": "3c1f4dc3b13cbb9805d1c94ed1fece5f42dca0f63163e86bd029818132d488ce",
+        "id": "source_artifact_2",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p22_scene_ci_exit_code_reviewer_contract_20260512/outputs/p22_reviewer_contract_packet.md"
+      },
+      {
+        "current_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+        "exists": true,
+        "expected_sha256": "3b5122343e6da59f4b9899e3144d6030fab7d979880d038bc5ba8434776ea5dc",
+        "id": "source_artifact_3",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_scene_ci_negative_contract_review_matrix.json"
+      },
+      {
+        "current_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+        "exists": true,
+        "expected_sha256": "7dbbc9a79e2d829166bc59525f5fbea588bb4322d75959fc93f67153b5121baa",
+        "id": "source_artifact_4",
+        "pass": true,
+        "path": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/game_p23_scene_ci_reviewer_contract_negative_fixtures_20260512/outputs/p23_compact_review_matrix.md"
+      }
+    ],
+    "computed_order": [
+      "p24_integrity_matrix",
+      "p24_integrity_manifest",
+      "p24_version_report",
+      "source_artifact_0",
+      "source_artifact_1",
+      "source_artifact_2",
+      "source_artifact_3",
+      "source_artifact_4"
+    ],
+    "computed_order_ok": true,
+    "duplicate_nodes": [],
+    "expected_order": [
+      "p24_integrity_matrix",
+      "p24_integrity_manifest",
+      "p24_version_report",
+      "source_artifact_0",
+      "source_artifact_1",
+      "source_artifact_2",
+      "source_artifact_3",
+      "source_artifact_4"
+    ],
+    "order_set_ok": true,
+    "pass": true,
+    "source_ok": true,
+    "topological_order_ok": true,
+    "topological_rows": [
+      {
+        "from": "p24_integrity_matrix",
+        "from_ok": true,
+        "kind": "validates_manifest",
+        "order_ok": true,
+        "pass": true,
+        "to": "p24_integrity_manifest",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_matrix",
+        "from_ok": true,
+        "kind": "validates_version",
+        "order_ok": true,
+        "pass": true,
+        "to": "p24_version_report",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "kind": "declares_artifact",
+        "order_ok": true,
+        "pass": true,
+        "to": "source_artifact_0",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "kind": "declares_artifact",
+        "order_ok": true,
+        "pass": true,
+        "to": "source_artifact_1",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "kind": "declares_artifact",
+        "order_ok": true,
+        "pass": true,
+        "to": "source_artifact_2",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "kind": "declares_artifact",
+        "order_ok": true,
+        "pass": true,
+        "to": "source_artifact_3",
+        "to_ok": true
+      },
+      {
+        "from": "p24_integrity_manifest",
+        "from_ok": true,
+        "kind": "declares_artifact",
+        "order_ok": true,
+        "pass": true,
+        "to": "source_artifact_4",
+        "to_ok": true
+      }
+    ]
+  }
+}

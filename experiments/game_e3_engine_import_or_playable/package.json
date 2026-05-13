@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "export-assets": "node tools/export_assets.mjs"
+  }
+}

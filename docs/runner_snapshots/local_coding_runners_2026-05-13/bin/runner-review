@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+
+usage() {
+  cat <<'EOF'
+Usage:
+  runner-review minimax PROMPT_FILE
+  runner-review kimi PROMPT_FILE
+  runner-review minimax -
+
+Runs a bounded, read-only Claude Code compatible review:
+  --print --output-format text --tools ""
+  RUNNER_READ_ONLY=1, so provider wrappers do not enable bypassPermissions.
+
+Environment:
+  RUNNER_TIMEOUT_SECONDS   Timeout in seconds, default 600.
+
+This wrapper is for review/planning tasks. Use provider wrappers directly only
+when an implementation task has an explicit write scope and evidence plan.
+EOF
+}
+
+kill_tree() {
+  local signal="$1"
+  local pid="$2"
+  local child
+
+  while read -r child; do
+    if [ -n "${child}" ]; then
+      kill_tree "${signal}" "${child}"
+    fi
+  done < <(pgrep -P "${pid}" 2>/dev/null || true)
+
+  kill "-${signal}" "${pid}" 2>/dev/null || true
+}
+
+if [ "${1:-}" = "--help" ] || [ "${1:-}" = "-h" ]; then
+  usage
+  exit 0
+fi
+
+if [ "$#" -ne 2 ]; then
+  usage >&2
+  exit 64
+fi
+
+provider="$1"
+prompt_source="$2"
+timeout_seconds="${RUNNER_TIMEOUT_SECONDS:-600}"
+case "${timeout_seconds}" in
+  ''|*[!0-9]*) timeout_seconds=600 ;;
+esac
+if [ "${timeout_seconds}" -lt 1 ]; then
+  timeout_seconds=600
+fi
+
+case "${provider}" in
+  minimax) runner="${ROOT_DIR}/bin/claudeminmax" ;;
+  kimi) runner="${ROOT_DIR}/bin/claudekimi" ;;
+  *)
+    printf 'unknown provider: %s\n' "${provider}" >&2
+    usage >&2
+    exit 64
+    ;;
+esac
+
+if [ "${prompt_source}" = "-" ]; then
+  prompt="$(cat)"
+elif [ -f "${prompt_source}" ]; then
+  prompt="$(cat "${prompt_source}")"
+else
+  printf 'prompt file not found: %s\n' "${prompt_source}" >&2
+  exit 66
+fi
+
+prompt_file="$(mktemp "${TMPDIR:-/tmp}/runner-review-prompt.XXXXXX")"
+cleanup_prompt() {
+  rm -f "${prompt_file}"
+}
+trap cleanup_prompt EXIT INT TERM
+printf '%s\n' "${prompt}" > "${prompt_file}"
+
+RUNNER_READ_ONLY=1 "${runner}" --print --output-format text --tools "" < "${prompt_file}" &
+runner_pid="$!"
+
+(
+  sleep "${timeout_seconds}"
+  kill_tree TERM "${runner_pid}"
+  sleep 5
+  kill_tree KILL "${runner_pid}"
+) &
+watchdog_pid="$!"
+
+set +e
+wait "${runner_pid}"
+status="$?"
+set -e
+
+kill "${watchdog_pid}" 2>/dev/null || true
+wait "${watchdog_pid}" 2>/dev/null || true
+cleanup_prompt
+trap - EXIT INT TERM
+
+if [ "${status}" -eq 143 ] || [ "${status}" -eq 137 ]; then
+  printf 'runner timed out after %s seconds\n' "${timeout_seconds}" >&2
+fi
+exit "${status}"

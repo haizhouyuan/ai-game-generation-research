@@ -1,0 +1,56 @@
+{
+  "pixel_stats": {
+    "distinct_sample_colors": 4096,
+    "height": 913,
+    "nonblank": true,
+    "nontransparent_pixels": 1314720,
+    "width": 1440
+  },
+  "state": {
+    "checks": {
+      "battery_count_incremented": true,
+      "gear_collected": true,
+      "upgrade_unlocked": true
+    },
+    "hud": {
+      "batteries": "3 / 3",
+      "bridge": "Ready",
+      "energy": "93",
+      "gate": "Closed",
+      "gear": "3 / 3",
+      "upgrade": "Boosted"
+    },
+    "hudText": "BATTERIES\n3 / 3\nENERGY\n93\nGEAR\n3 / 3\nMAGNET\nBoosted\nBRIDGE\nReady\nGATE\nClosed\nStart\nReset",
+    "state": {
+      "batteries": 3,
+      "bridgeBuilt": false,
+      "cleaningBot": {
+        "segment": 3,
+        "x": -3.9,
+        "y": 0.34,
+        "z": 1.9543599999956727
+      },
+      "energy": 93,
+      "finished": false,
+      "gateOpen": false,
+      "gear": 3,
+      "rover": {
+        "x": 1.5,
+        "y": 0.35,
+        "z": -1.8
+      },
+      "started": true,
+      "upgradeUnlocked": true
+    }
+  },
+  "step": {
+    "action": "navigate_to",
+    "expect": [
+      "battery_count_incremented",
+      "gear_collected",
+      "upgrade_unlocked"
+    ],
+    "id": "pickup",
+    "target": "battery_route"
+  }
+}

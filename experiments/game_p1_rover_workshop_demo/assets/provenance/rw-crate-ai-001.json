@@ -1,0 +1,78 @@
+{
+  "schema_version": "asset_provenance.v1",
+  "asset_id": "RW-CRATE-AI-001",
+  "asset_name": "AI-assisted workshop crate",
+  "asset_role": "visual_landmark",
+  "status": "runtime_imported",
+  "source": {
+    "kind": "trellis",
+    "prompt_path": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/report.md",
+    "reference_image_path": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/inputs/typical_misc_crate.png",
+    "reference_image_sha256": "59fd9884301faca93265166d90078e8c31e76c7f93524b1db31975df4b450748",
+    "model_or_tool": "TRELLIS-image-large mesh-only export",
+    "tool_version": "documented in P26 report",
+    "host": "homepc"
+  },
+  "files": [
+    {
+      "path": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly.glb",
+      "bytes": 2198560,
+      "sha256": "ef03de6e567402ace47af327da875ab10caf093aa1fd209f291371fb82208944",
+      "role": "runtime_glb"
+    },
+    {
+      "path": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/typical_misc_crate_trellis_meshonly_preview.png",
+      "bytes": 356563,
+      "sha256": "f2c7eb6076f78bd4a7e99bbcc78cfe1fb858c82abbf9b2c880e20102f9d63945",
+      "role": "source_preview"
+    },
+    {
+      "path": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/three_glb_parse_inventory.json",
+      "bytes": 622,
+      "sha256": "fede9f884ea73b348f36c52d13d3fbb7021c5b24e99be4f886938436e2d7b7c4",
+      "role": "parser_readback"
+    }
+  ],
+  "validation": {
+    "threejs_parse": {
+      "passed": true,
+      "parser_report_path": "experiments/game_p26_trellis_meshonly_asset_validation_20260512/outputs/three_glb_parse_inventory.json",
+      "mesh_count": 1,
+      "triangles": 110066,
+      "bbox_size": [
+        0.9995670914649963,
+        0.9967367649078369,
+        0.9996874928474426
+      ]
+    },
+    "p1_runtime_import": {
+      "passed": true,
+      "prototype_path": "experiments/game_p1_rover_workshop_demo/index.html",
+      "scenario_path": "scenarios/p1_rover_workshop_g4.json",
+      "check": "ai_glb_prop_loaded"
+    },
+    "blender_inspection": {
+      "passed": false,
+      "notes": "Local Blender host is not available on 2026-05-13."
+    },
+    "unity_import": {
+      "passed": false,
+      "notes": "Unity host remains blocked."
+    }
+  },
+  "license_and_rights": {
+    "source_license": "project-generated reference and TRELLIS output; rights require final project review before distribution",
+    "allowed_use_notes": "Internal demo/prototype evidence asset",
+    "third_party_dependencies": [
+      "TRELLIS-image-large",
+      "Three.js GLTFLoader"
+    ]
+  },
+  "limitations": [
+    "Mesh-only; not textured/PBR.",
+    "Not the hero rover asset.",
+    "Not Blender-cleaned.",
+    "Not Unity-imported.",
+    "Not used as gameplay collision."
+  ]
+}

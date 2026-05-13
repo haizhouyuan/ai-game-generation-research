@@ -1,0 +1,68 @@
+{
+  "candidate": "groza_procedural_candidate",
+  "source_reference": "/Users/yuanshaochen/Documents/groza_high_detail_3d_model_viewer.html",
+  "output_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_realism_20260513/groza_procedural/groza_procedural_candidate.glb",
+  "preview_png": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_realism_20260513/groza_procedural/preview.png",
+  "output_sha256": "484a001db8aecd926a0069ae1dbca923d9572dc48dc1919fde7cede4b04179ea",
+  "preview_sha256": "af030610a93ccf8d809817979edeb403f4c2aab9c84ed0dd07ce2bda49286d5f",
+  "mesh_object_count": 87,
+  "anchors": [
+    {
+      "name": "Muzzle",
+      "location": [
+        2.75,
+        0.08,
+        0
+      ]
+    },
+    {
+      "name": "GripMount",
+      "location": [
+        -0.42,
+        -0.76,
+        0
+      ]
+    },
+    {
+      "name": "SightLine",
+      "location": [
+        0.35,
+        0.74,
+        0
+      ]
+    }
+  ],
+  "bbox": {
+    "min": [
+      -2.0250000953674316,
+      -1.8925265073776245,
+      -0.4099999964237213
+    ],
+    "max": [
+      2.7249999046325684,
+      0.7799999713897705,
+      0.4099999964237213
+    ],
+    "size": [
+      4.75,
+      2.6725263595581055,
+      0.8199999928474426
+    ]
+  },
+  "material_names": [
+    "Dots Stroke",
+    "Material",
+    "blackened_steel",
+    "brass_markings",
+    "bright_edge_wear",
+    "matte_rubber",
+    "oiled_dark_wood",
+    "transparent_collider_proxy",
+    "worn_blued_steel"
+  ],
+  "limitations": [
+    "Procedural hard-surface candidate derived from the local GROZA viewer, not a photogrammetry or text-to-3D generated mesh.",
+    "Materials are Blender procedural/PBR-style colors without baked texture images.",
+    "Useful for game integration and silhouette proof while a higher-realism generator route is validated."
+  ]
+}

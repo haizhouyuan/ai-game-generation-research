@@ -1,0 +1,26 @@
+[
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/rw_rover_001_asset_chain_20260513/blender_single3q/rw_rover_001_single3q_blender_cleaned_with_proxy.glb",
+    "bytes": 4962528,
+    "scenes": 1,
+    "meshes": 5,
+    "triangles": 42300,
+    "bbox": {
+      "min": [
+        -1,
+        -0.8680779533460736,
+        -0.904610276222229
+      ],
+      "max": [
+        1,
+        0.8680779337882996,
+        0.904610276222229
+      ],
+      "size": [
+        2,
+        1.7361558871343732,
+        1.809220552444458
+      ]
+    }
+  }
+]

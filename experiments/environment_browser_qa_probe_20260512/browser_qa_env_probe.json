@@ -1,0 +1,49 @@
+{
+  "browser_plugin": {
+    "browser_client_exists": true,
+    "browser_client_path": "/Users/yuanshaochen/.codex/plugins/cache/openai-bundled/browser-use/0.1.0-alpha2/scripts/browser-client.mjs"
+  },
+  "commands": {
+    "node": {
+      "error": null,
+      "path": "/Applications/Codex.app/Contents/Resources/node",
+      "version": "v24.14.0"
+    },
+    "npm": {
+      "error": "not found on PATH",
+      "path": null,
+      "version": null
+    },
+    "npx": {
+      "error": "not found on PATH",
+      "path": null,
+      "version": null
+    },
+    "python3": {
+      "error": null,
+      "path": "/usr/bin/python3",
+      "version": "Python 3.9.6"
+    }
+  },
+  "generated_at": "2026-05-12T06:56:22.694040+00:00",
+  "policy": {
+    "large_download_boundary": "No downloads were attempted; >1GB remains human-gated.",
+    "network_downloads_attempted": false,
+    "system_proxy_modified": false
+  },
+  "proxy_env_present": {},
+  "readiness": {
+    "can_run_npm_package_installs": false,
+    "can_run_static_node_scripts": true,
+    "can_use_browser_plugin_for_localhost": true,
+    "node_available": true,
+    "node_is_codex_bundled": true,
+    "npm_available": false,
+    "npx_available": false
+  },
+  "recommendations": [
+    "Use bundled Node for local static scripts, but route npm/package setup through download governance.",
+    "Use the Browser plugin for localhost visual evidence while npm/Playwright setup remains unresolved.",
+    "Do not claim npm-based gates are available until npm is installed or an alternative runner is chosen."
+  ]
+}

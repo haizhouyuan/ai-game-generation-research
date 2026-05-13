@@ -1,0 +1,301 @@
+#!/usr/bin/env python3
+"""Tiny local MCP server for managed artifact verification.
+
+This server intentionally exposes a narrow, offline surface for local coding
+runners. It does not read credentials, call network services, or perform
+downloads.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+from typing import Any
+
+
+SERVER_NAME = "managed-artifact-verifier"
+SERVER_VERSION = "2026-05-13"
+PROTOCOL_VERSION = "2024-11-05"
+DEFAULT_WORKSPACE = Path("/Users/yuanshaochen/Projects/ai-game-generation-research")
+TRACE_LOG = os.environ.get("MANAGED_ARTIFACT_MCP_TRACE_LOG")
+RESPONSE_MODE = "content-length"
+
+
+class JsonRpcError(Exception):
+    def __init__(self, code: int, message: str) -> None:
+        super().__init__(message)
+        self.code = code
+        self.message = message
+
+
+def trace(event: str, **fields: Any) -> None:
+    if not TRACE_LOG:
+        return
+    safe_fields = {
+        key: value
+        for key, value in fields.items()
+        if key in {"method", "has_id", "status", "code", "error"}
+    }
+    with Path(TRACE_LOG).open("a", encoding="utf-8") as log:
+        log.write(json.dumps({"event": event, **safe_fields}, sort_keys=True) + "\n")
+
+
+def read_message() -> dict[str, Any] | None:
+    global RESPONSE_MODE
+    first_line = sys.stdin.buffer.readline()
+    if not first_line:
+        return None
+
+    stripped = first_line.strip()
+    if stripped.startswith(b"{"):
+        RESPONSE_MODE = "jsonl"
+        return json.loads(stripped)
+
+    RESPONSE_MODE = "content-length"
+    header = bytearray(first_line)
+    delimiter = b""
+    while True:
+        line = sys.stdin.buffer.readline()
+        if not line:
+            return None
+        header.extend(line)
+        if header.endswith(b"\r\n\r\n"):
+            delimiter = b"\r\n\r\n"
+            break
+        if header.endswith(b"\n\n"):
+            delimiter = b"\n\n"
+            break
+
+    content_length: int | None = None
+    header_bytes = bytes(header[: -len(delimiter)])
+    for line in header_bytes.decode("ascii", errors="replace").replace("\r\n", "\n").split("\n"):
+        name, _, value = line.partition(":")
+        if name.lower() == "content-length":
+            content_length = int(value.strip())
+
+    if content_length is None:
+        raise JsonRpcError(-32700, "Missing Content-Length header")
+
+    body = sys.stdin.buffer.read(content_length)
+    if len(body) != content_length:
+        raise JsonRpcError(-32700, "Unexpected end of message body")
+    return json.loads(body)
+
+
+def write_message(payload: dict[str, Any]) -> None:
+    body = json.dumps(payload, separators=(",", ":")).encode("utf-8")
+    if RESPONSE_MODE == "jsonl":
+        sys.stdout.buffer.write(body)
+        sys.stdout.buffer.write(b"\n")
+        sys.stdout.buffer.flush()
+        return
+
+    sys.stdout.buffer.write(b"Content-Length: ")
+    sys.stdout.buffer.write(str(len(body)).encode("ascii"))
+    sys.stdout.buffer.write(b"\r\n\r\n")
+    sys.stdout.buffer.write(body)
+    sys.stdout.buffer.flush()
+
+
+def resolve_workspace(value: Any) -> Path:
+    if value in (None, ""):
+        workspace = DEFAULT_WORKSPACE
+    elif isinstance(value, str):
+        workspace = Path(value).expanduser()
+    else:
+        raise JsonRpcError(-32602, "workspace must be a string")
+
+    workspace = workspace.resolve()
+    if workspace != DEFAULT_WORKSPACE:
+        raise JsonRpcError(-32602, f"workspace must be {DEFAULT_WORKSPACE}")
+    return workspace
+
+
+def resolve_manifest(workspace: Path, value: Any) -> Path:
+    if not isinstance(value, str) or not value:
+        raise JsonRpcError(-32602, "manifests must contain non-empty strings")
+
+    path = Path(value).expanduser()
+    if not path.is_absolute():
+        path = workspace / path
+    path = path.resolve()
+
+    try:
+        path.relative_to(workspace)
+    except ValueError as exc:
+        raise JsonRpcError(-32602, "manifest paths must stay inside workspace") from exc
+
+    if not path.is_file():
+        raise JsonRpcError(-32602, f"manifest not found: {path}")
+    return path
+
+
+def tool_schema() -> dict[str, Any]:
+    return {
+        "name": "verify_artifact_hashes",
+        "description": (
+            "Verify one or more managed artifact hash manifests using the "
+            "ai-game-generation-research verifier. Offline and read-only."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "workspace": {
+                    "type": "string",
+                    "description": f"Workspace root. Must be {DEFAULT_WORKSPACE}.",
+                    "default": str(DEFAULT_WORKSPACE),
+                },
+                "manifests": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "minItems": 1,
+                    "description": "Manifest paths, absolute or workspace-relative.",
+                },
+            },
+            "required": ["manifests"],
+        },
+    }
+
+
+def handle_initialize(message: dict[str, Any]) -> dict[str, Any]:
+    requested = message.get("params", {}).get("protocolVersion")
+    return {
+        "protocolVersion": requested or PROTOCOL_VERSION,
+        "capabilities": {
+            "tools": {"listChanged": False},
+            "resources": {"subscribe": False, "listChanged": False},
+            "prompts": {"listChanged": False},
+        },
+        "serverInfo": {"name": SERVER_NAME, "version": SERVER_VERSION},
+    }
+
+
+def handle_tools_call(params: dict[str, Any]) -> dict[str, Any]:
+    name = params.get("name")
+    if name != "verify_artifact_hashes":
+        raise JsonRpcError(-32602, f"unknown tool: {name}")
+
+    arguments = params.get("arguments") or {}
+    if not isinstance(arguments, dict):
+        raise JsonRpcError(-32602, "arguments must be an object")
+
+    workspace = resolve_workspace(arguments.get("workspace"))
+    manifests = arguments.get("manifests")
+    if not isinstance(manifests, list) or not manifests:
+        raise JsonRpcError(-32602, "manifests must be a non-empty array")
+    resolved_manifests = [resolve_manifest(workspace, item) for item in manifests]
+
+    python = workspace / ".venv" / "bin" / "python"
+    if not python.is_file():
+        python = Path(sys.executable)
+
+    command = [
+        str(python),
+        "tools/verify_artifact_hashes.py",
+        *[str(path) for path in resolved_manifests],
+    ]
+    result = subprocess.run(
+        command,
+        cwd=workspace,
+        capture_output=True,
+        text=True,
+        timeout=60,
+        check=False,
+    )
+
+    text = "\n".join(
+        part
+        for part in [
+            f"exit_code: {result.returncode}",
+            "stdout:",
+            result.stdout.strip(),
+            "stderr:",
+            result.stderr.strip(),
+        ]
+        if part != ""
+    )
+    return {
+        "content": [{"type": "text", "text": text}],
+        "isError": result.returncode != 0,
+    }
+
+
+def dispatch(message: dict[str, Any]) -> dict[str, Any] | None:
+    method = message.get("method")
+    params = message.get("params") or {}
+    if params and not isinstance(params, dict):
+        raise JsonRpcError(-32602, "params must be an object")
+
+    if method in {"notifications/initialized", "notifications/cancelled"}:
+        return None
+    if method == "ping":
+        return {}
+    if method == "initialize":
+        return handle_initialize(message)
+    if method == "tools/list":
+        return {"tools": [tool_schema()]}
+    if method == "tools/call":
+        return handle_tools_call(params)
+    if method == "resources/list":
+        return {"resources": []}
+    if method == "prompts/list":
+        return {"prompts": []}
+
+    raise JsonRpcError(-32601, f"method not found: {method}")
+
+
+def main() -> int:
+    while True:
+        try:
+            message = read_message()
+            if message is None:
+                trace("eof", status="exit")
+                return 0
+            trace("request", method=message.get("method"), has_id="id" in message)
+            result = dispatch(message)
+            if "id" not in message:
+                continue
+            if result is None:
+                continue
+            write_message({"jsonrpc": "2.0", "id": message["id"], "result": result})
+            trace("response", method=message.get("method"), status="ok")
+        except JsonRpcError as exc:
+            request_id = locals().get("message", {}).get("id")
+            trace(
+                "error",
+                method=locals().get("message", {}).get("method"),
+                code=exc.code,
+                error=exc.message,
+            )
+            if request_id is not None:
+                write_message(
+                    {
+                        "jsonrpc": "2.0",
+                        "id": request_id,
+                        "error": {"code": exc.code, "message": exc.message},
+                    }
+                )
+        except Exception as exc:  # Keep stdio server alive for protocol clients.
+            request_id = locals().get("message", {}).get("id")
+            trace(
+                "error",
+                method=locals().get("message", {}).get("method"),
+                code=-32603,
+                error=str(exc),
+            )
+            if request_id is not None:
+                write_message(
+                    {
+                        "jsonrpc": "2.0",
+                        "id": request_id,
+                        "error": {"code": -32603, "message": str(exc)},
+                    }
+                )
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

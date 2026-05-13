@@ -1,0 +1,41 @@
+[
+  {
+    "file": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_realism_20260513/groza_procedural/groza_procedural_candidate.glb",
+    "bytes": 1104512,
+    "scenes": 1,
+    "meshes": 87,
+    "triangles": 21540,
+    "uvAttributeMeshes": 87,
+    "materialNames": [
+      "blackened_steel",
+      "brass_markings",
+      "bright_edge_wear",
+      "matte_rubber",
+      "oiled_dark_wood",
+      "transparent_collider_proxy",
+      "worn_blued_steel"
+    ],
+    "materialMapCount": 0,
+    "gltfJsonTextures": 0,
+    "gltfJsonImages": 0,
+    "gltfJsonEmbeddedImages": 0,
+    "gltfJsonBaseColorTextureMaterials": 0,
+    "bbox": {
+      "min": [
+        -2.0250000059604645,
+        -0.4099999964237213,
+        -0.7799999862909317
+      ],
+      "max": [
+        2.7249999940395355,
+        0.4099999964237213,
+        1.8925265658546575
+      ],
+      "size": [
+        4.75,
+        0.8199999928474426,
+        2.672526552145589
+      ]
+    }
+  }
+]

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GAME-P5 TripoSR Asset Loop</title>
+    <style>
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        overflow: hidden;
+        background: #151719;
+        color: #e8eef2;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      #hud {
+        position: fixed;
+        left: 16px;
+        top: 16px;
+        z-index: 2;
+        display: grid;
+        gap: 8px;
+        min-width: 300px;
+        max-width: min(480px, calc(100vw - 32px));
+        padding: 12px 14px;
+        background: rgba(18, 24, 29, 0.84);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        backdrop-filter: blur(10px);
+      }
+      #hud strong {
+        font-size: 14px;
+      }
+      #hud span, #hud select {
+        font-size: 12px;
+      }
+      #hud select {
+        width: 100%;
+        color: #e8eef2;
+        background: #202a32;
+        border: 1px solid #46535f;
+        border-radius: 6px;
+        padding: 6px;
+      }
+      #status {
+        line-height: 1.45;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../game_p2_glb_three_import_loop/node_modules/three/build/three.module.js",
+          "three/addons/": "../game_p2_glb_three_import_loop/node_modules/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="hud">
+      <strong>GAME-P5 TripoSR GLB Playable Loop</strong>
+      <select id="asset"></select>
+      <span id="status">Loading local GLB...</span>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

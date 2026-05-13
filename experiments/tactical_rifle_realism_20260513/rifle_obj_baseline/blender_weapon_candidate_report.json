@@ -1,0 +1,123 @@
+{
+  "input_obj": "/Users/yuanshaochen/Documents/\u67aa\u68b0\u6a21\u578b\u5305/rifle.obj",
+  "output_glb": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_realism_20260513/rifle_obj_baseline/rifle_obj_baseline.glb",
+  "preview_png": "/Users/yuanshaochen/Projects/ai-game-generation-research/experiments/tactical_rifle_realism_20260513/rifle_obj_baseline/preview.png",
+  "output_sha256": "c90ecae487078dd37809690b91ff1f27ae662984d703868972534916f4cbc9db",
+  "preview_sha256": "df912a3a4aab3331393325852bacc86b1b27874c58a55f9aef4a83aacb2a3b18",
+  "normalization": {
+    "original_bbox_min": [
+      -0.33000001311302185,
+      -1.53000009059906,
+      -0.8422501683235168
+    ],
+    "original_bbox_max": [
+      0.26249998807907104,
+      2.180000066757202,
+      0.720000147819519
+    ],
+    "original_dimensions": [
+      0.5924999713897705,
+      3.7100000381469727,
+      1.5622503757476807
+    ],
+    "scale_factor": 0.992158506768278,
+    "normalized_bbox_min": [
+      -0.29392698407173157,
+      -1.8404541015625,
+      -0.7749999761581421
+    ],
+    "normalized_bbox_max": [
+      0.2939269542694092,
+      1.8404542207717896,
+      0.7749999761581421
+    ],
+    "normalized_dimensions": [
+      0.5878539085388184,
+      3.680908203125,
+      1.5499999523162842
+    ]
+  },
+  "anchors": [
+    {
+      "name": "Muzzle",
+      "location": [
+        0.0,
+        0.0,
+        0.8149999976158142
+      ]
+    },
+    {
+      "name": "GripMount",
+      "location": [
+        0.0,
+        -1.8404541015625,
+        0.0
+      ]
+    }
+  ],
+  "proxy": {
+    "name": "COLLIDER_PROXY_weapon_bbox",
+    "center": [
+      -1.4901161193847656e-08,
+      5.960464477539063e-08,
+      0.0
+    ],
+    "dimensions": [
+      0.5878539085388184,
+      3.680908203125,
+      1.5499999523162842
+    ]
+  },
+  "mesh_count": 1,
+  "material_bindings": [
+    {
+      "object": "rifle",
+      "material": "gunBody"
+    },
+    {
+      "object": "rifle",
+      "material": "darkMetal"
+    },
+    {
+      "object": "rifle",
+      "material": "blackMetal"
+    },
+    {
+      "object": "rifle",
+      "material": "gold"
+    },
+    {
+      "object": "rifle",
+      "material": "steel"
+    },
+    {
+      "object": "rifle",
+      "material": "matteBlack"
+    },
+    {
+      "object": "rifle",
+      "material": "polymer"
+    },
+    {
+      "object": "rifle",
+      "material": "rubber"
+    },
+    {
+      "object": "rifle",
+      "material": "glass"
+    },
+    {
+      "object": "rifle",
+      "material": "lensDark"
+    },
+    {
+      "object": "rifle",
+      "material": "tan"
+    }
+  ],
+  "limitations": [
+    "Candidate is an existing prototype OBJ baseline, not a generated high-realism final asset.",
+    "Materials are heuristic PBR-style adjustments without source-baked texture maps.",
+    "Muzzle anchor is inferred from bounding box and must be checked in-game."
+  ]
+}

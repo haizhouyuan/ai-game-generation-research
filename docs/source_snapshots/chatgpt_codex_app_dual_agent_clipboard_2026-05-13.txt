@@ -1,0 +1,2105 @@
+ChatGPT
+
+
+
+
+我会优先按能否少写控制面代码来筛选：先看 Codex 生态和现成开源 orchestrator，再看通用 agent 编排框架是否支持状态、并发、仓库隔离和 worker 管理。
+
+关键新发现是 OpenAI Symphony 最可能改变路线；同时还要比较 CodexMonitor、Tutti/Bernstein、Sortie 这类更贴近 CLI/worktree/队列/dashboard 的项目能替代多少现有 controller。
+
+Thought for 11m 21s
+有，而且现在最值得看的不是传统的 LangGraph/CrewAI 那类“通用多 agent 框架”，而是专门围绕 coding agents / Codex / Claude Code / worktrees / PR / CI 的 orchestration 项目。我的判断是：你不应该从零继续写完整 controller，而应该把自己要写的东西压缩成一个很薄的 Codex App Server adapter + lane policy，其余尽量用现成项目吃掉。
+
+最关键的新发现是：OpenAI 已经开源了 Symphony，这基本就是你现在想做的“Codex orchestration 官方最佳实践蓝本”。Symphony 的定位是把项目工作变成 isolated autonomous implementation runs，让团队“管理工作，而不是监督 coding agents”；它会监听 Linear board，给任务 spawn agents，要求 agent 产出 CI 状态、PR review feedback、complexity analysis、walkthrough videos 等 proof of work。OpenAI 自己也标注它是 trusted environments 里的 engineering preview，不是完全成熟的生产 SaaS。
+
+我的结论先放前面：
+
+最稳路线：拿 Symphony 当架构规范，优先试 Composio Agent Orchestrator 或 ORCH/Paperclip 作为现成控制面；你自己的 codex_managed_controller.py 不要继续膨胀成完整平台，只保留为 Codex App Server adapter / migration shim。
+
+1. 目前最值得关注的开源项目
+1. OpenAI Symphony：最 Codex-native 的官方架构规范
+Symphony 是现在最重要的参考。它的 spec 明确说自己是一个 long-running automation service：持续读取 issue tracker，为每个 issue 创建 isolated workspace，并在 workspace 内运行 coding agent session。它要解决的核心问题正好是你现在遇到的四个：把 issue 执行变成 repeatable daemon workflow、隔离 agent execution、把 workflow policy 放进 repo 的 WORKFLOW.md、提供足够 observability 来管理多个并发 agent run。
+
+更关键的是，Symphony spec 的 goals 已经把你前面想写的 scheduler/registry 大部分定义好了：固定 cadence polling、bounded concurrency、single authoritative orchestrator state、deterministic per-issue workspace、当 issue 状态变化后停止 active runs、transient failure exponential backoff、repo-owned WORKFLOW.md、structured logs 等。
+
+它不是“直接装上就完全替代你现有 controller”的东西。OpenAI repo 里说可以按 spec 自己实现，也提供了 experimental Elixir reference implementation；同时明确这是 low-key engineering preview。
+ 所以我的建议是：
+
+不要把 Symphony 当成产品直接无脑上生产；
+要把 Symphony 当成你的 managed Codex controller 规范。
+你现在自己设计的 registry/scheduler/worktree/worker result/evidence index，和 Symphony spec 的方向非常一致。区别在于：你不需要再自己发明整套术语和生命周期，直接按 Symphony 的 issue/workflow/workspace/run/session/retry model 对齐。
+
+2. Composio Agent Orchestrator：最接近“开箱即用 coding-agent fleet manager”
+ComposioHQ 的 agent-orchestrator 是目前我看到最像你想要的“多 coding agent 管理平台”的开源项目之一。它的 README 说它可以 spawn parallel AI coding agents，每个 agent 有自己的 git worktree；agent 会自动修 CI failure、处理 review comments、open PR，你从一个 dashboard 监督。它还明确支持 Claude Code、Codex、Aider，runtime 支持 tmux、ConPTY/process、Docker，tracker 支持 GitHub、Linear。
+
+它的工作流也非常贴近你的需求：ao start 启动 dashboard 和 orchestrator agent；orchestrator 给每个 issue spawn worker，每个 worker 在 isolated git worktree 里工作；agent 读代码、写测试、创建 PR；CI failure 和 review comments 会 route 回 agent；人只在需要判断时介入。
+
+这可能是你最该先试的项目，因为它覆盖了你不想自己写的很多东西：
+
+dashboard
+worktree lifecycle
+agent session management
+PR creation
+CI failure reaction
+review comment routing
+GitHub / Linear integration
+multi-agent runtime abstraction
+但它未必完全满足你现在最特殊的诉求：复用现有 Codex App thread、通过 App Server 精确 turn/start、turn/steer、turn/interrupt、thread/archive 管理旧 thread。它支持 Codex，但从公开 README 看，更像是 agent/runtime 插件化运行 Codex，而不是专门复刻你当前 app-server thread registry 的控制语义。这个点需要做 spike 验证。
+
+我的判断：
+
+目标是“少写代码 + 有 dashboard + issue/PR/CI 工作流”
+→ 先试 Composio Agent Orchestrator。
+
+目标是“保留现有 Codex App Server 旧 thread 精确控制”
+→ 可能需要给 AO 写/改一个 Codex App Server adapter。
+3. Paperclip：更像“agent 公司 OS”，适合总控/治理，不一定适合底层 coding harness
+Paperclip 也很值得看，尤其你已经提到 Paperclip/managed-agents 线。它的定位不是单纯 coding harness，而是“open-source orchestration for zero-human companies”：Node.js server + React UI，用来编排一队 AI agents，分配 goals，跟踪 work/costs，用 org chart、budgets、governance、goal alignment、agent coordination 来管理工作。它支持 OpenClaw、Claude Code、Codex、Cursor、Bash、HTTP 等运行时。
+
+Paperclip 的强项在于：org chart、heartbeat、cost control、multi-company isolation、ticket system、governance。它的 README 还明确提到可以 pause/terminate agent，并且用 tickets、threaded conversations、persistent sessions、budget throttling、heartbeat 来解决“20 个 Claude Code tabs 不知道谁在干什么”的问题。
+
+它更适合当：
+
+人类/Lead 的上层控制台
+目标/预算/治理/heartbeat 系统
+多 agent 组织结构
+但它不是专门为“Codex App Server thread lifecycle + worktree + PR/CI”设计的底层 coding scheduler。Paperclip 自己也说它不是 agent framework，不教你怎么 build agents，而是管理由 agent 组成的组织。
+
+所以它对你的定位应该是：
+
+Paperclip = 上层 mission control / governance / heartbeat / budget
+AO 或 Symphony-style runner = coding execution layer
+Codex App Server adapter = 具体控制 Codex threads/turns
+Paperclip 也有 companies 仓库，提供 ready-to-deploy agent companies，比如 fullstack forge、security、game studio、engineering company 等，其中一些模板包含 dispatching-parallel-agents、subagent-driven-development、using-git-worktrees、verification-before-completion 等技能。
+ 这对你定义 lead/worker/reviewer/test_mapper 很有参考价值。
+
+4. ORCH：最轻量、terminal-first、零云、文件状态
+ORCH 是另一个很适合你的候选，尤其你现在已经有 systemd watcher、本地 controller、JSONL state。ORCH 的 README 说它可以协调 Claude、Codex、Cursor 和任何 CLI tool 并行工作，“one npm install, zero infrastructure”；安装命令是 npm install -g @oxgeneral/orch，然后在项目里运行 orch 打开 TUI。
+
+它的 CLI 能力很像你想做的任务注册表：agent add/list/disable/enable、task add/list/assign/cancel、team create/join、goal add/list/status、msg send/broadcast、shared context、run/watch、serve、status、logs、TUI。
+
+它还支持 headless daemon：orch serve 可以作为无 TUI daemon 跑，输出 structured JSON logs，能用 pm2/systemd/process manager 部署；它声明没有 cloud component，所有状态在 .orchestry/ 的 YAML/JSON/JSONL 里。
+
+这个项目的意义是：如果你不想要 Postgres/Web UI/复杂 dashboard，而是想把现有 controller 替换成更成熟的 terminal-first 状态机，ORCH 可能是最低摩擦选择。
+
+推荐场景：
+
+你想继续本地跑；
+不想引入复杂服务；
+可以接受文件状态；
+需要 team / task / goal / message / daemon；
+不强依赖复用 Codex App 已有 thread。
+潜在问题：
+
+它可能不会天然支持你当前 Codex App Server 的旧 thread resume / steer / archive 语义；
+可能需要把你的 controller 接成 ORCH 的 Codex adapter 或 shell adapter。
+5. Stoneforge：角色模型很像你想要的 Director / Worker / Steward，但风险偏高
+Stoneforge 的角色划分很接近你说的 Lead/Workers/Manager：Director 负责战略规划和拆任务，Ephemeral Worker 自动由 dispatch daemon 派发，在 isolated worktree 里执行、commit、push、完成或 handoff；Persistent Worker 用于手动探索；Steward 负责 merge review、文档扫描、恢复 stuck tasks、可重复维护流程。它支持 Claude Code、OpenCode、OpenAI Codex 作为 provider。
+
+但是它自己也写得很直白：这是 early-stage experimental software；典型 session 会消耗大量 token；agent 会 autonomously run，甚至 permissions bypassed，没有 human approval gates，会读写执行并 push code。
+
+所以 Stoneforge 很适合拿来研究架构和角色模型，但不建议你直接拿它管重要 repo，除非你把它放进非常严格的 sandbox / throwaway branch / 测试仓库里。
+
+我的评价：
+
+架构启发价值：高
+直接替代你 controller：中等
+安全默认值：偏激进
+生产可控性：需要强审查
+6. Vibe Kanban：好用的本地 UI / diff review surface，但不适合当核心长期控制面
+Vibe Kanban 支持用 kanban issues 规划工作，为 coding agents 创建 workspaces，每个 workspace 有 branch、terminal、dev server，还能 review diffs、inline comments、内置浏览器预览、创建 PR 和 merge；它支持 Claude Code、Codex、Gemini CLI、GitHub Copilot、Amp、Cursor、OpenCode 等 10+ coding agents。
+
+但一个关键风险是：它的 README 已经写明 “Vibe Kanban is sunsetting”，项目会继续开源和社区维护。
+ 所以它不适合作为你的长期核心 scheduler，但非常适合作为：
+
+本地 visual board
+worktree / branch / terminal 管理
+diff review UI
+browser preview UI
+人工监督界面
+也就是说：
+
+Vibe Kanban 可以替代你未来想写的 dashboard；
+不要用它替代 registry scheduler。
+7. codex-mcp：最接近“把 Codex App Server 能力暴露成工具”的小项目
+codex-mcp 是 TypeScript MCP server，包装 OpenAI Codex CLI，能 spawn codex app-server child processes，或者 fallback 到 codex exec --json，并把能力暴露成 MCP tools。它的工具快照里有 codex start new session、codex_reply continue session、codex_session list/get/cancel/interrupt/fork/clean、codex_check poll events/respond approvals 等。
+
+它还把 Codex CLI 升级视作 protocol upgrade，并要求每次 codex --version 变化时重新跑：
+
+codex app-server generate-json-schema --experimental --out codex-schema
+然后检查 schema drift。
+ 这点和我们前面说“不要手写猜 API 参数，要 schema-driven”完全一致。
+
+这个项目不一定是完整 scheduler，但它可能帮你少写最烦的一层：
+
+Codex App Server subprocess 管理
+session list/get/cancel/interrupt/fork/clean
+event polling
+approval/user input bridge
+schema drift runbook
+MCP tool surface
+推荐用法：
+
+不把 codex-mcp 当总控；
+把它当 Codex App Server adapter 的参考或直接复用层。
+8. cmux：不是 orchestrator，但 worktree/session 生命周期做得很干净
+cmux 是 “tmux for Claude Code”，核心是每个 agent 一个 git worktree，避免多个 agent 在同一 working directory 里互相踩文件；它强调 git worktrees 共享同一个 .git database，但给每个 agent 独立目录树，避免 clone/sync，分支保持同步。
+
+它不解决 registry/scheduler/interrupt/archive/PR review，但它可以作为你 worktree lifecycle 的极简参考。对你来说，它更像一个“不要自己写 worktree 脚本”的借鉴对象。
+
+2. 我会怎么选：按你的目标分档
+最推荐组合：Symphony spec + Agent Orchestrator / ORCH + 极薄 Codex adapter
+你的目标是“少写代码但不要牺牲可控性”，我会这样组合：
+
+OpenAI Symphony
+  用作架构规范：
+  issue/workflow/workspace/run/session/retry/observability
+
+Composio Agent Orchestrator 或 ORCH
+  用作现成控制面：
+  dashboard/TUI、任务、并发、worktrees、PR/CI/review routing
+
+你自己的代码
+  只保留：
+  Codex App Server adapter
+  lane policy
+  legacy thread migration
+  WORKER_RESULT schema 校验
+这样你少写最多：
+
+不用自己写 dashboard
+不用自己写 worktree lifecycle
+不用自己写大部分 task registry
+不用自己写 PR/CI feedback loop
+不用自己写 agent fleet UI
+不用自己写通用 scheduler
+你仍然需要保留的自定义部分是：
+
+复用现有 Codex App thread 的逻辑
+turn/start / turn/steer / turn/interrupt / thread/archive 的准确控制
+Finbot / Paperclip / ChatGPTREST / game lane policy
+你自己的 WORKER_RESULT / evidence / auto-continue 规则
+因为公开项目里我没有看到一个成熟项目能完全覆盖“现有 Codex App Server 旧 thread + lane registry + idle/task_complete 自动续派 + interrupt/archive + app thread status reconciliation”这一整套。
+
+3. 哪个项目最适合你现在直接试
+我会按这个顺序试。
+
+第一优先级：Composio Agent Orchestrator
+原因：它最接近“coding-agent fleet manager”，而且直接支持 Codex、worktrees、dashboard、CI failure、review comments、PR。它能替代你最多代码。
+
+试验目标：
+
+1. 能不能注册 ChatGPTREST repo；
+2. 能不能创建独立 worktree task；
+3. 能不能指定 Codex 作为 agent；
+4. 能不能 cancel/stop running task；
+5. 能不能复用或至少映射现有 Codex thread；
+6. 能不能把 CI/review feedback route 回 worker；
+7. 能不能配置 game lane disabled；
+8. 能不能导出 structured logs/state。
+结论标准：
+
+覆盖 70% 以上 → fork/extend AO；
+覆盖不到 50% → 不迁移，借鉴它的 plugin/session/worktree 设计。
+第二优先级：OpenAI Symphony
+原因：这是 Codex orchestration 官方规范，方向最权威。它的 spec 已经把你要写的 scheduler/registry/retry/workspace/workflow 说清楚了。
+
+用法不是“直接替换”，而是：
+
+把你现在 controller 的概念重命名/对齐到 Symphony：
+
+lane/task        → issue/workflow
+thread/turn      → live session/run attempt
+repo prompt      → WORKFLOW.md
+state JSON       → orchestrator authoritative state
+worktree         → deterministic per-issue workspace
+auto-continue    → retry/continuation policy
+logs             → structured observability
+这样你后续即使切到别的开源项目，语义也不会乱。
+
+第三优先级：ORCH
+原因：你现在的 systemd watcher + JSONL 状态，和 ORCH 的 terminal-first/headless daemon/file-state 很像。它的 orch serve 可以无 TUI 跑 daemon，用 JSON logs，状态存在 .orchestry/，没有 cloud。
+
+适合场景：
+
+你暂时不想上复杂 dashboard；
+你想保留本地-first；
+你想很快获得 agent/task/team/goal/msg/status/logs；
+你能接受状态文件而不是 SQLite/Postgres。
+它的优势是迁移摩擦小。缺点是可能没 AO 那么成熟地处理 PR/CI/review routing。
+
+第四优先级：Paperclip
+原因：Paperclip 是更高层的“agent company”控制面，适合你想要的 Lead/CEO/CTO/governance/heartbeat/budget。它支持 Codex，而且解决“20 个 terminal 追踪不了”的问题。
+
+但它不是纯 coding harness。更适合做：
+
+上层目标管理
+agent org chart
+budget / cost guardrail
+heartbeat
+audit log
+pause / terminate / governance
+如果你已经在 Paperclip/managed-agents 线上推进，我会把它定位为：
+
+Paperclip 管“谁该做什么、预算多少、什么时候 heartbeat”
+AO/Symphony-style runner 管“怎么在 repo/worktree/PR/CI 里执行”
+Codex App Server adapter 管“怎么精确驱动 Codex”
+暂不作为核心：Vibe Kanban / Stoneforge / cmux
+Vibe Kanban 很适合当 UI，但它已经 sunsetting，不建议压核心长期状态。
+
+Stoneforge 的 Director/Worker/Steward 角色很适合借鉴，但它明确写了 early-stage、token 消耗高、默认无 approval gates、agent 会读写执行和 push code，不适合作为你重要仓库的默认控制面。
+
+cmux 只解决 worktree/session lifecycle，不解决总控状态机。
+
+4. 不建议用 LangGraph / CrewAI / AutoGen 作为核心
+LangGraph、CrewAI、AutoGen 这类通用 multi-agent 框架当然可以做编排；LangGraph 官方定位是 long-running stateful workflow/agent 的 low-level infrastructure，CrewAI 是 open-source multi-agent orchestration framework。
+
+但它们不是为下面这些 coding-agent 具体问题设计的：
+
+Codex App Server thread/turn lifecycle
+git worktree isolation
+existing Codex thread resume
+PR creation / review comments
+CI failure loop
+shell/runtime process control
+agent terminal/session monitoring
+approval prompts
+repo-specific AGENTS.md / WORKFLOW.md contract
+AutoGen 还需要特别注意：GitHub 搜索结果显示 AutoGen 现在处于 maintenance mode，不再接收新功能，后续更偏 Microsoft Agent Framework。
+
+所以我的建议是：
+
+不要用 LangGraph/CrewAI/AutoGen 重新造 coding-agent scheduler。
+它们可以做上层 planner；
+不要拿它们替代 Codex/AO/Symphony-style execution control plane。
+5. 最佳社区实践已经很清楚了
+把这些项目放在一起看，2026 年社区共识已经不是“多开几个 agent”，而是下面这套：
+
+1. issue / task / goal 是任务真相源；
+2. 每个任务一个 isolated workspace / worktree；
+3. 每个 agent 有独立 branch / PR / terminal / logs；
+4. scheduler 控制 bounded concurrency；
+5. agent 完成后必须给 proof of work；
+6. CI failure 和 review comments 自动 route 回 agent；
+7. 人只在 judgment / approval / merge 时介入；
+8. workflow policy 放在 repo 内，而不是藏在聊天里；
+9. 状态、日志、retry、stuck detection 必须由 orchestrator 掌握；
+10. subagent 只是局部执行能力，不是长期总控。
+Symphony spec 明确写了 single authoritative orchestrator state、bounded concurrency、deterministic workspaces、stop ineligible active runs、retry/backoff、repo-owned WORKFLOW.md、observability。
+ AO、Vibe Kanban、Stoneforge、ORCH 也都围绕 worktree、branch、PR、dashboard/TUI、parallel agents 这些模式展开。
+
+6. 你的新实施路线：不要继续全自研
+我会把你原来的计划改成这样：
+
+Phase A：先做开源方案 spike，而不是继续写 registry
+目标：验证哪个项目能吃掉最多 controller 工作。
+
+# AO
+npm install -g @aoagents/ao
+
+# ORCH
+npm install -g @oxgeneral/orch
+
+# Vibe Kanban 只作 UI 参考
+npx vibe-kanban
+
+# Paperclip
+npx paperclipai onboard --yes
+这些安装/启动方式分别来自对应 README：AO 用 npm install -g @aoagents/ao；ORCH 用 npm install -g @oxgeneral/orch；Vibe Kanban 用 npx vibe-kanban；Paperclip 用 npx paperclipai onboard --yes。
+
+Spike 不要一上来接 Finbot。先用一个 toy repo 和 ChatGPTREST 做验证，因为 ChatGPTREST 已经证明过你的自动续派路径。
+
+验证清单：
+
+1. 是否支持 Codex CLI / Codex provider；
+2. 是否支持每 task 独立 worktree；
+3. 是否支持 task cancel / stop；
+4. 是否支持 task resume；
+5. 是否支持 headless daemon；
+6. 是否支持 structured logs；
+7. 是否支持 PR / CI / review feedback loop；
+8. 是否支持 lane disabled；
+9. 是否能保留或映射 existing Codex thread_id；
+10. 是否能用自定义 adapter 接 App Server。
+Phase B：选一个底座
+我的推荐顺序：
+
+第一选择：Composio Agent Orchestrator
+  适合：dashboard + coding-agent fleet + worktree + PR/CI/review
+
+第二选择：ORCH
+  适合：terminal-first + systemd + JSONL + 本地-first
+
+第三选择：Paperclip
+  适合：上层 org/governance/heartbeat/budget，不适合单独做底层 coding harness
+
+架构规范：OpenAI Symphony
+  无论选谁，都用 Symphony spec 校准任务/工作区/重试/日志/工作流
+Phase C：只写薄 adapter
+你自己的代码应该缩小成：
+
+managed-codex-adapter/
+  codex_app_server_client.py
+  existing_thread_mapper.py
+  worker_result_parser.py
+  lane_policy.py
+  migration_from_old_state.py
+而不是：
+
+full scheduler
+full dashboard
+full registry
+full worktree manager
+full PR manager
+full CI manager
+full agent runtime
+薄 adapter 的职责：
+
+1. 把 Finbot / Paperclip / ChatGPTREST / game lane 映射到选定平台；
+2. 保留 game disabled；
+3. 把现有 thread_id 映射成 external session metadata；
+4. 需要时调用 Codex App Server 的 thread/read、turn/start、turn/interrupt、thread/archive；
+5. 校验 WORKER_RESULT；
+6. 把旧 JSONL/state 导入新平台。
+Codex App Server 本身已经是 JSON-RPC 控制面，支持 thread/start/resume/fork、turn/start、事件流、schema generation；官方也提醒 App Server 更适合富客户端/深度集成，自动化 jobs/CI 更建议用 SDK。
+ App Server 的源码和 schema generation 也都在 openai/codex 里，generate-ts / generate-json-schema 产物会匹配当前 Codex 版本。
+
+7. 我的最终推荐
+你现在最省代码、又不丢掉控制力的路线是：
+
+1. 用 OpenAI Symphony 当规范；
+2. 优先 spike Composio Agent Orchestrator；
+3. AO 不满足现有 thread 控制时，再 spike ORCH；
+4. Paperclip 保留为上层 governance / heartbeat / agent company UI；
+5. Vibe Kanban 只借鉴 UI/worktree/diff review；
+6. codex-mcp 借鉴或复用 App Server adapter；
+7. 你自己的 controller 停止扩张，只保留为 Codex App Server adapter。
+我不会建议你继续从零写完整 registry/scheduler/dashboard。现在开源生态已经有足够多的底座，真正需要你自定义的只有：
+
+现有 Codex thread 兼容；
+lane policy；
+WORKER_RESULT schema；
+你自己的安全/禁派规则；
+Finbot/Paperclip/ChatGPTREST/game 的迁移映射。
+最现实的下一步是：先拿 AO 跑 ChatGPTREST 的一个真实小任务，确认 Codex provider、worktree、cancel、logs、PR/review 能力；同时用 Symphony spec 对齐你的 task/lane/workflow 命名。
+如果 AO 能吃掉 70% 以上，就 fork/extend AO；如果 AO 对现有 Codex App Server thread 控制不够，再把 ORCH 或 codex-mcp 作为更轻的底层。
+
+
+这种情况下，你像那个code X的sub agent配置，它要怎么配，你要把它好好的思考清楚，然后它使用上，我看看只有默认的好吗？这个我觉得应该要像cloud code一样的，要能够启动的时候来定义角色，然后然后还能及时去回收，就是这样收放自如的这种管理的方式，还有一个就是，我还想要用其他的。我因为我现在有K，然后还有cloud code, 然后我有Kimi的coding plan, 还有MiniMax的coding plan, 所以我想把它们也要好好利用起来，就是做那些不是特别需要智能的那种工作的话，只是执行一般的Agent命令的时候就可以这样灵活的来调
+
+我会分两层设计：先把 Codex subagent 的角色、权限、生命周期和回收边界配置清楚，再设计跨 Codex、Claude、Kimi、MiniMax 的能力路由与执行池。重点不是多配角色，而是让成本、能力和收放策略都可控。
+
+Codex 默认角色只能作起点，后续要用窄职责 custom agents 补齐；跨工具层面则把 Claude/Kimi/MiniMax/Kilo 当独立 runner，由外层 controller 决定派给谁、何时回收。
+
+Thought for 9m 30s
+我的判断是：Codex subagent 不能只用默认的；但也不要把 Codex subagent 做成全局 worker 池。
+
+你要的是两套东西：
+
+第一层：Codex 内部 subagent 角色库
+用于同一个 Codex worker thread 里的短期并行：
+- 探索代码
+- review
+- 找测试
+- 查文档
+- 小范围实现
+
+第二层：跨工具/跨模型 worker 调度层
+用于把任务派给：
+- Codex
+- Claude Code
+- Kimi Code
+- MiniMax via Claude Code / Cursor / OpenCode / Kilo / Qwen Code
+- K / Kilo / Kiro / Qwen 这类其他 CLI
+- 纯 shell runner
+所以最终应该是：
+
+Lead Orchestrator / Registry / Scheduler
+        ↓
+选择 runtime：
+  codex_appserver / claude_code / kimi_code / minimax_claude / qwen_code / k_cli / shell
+        ↓
+每个 runtime 内部再决定：
+  是否启动 subagent / agent team / ordinary single worker
+        ↓
+统一返回 WORKER_RESULT
+不要让 Codex subagent 去调 Claude Code、Kimi、MiniMax。 那样会变成“一个 LLM 在 Bash 里启动另一个 LLM”，成本、权限、日志、停止、回收都会失控。正确做法是：外层 controller 选择哪个工具跑任务；工具内部再自己开 subagent。
+
+1. Codex subagent 的真实边界
+Codex 官方现在有三个内置 agent：default、worker、explorer。default 是通用 fallback，worker 偏实现和修复，explorer 偏只读代码探索。Codex 也支持在 ~/.codex/agents/ 或项目内 .codex/agents/ 放自定义 TOML agent；每个自定义 agent 至少要有 name、description、developer_instructions，也可以覆盖 model、model_reasoning_effort、sandbox_mode、mcp_servers、skills.config 等配置。
+
+Codex subagent 的生命周期是“父 thread 里临时 spawn 的子 agent”。它只有在你明确要求时才会 spawn；多个 agent 跑完后，Codex 会等待结果并汇总；你可以在 CLI 里用 /agent 切换查看，也可以直接让 Codex steer、stop、close 正在跑或已完成的 subagent。subagent 会继承当前 sandbox policy，父 turn 的 runtime overrides 也会重新应用到 child。
+
+这意味着：Codex subagent 适合“当前 worker thread 内的短任务”，不适合当长期 managed agent。 它没有 Claude Code Agent Teams 那种 shared task list、mailbox、teammate 之间直接通信、团队清理机制。Codex 的全局 start/resume/interrupt/archive 还是要通过 App Server 的 thread/turn API 来做。App Server 支持 thread/start、thread/resume、thread/fork、thread/read、thread/list、turn/start、turn/steer、turn/interrupt、review/start 等控制动作。
+
+2. 默认 subagent 够不够？
+临时手动用，够。做 managed system，不够。
+
+默认 default / worker / explorer 的问题是：
+
+1. 角色太宽，容易漂移；
+2. 没有你的 WORKER_RESULT / SUBAGENT_RESULT 输出契约；
+3. 没有明确 cost tier；
+4. 没有每个角色独立 sandbox；
+5. 没有“只读 / 可写 / 可联网 / 可测试”的硬边界；
+6. 不能表达你想要的“启动时定义角色 + 完成后回收”的协议；
+7. 不方便做跨 Codex / Claude / Kimi / MiniMax 的统一调度。
+所以我建议：保留默认 agent 作 fallback，但实际项目里使用 mc_ 前缀的自定义 agent。
+
+不要一开始覆盖内置的 worker / explorer 名称。Codex 允许自定义 agent 与内置 agent 同名，并且自定义会优先，但我建议先避免覆盖，减少未来升级时的歧义。
+
+3. Codex subagent 推荐配置
+项目内放：
+
+<repo>/
+  .codex/
+    config.toml
+    agents/
+      mc_repo_mapper.toml
+      mc_test_mapper.toml
+      mc_risk_reviewer.toml
+      mc_docs_researcher.toml
+      mc_small_implementer.toml
+      mc_debugger.toml
+      mc_janitor.toml
+.codex/config.toml
+# .codex/config.toml
+
+[agents]
+max_threads = 4
+max_depth = 1
+job_max_runtime_seconds = 1200
+解释：
+
+max_threads = 4
+  不建议一开始用默认 6。你的场景已经有外层多 lane / 多 repo 并发，
+  Codex 内部再开太多 subagent 会非常容易爆成本、爆上下文、爆工具请求。
+
+max_depth = 1
+  必须保持 1。只允许 root worker 直接 spawn subagent；
+  不允许 subagent 再 spawn subagent。否则会出现递归 fan-out。
+
+job_max_runtime_seconds = 1200
+  单个 subagent 20 分钟上限。长任务应该升级为独立 worker thread，
+  不应该塞在 subagent 里。
+Codex 官方也建议谨慎提升 agents.max_depth，因为更深递归会把宽泛 delegation 变成重复 fan-out，增加 token、延迟和本地资源风险；agents.max_threads 默认是 6，agents.max_depth 默认是 1。
+
+4. 推荐的 Codex custom agents
+4.1 mc_repo_mapper：只读代码地图 agent
+用于：找文件、找入口、找调用链、找相关模块。
+不要让它提大方案，不要让它改代码。
+
+# .codex/agents/mc_repo_mapper.toml
+
+name = "mc_repo_mapper"
+description = "只读代码地图 agent，用于定位相关文件、入口、调用链、数据流和风险边界。"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+nickname_candidates = ["Mapper-A", "Mapper-B", "Mapper-C"]
+
+developer_instructions = """
+你是 managed-codex 的只读代码地图 agent。
+
+硬规则：
+1. 不修改任何文件。
+2. 不运行会改变状态的命令。
+3. 不提出大范围重构。
+4. 不解决问题，只定位事实。
+5. 输出必须具体到文件路径、函数、类、模块、调用链。
+
+你最终返回 SUBAGENT_RESULT，包含：
+- status: done / blocked / uncertain
+- files_read
+- symbols
+- execution_path
+- findings
+- uncertainty
+- recommended_next_agent
+"""
+4.2 mc_test_mapper：测试定位 agent
+用于：找该跑哪些测试、缺哪些测试、如何最小验证。
+它可以读代码，可以建议命令，但默认不要改代码。
+
+# .codex/agents/mc_test_mapper.toml
+
+name = "mc_test_mapper"
+description = "只读测试映射 agent，用于找最小验证命令、现有测试覆盖和缺失测试。"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+nickname_candidates = ["TestMap-A", "TestMap-B"]
+
+developer_instructions = """
+你是 managed-codex 的测试映射 agent。
+
+硬规则：
+1. 不修改文件。
+2. 优先找 focused tests，而不是全量测试。
+3. 如果没有合适测试，提出最小新增测试建议。
+4. 所有测试建议必须包含命令、预期信号、失败时怎么解释。
+
+最终返回 SUBAGENT_RESULT，包含：
+- status
+- relevant_tests
+- suggested_commands
+- missing_coverage
+- risk_if_not_tested
+- recommended_next_agent
+"""
+4.3 mc_risk_reviewer：高质量 review agent
+用于：review 方案、diff、实现风险。
+这个要用强模型、高 reasoning，但只读。
+
+# .codex/agents/mc_risk_reviewer.toml
+
+name = "mc_risk_reviewer"
+description = "只读风险审查 agent，关注 correctness、security、regression、data risk、missing tests。"
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only"
+nickname_candidates = ["Reviewer-A", "Reviewer-B", "Reviewer-C"]
+
+developer_instructions = """
+你是 managed-codex 的风险审查 agent，像代码 owner 一样 review。
+
+只关注真实风险：
+- correctness bug
+- security issue
+- data loss / migration risk
+- behavior regression
+- race condition
+- missing test
+- unclear API contract
+- hidden dependency
+
+不要输出 style-only 评论，除非 style 问题会导致真实 bug。
+
+每个 finding 必须包含：
+1. severity: critical / high / medium / low
+2. evidence: 文件、函数、代码路径或命令输出
+3. impact
+4. remediation
+5. test_or_validation
+
+最终返回 SUBAGENT_RESULT。
+"""
+4.4 mc_docs_researcher：文档/API 验证 agent
+用于：查框架版本、API 行为、迁移文档。
+可以配 MCP 文档服务器或只读联网能力。没有联网时就让它只读 repo docs。
+
+# .codex/agents/mc_docs_researcher.toml
+
+name = "mc_docs_researcher"
+description = "文档/API 验证 agent，用于确认框架、SDK、版本行为和迁移要求。"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+nickname_candidates = ["Docs-A", "Docs-B"]
+
+developer_instructions = """
+你是 managed-codex 的文档/API 验证 agent。
+
+硬规则：
+1. 不改代码。
+2. 不猜版本行为。
+3. 优先从 repo lockfile、package.json、requirements、go.mod、docs 中确认版本。
+4. 如果使用 MCP 或文档工具，必须给出引用或准确版本。
+5. 不确定时明确说 unknown，不要编造。
+
+最终返回 SUBAGENT_RESULT，包含：
+- status
+- library_or_api
+- version
+- verified_behavior
+- source
+- implication_for_task
+"""
+如果你给某个 agent 配 MCP server，Codex custom agent TOML 支持在 agent 文件里配置 mcp_servers；官方示例里 docs_researcher 就是通过 MCP server 查开发文档。
+
+4.5 mc_small_implementer：小范围实现 agent
+用于：真正改代码，但只能改很小范围。
+这个要谨慎，不要给它太大权限。
+
+# .codex/agents/mc_small_implementer.toml
+
+name = "mc_small_implementer"
+description = "小范围实现 agent，只能在明确计划后做最小代码改动。"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+nickname_candidates = ["Impl-A", "Impl-B"]
+
+developer_instructions = """
+你是 managed-codex 的小范围实现 agent。
+
+硬规则：
+1. 只执行父 agent 指定的最小实现任务。
+2. 不改无关文件。
+3. 不做大重构。
+4. 不修改 secrets、生产配置、迁移、发布脚本，除非父 agent 明确指定。
+5. 修改后必须报告 changed files。
+6. 如果测试命令明确，必须运行；如果无法运行，说明原因。
+7. 如果发现任务范围超出小修复，停止并返回 blocked。
+
+最终返回 SUBAGENT_RESULT，包含：
+- status
+- files_changed
+- commands_run
+- tests
+- risks
+- blockers
+- recommended_next_agent
+"""
+4.6 mc_debugger：复现/调试 agent
+用于：跑测试、看日志、复现 bug。
+它可以运行命令，但尽量不要改代码。
+
+# .codex/agents/mc_debugger.toml
+
+name = "mc_debugger"
+description = "调试 agent，用于复现问题、运行 focused commands、分析日志，不默认修改业务代码。"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+nickname_candidates = ["Debug-A", "Debug-B"]
+
+developer_instructions = """
+你是 managed-codex 的调试 agent。
+
+你可以运行 focused commands，例如：
+- unit tests
+- typecheck
+- lint
+- log inspection
+- local reproduction commands
+
+硬规则：
+1. 默认不改业务代码。
+2. 可以生成临时文件或测试产物，但必须报告。
+3. 不启动长时间后台服务，除非父 agent 明确要求。
+4. 如果命令超过预期时间，停止并返回 partial。
+5. 不联网，除非父 agent 明确授权。
+
+最终返回 SUBAGENT_RESULT，包含：
+- status
+- reproduction_steps
+- commands_run
+- observed_failure
+- likely_cause
+- next_action
+"""
+4.7 mc_janitor：低智能清理/机械执行 agent
+用于：格式化、简单 lint fix、更新快照、收集日志、整理结果。
+这种角色未来可以优先派给 Kimi/MiniMax/Qwen，而不是用高端模型。
+
+# .codex/agents/mc_janitor.toml
+
+name = "mc_janitor"
+description = "机械执行 agent，用于格式化、简单 lint、日志整理、快照整理等低风险重复任务。"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "low"
+sandbox_mode = "workspace-write"
+nickname_candidates = ["Janitor-A", "Janitor-B"]
+
+developer_instructions = """
+你是 managed-codex 的机械执行 agent。
+
+适合任务：
+- run formatter
+- run lint
+- collect logs
+- summarize command output
+- update trivial snapshots
+- organize evidence
+
+不适合任务：
+- architecture decisions
+- security review
+- data migration
+- billing/auth changes
+- ambiguous product behavior
+
+硬规则：
+1. 不做产品/架构判断。
+2. 不碰高风险文件。
+3. 不扩大范围。
+4. 执行后必须报告命令和结果。
+"""
+5. Codex subagent 的启动与回收协议
+你说的“像 Claude Code 一样启动时定义角色，然后及时回收”，在 Codex 里要靠 父 worker prompt + custom agent + controller 状态机 配合实现。
+
+5.1 父 worker 启动 subagent 的标准 prompt
+你是 managed-codex 的当前 worker，不是全局 lead。
+
+本轮目标：
+{{task_goal}}
+
+请启动以下 Codex subagents，并等待所有结果：
+
+1. mc_repo_mapper
+   任务：只读定位相关文件、调用链、入口、数据流。
+   禁止：修改文件、运行 destructive command。
+
+2. mc_test_mapper
+   任务：找最小验证命令、现有测试覆盖、缺失测试。
+   禁止：修改文件。
+
+3. mc_risk_reviewer
+   任务：从 correctness/security/regression/data risk 角度审查计划。
+   禁止：style-only 评论。
+
+要求：
+- 每个 subagent 必须返回 SUBAGENT_RESULT。
+- 等待所有 subagent 完成。
+- 对完成的 subagent，关闭其 agent thread。
+- 如果某个 subagent 卡住或跑偏，请停止它并返回 partial。
+- 最终汇总成 WORKER_RESULT。
+- 不要在本轮直接实现，除非我明确给出 implementation mode。
+Codex 官方文档里也推荐这种模式：明确要求“每个点 spawn 一个 agent，等待全部结果，再汇总”；同时文档说明可以让 Codex steer、stop 或 close subagent threads。
+
+5.2 实现阶段 prompt
+本轮是 implementation mode。
+
+你可以启动：
+- mc_small_implementer：执行最小代码改动；
+- mc_debugger：运行 focused tests / 复现命令；
+- mc_risk_reviewer：实现后只读 review。
+
+流程：
+1. 先让 mc_small_implementer 做最小改动；
+2. 再让 mc_debugger 跑最小验证；
+3. 再让 mc_risk_reviewer 审查 diff；
+4. 全部完成后关闭 subagent threads；
+5. 汇总 WORKER_RESULT。
+
+禁止：
+- 不要启动超过 3 个 subagent；
+- 不要让 subagent 再 spawn subagent；
+- 不要改超出计划的文件；
+- 不要部署、push、merge、publish。
+5.3 回收标准
+Codex subagent 的回收标准要写进父 prompt，也要写进 controller：
+
+subagent 完成：
+  parent 汇总 SUBAGENT_RESULT
+  parent 请求 close completed agent threads
+
+subagent 跑偏：
+  parent steer: “停止当前方向，返回 partial”
+  如果仍跑偏，controller interrupt parent turn
+
+subagent 超时：
+  parent 要求 stop
+  controller 超过 max_turn_runtime_seconds 后 turn/interrupt
+
+worker 完成：
+  controller 读取 WORKER_RESULT
+  有 evidence 才进入 next_action
+  无 evidence / 无 schema / 无测试说明 → needs_retry 或 waiting_user
+
+thread 完成：
+  controller archive，而不是靠 parent 自己忘记上下文
+App Server 这边要做硬回收：turn/interrupt 可以取消 in-flight turn，成功后 turn 结束为 interrupted；thread/archive 可以把 thread log 移到 archived sessions，默认后续 thread/list 不再显示。
+
+6. SUBAGENT_RESULT 统一格式
+Codex subagent 虽然不一定每个 child 都能直接被你外层 controller 拿到独立 JSON，但父 worker 必须把每个子结果整理成统一结构。
+
+{
+  "schema_version": "managed-codex.subagent-result.v1",
+  "agent_name": "mc_repo_mapper",
+  "status": "done",
+  "summary": "Located the checkout flow and webhook retry path.",
+  "files_read": [
+    "src/payments/webhook.ts",
+    "src/payments/retry.ts"
+  ],
+  "symbols": [
+    "handleWebhook",
+    "scheduleRetry"
+  ],
+  "commands_run": [],
+  "evidence": [
+    {
+      "kind": "file",
+      "ref": "src/payments/webhook.ts",
+      "summary": "Webhook dispatches retry on non-terminal failures."
+    }
+  ],
+  "risks": [],
+  "blockers": [],
+  "recommendation": "Run mc_test_mapper against retry behavior.",
+  "confidence": "medium"
+}
+父 worker 最终输出：
+
+{
+  "schema_version": "managed-codex.worker-result.v1",
+  "task_id": "...",
+  "status": "partial",
+  "summary": "...",
+  "subagents": [
+    { "agent_name": "mc_repo_mapper", "status": "done" },
+    { "agent_name": "mc_test_mapper", "status": "done" },
+    { "agent_name": "mc_risk_reviewer", "status": "blocked" }
+  ],
+  "next_action": {
+    "recommended_state": "queue_next_turn",
+    "prompt": "Proceed with small implementation in files X and Y.",
+    "reason": "Mapping and tests are clear; reviewer found no blocking risk."
+  }
+}
+App Server 的 turn/start 支持 outputSchema，并且这个 schema 只作用于当前 turn；你可以用它强制 worker 返回结构化结果。
+
+7. Claude Code 怎么放进来
+你想要的“启动时定义角色、运行中调度、完成后回收”，Claude Code Agent Teams 目前比 Codex subagent 更像这个形态。Claude Code Agent Teams 是一个 team lead 管多个 Claude Code instances，teammates 有独立 context window，可以直接互相通信，有 shared task list，可以单独和 teammate 对话；这不同于 subagent 只把结果回报给主 agent。
+
+Claude Code Agent Teams 还支持指定 teammate 和模型、plan approval、直接和 teammate 说话、shared task list、让 teammate shutdown、cleanup team。它也有质量门 hooks，例如 TeammateIdle、TaskCreated、TaskCompleted。
+
+但是它现在仍是 experimental，而且有几个硬限制：session resumption 不完整、task status 可能滞后、shutdown 可能慢、一个 lead 同时只能管理一个 team、没有 nested teams、teammates 不能再 spawn team、lead 不能转移。
+
+所以我建议：
+
+Claude Code Agent Teams
+  用于：复杂任务、跨前后端、需要 teammate 互相讨论、需要 tmux 观察的工作。
+
+Codex subagents
+  用于：单个 Codex worker 内部的短期并行探索/review/test mapping。
+
+外层 controller
+  用于：长期状态、跨仓库、跨工具、启动/停止/归档/预算控制。
+Claude Code 的 custom subagent 文件使用 YAML frontmatter + Markdown prompt；可以用 tools: Agent(worker, researcher), Read, Bash 这种方式限制 coordinator 只能 spawn 指定 subagent 类型，如果不列 Agent 就不能 spawn subagent；也可以在 settings 里 deny 某些 agent。
+
+Claude Code 的权限还要特别小心：subagent 可能分别请求 permission，权限提示会变多；官方建议用 PreToolUse hooks 或 permission rules 处理，但也提醒 hook 触发 subagent 时要避免递归 loop。
+
+8. Kimi、MiniMax、K/Qwen/Kilo 这类怎么利用
+这部分不要塞进 Codex subagent。应该做成 runtime adapter。
+
+runtime adapter:
+  codex_appserver
+  claude_code
+  kimi_code
+  minimax_claude
+  qwen_code
+  k_cli
+  shell
+你说的 “K” 我先不猜是 Kilo、Kiro、Qwen/K 还是别的 CLI，下面统一抽象成 k_cli。核心是：外层 scheduler 根据任务类型、风险、成本、上下文要求选择 runtime。
+
+Kimi Code 官方页面说明它是 Kimi membership 的 coding-focused 能力，能放进 terminal/IDE/Kimi CLI 工作流，当前展示的模型是 kimi-for-coding powered by kimi-k2.6，能力包括软件开发、代码库分析、运行命令/处理文件/自动化 workflow、web research，并且页面示例里也提到可以 spawn subagents。
+
+MiniMax 这边，我更建议你通过 Claude Code / Cursor / OpenCode / Kilo / 其官方推荐的工具路径 来用，而不是直接塞进最新 Codex。MiniMax M2.7 文档明确把 Claude Code 作为推荐路径，并给出 Anthropic-compatible base URL 配置；同一文档对 Codex CLI 的路径标注为 “Not Recommended”，说明它不是最佳 agent workflow，并提示最新 Codex CLI 兼容性可能有问题。
+
+如果你要自己构建 MiniMax agent，MiniMax 官方还有 Mini-Agent demo，包含完整 agent execution loop、persistent memory、上下文管理、Claude Skills、MCP、详细日志等。这个更适合拿来做一个独立 minimax_agent runtime，而不是作为 Codex 的 subagent。
+
+Qwen/Alibaba Coding Plan 也适合作为低成本 coding runtime。阿里云 Model Studio Coding Plan 文档列了支持的 coding tools，包括 Codex、OpenClaw、OpenCode、Claude Code、Cline、Cursor、Qwen Code、Kilo Code / Kilo CLI；它提供 OpenAI-compatible 和 Anthropic-compatible base URL，但也明确警告 Coding Plan API key 只能用于 coding tools，不能用于自动化脚本、自定义后端或非交互 batch API，否则可能被视为滥用。
+
+所以这里要分清楚：
+
+可以：
+  让 scheduler 启动一个受支持的 coding tool CLI；
+  让 CLI 在它自己的正常交互/agent 模式下使用 coding plan；
+  记录 session、日志、结果。
+
+谨慎/不要：
+  把 coding plan key 直接接进你自己的后台 API 批处理；
+  在无人值守 daemon 里大规模消耗 plan quota；
+  让一个 agent 通过 Bash 偷偷启动另一个 agent 而不经过 registry。
+Qwen Code 自身也支持在 settings.json 的 modelProviders 中配置多个 provider，并通过 /model 切换；它支持 OpenAI-compatible、Anthropic、Gemini、本地 OpenAI-compatible 等 provider，也支持 Alibaba Cloud Coding Plan 的自动配置。
+
+9. 跨工具 runtime catalog 设计
+我建议你建一个统一配置：
+
+# config/runtimes.yaml
+
+runtimes:
+  codex_high:
+    type: codex_appserver
+    priority: 10
+    cost_tier: premium
+    intelligence: high
+    best_for:
+      - architecture
+      - high_risk_implementation
+      - final_review
+      - difficult_debugging
+    model: gpt-5.4
+    effort: high
+    sandbox: workspaceWrite
+    network: false
+    max_concurrency: 2
+    can_interrupt: true
+    can_archive: true
+    output_schema: WORKER_RESULT
+
+  codex_light:
+    type: codex_appserver
+    priority: 30
+    cost_tier: medium
+    intelligence: medium
+    best_for:
+      - repo_mapping
+      - small_fix
+      - test_mapping
+      - log_summary
+    model: gpt-5.4-mini
+    effort: medium
+    sandbox: workspaceWrite
+    network: false
+    max_concurrency: 3
+    can_interrupt: true
+    can_archive: true
+    output_schema: WORKER_RESULT
+
+  claude_team:
+    type: claude_code
+    priority: 15
+    cost_tier: premium
+    intelligence: high
+    best_for:
+      - complex_parallel_feature
+      - cross_layer_debugging
+      - competing_hypotheses
+      - teammate_discussion
+    mode: agent_team
+    max_teammates: 4
+    can_interrupt: partial
+    can_cleanup_team: true
+    output_schema: WORKER_RESULT
+
+  kimi_worker:
+    type: kimi_code
+    priority: 50
+    cost_tier: low
+    intelligence: medium
+    best_for:
+      - mechanical_execution
+      - codebase_summary
+      - simple_test_generation
+      - doc_draft
+      - log_triage
+    mode: cli
+    max_concurrency: 2
+    can_interrupt: process_group
+    output_schema: WORKER_RESULT
+
+  minimax_worker:
+    type: claude_code_compatible
+    provider: minimax
+    priority: 45
+    cost_tier: low
+    intelligence: medium
+    best_for:
+      - mechanical_execution
+      - simple_implementation
+      - test_skeleton
+      - lint_fix
+      - summary
+    mode: cli
+    max_concurrency: 2
+    can_interrupt: process_group
+    output_schema: WORKER_RESULT
+
+  qwen_or_k_worker:
+    type: qwen_code_or_k_cli
+    priority: 55
+    cost_tier: low
+    intelligence: medium
+    best_for:
+      - large_context_scan
+      - simple_refactor
+      - repetitive_file_tasks
+      - shell_command_guidance
+    mode: cli
+    max_concurrency: 2
+    can_interrupt: process_group
+    output_schema: WORKER_RESULT
+
+  shell_runner:
+    type: shell
+    priority: 5
+    cost_tier: zero
+    intelligence: none
+    best_for:
+      - test
+      - lint
+      - format
+      - typecheck
+      - grep
+      - git_status
+    max_concurrency: 4
+    can_interrupt: process_group
+    output_schema: COMMAND_RESULT
+这个配置里的 can_interrupt 很重要。不同工具的停止能力不一样：
+
+Codex App Server:
+  turn/interrupt + thread/archive，控制最好。
+
+Claude Code Agent Teams:
+  可以要求 teammate shutdown / cleanup team，但官方也说明 shutdown 可能慢、session resumption 有限制。
+
+Kimi / MiniMax / Qwen / K CLI:
+  多数情况下要靠 process group、tmux pane、PTY、timeout、SIGTERM/SIGKILL 回收。
+
+Shell runner:
+  直接 process group kill。
+10. 任务路由策略
+不要按“哪个计划还有额度”来路由。要按 风险 + 复杂度 + 是否可验证 + 是否要写代码 路由。
+
+# config/routing.yaml
+
+routes:
+  repo_mapping:
+    preferred:
+      - codex_light.mc_repo_mapper
+      - kimi_worker
+      - qwen_or_k_worker
+    fallback:
+      - codex_high
+
+  test_mapping:
+    preferred:
+      - codex_light.mc_test_mapper
+      - kimi_worker
+      - minimax_worker
+    fallback:
+      - codex_high
+
+  simple_shell_execution:
+    preferred:
+      - shell_runner
+    fallback:
+      - kimi_worker
+      - minimax_worker
+
+  lint_fix:
+    preferred:
+      - minimax_worker
+      - kimi_worker
+      - codex_light.mc_janitor
+    require_review_by:
+      - codex_high.mc_risk_reviewer
+
+  small_implementation:
+    preferred:
+      - codex_light
+      - minimax_worker
+      - kimi_worker
+    require_review_by:
+      - codex_high.mc_risk_reviewer
+
+  high_risk_implementation:
+    preferred:
+      - codex_high
+      - claude_team
+    require_human_approval: true
+    require_review_by:
+      - codex_high.mc_risk_reviewer
+
+  architecture_decision:
+    preferred:
+      - codex_high
+      - claude_team
+    forbidden:
+      - kimi_worker
+      - minimax_worker
+      - shell_runner
+
+  final_review:
+    preferred:
+      - codex_high.mc_risk_reviewer
+      - claude_team
+    forbidden:
+      - shell_runner
+我会把任务分成这些等级：
+
+L0：确定性命令
+  例：pnpm test、pytest、go test、ruff、eslint、git status
+  用 shell_runner，不用模型。
+
+L1：机械低风险
+  例：整理日志、生成测试清单、找文件、简单格式化、快照更新
+  用 Kimi / MiniMax / Qwen / K。
+
+L2：小范围实现
+  例：修一个明显 bug、补一个测试、改一个小函数
+  用 Codex light / MiniMax / Kimi，但必须高模型 review。
+
+L3：复杂调试 / 跨层改动
+  例：前后端联动、异步 bug、race、CI failure loop
+  用 Codex high 或 Claude Code Agent Team。
+
+L4：高风险
+  例：auth、billing、migration、secrets、prod config、数据删除
+  只用 Codex high / Claude high + human approval。
+11. 外部 runtime adapter 不要伪造能力
+不同 CLI 是否支持非交互、JSON 输出、resume、interrupt，差异很大。不要一开始假设它们都有 App Server 级别能力。每个 runtime adapter 要先做 capability probing。
+
+# config/runtime_capabilities.yaml
+
+capabilities:
+  codex_appserver:
+    start_thread: true
+    resume_thread: true
+    steer_turn: true
+    interrupt_turn: true
+    archive_thread: true
+    output_schema: true
+    event_stream: true
+    process_kill: false
+
+  claude_code:
+    start_session: true
+    agent_team: true
+    direct_teammate_message: true
+    teammate_shutdown: true
+    cleanup_team: true
+    output_schema: false
+    process_kill: true
+    limitations:
+      - no_reliable_team_resume
+      - shutdown_can_be_slow
+      - one_team_per_lead
+
+  kimi_code:
+    start_session: true
+    subagents: maybe
+    output_schema: prompt_only
+    process_kill: true
+    adapter_requires_help_probe: true
+
+  minimax_via_claude_code:
+    start_session: true
+    agent_team: depends_on_claude_code
+    output_schema: prompt_only
+    process_kill: true
+    adapter_requires_env_isolation: true
+
+  qwen_code:
+    start_session: true
+    model_switch: true
+    output_schema: prompt_only
+    process_kill: true
+    adapter_requires_help_probe: true
+
+  shell_runner:
+    start_session: false
+    command_exec: true
+    output_schema: command_result
+    process_kill: true
+对 Kimi/MiniMax/Qwen/K 这类 CLI，最稳方式是：
+
+1. 每个 worker 在独立 worktree 或临时 copy 里跑；
+2. 每个 worker 用独立 process group；
+3. 所有 stdout/stderr 落 JSONL；
+4. 超时先 SIGTERM，再 SIGKILL；
+5. 完成后 parser 抽取 WORKER_RESULT；
+6. 如果输出不合格，就让高模型 summarizer 补一次结构化提取；
+7. 不允许这些低成本 worker 直接 merge/push/deploy。
+12. Codex custom provider 要不要接 Kimi/MiniMax/Qwen？
+我的建议是：Codex 主路径不要直接接 MiniMax/Kimi，除非你验证当前 Codex 版本和目标 provider 的 wire API 完全兼容。
+
+Codex 本身支持 custom model providers，可以配置 base_url、env_key、headers、auth command、wire_api 等；也可以用 profiles 切换模型/provider。
+
+但是 MiniMax 官方对 Codex CLI 路径当前标了 “Not Recommended”，并说最新 Codex CLI 有兼容问题；它更推荐在 Claude Code 或 Cursor 这类工具里使用 MiniMax-M2.7。
+
+所以实际策略：
+
+Codex App Server:
+  主要跑 OpenAI Codex 原生模型。
+  这是高可信、高控制、高 schema 的路径。
+
+MiniMax:
+  优先跑在 Claude Code-compatible / Cursor / OpenCode / Kilo / 官方推荐工具里。
+  如果要跑 Codex provider，单独建 profile，做 smoke test，不要放主生产 lane。
+
+Qwen / Alibaba Coding Plan:
+  优先跑 Qwen Code / Kilo / OpenCode / Claude Code / Codex 支持路径。
+  注意 Coding Plan 使用限制，不要把 key 当后台批处理 API key。
+
+Kimi:
+  优先用 Kimi Code CLI 自己作为 runtime，不要塞进 Codex subagent。
+13. 你真正需要的“角色启动时定义”应该长这样
+外层 controller 派任务时，不是简单说“继续”，而是构造一个完整 worker launch spec。
+
+{
+  "task_id": "chatgptrest-017",
+  "lane_id": "chatgptrest_main",
+  "repo_id": "chatgptrest",
+  "runtime": "codex_high",
+  "mode": "planning",
+  "role_pack": [
+    "mc_repo_mapper",
+    "mc_test_mapper",
+    "mc_risk_reviewer"
+  ],
+  "allowed_actions": [
+    "read_files",
+    "run_safe_tests"
+  ],
+  "forbidden_actions": [
+    "write_code",
+    "git_push",
+    "deploy",
+    "modify_secrets"
+  ],
+  "timeout_seconds": 1800,
+  "cleanup_policy": {
+    "close_completed_subagents": true,
+    "interrupt_on_timeout": true,
+    "archive_on_done": false
+  },
+  "output_schema": "WORKER_RESULT"
+}
+Codex prompt 由这个 spec 生成：
+
+你是 managed-codex worker。
+
+本轮 launch spec：
+- task_id: chatgptrest-017
+- runtime: codex_high
+- mode: planning
+- role_pack: mc_repo_mapper, mc_test_mapper, mc_risk_reviewer
+- write_code: false
+- timeout: 1800s
+- output: WORKER_RESULT
+
+请启动 role_pack 中的 subagents。
+等待全部完成后，关闭已完成 agent threads。
+最终返回 WORKER_RESULT。
+Claude Code prompt 由同一个 spec 生成：
+
+Create an agent team with three teammates:
+1. repo mapper
+2. test mapper
+3. risk reviewer
+
+Require plan approval before any implementation.
+Use shared task list.
+When each teammate is done, ask them to shut down.
+After all teammates shut down, clean up the team.
+Return WORKER_RESULT.
+Kimi/MiniMax/Qwen prompt 由同一个 spec 生成：
+
+你是低风险执行 worker。
+只做 repo mapping / test mapping / log summary。
+禁止写代码，除非 launch spec 明确允许。
+最终输出 WORKER_RESULT JSON。
+这样你就实现了：角色在启动时定义；权限在启动时定义；回收策略在启动时定义；结果格式在启动时定义。
+
+14. 收放自如的 lifecycle
+统一状态机：
+
+created
+  ↓
+starting
+  ↓
+running
+  ↓
+collecting_result
+  ↓
+closing_children
+  ↓
+completed
+  ↓
+archived
+异常路径：
+
+running
+  → timeout
+  → interrupting
+  → interrupted
+  → needs_retry / failed
+
+running
+  → user_disabled_lane
+  → draining / interrupting
+  → archived
+
+running
+  → output_invalid
+  → needs_retry / waiting_user
+
+running
+  → unsafe_action_detected
+  → interrupting
+  → failed
+不同 runtime 的回收动作：
+
+cleanup:
+  codex_appserver:
+    soft_stop: turn/steer "stop and return partial"
+    hard_stop: turn/interrupt
+    archive: thread/archive
+
+  codex_subagent:
+    soft_stop: parent asks subagent to stop
+    close: parent asks Codex to close completed agent threads
+    hard_stop: interrupt parent turn
+
+  claude_team:
+    soft_stop: ask teammate to shut down
+    cleanup: ask lead to clean up team
+    hard_stop: kill process group / tmux pane
+    caveat: shutdown may wait for current request/tool call
+
+  kimi_code:
+    soft_stop: send interrupt / stop instruction if supported
+    hard_stop: terminate process group
+    cleanup: delete temporary worktree if no diff retained
+
+  minimax_worker:
+    soft_stop: same as hosting tool
+    hard_stop: terminate process group
+    cleanup: delete temporary worktree / close session
+
+  shell_runner:
+    soft_stop: SIGTERM
+    hard_stop: SIGKILL
+Claude Code 官方也提醒：teammate shutdown 是通过 lead 发 shutdown request，teammate 可以 graceful exit；cleanup 会移除 shared resources，但如果还有 active teammates，cleanup 会失败，所以要先 shutdown teammate。
+
+15. 低智能任务怎么最大化利用 Kimi/MiniMax/K
+我会把这些任务优先派给便宜/额度多的 runtime：
+
+1. 读 README / docs，生成摘要
+2. grep / ripgrep 后整理候选文件
+3. 根据错误日志找可能文件
+4. 生成测试 skeleton
+5. 更新 snapshot
+6. 运行 formatter
+7. 解释 CI log
+8. 生成 changelog draft
+9. 找重复代码
+10. 整理 TODO / issue list
+11. 把自然语言需求转成 task checklist
+12. 批量检查很多文件是否符合规则
+13. 把 worker 输出转成 WORKER_RESULT
+14. 生成 PR description draft
+15. 做第一轮 cheap review
+不要派给低成本 runtime 的任务：
+
+1. auth / billing / permission / security critical
+2. migration / data deletion
+3. production infra
+4. ambiguous product decision
+5. cross-repo architecture
+6. final review
+7. merge / push / deploy
+8. 需要强 reasoning 的 bug
+推荐模式：
+
+便宜模型做 first pass；
+Codex/Claude 高模型做 final decision；
+shell runner 做确定性验证；
+human 做高风险批准。
+也就是：
+
+Kimi/MiniMax/Qwen/K:
+  “帮我收集、整理、执行、草拟。”
+
+Codex/Claude:
+  “帮我判断、设计、修复、审查。”
+
+Shell:
+  “帮我验证事实。”
+
+Human:
+  “批准风险。”
+16. 推荐 agent/task 路由表
+任务类型：repo exploration
+  首选：Codex mc_repo_mapper / Kimi / Qwen Code
+  复核：不需要，除非发现高风险区域
+
+任务类型：test mapping
+  首选：Codex mc_test_mapper / Kimi / MiniMax
+  复核：Codex reviewer
+
+任务类型：log / CI triage
+  首选：MiniMax / Kimi / Qwen
+  复核：Codex light
+
+任务类型：small implementation
+  首选：Codex light / MiniMax / Kimi
+  必须：Codex risk reviewer
+
+任务类型：complex implementation
+  首选：Codex high / Claude Agent Team
+  必须：review + tests + human approval if risky
+
+任务类型：parallel investigation
+  首选：Claude Agent Team
+  备选：Codex worker spawning mc_* subagents
+
+任务类型：批量重复检查
+  首选：Codex spawn_agents_on_csv / shell + cheap runtime
+  必须：输出 schema
+
+任务类型：final review
+  首选：Codex high / Claude high
+  禁止：低成本 worker 单独决定
+Codex 还有 experimental spawn_agents_on_csv，适合“很多相似任务，一行一个 work item”的批量审计，比如逐文件 review、逐 package 检查、逐 incident 总结；它支持 output_schema、max_concurrency、max_runtime_seconds，每个 worker 必须调用 report_agent_job_result 一次，否则该行会被标为 error。这个适合低风险批量检查，不适合复杂架构决策。
+
+17. 具体落地顺序
+第一步：先把 Codex custom agents 配好
+先只配这五个：
+
+mc_repo_mapper
+mc_test_mapper
+mc_risk_reviewer
+mc_small_implementer
+mc_debugger
+不要一开始配十几个。角色太多会让父 agent 选择困难。
+
+第二步：把 Codex worker prompt 改成 role-pack 模式
+不要再说：
+
+继续推进。
+改成：
+
+本轮使用 role_pack=[mc_repo_mapper, mc_test_mapper, mc_risk_reviewer]。
+只读 planning。
+完成后关闭 subagents。
+返回 WORKER_RESULT。
+第三步：把外部工具抽象成 runtime，不进入 Codex subagent
+先建：
+
+codex_appserver
+claude_code
+kimi_code
+minimax_claude
+qwen_or_k_cli
+shell_runner
+每个 runtime 先做 smoke test：
+
+1. 能不能启动？
+2. 能不能指定工作目录？
+3. 能不能限制在 worktree？
+4. 能不能拿日志？
+5. 能不能 stop？
+6. 能不能返回 JSON？
+7. 失败时怎么识别？
+第四步：低风险任务先派给便宜 runtime
+从这些开始：
+
+repo mapping
+test mapping
+log summary
+PR description draft
+simple lint fix
+snapshot update
+不要一上来让 Kimi/MiniMax 改核心业务逻辑。
+
+第五步：所有低成本 worker 输出必须过高模型 review
+规则：
+
+如果 files_changed 非空：
+  必须 Codex/Claude reviewer 复核。
+
+如果 touched_files 包含高风险路径：
+  必须 human approval。
+
+如果 worker 没跑测试：
+  不允许 task_complete。
+18. 我建议你的最终配置形态
+Codex:
+  作为高可信 worker + review worker + schema worker。
+  内部使用 mc_* custom subagents。
+  用 App Server 管 thread/turn/interrupt/archive。
+
+Claude Code:
+  作为复杂 agent team runtime。
+  适合需要 teammate 沟通、共享 task list、并行推理的任务。
+  不作为长期 registry。
+
+Kimi Code:
+  作为便宜快速 worker。
+  适合机械执行、总结、简单测试、轻量代码任务。
+
+MiniMax:
+  优先通过 Claude Code-compatible / Cursor / OpenCode / Kilo 等推荐工具使用。
+  适合便宜 worker、简单实现、日志/测试/文档类任务。
+  不建议直接作为最新 Codex 的主 provider，除非你做过版本兼容验证。
+
+Qwen/K/Kilo/Kiro:
+  作为可切换低成本 CLI runtime。
+  适合大上下文 scan、重复任务、简单执行。
+  通过 runtime adapter 统一结果。
+
+Shell:
+  作为零成本确定性验证。
+  永远优先跑测试/lint/typecheck，不要让模型“想象测试结果”。
+19. 最关键的原则
+Codex subagent = 当前 Codex worker 内部的短期角色。
+Claude Agent Team = 当前复杂任务内的协作团队。
+Kimi/MiniMax/Qwen/K = 外层 scheduler 可选择的 worker runtime。
+Registry = 唯一长期事实源。
+Controller = 唯一有权 start/stop/archive 的总控。
+Worktree = 隔离执行层。
+WORKER_RESULT = 跨所有工具的统一回执。
+所以：Codex subagent 要配，但不要把它配成总控。
+你要的“收放自如”，不是靠某一个工具内部的 subagent 实现，而是靠：
+
+role_pack
++ runtime_catalog
++ routing_policy
++ timeout/interrupt/cleanup
++ output_schema
++ high-model review
++ registry state machine
+这样你就可以做到：
+
+简单任务 → Kimi / MiniMax / Qwen / K
+复杂任务 → Codex high / Claude Team
+批量任务 → CSV subagents / cheap runtime
+最终判断 → Codex / Claude reviewer
+状态管理 → 你的 controller
+这才是既省钱、又能控、又能真正利用你手上所有 coding plan 的方式。
+
+
+就没有好的开箱即用的Managed Agents替代了吗，你提供的这些选择吧，我都觉得不太满意啊，都有一些问题啊，要么就不够成熟，就是生态不够丰富，没有得到足够的验证，这样的问题你还得再去找一找
+
+我会把筛选范围从开源框架扩大到成熟产品化平台，重点验证是否真能托管多仓库、多任务、PR/CI 回路、暂停恢复、回收和人工接管。
+
+如果优先级是“少写胶水代码并被验证”，我会把候选分层：托管执行层、本地会话管理层和组织级 Agent OS，而不是继续只找 OSS。
+
+Thought for 10m 15s
+有。重新找完后，我的结论比上一轮更明确：
+
+如果你要“真正开箱即用的 Managed Agents”，不要优先找纯开源。纯开源现在多数还停留在 worktree/session manager，不是成熟的 managed-agent control plane。
+
+真正更接近你要的东西，按成熟度和贴近度排序，大概是：
+
+第一梯队：GitHub Agent HQ / Copilot Cloud Agent、Devin Managed Devins、Factory Droid Missions
+第二梯队：Kiro Web Autonomous Agent、Augment Intent、Google Antigravity
+第三梯队：Conductor、Nimbalyst、CCManager、Claude Squad、Composio AO、ORCH、Vibe Kanban
+其中，最像你说的“有 lead，可以开 agent、分派、监控、暂停/终止、回收”的是 Devin Managed Devins 和 Factory Missions；最像“官方生态、GitHub/PR/CI 开箱即用”的是 GitHub Agent HQ；最像“能保留 Codex/Claude 这类 BYOA 的多 agent 工作台”的是 Augment Intent 或本地 session manager。
+
+先给结论：没有一个工具同时满足你所有条件
+你想要的是这几个条件同时成立：
+
+1. 真正 managed agents，不只是多开窗口；
+2. 有 lead / coordinator；
+3. 可以 spawn worker；
+4. 可以 message / steer；
+5. 可以 pause / stop / terminate / archive；
+6. 可以跨多个 repo；
+7. 可以接 GitHub issue / PR / CI；
+8. 可以复用 Codex、Claude Code、Kimi、MiniMax、K 等已有 plan；
+9. 足够成熟、生态够大、已被验证；
+10. 最好开箱即用，少写代码。
+我没有找到一个产品能全部满足。这不是你找得不够，是市场现在确实分裂成两类：
+
+A. 真 managed-agent 平台：
+   Devin / Factory / GitHub / Kiro / Jules
+   优点：开箱即用、PR/CI/GitHub 集成强、状态管理强
+   缺点：不能灵活复用你所有 Kimi/MiniMax/Codex/Claude plan
+
+B. 本地多 agent 工作台：
+   Conductor / Nimbalyst / CCManager / Claude Squad / Vibe Kanban
+   优点：能跑 Codex、Claude Code、Kimi CLI、OpenCode、Gemini CLI 等
+   缺点：大多只是 session/worktree manager，不是真正 lead-orchestrated managed agents
+所以你要做一个取舍：
+
+要成熟 managed，就接受 vendor 平台；要复用所有 coding plan，就接受它只是本地多 session 管理，不是完整 managed agents。
+
+1. 最值得优先看的：GitHub Agent HQ / Copilot Cloud Agent
+这是我现在会放在第一位的“开箱即用替代方案”。
+
+GitHub 现在已经把 Copilot、Claude、Codex、custom agents 放进同一个 agents 体验里。官方说明你可以从 GitHub.com、GitHub Mobile、VS Code 启动 Claude 和 Codex agent sessions，也可以从 issues、PR、Agents tab、VS Code agent sessions view 分派工作；Claude 和 Codex 在 Copilot Pro+ 和 Enterprise 里是 public preview，每个 coding agent session 消耗一个 premium request。
+
+GitHub 自己的 Copilot cloud agent 已经是一个 GitHub-native 的异步 coding agent：它可以 research repo、create implementation plan、在 branch 上改代码、跑 tests/linters、处理 merge conflicts、改善测试覆盖、更新文档、通过 GitHub Issues 或 Chat prompt 分派任务，并且运行在 GitHub Actions-powered ephemeral environment 里。
+
+更关键的是，它已经有你说的 “mission control” 味道：GitHub 的 agent management 文档说有 centralized control page，可以在 agent sessions 之间跳转、看进度、保持控制；GitHub 的产品页也直接说可以从一个 unified view 里 see and steer tasks，像 mission control。
+
+适合你的地方
+最适合：
+- GitHub issue → agent → branch → PR → review → feedback → update
+- 多个 repo / 多个 issue 的异步分派
+- 你想少写 controller 代码
+- 你想把 GitHub Issues/PR/CI 当 registry
+- 你想同时用 Copilot / Claude / Codex
+不适合你的地方
+不适合：
+- 想复用 Kimi / MiniMax / K 这些本地 CLI plan
+- 想精确控制 Codex App Server 的 thread/start、turn/interrupt、thread/archive
+- 想在本机 worktree 里管理所有 agent
+- 想完全自定义 scheduler 状态机
+我对它的判断
+如果你愿意把 GitHub 作为任务真相源，这可能是最省代码的方案。你原来想写的 registry 可以变成：
+
+GitHub Issues = task registry
+GitHub labels = lane/state/priority
+GitHub PR = artifact/evidence
+GitHub Checks = verification
+GitHub Agent Sessions = worker threads
+Agent HQ = dashboard/control plane
+你的 Finbot / Paperclip / ChatGPTREST / game 可以变成：
+
+label: lane/finbot
+label: lane/paperclip
+label: lane/chatgptrest
+label: lane/game-disabled
+如果要少写代码，我现在会优先试这个，而不是先继续扩 codex_managed_controller.py。
+
+2. 最像 “Claude managed agents” 的：Devin Managed Devins
+如果你要的核心是：
+
+lead 能拆任务；
+lead 能启动子 agent；
+lead 能给子 agent 发消息；
+lead 能监控；
+lead 能 sleep / terminate；
+每个子 agent 在独立环境里跑；
+最后 lead 汇总；
+那 Devin Managed Devins 是我这轮找到的最贴近产品。
+
+Devin 官方高级能力文档写得非常直接：Devin 可以把大任务拆成多个 managed Devins 并行执行，每个 child session 跑在自己的 isolated VM；coordinator session 负责 scope work、monitor progress、resolve conflicts、compile results。它还能显式 “spin up managed Devin for each module”，给 child session 指定 prompts、playbooks、tags、ACU limits，给运行中的 child sessions 发 follow-up instructions，监控 ACU，sleep 或 terminate 卡住/不再需要的 child sessions。
+
+Devin 也有 GitHub/Jira/Slack/Teams 集成。GitHub 集成支持创建 PR、响应 PR comments、在 repo 里协作；Jira 集成里，Devin 创建 PR 后会把 PR 链接加到 Jira issue，并提供 session link，后续可以在 Jira comment 里 @Devin 给继续指令。
+
+适合你的地方
+最适合：
+- 你真的想要 managed child agents
+- 你愿意用云端 isolated VM
+- 你愿意让 vendor 平台管 session、knowledge、playbook、schedule
+- 你要企业级 multi-repo / Jira / Slack / GitHub 集成
+- 你不想自己写 start/stop/registry/scheduler
+不适合你的地方
+不适合：
+- 想复用 Codex Pro、Claude Max、Kimi、MiniMax 这些已有 plan
+- 想本地运行，不想把 repo 接入 Devin
+- 想自己控制每个 Codex thread
+- 成本敏感
+我对它的判断
+如果“Managed Agents 的能力本身”优先级最高，Devin 是最接近开箱即用答案。
+
+它不是“Codex managed agents 替代”，而是“另一个完整云端 AI software engineer 平台”。你基本不需要写 controller，但代价是放弃你对 runtime 的细粒度掌控。
+
+3. 最像企业级多 agent 执行层：Factory Droid Missions
+Factory 现在也很接近你要的东西，尤其是它的 Missions。
+
+Factory 官方文档说 Missions 是用来做 large, multi-feature work 的结构化编排：你先和 Droid 讨论目标，定义 features、milestones、success criteria，然后把执行交给 orchestration layer。Mission Control 管理多 agent 执行、跟踪计划进度；你的 MCP integrations、skills、hooks、custom droids 都能带进 missions。
+
+Factory 自己的发布文还说得更强：Missions 可以处理 6 小时到 6 天的目标，Droid 会做 decomposition、execution、validation；它会把项目拆成 features，spawn worker sessions，through git 协调 handoffs，并在每一步验证和失败恢复。这个功能面向 Enterprise 和 Max plan。
+
+Factory CLI 也很适合自动化：它支持 massive parallel execution，可以一个命令启动 hundreds of agents，用于 CI/CD、migrations、maintenance；也有 self-healing builds、automated code review、JSON event streams、detailed logging、session persistence。
+
+适合你的地方
+最适合：
+- 大型重构 / 迁移 / 测试覆盖 / CI 修复
+- 想要 Missions / Mission Control 这种产品化 orchestration
+- 想要 CLI + IDE + CI/CD 集成
+- 想要 structured output、observability、session persistence
+- 想用 skills/hooks/custom droids 定制角色
+不适合你的地方
+不适合：
+- 想完全开源
+- 想复用所有 Kimi/MiniMax/Codex/Claude plan
+- 想保留你现有 Codex App Server thread 控制
+- 不想进入 Factory 的平台和计费体系
+我对它的判断
+Factory 是最像“企业 agent execution platform”的选择。
+
+如果 Devin 更像“AI 软件工程师团队”，Factory 更像“agent-native SDLC 平台”。它的 Missions 比 GitHub Agent HQ 更像真正 orchestration，但生态和默认工作流不如 GitHub 那么天然。
+
+4. 很值得看的：Kiro Web Autonomous Agent
+Kiro 这一轮我会比之前更认真看。它不是简单 IDE agent，它的 Web autonomous agent 已经有多 repo、GitHub issue、PR、任务状态这些能力。
+
+Kiro Web 官方文档说明：启动 session 时可以选择多个 repositories；如果工作跨多个 repo，Kiro 会协调所有变更，并在每个 repo 开 PR。它也可以从 GitHub issue 触发：在 issue comment 里 mention /kiro，或给 issue 加 kiro label，agent 会开始工作并监听 issue comments 获取更多上下文。
+
+Kiro 的任务生命周期也比较清晰：Queued、In progress、Needs attention、Completed、Cancelled。文档说并发达到 10 个任务时会 queued；Completed 表示 agent 完成工作并打开 PR；反馈会让任务重新进入 queued/in progress；Cancelled 任务不能 resume。
+
+Kiro Web 产品页还强调：可以从浏览器 build/delegate/steer；agent 会先问 clarifying questions、build plan、verify steps，完成时给你 PR；它支持跨 repo 协调 edits 和 PRs，并通过 steering files 加载编码规范、架构模式和偏好；每个 session 跑在自己的 isolated sandbox。
+
+适合你的地方
+最适合：
+- 多 repo 单任务
+- GitHub issue → Kiro → PR
+- 想要异步云端 agent
+- 想要较清晰 task lifecycle
+- 想要从浏览器 steer
+不适合你的地方
+不适合：
+- 想复用 Kimi/MiniMax/Codex/Claude plan
+- 想自己定义多个 runtime
+- Cancelled 还想 resume
+- 想完全本地
+- 对 preview 产品/权限风险很敏感
+我对它的判断
+Kiro 是一个更“产品化”的替代，不是你要继续写 controller 的方向。
+但它是否比 GitHub Agent HQ / Devin / Factory 更适合你，要看你是否愿意把工作流迁到 Kiro Web。
+
+5. 最接近 “Lead + living spec + BYOA” 的：Augment Intent
+如果你最在意的是：
+
+有一个 Coordinator；
+先产 living spec；
+再拆任务；
+多个 implementor 并行；
+Verifier 根据 spec 验收；
+还能用 Claude Code / Codex / OpenCode；
+那 Augment Intent 可能比我上一轮评价得更值得试。
+
+Augment 官方文档说 Intent 会分析 codebase、起草一个作为 living document 的 Spec、再生成给 specialized agents 执行的 tasks；你可以随时停止 Coordinator 手动编辑 Spec。
+
+Augment 的产品页也说得很直接：Coordinator agent 把 spec 拆成 tasks，并委派给可以 wave 方式运行的 Implementors；Verifier agent 会根据 spec 检查结果；Coordinator 负责保持对齐和 handoffs；还可以 bring your own specialist agents 并控制它们怎么被 orchestrate。
+
+另一个关键点是 BYOA：Augment 自己的资料和对比页都说 Intent 支持 Claude Code、OpenAI Codex、OpenCode 和 Augment native agents。
+
+适合你的地方
+最适合：
+- 你要真正 Lead/Coordinator
+- 你要“计划是事实源”，不是聊天上下文
+- 你要 Claude Code + Codex 混用
+- 你要跨 service refactor / living spec / verifier
+- 你想保留部分 BYOA
+不适合你的地方
+不适合：
+- 想马上用于 Linux/Windows server
+- 不想用 macOS app
+- 不想依赖 Augment
+- 想接 Kimi/MiniMax/K 这类 runtime
+- 想要长期已被大量企业生产验证
+我对它的判断
+Intent 是“理念上最像你要自己造的 Lead Orchestrator”的产品。
+
+但它的问题也明显：还偏新、macOS、公测味道更重。它很可能不是你最终稳定底座，但非常值得作为 spike。尤其你现在的系统已经在做 registry/scheduler，把 Intent 的 living spec 模式拿来比较，会很有价值。
+
+6. Google Jules：好用，但不是 managed agents
+Jules 是很好的异步 coding agent，但不是你要的 “managed agents”。
+
+Jules 官方说明它是 experimental coding agent，能帮你 fix bugs、add documentation、build features，集成 GitHub，理解 codebase，并 autonomous 工作；它会选择 GitHub repo/branch、克隆到 Cloud VM、制定 plan、给 diff、创建 PR。
+
+Google Developers Blog 也说 Jules 是 asynchronous agentic coding assistant，会把 repo 克隆到 secure Google Cloud VM，处理 writing tests、new features、audio changelogs、bug fixes、dependency bumps 等任务。
+
+适合你的地方
+最适合：
+- issue / prompt → async task → PR
+- dependency bump
+- bug fix
+- docs/test/backlog 小任务
+不适合你的地方
+不适合：
+- lead spawn 多个 child agents
+- multi-runtime orchestration
+- 统一管理 Codex/Claude/Kimi/MiniMax
+- 精确 stop/resume/archive
+我对它的判断
+Jules 可以当 低风险 backlog worker，但不是你要的 managed-agent control plane。
+
+7. Google Antigravity：像 mission control，但更像 IDE，不像 PR/CI controller
+Google Antigravity 是值得看的，但我不会把它放在第一推荐。
+
+Google 官方博客说 Antigravity 是 agentic development platform，不只是 editor；它允许部署 agents，让它们在 editor、terminal、browser 之间 autonomously plan、execute、verify complex tasks。它有两个核心界面：Editor View 和 Manager Surface；Manager Surface 可以 spawn、orchestrate、observe 多个 agents 在不同 workspaces 异步工作。
+
+Antigravity 还强调 Artifacts：task lists、implementation plans、screenshots、browser recordings，用来帮助你验证 agent 的逻辑，而不是滚动看 raw tool calls。它也有知识保存能力，并支持 macOS、Windows、Linux，个人 public preview 免费，支持 Gemini 3 Pro，也支持 Claude Sonnet 4.5 和 OpenAI GPT-OSS。
+
+适合你的地方
+最适合：
+- UI / frontend / browser testing
+- 多 workspace 多 agent 观察
+- 免费/Google-backed preview
+- 需要 editor + terminal + browser 三件套
+不适合你的地方
+不适合：
+- GitHub issue/PR/CI 原生闭环
+- 精确 managed child lifecycle
+- 复用 Kimi/MiniMax plan
+- 需要生产级安全默认值
+我对它的判断
+Antigravity 是“多 agent IDE”，不是“多 agent 工程控制面”。
+如果你做前端、浏览器验证、UI 调整，它很强；如果你要 Finbot/Paperclip/ChatGPTREST 这种多 repo 多 lane 状态机，它不是最佳核心底座。
+
+8. Builder 2.0：如果你是前端/产品协作团队，值得看
+Builder 2.0 这轮也比普通 agent UI 更接近“多人 + 多 agent + PR 工作流”。
+
+Builder 官方说 2.0 可以同时跑 hundreds of agents，每个 agent 有自己的 cloud container、full development environment 和 browser preview；你可以从一个 view spin up tasks、track progress、orchestrate agents across workspaces。它还说每个 change 都以 PR 形式交付，PR 前有 team review、AI review、ESLint/accessibility/performance validation，agent 可以自动修 flagged issues 并更新 PR。
+
+它还支持 Claude、Codex、Gemini 等模型选择。
+
+适合你的地方
+最适合：
+- 前端 / UI / 设计系统 / 产品协作
+- PM、设计师、工程师一起 review
+- 多 agent 云端容器
+- PR-based delivery
+不适合你的地方
+不适合：
+- 后端 infra / 多 repo agent scheduler
+- 你现在的 Codex App thread 复用
+- Kimi/MiniMax/K plan
+- 纯工程控制面
+我对它的判断
+如果你的主要工作是 web app/front-end/product iteration，Builder 2.0 是很好的“团队协作 + agent”平台。
+如果主要是通用软件工程 managed agents，它不是第一选择。
+
+9. 本地工具里，最实用的是 Conductor / Nimbalyst / CCManager / Claude Squad，但它们不是完整 managed agents
+你之前不满意这些，我理解。重新看完之后，我会这样重新定位它们：
+
+它们不是 Devin/Factory 那种 managed agents；
+它们是“本地多 agent session manager”。
+Conductor
+Conductor 明确说自己可以在 Mac 上创建 parallel Codex + Claude Code agents in isolated workspaces，查看它们在干什么，然后 review/merge changes；它用 git worktrees，每个 Claude Code/Codex agent 都有 isolated workspace。
+
+优点：
+
+- 很像你想要的本地视觉工作台
+- 支持 Claude Code + Codex
+- worktree 管理省心
+- UI 抛光度看起来不错
+缺点：
+
+- macOS
+- closed-source
+- 不是自动 lead scheduler
+- 不支持 Kimi/MiniMax/K
+Nimbalyst
+Nimbalyst 是开源/本地 visual workspace，支持 Codex、Claude Code、OpenCode alpha、Copilot alpha；可以在 kanban 里管理多个 sessions，搜索/resume sessions，管理 workstreams、worktrees、terminal，还能可视化编辑 markdown、mockups、CSV、Excalidraw、data models、code。
+
+优点：
+
+- 开源
+- 本地
+- Codex + Claude Code
+- 视觉编辑和 diff review 很强
+缺点：
+
+- 更像 visual session manager
+- 不是真正 lead-orchestrated managed agents
+- 不一定适合长期无人值守 scheduler
+CCManager
+CCManager 是这轮对你“多 plan 混用”最有用的本地候选。它支持 Claude Code、Gemini CLI、Codex CLI、Cursor Agent、Copilot CLI、Cline CLI、OpenCode、Kimi CLI，能跨 git worktrees 和 projects 管理多个 sessions；功能包括并行 sessions、多项目支持、状态指示、创建/合并/删除 worktrees、command presets、state detection strategies、status change hooks、devcontainer integration、experimental auto approval。
+
+优点：
+
+- 最接近“把你所有 CLI plan 放进一个管理器”
+- 支持 Kimi CLI
+- 支持 Codex / Claude / Gemini / Cursor / Copilot / OpenCode
+- 有 hooks，可以接你已有 watcher
+缺点：
+
+- 还是 session manager，不是 managed agents
+- 没有成熟 lead/coordinator
+- 停止/恢复/归档的语义取决于各 CLI
+Claude Squad
+Claude Squad 是 TUI，能管理多个 Claude Code、Codex、Gemini、Aider 等 local agents，每个 task 有自己的 isolated git workspace；它支持后台任务、一个终端窗口管理 instances/tasks、review changes、checkout changes、push 前检查。
+
+优点：
+
+- 终端党最快上手
+- 支持 Codex/Claude/Gemini/Aider
+- worktree/tmux 工作流简单
+缺点：
+
+- AGPL license
+- tmux 依赖
+- 不支持真正自动 coordinator
+- auto-accept 是 experimental，不适合无人值守
+对这些本地工具的最终判断
+如果你的硬要求是：
+
+“我要复用 Codex + Claude Code + Kimi + MiniMax + K，全部从一个本地界面灵活调度”
+那最现实是：
+
+CCManager > Nimbalyst > Conductor > Claude Squad
+但如果你的硬要求是：
+
+“我要像 managed agents 一样有 lead、children、pause/terminate、长期状态、任务闭环”
+那它们都不够，只能作为你系统里的 UI/session layer。
+
+10. 开源/半开源 orchestrator 为什么还是不够
+我重新看了 2026 年开源 agent orchestrator 对比，结论基本一致：大多数工具已经收敛到 git worktrees，但 coordination depth 差很多。Augment 的一篇对比把工具分成三层：human-in-the-loop per-edit approval、milestone gates、spec-driven verification；它也指出多数 OSS 工具还是并行 worktree/session，真正跨服务对齐、共享 evolving plan 的能力很少。
+
+这篇对比里对 Composio AO 的描述不错：它有 isolated worktrees、每个 agent 自己的 PR、dashboard、CI failure retry、review comment 处理。
+ 但我仍然不把它放在你的第一梯队，因为它更像开源/创业项目的 PR automation orchestrator，不如 GitHub/Devin/Factory/Kiro 这几个产品级平台可靠。
+
+这篇对比也把 Claude Squad、Nimbalyst、Vibe Kanban 等归到 human-in-the-loop session management；它明确说大多数工具是 agents side by side，没有共享计划，跨 services 和 evolving specs 会变成手工协调瓶颈。
+
+11. 成熟度和验证度怎么判断
+我这次把“是否被真实使用验证”权重调高了。一个 2026 年的 AIDev 研究数据集统计了 GitHub 上 932,791 个 agent-authored PR，来自 OpenAI Codex、Devin、GitHub Copilot、Cursor、Claude Code，覆盖 116,211 个 repositories 和 72,189 个 developers。
+
+这说明：真正有大规模公开 footprint 的还是 GitHub/Copilot、Codex、Claude Code、Cursor、Devin 这一圈。
+
+另一篇研究分析了这些 agent PR 触发的 61,837 个 GitHub Actions workflow runs，发现不同 agent 的 CI 可靠性有明显差异，Copilot 和 Codex 的 workflow success rate 约 93% 和 94%，同时也提醒 agentic PR 频率越高，repo 层面 CI success rate 可能越受影响，需要更强 safeguards。
+
+这对你的决策很重要：
+
+成熟生态优先级：
+GitHub / Copilot / Codex / Claude / Devin / Cursor
+  > Factory / Kiro / Jules / Builder / Augment
+  > 本地 OSS session managers
+  > 小型自研 orchestrator
+12. 我现在会怎么推荐你选
+路线 A：你想最大程度少写代码
+选：
+
+GitHub Agent HQ / Copilot Cloud Agent
+做法：
+
+1. 把 GitHub Issues 当 task registry；
+2. 用 labels 管 lane/state/priority；
+3. 用 Agent HQ 启动 Copilot / Claude / Codex；
+4. PR + Checks + Reviews 当 verification；
+5. 自定义 agents 做 explorer / tester / reviewer；
+6. 你的旧 controller 只负责迁移旧任务，不再继续扩。
+适合你如果：
+
+你主要仓库都在 GitHub；
+你接受云端 agent；
+你不强求 Kimi/MiniMax 全接进来；
+你想今天就有 mission control。
+我认为这是 最省工程量 的方案。
+
+路线 B：你想要最像 Claude managed agents 的能力
+选：
+
+Devin Managed Devins
+做法：
+
+1. 让 Devin 作为 coordinator；
+2. 明确要求 spin up managed Devin per module / per repo / per service；
+3. 设置 ACU limit；
+4. 让 coordinator message / sleep / terminate child sessions；
+5. GitHub/Jira/Slack 做外部工作流。
+适合你如果：
+
+你愿意为成熟 managed-agent 平台付费；
+你更看重“有人帮我管 agents”而不是“复用所有计划”；
+你想省掉 controller、registry、scheduler、worker result 这些自研负担。
+这是 最像你描述的 managed agents 产品形态 的方案。
+
+路线 C：你想要企业级 orchestration + CLI/CI/CD
+选：
+
+Factory Droid Missions
+做法：
+
+1. 用 /missions 规划大任务；
+2. 让 Mission Control 管 features / milestones / skills；
+3. 用 Factory CLI 做批量迁移、CI 修复、code review；
+4. 用 hooks/skills/custom droids 固化角色。
+适合你如果：
+
+你要长任务；
+你要 CI/CD；
+你要 structured logs / JSON events / session persistence；
+你想把 agent 放进工程流水线。
+这是 最像 agent-native SDLC 平台 的方案。
+
+路线 D：你想要多 repo 一次任务
+选：
+
+Kiro Web Autonomous Agent
+做法：
+
+1. 选择多个 repositories；
+2. 让 Kiro 处理一个跨 repo task；
+3. 它在每个 repo 开 PR；
+4. 通过 GitHub issue comments 继续给反馈。
+适合你如果：
+
+你跨 repo 工作很多；
+你想用 issue label /kiro 触发；
+你能接受 preview 和 vendor 约束。
+路线 E：你想保留 Codex + Claude Code，并且要 Lead/spec 模式
+选：
+
+Augment Intent
+做法：
+
+1. 让 Coordinator 先产 living spec；
+2. 你 review/edit spec；
+3. 再让 Implementors 并行执行；
+4. Verifier 根据 spec 验收；
+5. Claude Code / Codex / OpenCode 作为 BYOA worker。
+适合你如果：
+
+你在 macOS；
+你想要 spec-driven；
+你想少写 Lead Orchestrator；
+你主要复用 Codex/Claude，不强求 Kimi/MiniMax。
+路线 F：你强烈想复用 Kimi、MiniMax、K、Codex、Claude
+选：
+
+CCManager 或 Nimbalyst
+但要接受：
+
+这不是完整 managed agents；
+这是本地 multi-session/worktree manager。
+用法：
+
+1. CCManager 管 Claude/Codex/Kimi/Gemini/OpenCode；
+2. 低风险任务派 Kimi/MiniMax/K；
+3. 高风险任务派 Claude/Codex；
+4. 你人工 review/merge；
+5. 不要期待它自动 lead、自动验证、自动回收所有任务。
+13. 我的最终推荐组合
+如果是你现在这个情况，我不会再建议你继续全量自研。我的推荐是：
+
+主控层：GitHub Agent HQ
+复杂 managed agents：Devin 或 Factory
+本地 plan 复用层：CCManager / Nimbalyst
+高风险 review：Codex / Claude
+低风险机械任务：Kimi / MiniMax / K
+更具体：
+
+1. GitHub Agent HQ 做默认 registry/control plane
+   - issues
+   - PRs
+   - checks
+   - agent sessions
+   - Claude/Codex/Copilot/custom agents
+
+2. Devin 或 Factory 处理真正复杂的大任务
+   - 需要 child agents
+   - 需要 coordinator
+   - 需要 terminate/sleep/parallel managed sessions
+   - 需要多天/多 repo 工作
+
+3. CCManager/Nimbalyst 只处理本地 plan 复用
+   - Kimi
+   - MiniMax
+   - K
+   - OpenCode
+   - Gemini CLI
+   - Codex CLI
+   - Claude Code
+
+4. 你自己的 codex_managed_controller.py 停止扩张
+   - 只保留旧 thread 迁移
+   - 或保留特殊 Codex App Server 自动续派
+   - 不再尝试做完整平台
+14. 如果只选一个，我会怎么选
+按你的优先级来：
+
+最少自研、最稳生态：
+→ GitHub Agent HQ / Copilot Cloud Agent
+
+最像 managed agents：
+→ Devin Managed Devins
+
+最强工程 orchestration：
+→ Factory Droid Missions
+
+最适合跨 repo issue-to-PR：
+→ Kiro Web Autonomous Agent
+
+最适合 Codex + Claude BYOA + Lead/spec：
+→ Augment Intent
+
+最适合复用 Kimi/MiniMax/K/Codex/Claude 各种 CLI：
+→ CCManager，但它不是完整 managed agents
+我的真实建议是：
+
+先试 GitHub Agent HQ。如果你觉得它的 lead/child 能力不够，再试 Devin Managed Devins 或 Factory Missions。只有当你坚持复用 Kimi/MiniMax/K 这些 plan 时，再回到 CCManager/Nimbalyst 这类本地工作台。
+
+这条路线能最大限度避免你继续写大量 controller 代码。你现在真正需要自己做的，最多只剩：
+
+1. 仓库/任务命名规范；
+2. GitHub label/state 规范；
+3. AGENTS.md / prompt / custom agent profile；
+4. 哪些任务派给 Copilot、Claude、Codex、Devin、Factory、Kimi；
+5. 禁派规则，例如 game lane disabled；
+6. 高风险人工审批。
+也就是说，不是没有替代品。只是“开箱即用的 managed agents”基本都已经是商业/官方平台了，不是开源小项目。
+
+

@@ -1,0 +1,11 @@
+DONE
+
+Files changed:
+- experiments/runner_worker_probe_20260513/worker_probe_result.md
+
+Commands run:
+- `mkdir -p experiments/runner_worker_probe_20260513`
+- `test -f experiments/runner_worker_probe_20260513/worker_probe_result.md && rg -n "RUNNER_WORKER_PROBE_OK|provider: minimax|write_scope:" experiments/runner_worker_probe_20260513/worker_probe_result.md`
+
+Notes:
+- Verification passed: all three markers found at lines 3, 4, and 5.

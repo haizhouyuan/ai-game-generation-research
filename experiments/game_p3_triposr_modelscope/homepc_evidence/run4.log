@@ -1,0 +1,19 @@
+/home/yuanhaizhou/.local/lib/python3.10/site-packages/numba/np/ufunc/parallel.py:373: NumbaWarning: [1mThe TBB threading layer requires TBB version 2021 update 6 or later i.e., TBB_INTERFACE_VERSION >= 12060. Found TBB_INTERFACE_VERSION = 12050. The TBB threading layer is disabled.[0m
+  warnings.warn(problem)
+/usr/lib/python3/dist-packages/paramiko/pkey.py:82: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "cipher": algorithms.TripleDES,
+/usr/lib/python3/dist-packages/paramiko/transport.py:261: CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  "class": algorithms.TripleDES,
+2026-05-11 23:22:45,392 - INFO - Initializing model ...
+/home/yuanhaizhou/models/p3_ai_cad_game/repos/triposr_raw_fetch/source/tsr/system.py:69: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(weight_path, map_location="cpu")
+2026-05-11 23:22:48,114 - INFO - Initializing model finished in 2722.60ms.
+2026-05-11 23:22:48,114 - INFO - Processing images ...
+2026-05-11 23:22:48,120 - INFO - Processing images finished in 5.20ms.
+2026-05-11 23:22:48,120 - INFO - Running image 1/1 ...
+2026-05-11 23:22:48,120 - INFO - Running model ...
+2026-05-11 23:22:48,461 - INFO - Running model finished in 341.27ms.
+2026-05-11 23:22:48,461 - INFO - Extracting mesh ...
+2026-05-11 23:22:48,508 - INFO - Extracting mesh finished in 47.29ms.
+2026-05-11 23:22:48,508 - INFO - Exporting mesh ...
+2026-05-11 23:22:48,509 - INFO - Exporting mesh finished in 0.59ms.

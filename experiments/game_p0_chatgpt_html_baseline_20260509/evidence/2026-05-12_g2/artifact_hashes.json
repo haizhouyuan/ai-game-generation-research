@@ -1,0 +1,46 @@
+{
+  "browser_log.jsonl": {
+    "sha256": "a3f902ece463f77d5b67f702ae431f02d6f09458aea930e46ec0872b2716524a",
+    "size_bytes": 67
+  },
+  "console_summary.json": {
+    "sha256": "098cfa15f36774c894cfc07a2906e544e8f4cf301d92617cd18704a29a48c213",
+    "size_bytes": 105
+  },
+  "network_summary.json": {
+    "sha256": "0a661a38a7ae19427b6217c3a8a9d661f324c89c00dcd4acc20569eb2820946c",
+    "size_bytes": 169
+  },
+  "release_packet.json": {
+    "sha256": "60170fa95209405dce39477c561f9d8b18bfdbb97411391eb7b596e4fec6456f",
+    "size_bytes": 1792
+  },
+  "scenario_result.json": {
+    "sha256": "aa7d3af51ba9ae4e56c6afa4ce81f842cfd431c7aec3021ec5015fb2b2bdccae",
+    "size_bytes": 2480
+  },
+  "screenshots/00_load.png": {
+    "sha256": "b75226970b598880ec1be48c44939ff126f9692beb1b67563ace6bc4be8e8399",
+    "size_bytes": 321327
+  },
+  "screenshots/01_start.png": {
+    "sha256": "139871d7b039029b7a866c780794de5ae7404d1a42e57e529154c4ed6497071c",
+    "size_bytes": 279589
+  },
+  "screenshots/02_input.png": {
+    "sha256": "24b06c18895939fa4db0345da3369caed0c8b0dcddc080d974b27a03716f9ff3",
+    "size_bytes": 273892
+  },
+  "state_dumps/input.json": {
+    "sha256": "5153e8f11ada7868834b2edd762fa7d5151e8f1c42ea18ade55a1c0a9a4ea828",
+    "size_bytes": 567
+  },
+  "state_dumps/load.json": {
+    "sha256": "b1a6d8f0f4b3a3918cdb0d1e690f7629b54c6849fcddbb66caafbf2ec4961f17",
+    "size_bytes": 572
+  },
+  "state_dumps/start.json": {
+    "sha256": "9dbb7747c364ef547ab86e101a7f4872e17a6123c2eab2bba7d18e82f0675fbf",
+    "size_bytes": 502
+  }
+}

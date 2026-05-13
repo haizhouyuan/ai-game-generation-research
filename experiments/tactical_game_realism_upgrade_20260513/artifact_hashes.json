@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-05-13T08:59:00+08:00",
+  "artifacts": [
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/index.html",
+      "sha256": "79fec07e611ed5f798793393f738b5ccbb00b847b044142b5b8e717e056a229a",
+      "role": "playable_tactical_game_realism_derivative"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/assets/models/groza_procedural_candidate.glb",
+      "sha256": "484a001db8aecd926a0069ae1dbca923d9572dc48dc1919fde7cede4b04179ea",
+      "role": "selected_integrated_groza_hero_rifle_glb"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/assets/models/pistol_m5_candidate.glb",
+      "sha256": "aa1fd450ed947ecff9dc9c9ff07a5f4f329d6359d3a462064483bac72cd60255",
+      "role": "m5_integrated_pistol_glb"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/assets/models/shotgun_m5_candidate.glb",
+      "sha256": "9a4c3cd89716952c365853ad58de15d4223db95bc3a5f412ad39b5ac7a63bad2",
+      "role": "m5_integrated_shotgun_glb"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/assets/models/dmr_m5_candidate.glb",
+      "sha256": "52f1acdfef814aed6ca4e5ee8351bc47f5f38db5720ed50e090e4abc293f20c8",
+      "role": "m5_integrated_dmr_glb"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/assets/models/m5_weapon_variants_report.json",
+      "sha256": "92a65370130c3db6c49dbadb389e5151dbe21c8b9ae265a53e4860d006ebc09d",
+      "role": "m5_weapon_generation_report"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/assets/models/pistol_m5_preview.png",
+      "sha256": "3a8fdb82f12a47ca2a6d10cf58a7dd3cef4c62d0dca0ba1b2d513db2929a10c1",
+      "role": "m5_pistol_blender_preview"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/assets/models/shotgun_m5_preview.png",
+      "sha256": "3d934768178b01b44a7804a81474fbf313c50a03ced583266f27c32fdaf5b745",
+      "role": "m5_shotgun_blender_preview"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/assets/models/dmr_m5_preview.png",
+      "sha256": "c1ac4462258f698d03ca94ababa71e800e4a62faf60868f050f2018cfad88650",
+      "role": "m5_dmr_blender_preview"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/tools/verify_integration.py",
+      "sha256": "581cd1ada2504394141c284a0ad5ea010a6f285759e47a40f79e747215bd9301",
+      "role": "integration_static_verifier"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/tools/cdp_evidence_capture.mjs",
+      "sha256": "ab411e8e7f082b5b2cdaad21757f71493870bdc0fb3e51cf3b654c7ef6e72b21",
+      "role": "chrome_cdp_runtime_evidence_capture"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/tools/cdp_before_after_capture.mjs",
+      "sha256": "69350a01e5f3222255060dac1f95b72aa997710778f598cf69b32001ed27074b",
+      "role": "chrome_cdp_before_after_capture"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/tools/blender_m5_weapon_variants.py",
+      "sha256": "87d1d8947f4376941179fc87ccd60108c367ac34d3a2cc9886f9358adc92fd30",
+      "role": "m5_weapon_generation_script"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/rifle_evidence_cdp_first.png",
+      "sha256": "c7f8348aa0b73a7d10b353f1369dde3e201b725ade8823e548e5ca296db9b4f0",
+      "role": "first_person_runtime_evidence_screenshot"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/rifle_evidence_cdp_first_report.json",
+      "sha256": "b727da5c8c869c98a7636808fd0cfaa2e991888ed1a43db9e72104d0bb78e89f",
+      "role": "first_person_runtime_probe_report"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/rifle_evidence_cdp_third.png",
+      "sha256": "3f80d524bc06a4b19ea9f40700f7c807c7be662fec80028dcd9dc26f4ca71887",
+      "role": "third_person_runtime_evidence_screenshot"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/rifle_evidence_cdp_third_report.json",
+      "sha256": "bcb75f11b0b5f0cb909d65d13278655ded932ca3371090237b7025a2dfd31edd",
+      "role": "third_person_runtime_probe_report"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/m5_evidence_cdp.png",
+      "sha256": "42577756be468196ce1411e456c86e06d40d5b522cc0f21e8bb6193460f0adc7",
+      "role": "m5_all_weapon_runtime_evidence_screenshot"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/m5_evidence_cdp_report.json",
+      "sha256": "26a8060ccfeb468e9c253b950ea1c9380985a486c051da63035fd67f2b520fce",
+      "role": "m5_all_weapon_runtime_probe_report"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/before_source_gameplay.png",
+      "sha256": "2229e99b69c75c2b25e37e0adc5f7e487d4300a4c5d3ddf8862843a6db543250",
+      "role": "before_source_gameplay_screenshot"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/before_source_gameplay_report.json",
+      "sha256": "19a41c4992145a4ac6c7216a0387a3b5d8473b4c98bb40463dbad17f1e46f97b",
+      "role": "before_source_gameplay_report"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/after_upgraded_gameplay.png",
+      "sha256": "c0179011e47755df84f08cc049ae458734e0f306a5728a37ae185f575386905d",
+      "role": "after_upgraded_gameplay_screenshot"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/evidence/after_upgraded_gameplay_report.json",
+      "sha256": "f59c8c16126827b860dd1f6083b6885353f82c3137b5806ae6deacdf95ddefc7",
+      "role": "after_upgraded_gameplay_report"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/README.md",
+      "sha256": "1d8a2511316a14f68936586201f2ae6a66460a99c213003773d7f1c20e12cbe8",
+      "role": "integration_readme"
+    },
+    {
+      "path": "experiments/tactical_game_realism_upgrade_20260513/report.md",
+      "sha256": "83639f22bd61339eb2a7018e22943ddfbaf5b1f4e2cdd5c032f51f74709c1ab9",
+      "role": "integration_report"
+    }
+  ]
+}

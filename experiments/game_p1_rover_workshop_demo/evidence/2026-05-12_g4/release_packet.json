@@ -1,0 +1,71 @@
+{
+  "artifacts": [
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-12_g4/assets/asset_provenance.json",
+      "sha256": "90fa685607ab139085d2ad70eecd82b918f872f5a384445ad77d593aa8057073",
+      "type": "asset_provenance.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-12_g4/console_summary.json",
+      "sha256": "098cfa15f36774c894cfc07a2906e544e8f4cf301d92617cd18704a29a48c213",
+      "type": "console_summary.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-12_g4/network_summary.json",
+      "sha256": "aa6dcacce95f24e67518123d2083fb46a4f2588c16c94068a0faffe00a485e74",
+      "type": "network_summary.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-12_g4/scenario_result.json",
+      "sha256": "84657d71bf46edd2503815714cc0362428535b376fb3b1731aad444503497dfc",
+      "type": "scenario_result.json"
+    },
+    {
+      "path": "experiments/game_p1_rover_workshop_demo/evidence/2026-05-12_g4/browser_log.jsonl",
+      "sha256": "a3f902ece463f77d5b67f702ae431f02d6f09458aea930e46ec0872b2716524a",
+      "type": "browser_log.jsonl"
+    }
+  ],
+  "asset_provenance": [
+    {
+      "asset_id": "p1_procedural_rover",
+      "collision_strategy": "simple proxy box controlled by game state",
+      "kind": "procedural_threejs_geometry",
+      "known_limitations": "Not a generated GLB hero asset; Unity and Blender import are not claimed.",
+      "non_procedural": false,
+      "source": "experiments/game_p1_rover_workshop_demo/index.html",
+      "tool": "Three.js BufferGeometry primitives"
+    },
+    {
+      "asset_id": "p1_workshop_props",
+      "collision_strategy": "deterministic QA state transitions for gate validation",
+      "kind": "procedural_threejs_geometry",
+      "known_limitations": "No external mesh, texture, or material generation was used.",
+      "non_procedural": false,
+      "source": "experiments/game_p1_rover_workshop_demo/index.html",
+      "tool": "Three.js boxes, cylinder, and torus primitives"
+    }
+  ],
+  "checks": {
+    "finish": "pass",
+    "gate_or_puzzle": "pass",
+    "hashes": "pass",
+    "hazard": "pass",
+    "hud": "pass",
+    "input": "pass",
+    "load": "pass",
+    "nonblank_canvas": "pass",
+    "pickup": "pass",
+    "screenshots": "pass"
+  },
+  "entrypoint": "experiments/game_p1_rover_workshop_demo/index.html",
+  "gate_level": "G4",
+  "known_limitations": [
+    "P1 uses procedural Three.js workshop assets; the non-procedural hero rover asset pipeline remains a later asset-generation task.",
+    "The deterministic QA path uses the prototype's local __prototypeGate API to avoid brittle pointer-lock automation."
+  ],
+  "packet_version": "prototype_evidence_gate.v1",
+  "promotable": true,
+  "prototype_id": "p1_rover_workshop",
+  "release_id": "p1_rover_workshop_20260512T162954Z_g4"
+}

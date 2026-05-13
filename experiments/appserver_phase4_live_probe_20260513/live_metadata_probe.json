@@ -1,0 +1,138 @@
+{
+  "archiveErrors": [
+    {
+      "error": "app-server error for thread/archive: {'code': -32600, 'message': 'no rollout found for thread id 019e1da5-e85c-7632-8b02-4b941d98f1c7'}",
+      "threadId": "019e1da5-e85c-7632-8b02-4b941d98f1c7"
+    }
+  ],
+  "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+  "error": "app-server error for thread/fork: {'code': -32600, 'message': 'no rollout found for thread id 019e1da5-e85c-7632-8b02-4b941d98f1c7'}",
+  "includeTurn": false,
+  "initializeResultKeys": [
+    "codexHome",
+    "platformFamily",
+    "platformOs",
+    "userAgent"
+  ],
+  "mode": "metadata-only",
+  "notificationCount": 5,
+  "notifications": [
+    {
+      "method": "remoteControl/status/changed",
+      "params": {
+        "environmentId": null,
+        "status": "disabled"
+      }
+    },
+    {
+      "method": "thread/started",
+      "params": {
+        "thread": {
+          "agentNickname": null,
+          "agentRole": null,
+          "cliVersion": "0.130.0-alpha.5",
+          "createdAt": 1778613872,
+          "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+          "ephemeral": false,
+          "forkedFromId": null,
+          "gitInfo": null,
+          "id": "019e1da5-e85c-7632-8b02-4b941d98f1c7",
+          "modelProvider": "openai",
+          "name": null,
+          "path": "/Users/yuanshaochen/.codex/sessions/2026/05/13/rollout-2026-05-13T03-24-32-019e1da5-e85c-7632-8b02-4b941d98f1c7.jsonl",
+          "preview": "",
+          "sessionId": "019e1da5-e85c-7632-8b02-4b941d98f1c7",
+          "source": "vscode",
+          "status": {
+            "type": "idle"
+          },
+          "threadSource": "user",
+          "turns": [],
+          "updatedAt": 1778613872
+        }
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "codex_apps",
+        "status": "starting"
+      }
+    },
+    {
+      "method": "mcpServer/startupStatus/updated",
+      "params": {
+        "error": null,
+        "name": "computer-use",
+        "status": "ready"
+      }
+    }
+  ],
+  "parentThreadId": "019e1da5-e85c-7632-8b02-4b941d98f1c7",
+  "requests": [
+    {
+      "id": "initialize",
+      "method": "initialize",
+      "params": {
+        "capabilities": {
+          "experimentalApi": true
+        },
+        "clientInfo": {
+          "name": "codex-appserver-live-probe",
+          "title": "Codex App Server Live Probe",
+          "version": "0.1.0"
+        }
+      }
+    },
+    {
+      "id": "thread-start",
+      "method": "thread/start",
+      "params": {
+        "approvalPolicy": "never",
+        "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+        "ephemeral": false,
+        "model": "gpt-5.4-mini",
+        "sandbox": "read-only",
+        "threadSource": "user"
+      }
+    },
+    {
+      "id": "thread-read",
+      "method": "thread/read",
+      "params": {
+        "includeTurns": false,
+        "threadId": "019e1da5-e85c-7632-8b02-4b941d98f1c7"
+      }
+    },
+    {
+      "id": "thread-fork",
+      "method": "thread/fork",
+      "params": {
+        "approvalPolicy": "never",
+        "cwd": "/Users/yuanshaochen/Projects/codex-appserver-live-proof",
+        "ephemeral": false,
+        "excludeTurns": true,
+        "sandbox": "read-only",
+        "threadId": "019e1da5-e85c-7632-8b02-4b941d98f1c7"
+      }
+    },
+    {
+      "id": "archive-parent",
+      "method": "thread/archive",
+      "params": {
+        "threadId": "019e1da5-e85c-7632-8b02-4b941d98f1c7"
+      }
+    }
+  ],
+  "status": "BLOCKED",
+  "turnStarted": false
+}
