@@ -24,7 +24,9 @@ jobs:
           python -m pip install playwright==1.56.0 cryptography
           python -m playwright install --with-deps chromium
       - name: Bundle assets and verify playable game
-        run: python experiments/citybound-web-20261101/prepare_and_test.py
+        run: |
+          python experiments/citybound-web-20261101/refine_scene.py
+          python experiments/citybound-web-20261101/prepare_and_test.py
       - name: Publish verified site and test public HTTPS URL
         run: python experiments/citybound-web-20261101/publish_verified.py
       - name: Save evidence
